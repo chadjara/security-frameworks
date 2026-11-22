@@ -27,7 +27,8 @@ def render(text: str, params: dict[str, dict]) -> str:
         if p.get("choices"):
             return "[" + ("one or more of: " if p.get("howMany") == "one-or-more" else "one of: ") + "; ".join(
                 TOKEN.sub(lambda x: f"[{params.get(x.group(1), {}).get('label', 'value')}]", c) for c in p["choices"]) + "]"
-        return f"[organization-defined {p.get('label') or p.get('usage') or 'value'}]"
+        label = p.get('label') or p.get('usage') or 'value'
+        return f"[{label}]" if label.startswith("organization-defined") else f"[organization-defined {label}]"
     return TOKEN.sub(sub, text or "")
 
 

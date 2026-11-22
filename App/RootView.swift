@@ -27,7 +27,7 @@ enum DevelopmentScreen: String, CaseIterable, Identifiable, Hashable {
         }
     }
 
-    @ViewBuilder var destination: some View {
+    @MainActor @ViewBuilder var destination: some View {
         switch self {
         case .typeSpecimen: TypeSpecimenView()
         case .colorTokens: ColorTokensView()

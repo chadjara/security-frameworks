@@ -46,6 +46,7 @@ def main() -> int:
     ap.add_argument("framework")
     ap.add_argument("--groups", help="comma-separated top-level group ids (CSF function, 800-53 family, 800-171 family)")
     ap.add_argument("--baseline", help="SP 800-53 baseline id to restrict to")
+    ap.add_argument("--any-baseline", action="store_true", help="SP 800-53: only items in at least one baseline")
     ap.add_argument("--missing-only", action="store_true", help="skip requirements that already have editorial")
     ap.add_argument("--objectives", action="store_true", help="include assessment objectives")
     args = ap.parse_args()
@@ -64,6 +65,8 @@ def main() -> int:
         if wanted and top_of.get(r["groupId"]) not in wanted:
             continue
         if args.baseline and args.baseline not in r.get("baselines", []):
+            continue
+        if args.any_baseline and not r.get("baselines"):
             continue
         if args.missing_only and r.get("editorial"):
             continue

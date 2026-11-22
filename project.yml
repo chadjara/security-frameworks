@@ -51,6 +51,7 @@ targets:
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         LSRequiresIPhoneOS: true
         ITSAppUsesNonExemptEncryption: false
+        NSCameraUsageDescription: Take photos to keep as evidence for a requirement. Photos are stored only on this device.
         UILaunchScreen:
           UIColorName: LaunchBackground
         UIApplicationSceneManifest:

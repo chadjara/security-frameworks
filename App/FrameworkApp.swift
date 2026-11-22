@@ -1,17 +1,45 @@
+import SwiftData
 import SwiftUI
 
 @main
 struct FrameworkApp: App {
+    @State private var library = ContentLibrary()
+    private let container: Result<ModelContainer, Error>
+
     init() {
         NavigationBarStyle.apply()
+        container = Result { try Persistence.makeContainer(inMemory: LaunchOptions.usesInMemoryStore) }
     }
 
     var body: some Scene {
         WindowGroup {
-            RootView()
-                .tint(.dsAccent)
-                .modifier(LaunchOverrides())
+            Group {
+                if let screen = LaunchOptions.initialScreen {
+                    DevelopmentRootView(initialScreen: screen)
+                } else {
+                    switch container {
+                    case .success(let container):
+                        RootView()
+                            .modelContainer(container)
+                    case .failure(let error):
+                        StoreUnavailableView(message: error.localizedDescription)
+                    }
+                }
+            }
+            .environment(library)
+            .tint(.dsAccent)
+            .modifier(LaunchOverrides())
         }
+    }
+}
+
+/// Shown if the on-device store cannot be opened (for example, storage is full).
+struct StoreUnavailableView: View {
+    let message: String
+
+    var body: some View {
+        ErrorStateView(title: "Your assessments could not be opened",
+                       message: "\(message) Free some storage on this device, then reopen the app. Your data has not been deleted.")
     }
 }
 
@@ -37,7 +65,28 @@ enum LaunchOptions {
     }
 
     static var initialScreen: DevelopmentScreen? {
-        UserDefaults.standard.string(forKey: "dsScreen").flatMap(DevelopmentScreen.init(rawValue:))
+        #if DEBUG
+        return UserDefaults.standard.string(forKey: "dsScreen").flatMap(DevelopmentScreen.init(rawValue:))
+        #else
+        return nil
+        #endif
+    }
+
+    /// UI tests run against an empty in-memory store so they never touch real data.
+    static var usesInMemoryStore: Bool {
+        #if DEBUG
+        return UserDefaults.standard.string(forKey: "uiSeed") != nil || UserDefaults.standard.bool(forKey: "uiInMemory")
+        #else
+        return false
+        #endif
+    }
+
+    static var seedScenario: String? {
+        #if DEBUG
+        return UserDefaults.standard.string(forKey: "uiSeed")
+        #else
+        return nil
+        #endif
     }
 }
 

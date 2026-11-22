@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// Phase 1 screens. Phase 2 replaces this root with the assessment experience.
+/// Design-system screens, used by screenshot tests (`-dsScreen …`) and reachable from Settings in debug builds.
 enum DevelopmentScreen: String, CaseIterable, Identifiable, Hashable {
     case typeSpecimen
     case colorTokens
@@ -37,10 +37,17 @@ enum DevelopmentScreen: String, CaseIterable, Identifiable, Hashable {
     }
 }
 
-struct RootView: View {
+struct DevelopmentRootView: View {
+    let initialScreen: DevelopmentScreen
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    @State private var selection: DevelopmentScreen? = LaunchOptions.initialScreen ?? .typeSpecimen
-    @State private var path: [DevelopmentScreen] = LaunchOptions.initialScreen.map { [$0] } ?? []
+    @State private var selection: DevelopmentScreen?
+    @State private var path: [DevelopmentScreen] = []
+
+    init(initialScreen: DevelopmentScreen) {
+        self.initialScreen = initialScreen
+        _selection = State(initialValue: initialScreen)
+        _path = State(initialValue: [initialScreen])
+    }
 
     var body: some View {
         if horizontalSizeClass == .compact {

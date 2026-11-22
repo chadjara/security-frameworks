@@ -87,7 +87,7 @@ def build_csf(catalog: dict, source: dict, content_version: str) -> dict:
         fgroup = {
             "id": fn["id"],
             "displayId": fn["id"],
-            "title": fn["title"].title(),
+            "title": clean_text(fn["title"]).title(),
             "description": clean_text(overview.get("prose")) if overview else None,
             "groups": [],
         }
@@ -101,7 +101,7 @@ def build_csf(catalog: dict, source: dict, content_version: str) -> dict:
             cgroup = {
                 "id": cat["id"],
                 "displayId": cat["id"],
-                "title": cat["title"],
+                "title": clean_text(cat["title"]),
                 "description": clean_text(st.get("prose")) if st else None,
                 "requirementIds": [],
             }
@@ -207,7 +207,7 @@ def build_sp80053(catalog: dict, profiles: dict[str, dict], source: dict, profil
             withdrawn.append(prune({
                 "id": cid,
                 "displayId": sp80053_display_id(cid),
-                "title": control["title"],
+                "title": clean_text(control["title"]),
                 "incorporatedInto": [h.lstrip("#") for h in links(control, "incorporated-into")],
                 "movedTo": [h.lstrip("#") for h in links(control, "moved-to")],
             }))
@@ -218,7 +218,7 @@ def build_sp80053(catalog: dict, profiles: dict[str, dict], source: dict, profil
             "id": cid,
             "displayId": sp80053_display_id(cid),
             "kind": kind,
-            "title": control["title"],
+            "title": clean_text(control["title"]),
             "groupId": family,
             "parentId": parent,
             "sortKey": prop(control, "sort-id"),
@@ -234,7 +234,7 @@ def build_sp80053(catalog: dict, profiles: dict[str, dict], source: dict, profil
         }))
 
     for fam in catalog["groups"]:
-        group = {"id": fam["id"], "displayId": prop(fam, "label") or fam["id"].upper(), "title": fam["title"],
+        group = {"id": fam["id"], "displayId": prop(fam, "label") or fam["id"].upper(), "title": clean_text(fam["title"]),
                  "requirementIds": []}
         for control in fam.get("controls", []):
             add(control, "control", fam["id"], None)
@@ -316,14 +316,14 @@ def build_sp800171(catalog: dict, source: dict, content_version: str) -> dict:
 
     for fam in catalog["groups"]:
         gid = _171_id(fam["id"])
-        group = {"id": gid, "displayId": gid, "title": fam["title"], "requirementIds": []}
+        group = {"id": gid, "displayId": gid, "title": clean_text(fam["title"]), "requirementIds": []}
         for req in fam.get("controls", []):
             rid = _171_id(req["id"])
             if is_withdrawn(req):
                 withdrawn.append(prune({
                     "id": rid,
                     "displayId": rid,
-                    "title": req["title"] if req.get("title") != rid else None,
+                    "title": clean_text(req["title"]) if req.get("title") != rid else None,
                     "incorporatedInto": [_171_id(h) for h in links(req, "incorporated_into")],
                     "addressedBy": [_171_id(h) for h in links(req, "addressed_by")],
                 }))
@@ -334,7 +334,7 @@ def build_sp800171(catalog: dict, source: dict, content_version: str) -> dict:
                 "id": rid,
                 "displayId": rid,
                 "kind": "requirement",
-                "title": req["title"],
+                "title": clean_text(req["title"]),
                 "groupId": gid,
                 "sortKey": prop(req, "sort-id"),
                 "statement": statement_items(first_part(req, "statement"), label_fn=_171_item_label),

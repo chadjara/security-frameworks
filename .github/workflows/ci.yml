@@ -82,7 +82,7 @@ jobs:
             CODE_SIGNING_ALLOWED=NO
 
       - name: Test on iPad (${{ steps.sims.outputs.ipad_name }})
-        if: always()
+        if: always() && steps.sims.outputs.ipad != ''
         env:
           TEST_RUNNER_SCREENSHOT_DIR: ${{ github.workspace }}/screenshots/ipad
         run: |

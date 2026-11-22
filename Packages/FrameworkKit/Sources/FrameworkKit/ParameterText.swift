@@ -39,6 +39,19 @@ public enum ParameterText {
             rest = afterOpen[end.upperBound...]
         }
         if !rest.isEmpty { out.append(.text(String(rest))) }
+        return coalesced(out)
+    }
+
+    /// Merges adjacent literal runs (for example text before an unterminated token and the token itself).
+    private static func coalesced(_ segments: [TextSegment]) -> [TextSegment] {
+        var out: [TextSegment] = []
+        for segment in segments {
+            if case .text(let next) = segment, case .text(let previous)? = out.last {
+                out[out.count - 1] = .text(previous + next)
+            } else {
+                out.append(segment)
+            }
+        }
         return out
     }
 

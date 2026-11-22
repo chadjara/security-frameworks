@@ -1,0 +1,960 @@
+{
+  "requirements": {
+    "ir-1": {
+      "question": "Does your organization have a documented incident response policy and procedures that are shared with the right people, owned by a named official, and reviewed on a set schedule?",
+      "whyItMatters": "When something goes wrong, people fall back on what is written down and what they were told. A clear policy sets who is responsible for responding to incidents, and procedures turn it into steps people can follow under pressure.",
+      "doneLooksLike": "You have a written incident response policy that covers purpose, scope, roles, responsibilities, management commitment, coordination across teams, and compliance, is consistent with the laws and regulations that apply to you, and is backed by procedures for carrying it out. Both are distributed to the people or roles you designate and managed by an official you name. You review and update each at the frequency you set and after the events you define, such as a security incident, an audit finding, or a change in law.",
+      "nextSteps": [
+        "Name the official who owns the incident response policy and procedures.",
+        "Write or update a policy covering purpose, scope, roles, responsibilities, management commitment, coordination, and compliance.",
+        "Document procedures that explain how incidents are reported and handled, and share both documents with the people who need them.",
+        "Set a review frequency and the events, such as a major incident or audit finding, that trigger an earlier review."
+      ],
+      "reviewed": false
+    },
+    "ir-2": {
+      "question": "Do people receive incident response training suited to their role when they start, when systems change, and on a regular schedule after that?",
+      "whyItMatters": "Most incidents are first noticed by ordinary users and then handled by a few people under time pressure. Role-based training means everyone knows how to spot and report a problem, and responders know what to do next.",
+      "doneLooksLike": "System users receive incident response training matched to their role within a time period you set after gaining system access or taking on an incident response role, when system changes require it, and at a frequency you define after that. For example, general users learn to recognize and report suspicious activity, while administrators and responders learn handling and recovery steps. You review and update the training content at a frequency you set and after events you define, such as lessons learned from an incident or a plan test.",
+      "nextSteps": [
+        "Identify the roles that need incident response training and what each one needs to know.",
+        "Set the deadline for initial training after someone gains access or takes on a response role, and the refresher frequency.",
+        "Add significant system changes as a trigger for additional training.",
+        "Schedule reviews of the training content, including after incidents and plan tests."
+      ],
+      "reviewed": false
+    },
+    "ir-4": {
+      "question": "Does your organization have a working way to prepare for, detect, analyze, contain, remove, and recover from security incidents that follows its incident response plan?",
+      "whyItMatters": "Without a defined handling process, incidents tend to be discovered late, contained inconsistently, and repeated. A consistent capability limits damage and shortens recovery.",
+      "doneLooksLike": "Your incident handling follows your incident response plan and covers preparation, detection and analysis, containment, eradication (removing the cause), and recovery. Handling is coordinated with your contingency planning, lessons learned are fed into procedures, training, and testing and the resulting changes are made, and incidents are handled with comparable rigor, intensity, scope, and results across the organization.",
+      "nextSteps": [
+        "Write down the steps for each phase: preparation, detection and analysis, containment, eradication, and recovery.",
+        "Link incident handling to your contingency or business continuity plans so recovery steps match.",
+        "Hold a short lessons-learned review after each significant incident and track the resulting changes to completion.",
+        "Use a common checklist or template so every incident is handled to the same standard."
+      ],
+      "reviewed": false
+    },
+    "ir-5": {
+      "question": "Does your organization track and document each security incident, including its status and key details, from first report through resolution?",
+      "whyItMatters": "Incident records show what happened, what was done, and whether the same problem keeps returning. They also preserve details that may be needed later for investigation or legal questions.",
+      "doneLooksLike": "Every incident is tracked and documented, with its status and the information needed for later analysis or forensics kept up to date as handling progresses. You can use the records to evaluate incident details, trends, and how incidents were handled.",
+      "nextSteps": [
+        "Choose one place to log incidents, such as a ticketing system or an access-restricted tracking sheet.",
+        "Define the minimum details each record must contain, such as date, systems affected, status, actions taken, and outcome.",
+        "Review the incident log periodically for trends and recurring causes."
+      ],
+      "reviewed": false
+    },
+    "ir-6": {
+      "question": "Are your people required to report suspected security incidents within a set time, and does your organization pass incident information to the authorities it must inform?",
+      "whyItMatters": "Fast internal reporting gives responders a chance to contain a problem before it spreads. Laws, regulators, and contracts may also require that certain incidents be reported to outside parties.",
+      "doneLooksLike": "Personnel are required to report suspected incidents to your incident response capability within a time period you define, and they know how to do so. Incident information is reported to the authorities you have identified, consistent with the laws, regulations, and policies that apply to you.",
+      "nextSteps": [
+        "Set the time period within which staff must report a suspected incident, and tell everyone how to report.",
+        "Identify the outside authorities you must notify, such as regulators or law enforcement, and what triggers each report.",
+        "Add the reporting requirement and contacts to your incident response plan and training."
+      ],
+      "reviewed": false
+    },
+    "ir-7": {
+      "question": "Is there a support resource, such as a help desk or designated contact, that people can turn to for advice on handling and reporting incidents?",
+      "whyItMatters": "People who suspect a problem often hesitate because they are unsure whom to ask or whether it matters. An available support resource gets incidents reported sooner and handled correctly.",
+      "doneLooksLike": "A support resource that is part of your incident response capability, such as a help desk, a designated responder, a ticketing channel, or access to outside forensic services, is available to system users and offers advice and assistance on handling and reporting incidents.",
+      "nextSteps": [
+        "Designate the help desk, person, or service that users should contact about a suspected incident.",
+        "Publish the contact details where users will find them, such as onboarding material and the staff intranet.",
+        "Arrange outside incident response or forensic support in advance if you lack that expertise in-house."
+      ],
+      "reviewed": false
+    },
+    "ir-8": {
+      "question": "Does your organization have an approved incident response plan that defines reportable incidents and assigns responsibility, and is the plan distributed, kept current, and protected?",
+      "whyItMatters": "A plan written before an incident saves time and prevents confusion during one. It makes clear who is in charge, what counts as an incident, and how information is shared.",
+      "doneLooksLike": "Your incident response plan gives a roadmap for your response capability, describes its structure and how it fits into the organization, reflects your mission, size, and structure, defines reportable incidents, includes metrics, identifies the resources and management support needed, addresses sharing incident information, and explicitly assigns responsibility for incident response. It is reviewed and approved by the roles you designate at a frequency you set, distributed to the incident response personnel and organizational elements you define, and updated for system or organizational changes and problems found during use or testing. Changes are communicated to those same people, and the plan is protected from unauthorized disclosure and modification.",
+      "nextSteps": [
+        "Draft or update the plan to cover structure, reportable incidents, responsibilities, resources, metrics, and information sharing.",
+        "Have the plan approved by the roles you designate and set how often it is reviewed.",
+        "Distribute the plan to incident response staff and relevant teams, and tell them when it changes.",
+        "Store the plan with access controls that prevent unauthorized viewing or editing."
+      ],
+      "reviewed": false
+    },
+    "ma-1": {
+      "question": "Does your organization have a documented system maintenance policy and procedures that are shared with the right people, owned by a named official, and reviewed on a set schedule?",
+      "whyItMatters": "Maintenance often gives technicians and vendors deep access to your systems. A clear policy sets the rules for who may service equipment and how, so routine repairs do not open a security gap.",
+      "doneLooksLike": "You have a written maintenance policy that covers purpose, scope, roles, responsibilities, management commitment, coordination across teams, and compliance, is consistent with applicable laws and regulations, and is backed by procedures for approving, performing, and recording maintenance. Both are distributed to the people or roles you designate and managed by an official you name. You review and update each at the frequency you set and after the events you define, such as an audit finding, a security incident, or a change in requirements.",
+      "nextSteps": [
+        "Name the official responsible for maintenance policy and procedures.",
+        "Document a maintenance policy covering purpose, scope, roles, responsibilities, management commitment, coordination, and compliance.",
+        "Write procedures for how on-site and remote maintenance is approved, performed, and recorded, and share both documents with the people you designate.",
+        "Set a review frequency and the events that trigger an update."
+      ],
+      "reviewed": false
+    },
+    "ma-2": {
+      "question": "Does your organization schedule, approve, monitor, and record maintenance on its systems, including work done remotely or after equipment leaves your premises?",
+      "whyItMatters": "Uncontrolled maintenance can introduce malicious software, expose stored data when equipment leaves the building, or leave security settings switched off afterward. Controlling maintenance keeps repairs from undoing your protections.",
+      "doneLooksLike": "Maintenance, repair, and replacement of system components are scheduled, documented, and reviewed in line with manufacturer specifications or your own requirements, and all maintenance is approved and monitored wherever it takes place. The roles you designate explicitly approve removing equipment for off-site work, the information you specify is sanitized from its media before it leaves, and potentially affected controls are checked afterward to confirm they still work. Maintenance records include the information you define, such as date, work performed, who did it, and parts removed or replaced.",
+      "nextSteps": [
+        "Keep a maintenance log for servers, workstations, network equipment, and peripherals such as printers and copiers.",
+        "Require explicit approval before any equipment leaves your premises for repair, and remove the information you specify from it first.",
+        "Check security settings, logging, and protection tools after each maintenance job.",
+        "Define what every maintenance record must include."
+      ],
+      "reviewed": false
+    },
+    "ma-4": {
+      "question": "When technicians maintain or diagnose your systems over a network, do you approve and monitor the sessions, require strong authentication, and close the connection afterward?",
+      "whyItMatters": "Remote maintenance tools are a common route for attackers, especially when vendor connections stay open or rely on weak passwords. Controlling these sessions limits that exposure.",
+      "doneLooksLike": "Nonlocal maintenance (work performed over a network rather than in person) is approved and monitored, and remote maintenance tools are allowed only as your policy permits and are documented in the system security plan. Sessions are established with strong authentication, such as multi-factor authentication (a second check beyond a password) that resists replay, records of the activity are kept, and session and network connections are terminated when the work is finished.",
+      "nextSteps": [
+        "List the remote maintenance and support tools in use, and remove any that your policy does not allow.",
+        "Require multi-factor authentication for every remote maintenance connection.",
+        "Approve each remote session and keep a record of who connected, when, and what was done.",
+        "Confirm vendor connections are closed after each session rather than left open."
+      ],
+      "reviewed": false
+    },
+    "ma-5": {
+      "question": "Does your organization authorize who may perform maintenance on its systems, keep a list of them, and supervise anyone who lacks the required access?",
+      "whyItMatters": "Technicians and vendors often need privileged access to do their work. Knowing who is authorized, and supervising those who are not, keeps unknown people from gaining unchecked access to your systems.",
+      "doneLooksLike": "You have a process for authorizing maintenance personnel and maintain a list of authorized maintenance organizations or individuals. You verify that anyone performing maintenance without an escort has the required access authorizations, and you designate staff with the right authorizations and technical competence to supervise maintenance by people who do not.",
+      "nextSteps": [
+        "Create a list of approved maintenance vendors and technicians and keep it current.",
+        "Define how someone is added to the list and what checks are required first.",
+        "Assign knowledgeable, authorized staff to escort and supervise technicians who are not on the list."
+      ],
+      "reviewed": false
+    },
+    "mp-1": {
+      "question": "Does your organization have a documented media protection policy and procedures, covering digital and paper media, that are shared, owned by a named official, and regularly reviewed?",
+      "whyItMatters": "Information on USB drives, backup disks, and paper can be lost, copied, or thrown away carelessly. A media protection policy sets consistent rules for how such media is accessed, used, and sanitized.",
+      "doneLooksLike": "You have a written media protection policy that covers purpose, scope, roles, responsibilities, management commitment, coordination across teams, and compliance, is consistent with applicable laws and regulations, and is backed by procedures for handling, restricting, and sanitizing media. Both are distributed to the people or roles you designate and managed by an official you name. You review and update each at the frequency you set and after the events you define, such as a lost device, an audit finding, or a change in law.",
+      "nextSteps": [
+        "Name the official responsible for media protection policy and procedures.",
+        "Document a media protection policy covering purpose, scope, roles, responsibilities, management commitment, coordination, and compliance.",
+        "Write procedures for accessing, using, and sanitizing digital and paper media, and share both documents with the people you designate.",
+        "Set a review frequency and the events that trigger an update."
+      ],
+      "reviewed": false
+    },
+    "mp-2": {
+      "question": "Does your organization limit access to sensitive digital and paper media, such as backup drives, USB drives, and printed records, to the people or roles you authorize?",
+      "whyItMatters": "Media can be picked up and carried away. Restricting who can get to it reduces the chance of theft, loss, or unauthorized viewing of the information it holds.",
+      "doneLooksLike": "You have defined which types of digital media (for example, external drives, flash drives, and discs) and non-digital media (for example, paper and microfilm) need restricted access and who may access each type. Access is restricted accordingly, for example through locked storage and controlled handouts.",
+      "nextSteps": [
+        "Identify the types of digital and paper media that hold sensitive information.",
+        "Decide which people or roles may access each type.",
+        "Store that media in locked cabinets, rooms, or controlled systems and limit who holds the keys or access rights."
+      ],
+      "reviewed": false
+    },
+    "mp-6": {
+      "question": "Does your organization securely erase or destroy information on media before disposing of it, releasing it outside your control, or reusing it?",
+      "whyItMatters": "Discarded laptops, copier hard drives, and paper files can still hold readable data. Sanitization means the information cannot be recovered by whoever ends up with the media.",
+      "doneLooksLike": "The system media you specify, digital and paper, is sanitized using the techniques and procedures you define before disposal, release from your control, or reuse. The methods, such as clearing, purging, cryptographic erase, or destruction, are strong enough for the sensitivity of the information involved.",
+      "nextSteps": [
+        "List the devices and media that store data, including printers, copiers, phones, and network equipment.",
+        "Choose a sanitization method for each media type, matched to the sensitivity of the data.",
+        "Make sanitization a required step before disposal, return to a vendor, or reassignment to another person.",
+        "Use shredding or physical destruction for paper and for media that cannot be reliably erased."
+      ],
+      "reviewed": false
+    },
+    "mp-7": {
+      "question": "Does your organization restrict or prohibit certain media, such as USB drives, on its systems, and prohibit portable storage devices that have no identifiable owner?",
+      "whyItMatters": "Removable media is a common way for malicious software to get in and for data to leave. Devices with no known owner, such as a found USB drive, are especially risky because no one is accountable for them.",
+      "doneLooksLike": "You have decided which types of system media are restricted or prohibited on which systems or components, and you enforce that with the controls you define, such as disabling ports or allowing only approved devices. Use of portable storage devices with no identifiable owner is prohibited on your systems.",
+      "nextSteps": [
+        "Decide which removable media types to restrict or prohibit, and on which systems.",
+        "Enforce the decision with technical controls, such as device control settings that block unapproved USB storage.",
+        "Tell staff that portable storage devices with no known owner must never be connected to your systems."
+      ],
+      "reviewed": false
+    },
+    "pe-1": {
+      "question": "Does your organization have a documented physical and environmental protection policy and procedures that are shared, owned by a named official, and reviewed on a set schedule?",
+      "whyItMatters": "Physical access and hazards such as fire, water, and heat can defeat even strong digital protections. A policy sets clear expectations for protecting the places and equipment your systems depend on.",
+      "doneLooksLike": "You have a written physical and environmental protection policy that covers purpose, scope, roles, responsibilities, management commitment, coordination across teams, and compliance, is consistent with applicable laws and regulations, and is backed by procedures for facility access, visitors, and environmental safeguards. Both are distributed to the people or roles you designate and managed by an official you name. You review and update each at the frequency you set and after the events you define, such as a break-in, an audit finding, or a move to new premises.",
+      "nextSteps": [
+        "Name the official responsible for physical and environmental protection policy and procedures.",
+        "Document a policy covering purpose, scope, roles, responsibilities, management commitment, coordination, and compliance.",
+        "Write procedures for facility access, visitor handling, and environmental protections, and share both documents with the people you designate.",
+        "Set a review frequency and the events that trigger an update."
+      ],
+      "reviewed": false
+    },
+    "pe-2": {
+      "question": "Does your organization keep an approved list of people allowed into the facility where its systems are located, issue them credentials, and review the list regularly?",
+      "whyItMatters": "If you do not know who is allowed in, you cannot tell when someone should not be. A maintained access list and credentials such as badges or keys keep physical access tied to a current need.",
+      "doneLooksLike": "You have developed, approved, and maintain a list of individuals authorized to access the facility where the system resides, and you issue credentials such as badges, ID cards, or keys for that access. The list is reviewed at a frequency you define, and people are removed when they no longer need access.",
+      "nextSteps": [
+        "Write down who is authorized to enter your office, server room, or other areas holding systems, and have the list approved.",
+        "Issue a badge, card, or key to each authorized person and record it.",
+        "Set a review frequency for the list and remove anyone who has left or no longer needs access."
+      ],
+      "reviewed": false
+    },
+    "pe-3": {
+      "question": "Does your organization check authorization at facility entry points, keep access logs, escort visitors, and secure and change keys and combinations when needed?",
+      "whyItMatters": "Locks and badges only work when they are enforced and maintained. Lost keys, shared door codes, and unescorted visitors are common ways people gain physical access they should not have.",
+      "doneLooksLike": "At the entry and exit points you define, you verify each person's authorization before granting access and control entry and exit with guards, devices such as locks and card readers, or both. You keep physical access logs for the points you choose, apply the controls you define to publicly accessible areas, and escort visitors and control their activity in the circumstances you set. Keys, combinations, and other access devices are secured, the devices you specify are inventoried at a frequency you set, and keys and combinations are changed at a frequency you define and when keys are lost, combinations are compromised, or holders transfer or leave.",
+      "nextSteps": [
+        "Identify the entry and exit points that need controlled access and how access is enforced at each.",
+        "Keep an access log at those points, whether electronic badge records or a sign-in sheet.",
+        "Inventory keys, cards, and codes on a set schedule, and rekey locks or change codes when one is lost or a holder leaves.",
+        "Define when visitors must be escorted and make sure staff know the rule."
+      ],
+      "reviewed": false
+    },
+    "pe-6": {
+      "question": "Does your organization monitor physical access to its facility, review access logs on a set schedule, and pass findings to the people who handle incidents?",
+      "whyItMatters": "Monitoring is how you notice a break-in, someone following an employee through a door, or after-hours access that should not have happened. Reviewing logs and linking findings to incident response turns that data into action.",
+      "doneLooksLike": "Physical access to the facility where the system resides is monitored, for example with guards, cameras, or sensors, to detect and respond to physical security incidents. Physical access logs are reviewed at a frequency you define and when events you specify occur, and results of reviews and investigations are coordinated with your incident response capability.",
+      "nextSteps": [
+        "Decide how physical access will be monitored, such as alarm systems, cameras, or badge reader logs.",
+        "Set a review frequency for access logs and the events that trigger an extra review.",
+        "Look for unusual patterns, such as after-hours entry or repeated access to areas a person does not normally use.",
+        "Send anything suspicious to whoever handles security incidents."
+      ],
+      "reviewed": false
+    },
+    "pe-8": {
+      "question": "Does your organization keep records of visitors to the facility where its systems are located, review them on a set schedule, and report anything unusual?",
+      "whyItMatters": "Visitor records show who was on site and when, which matters when investigating a theft or incident. Reviewing them helps catch unexpected or improper visits early.",
+      "doneLooksLike": "Visitor access records, such as name, organization, date, entry and departure times, purpose, and person visited, are kept for a time period you define. They are reviewed at a frequency you set, and anomalies are reported to the personnel you designate. Records are not required for publicly accessible areas.",
+      "nextSteps": [
+        "Set up a visitor log, paper or electronic, that captures who visited, when, why, and whom they saw.",
+        "Decide how long to keep visitor records and how often to review them.",
+        "Name the person who receives reports of unusual visitor activity."
+      ],
+      "reviewed": false
+    },
+    "pe-12": {
+      "question": "Does the facility where your systems are located have automatic emergency lighting that switches on during a power outage and covers emergency exits and evacuation routes?",
+      "whyItMatters": "During a power failure or emergency, people need to leave safely, and staff may need to find their way to shut systems down in an orderly way. Emergency lighting supports both.",
+      "doneLooksLike": "Automatic emergency lighting that activates during a power outage or disruption is installed and maintained, and it covers emergency exits and evacuation routes. This matters most in areas that concentrate system resources, such as server rooms.",
+      "nextSteps": [
+        "Walk the facility, including any server or network room, and confirm emergency lighting covers exits and evacuation routes.",
+        "Test the emergency lighting periodically and repair any failures.",
+        "If you lease your space, confirm with the landlord who maintains the emergency lighting."
+      ],
+      "reviewed": false
+    },
+    "pe-13": {
+      "question": "Does the facility where your systems are located have maintained fire detection and suppression systems that keep working on an independent power source?",
+      "whyItMatters": "Fire can destroy equipment and data in minutes. Detection and suppression that keep working during a power failure limit the damage and protect people.",
+      "doneLooksLike": "Fire detection systems, such as smoke detectors, and fire suppression systems, such as sprinklers, are in place, maintained, and supported by an independent energy source that keeps them working if the main power fails. This applies primarily to areas that concentrate system resources, such as server rooms.",
+      "nextSteps": [
+        "Confirm that smoke detection and fire suppression cover the areas where your systems are located.",
+        "Verify that both have an independent power source, such as battery backup.",
+        "Schedule regular inspection and maintenance, or confirm that your landlord does."
+      ],
+      "reviewed": false
+    },
+    "pe-14": {
+      "question": "Does your organization keep temperature, humidity, or other environmental conditions where its systems are located within acceptable levels, and monitor them on a set schedule?",
+      "whyItMatters": "Overheating and excess humidity cause equipment failures and outages. Monitoring lets you catch a failing air conditioner before it takes systems down.",
+      "doneLooksLike": "You have chosen which environmental conditions to control, such as temperature and humidity, and you maintain them within the acceptable levels you define in the facility where the system resides. Levels are monitored at a frequency you set.",
+      "nextSteps": [
+        "Decide which environmental conditions matter for your equipment and the acceptable range for each.",
+        "Install monitoring, such as a temperature and humidity sensor with alerts, in your server or network area.",
+        "Set a monitoring frequency and name who responds when readings go out of range."
+      ],
+      "reviewed": false
+    },
+    "pe-15": {
+      "question": "Do key staff know where the master water shutoff or isolation valves are for areas holding your systems, and are those valves accessible and working?",
+      "whyItMatters": "A burst pipe or leak can ruin servers and network equipment quickly. Being able to shut off the water fast limits the damage.",
+      "doneLooksLike": "Master shutoff or isolation valves are in place to protect the system from water leakage, and they are accessible, working properly, and known to key personnel.",
+      "nextSteps": [
+        "Locate the master shutoff and any isolation valves that affect areas holding your systems.",
+        "Make sure the valves are not blocked, and test that they work.",
+        "Show key staff where the valves are and how to operate them, and note this in your emergency procedures."
+      ],
+      "reviewed": false
+    },
+    "pe-16": {
+      "question": "Does your organization authorize and control the system components that enter and leave its facility, and keep records of them?",
+      "whyItMatters": "Equipment that leaves without approval may carry your data with it, and equipment that arrives unchecked may be tampered with or go unaccounted for. Controlling deliveries and removals keeps equipment and data accountable.",
+      "doneLooksLike": "The types of system components you define, such as computers, storage devices, and network equipment, are authorized and controlled when entering and exiting the facility, and records of those components are maintained.",
+      "nextSteps": [
+        "Define which types of equipment require authorization to enter or leave your premises.",
+        "Set up a sign-out process for removals and a check-in process for deliveries.",
+        "Record each component that enters or leaves, including what it is and who authorized it."
+      ],
+      "reviewed": false
+    },
+    "pl-1": {
+      "question": "Does your organization have a documented security and privacy planning policy and procedures that are shared, owned by a named official, and reviewed on a set schedule?",
+      "whyItMatters": "Security planning decides which protections each system needs and how those decisions are recorded. A planning policy keeps that work consistent across systems instead of improvised each time.",
+      "doneLooksLike": "You have a written planning policy that covers purpose, scope, roles, responsibilities, management commitment, coordination across teams, and compliance, is consistent with applicable laws and regulations, and is backed by procedures for producing system plans, rules of behavior, and baseline decisions. Both are distributed to the people or roles you designate and managed by an official you name. You review and update each at the frequency you set and after the events you define, such as an assessment finding, a security incident, or a change in requirements.",
+      "nextSteps": [
+        "Name the official responsible for planning policy and procedures.",
+        "Document a planning policy covering purpose, scope, roles, responsibilities, management commitment, coordination, and compliance.",
+        "Write procedures for creating and maintaining system security and privacy plans and rules of behavior, and share both documents with the people you designate.",
+        "Set a review frequency and the events that trigger an update."
+      ],
+      "reviewed": false
+    },
+    "pl-2": {
+      "question": "Does your organization have an approved security and privacy plan for the system that describes its components, information, risks, and controls, and is it kept current and protected?",
+      "whyItMatters": "A system plan is the single reference for what the system is, what it holds, and how it is protected. Without one, controls are hard to verify, gaps go unnoticed, and knowledge leaves with individual staff.",
+      "doneLooksLike": "Your security and privacy plans, which can be one document or a set of referenced documents consistent with your enterprise architecture, define the system's components, operational context, environment, and connections, the people in system roles, the information types it handles, its security categorization with rationale, threats of concern, privacy risk assessment results where personal information is processed, its requirements and any baselines or overlays, the controls in place or planned with rationale for tailoring, risk determinations for architecture and design decisions, and activities that need coordination with the groups you define. The plans are approved by the authorizing official or a designated representative before implementation, distributed to the roles you designate along with later changes, and reviewed at a frequency you set. They are updated for changes to the system or its environment and for problems found during implementation or control assessments, and protected from unauthorized disclosure and modification.",
+      "nextSteps": [
+        "Start a plan for the system that describes what it does, its components, the information it handles, and its connections.",
+        "Record the system's categorization, the controls in place or planned, and the reason for any tailoring.",
+        "Have the plan approved by the official accountable for the system's risk, and share it with the roles you designate.",
+        "Set a review frequency and restrict who can view and change the plan."
+      ],
+      "reviewed": false
+    },
+    "pl-4": {
+      "question": "Does everyone who uses your systems receive written rules of behavior and acknowledge them before getting access, and again when the rules change?",
+      "whyItMatters": "People cannot follow rules they have not been told. Written, acknowledged rules set clear expectations for acceptable use, security, and privacy, and make it easier to address misuse fairly.",
+      "doneLooksLike": "You have established rules describing users' responsibilities and expected behavior for information and system use, security, and privacy, and you provide them to everyone who needs access. You receive a documented acknowledgment, such as a signature or electronic check box, that each person has read, understands, and agrees to the rules before access is granted. The rules are reviewed and updated at a frequency you define, and users re-acknowledge them at a frequency you set, when the rules are revised, or both, as you choose.",
+      "nextSteps": [
+        "Write rules of behavior covering acceptable use, security, and privacy, with additional rules for privileged users if needed.",
+        "Collect a signed or electronic acknowledgment before granting anyone access.",
+        "Set a review frequency, and require re-acknowledgment when the rules change or at intervals you choose."
+      ],
+      "reviewed": false
+    },
+    "pl-4.1": {
+      "question": "Do your rules of behavior restrict use of social media and external sites, posting company information publicly, and using work email or passwords for outside accounts?",
+      "whyItMatters": "Staff posts and outside accounts can leak non-public information or give attackers material for targeted scams. Reusing a work email address and password on outside sites means a breach elsewhere can expose your own systems.",
+      "doneLooksLike": "Your rules of behavior include restrictions on using social media, social networking sites, and external sites or applications; on posting organizational information on public websites; and on using organization-provided identifiers, such as work email addresses, and authentication secrets, such as passwords, to create accounts on external sites.",
+      "nextSteps": [
+        "Add a section on social media and external site use to your rules of behavior.",
+        "State what organizational information may not be posted on public websites.",
+        "Prohibit using work passwords for outside accounts, and set rules for when a work email address may be used to register on external sites."
+      ],
+      "reviewed": false
+    },
+    "pl-10": {
+      "question": "Has your organization selected a control baseline, a predefined starting set of security and privacy controls, that fits the system's potential impact?",
+      "whyItMatters": "A baseline gives you a proven starting point sized to how much harm a compromise would cause. Without one, control choices tend to be uneven and important protections get missed.",
+      "doneLooksLike": "A control baseline has been selected for the system, based on the types of information it handles, the potential adverse impact if that information or the system were compromised, the results of risk assessments, and any requirements you are subject to. You can point to the selected baseline, for example in the system's security plan.",
+      "nextSteps": [
+        "Review the information the system handles and the impact if it were exposed, altered, or unavailable.",
+        "Choose the control baseline that matches that impact level and any requirements you are subject to.",
+        "Record the selected baseline in the system's security plan."
+      ],
+      "reviewed": false
+    },
+    "pl-11": {
+      "question": "Has your organization tailored its selected control baseline to fit the system, for example by setting parameter values, scoping out controls, or adding controls?",
+      "whyItMatters": "A baseline is written for a broad audience. Tailoring adjusts it to your actual systems, threats, and business needs so effort goes where it reduces real risk.",
+      "doneLooksLike": "The selected baseline has been tailored by applying specified tailoring actions, such as identifying common controls, applying scoping considerations, selecting compensating controls, assigning values to control parameters, and supplementing the baseline with additional controls where needed.",
+      "nextSteps": [
+        "Go through the baseline and note controls that are inherited, out of scope, or need a compensating control.",
+        "Assign a value to each organization-defined parameter, such as review frequencies and time periods.",
+        "Add controls the baseline does not include if your risks call for them, and record each tailoring decision with its reason."
+      ],
+      "reviewed": false
+    },
+    "ps-1": {
+      "question": "Does your organization have a documented personnel security policy and procedures, covering screening through departure, that are shared, owned by a named official, and regularly reviewed?",
+      "whyItMatters": "Many security problems trace back to people: who is hired, what they can reach, and what happens when they leave. A personnel security policy makes screening, access agreements, transfers, and departures consistent.",
+      "doneLooksLike": "You have a written personnel security policy that covers purpose, scope, roles, responsibilities, management commitment, coordination across teams such as HR and IT, and compliance, is consistent with applicable laws and regulations, and is backed by procedures for screening, access agreements, transfers, and terminations. Both are distributed to the people or roles you designate and managed by an official you name. You review and update each at the frequency you set and after the events you define, such as an insider incident, an audit finding, or a change in employment law.",
+      "nextSteps": [
+        "Name the official responsible for personnel security policy and procedures.",
+        "Document a policy covering purpose, scope, roles, responsibilities, management commitment, coordination, and compliance.",
+        "Write procedures for screening, onboarding, transfers, and departures, agreed with HR, and share both documents with the people you designate.",
+        "Set a review frequency and the events that trigger an update."
+      ],
+      "reviewed": false
+    },
+    "ps-2": {
+      "question": "Has your organization assigned a risk level to each position, set screening criteria for the people who fill them, and reviewed those designations on a schedule?",
+      "whyItMatters": "Some roles can do far more damage than others if misused, such as system administrators or staff who handle payments. Designating position risk lets you screen and grant access in proportion to that potential harm.",
+      "doneLooksLike": "Every organizational position has a risk designation, screening criteria are established for the individuals who fill those positions, and the designations are reviewed and updated at a frequency you define.",
+      "nextSteps": [
+        "List your positions and rate each by the harm that misuse of its access could cause.",
+        "Set screening criteria for each risk level.",
+        "Set a review frequency for position risk designations and revisit them when duties change."
+      ],
+      "reviewed": false
+    },
+    "ps-3": {
+      "question": "Does your organization screen individuals before granting them system access, and rescreen them under the conditions and at the frequencies you define?",
+      "whyItMatters": "Screening helps confirm that people are who they say they are and are suitable for the access they will receive. Rescreening addresses changes over time, especially in higher-risk roles.",
+      "doneLooksLike": "Individuals are screened before being authorized to access the system, for example through background or reference checks appropriate to the position's risk designation and permitted by applicable law. They are rescreened under the conditions you define and, where rescreening applies, at the frequency you set.",
+      "nextSteps": [
+        "Define the screening required before access for each position risk level, consistent with applicable law.",
+        "Make completed screening a prerequisite in your account approval process.",
+        "Define the conditions, such as a move to a higher-risk role, and the frequencies that trigger rescreening."
+      ],
+      "reviewed": false
+    },
+    "ps-4": {
+      "question": "When someone leaves your organization, do you disable their access within a set time, revoke credentials, recover company property, and keep access to their files?",
+      "whyItMatters": "Former employees with working accounts or badges are a real risk, whether through misuse or because no one is watching the account. Prompt, complete offboarding closes that gap while keeping the work they leave behind available.",
+      "doneLooksLike": "When employment ends, system access is disabled within the time period you define, and authenticators and credentials, such as passwords, tokens, and badges, are revoked. An exit interview covers the information security topics you specify, such as nondisclosure obligations, all security-related organizational property such as keys, ID cards, and hardware tokens is retrieved, and the organization retains access to information and systems the person controlled.",
+      "nextSteps": [
+        "Set the time period within which accounts must be disabled after someone leaves.",
+        "Build an offboarding checklist covering accounts, credentials, badges, keys, devices, and handover of files.",
+        "Define the security topics to cover in exit interviews, such as confidentiality obligations.",
+        "Have HR notify IT of departures in advance so access can be disabled on time."
+      ],
+      "reviewed": false
+    },
+    "ps-5": {
+      "question": "When someone moves to a different role within your organization, do you review their system and building access and adjust it to match the new job?",
+      "whyItMatters": "People who change roles often keep old access they no longer need, and it builds up over time. Reviewing access at transfer keeps each person's privileges matched to their current work.",
+      "doneLooksLike": "When individuals are reassigned or transferred, the ongoing need for their current logical and physical access is reviewed and confirmed. The transfer actions you define are started within the time period you set after the formal transfer, access is modified to match the new need, and the personnel or roles you designate are notified within the time period you define.",
+      "nextSteps": [
+        "Add role changes as a trigger in your access management process, alongside hiring and departures.",
+        "Define the actions required on transfer, such as removing old privileges, reissuing badges or keys, and setting up new access.",
+        "Set time periods for starting those actions and for notifying the people who need to know."
+      ],
+      "reviewed": false
+    },
+    "ps-6": {
+      "question": "Do individuals sign access agreements, such as nondisclosure or acceptable use agreements, before getting access, and re-sign them when updated or on a schedule?",
+      "whyItMatters": "Signed agreements make expectations clear and documented before someone handles your information. They also give you a firm basis for action if those expectations are broken.",
+      "doneLooksLike": "You have developed and documented access agreements for your systems, such as nondisclosure, acceptable use, and conflict-of-interest agreements, and you review and update them at a frequency you define. Individuals sign the appropriate agreements before being granted access and re-sign them when the agreements are updated or at the frequency you set.",
+      "nextSteps": [
+        "Identify the agreements people must sign before access, such as nondisclosure and acceptable use agreements.",
+        "Make a signed agreement a prerequisite for creating any account.",
+        "Set a review frequency for the agreements, and collect new signatures when they change or at your chosen interval."
+      ],
+      "reviewed": false
+    },
+    "ps-7": {
+      "question": "Does your organization set personnel security requirements for contractors and service providers, and require them to tell you when their staff with access leave or transfer?",
+      "whyItMatters": "Contractors and service providers often have access similar to employees but are managed by someone else. Without clear requirements and notification, their former staff may keep your badges or accounts.",
+      "doneLooksLike": "You have established and documented personnel security requirements for external providers, including security roles and responsibilities, and you require providers to comply with your personnel security policies and procedures. Providers must notify the personnel or roles you designate within the time period you define when their staff who hold your credentials, badges, or system privileges transfer or leave, and you monitor provider compliance with these requirements.",
+      "nextSteps": [
+        "Write personnel security requirements for external providers and include them in contracts.",
+        "Require providers to notify you within a set time when staff with your credentials or access leave or change roles.",
+        "Check provider compliance periodically, for example by comparing their staff list with the accounts and badges you have issued."
+      ],
+      "reviewed": false
+    },
+    "ps-8": {
+      "question": "Does your organization have a formal sanctions process for people who do not follow security and privacy policies, and notify designated personnel when it is used?",
+      "whyItMatters": "Policies carry little weight if there are no consequences for ignoring them. A formal, consistently applied process supports fairness and makes expectations credible.",
+      "doneLooksLike": "A formal sanctions process applies to individuals who fail to comply with established information security and privacy policies and procedures. When the process is initiated, the personnel or roles you designate are notified within the time period you define, including who was sanctioned and why.",
+      "nextSteps": [
+        "Document a sanctions process for security and privacy violations, working with HR and legal advisers.",
+        "Reference the process in access agreements or rules of behavior so people know it exists.",
+        "Define who must be notified, and how quickly, when the process is started."
+      ],
+      "reviewed": false
+    },
+    "ps-9": {
+      "question": "Do your organization's position descriptions include the security and privacy roles and responsibilities that come with each job?",
+      "whyItMatters": "When security and privacy duties are written into job descriptions, people know what is expected of them, and role-based training can be matched to each position.",
+      "doneLooksLike": "Organizational position descriptions include the security roles and responsibilities and the privacy roles and responsibilities associated with each position.",
+      "nextSteps": [
+        "Identify the security and privacy duties each role carries, such as handling customer data or managing system accounts.",
+        "Add those duties to the position descriptions.",
+        "Update position descriptions when roles change or new responsibilities are assigned."
+      ],
+      "reviewed": false
+    },
+    "ra-1": {
+      "question": "Does your organization have a documented risk assessment policy and procedures that are shared with the right people, owned by a named official, and reviewed on a set schedule?",
+      "whyItMatters": "Risk assessment is how you decide where to spend limited security effort. A policy makes sure risks are assessed consistently, by the right people, and that results reach the people who make decisions.",
+      "doneLooksLike": "You have a written risk assessment policy that covers purpose, scope, roles, responsibilities, management commitment, coordination across teams, and compliance, is consistent with applicable laws and regulations, and is backed by procedures for categorizing systems, assessing risk, scanning for vulnerabilities, and responding to findings. Both are distributed to the people or roles you designate and managed by an official you name. You review and update each at the frequency you set and after the events you define, such as a breach, an audit finding, or a change in regulation.",
+      "nextSteps": [
+        "Name the official responsible for risk assessment policy and procedures.",
+        "Document a policy covering purpose, scope, roles, responsibilities, management commitment, coordination, and compliance.",
+        "Write procedures for how risk assessments and vulnerability scans are performed and how results are acted on, and share both documents with the people you designate.",
+        "Set a review frequency and the events that trigger an update."
+      ],
+      "reviewed": false
+    },
+    "ra-2": {
+      "question": "Has your organization categorized the system and its information by the harm a loss of confidentiality, integrity, or availability would cause, and had that decision approved?",
+      "whyItMatters": "Categorization sets how much protection a system needs. It keeps you from under-protecting critical systems or over-investing in systems that matter less.",
+      "doneLooksLike": "The system and the information it processes, stores, and transmits are categorized by potential impact, the results and supporting rationale are documented in the system's security plan, and the authorizing official or a designated representative has reviewed and approved the categorization decision.",
+      "nextSteps": [
+        "List the types of information the system handles.",
+        "Rate the impact on your organization and on individuals if each type were exposed, altered, or unavailable.",
+        "Record the categorization and rationale in the security plan and have the accountable official approve it."
+      ],
+      "reviewed": false
+    },
+    "ra-3": {
+      "question": "Does your organization assess risks to the system, including threats, vulnerabilities, likelihood, and impact, document the results, and update the assessment after significant changes?",
+      "whyItMatters": "A risk assessment shows which threats matter most to your organization and where your weaknesses are. It focuses security spending on the risks most likely to cause real harm.",
+      "doneLooksLike": "Your risk assessment identifies threats to and vulnerabilities in the system, the likelihood and magnitude of harm from unauthorized access, use, disclosure, disruption, modification, or destruction, and the likelihood and impact of adverse effects on individuals from processing personally identifiable information. Results are integrated with organization-level risk decisions, documented in your security and privacy plans, a risk assessment report, or another document you choose, reviewed at a frequency you set, and shared with the roles you designate. The assessment is updated at a frequency you define and when significant changes to the system, its environment, or other conditions affect its security or privacy.",
+      "nextSteps": [
+        "Identify the threats and vulnerabilities relevant to the system, including risks from service providers and contractors.",
+        "Rate the likelihood and impact of each risk, including harm to individuals whose personal information you handle.",
+        "Document the results and share them with the people who make risk decisions.",
+        "Set a schedule for reviewing and updating the assessment, and update it after major changes."
+      ],
+      "reviewed": false
+    },
+    "ra-3.1": {
+      "question": "Beyond your general risk assessment, does your organization assess the supply chain risks of the systems, components, and services you rely on, and update that assessment as things change?",
+      "whyItMatters": "Suppliers and the products they deliver can introduce counterfeit parts, malicious code, or disruptions you do not control. Assessing these risks shows where extra safeguards or alternative suppliers are needed.",
+      "doneLooksLike": "Supply chain risks associated with the systems, system components, and system services you define are assessed, considering events such as disruption, defective or counterfeit components, tampering, theft, and insertion of malicious code. The assessment is updated at a frequency you set, when there are significant changes to the relevant supply chain, or when changes to the system or its environment may require a change in the supply chain.",
+      "nextSteps": [
+        "List the key suppliers, products, and services your systems depend on.",
+        "Assess the risk each poses, such as disruption, counterfeit or tampered products, or poor development practices.",
+        "Set a review frequency, and update the assessment when a key supplier, product, or system changes."
+      ],
+      "reviewed": false
+    },
+    "ra-5": {
+      "question": "Does your organization scan systems and applications for vulnerabilities on a schedule and when new ones are announced, analyze the results, and fix real issues within set time frames?",
+      "whyItMatters": "Attackers routinely look for known, unpatched weaknesses. Regular scanning and timely remediation find and close those gaps before they are exploited.",
+      "doneLooksLike": "Systems and hosted applications are monitored and scanned for vulnerabilities at the frequency or by the process you define and when new vulnerabilities that may affect them are reported. Your tools use common standards for naming platforms, flaws, and configuration problems, formatting checklists and test procedures, and measuring impact, and can readily update the vulnerabilities they check for. Results are analyzed, legitimate vulnerabilities are remediated within the response times you set based on risk, and findings are shared with the roles you designate to help eliminate similar issues in other systems.",
+      "nextSteps": [
+        "Choose a vulnerability scanning tool that keeps its checks current and can cover servers, workstations, network devices, and printers.",
+        "Set a scanning frequency, and scan again when significant new vulnerabilities are announced.",
+        "Define remediation time frames by severity and track each finding until it is resolved.",
+        "Share recurring findings with the people who manage other systems."
+      ],
+      "reviewed": false
+    },
+    "ra-5.2": {
+      "question": "Does your organization update the vulnerabilities its scanning tools check for at a set frequency, before each new scan, or when new vulnerabilities are reported?",
+      "whyItMatters": "A scanner only finds the weaknesses it knows about. Keeping its checks current means newly discovered vulnerabilities are not missed.",
+      "doneLooksLike": "The list of vulnerabilities your scanning tools check for is updated on the basis you choose: at a frequency you define, before each new scan, when new vulnerabilities are identified and reported, or a combination of these.",
+      "nextSteps": [
+        "Decide when scanner updates must happen: at a set frequency, before each scan, when new vulnerabilities are reported, or a combination.",
+        "Turn on automatic updates of vulnerability checks in your scanning tools where available.",
+        "Confirm the checks were updated as required before relying on scan results."
+      ],
+      "reviewed": false
+    },
+    "ra-5.11": {
+      "question": "Does your organization have a public way for outside people, such as security researchers, to report vulnerabilities they find in your systems?",
+      "whyItMatters": "Outsiders sometimes find weaknesses before you do. A clear public reporting channel makes it more likely they tell you directly so you can fix the issue.",
+      "doneLooksLike": "A publicly discoverable reporting channel, such as a monitored email address or web form, is in place for receiving reports of vulnerabilities in your systems and components. It contains clear language authorizing good-faith research and disclosure to your organization, and it does not demand indefinite secrecy, though you may ask for a specific period to remediate.",
+      "nextSteps": [
+        "Set up a monitored email address or web form for vulnerability reports.",
+        "Publish a short disclosure statement on your website that authorizes good-faith research and explains how to report.",
+        "Assign someone to acknowledge, assess, and route reports for remediation."
+      ],
+      "reviewed": false
+    },
+    "ra-7": {
+      "question": "Does your organization respond to findings from security and privacy assessments, monitoring, and audits in line with the level of risk it is willing to accept?",
+      "whyItMatters": "Findings only reduce risk when someone decides what to do about them. A deliberate response, whether fixing, accepting, sharing, or avoiding the risk, keeps issues from sitting unaddressed.",
+      "doneLooksLike": "Findings from security assessments, privacy assessments, monitoring, and audits each receive a response consistent with your organization's risk tolerance, such as mitigating the risk, accepting it with justification, sharing or transferring it, or avoiding it. Mitigations that cannot be completed right away are tracked, for example in a plan of action and milestones.",
+      "nextSteps": [
+        "Define your organization's risk tolerance in terms that decision makers can apply.",
+        "Collect findings from assessments, monitoring, and audits into one tracking list.",
+        "Record a response decision for each finding, with justification for any risk you accept.",
+        "Track mitigations that cannot be completed immediately until they are done."
+      ],
+      "reviewed": false
+    },
+    "sa-1": {
+      "question": "Does your organization have a documented policy and procedures for acquiring systems and services securely that are shared, owned by a named official, and regularly reviewed?",
+      "whyItMatters": "Many security weaknesses arrive with the systems and services you buy or build. A policy makes sure security and privacy are considered at purchase and throughout development, not bolted on later.",
+      "doneLooksLike": "You have a written system and services acquisition policy that covers purpose, scope, roles, responsibilities, management commitment, coordination across teams such as purchasing and IT, and compliance, is consistent with applicable laws and regulations, and is backed by procedures for budgeting, contracting, development, and oversight of providers. Both are distributed to the people or roles you designate and managed by an official you name. You review and update each at the frequency you set and after the events you define, such as a supplier-related incident, an audit finding, or a change in regulation.",
+      "nextSteps": [
+        "Name the official responsible for system and services acquisition policy and procedures.",
+        "Document a policy covering purpose, scope, roles, responsibilities, management commitment, coordination, and compliance.",
+        "Write procedures for including security and privacy in purchases, development, and service provider oversight, and share both documents with the people you designate.",
+        "Set a review frequency and the events that trigger an update."
+      ],
+      "reviewed": false
+    },
+    "sa-2": {
+      "question": "Does your organization identify security and privacy requirements for each system or service during business planning, and budget specifically for protecting it?",
+      "whyItMatters": "Security that is not planned and funded tends not to happen. Identifying requirements early and setting aside resources keeps protection from being cut or postponed until after problems appear.",
+      "doneLooksLike": "High-level security and privacy requirements for the system or service are determined during mission and business planning. The resources needed to protect it are determined, documented, and allocated as part of capital planning and investment decisions, and information security and privacy each have a discrete line item in budgeting documents.",
+      "nextSteps": [
+        "Identify the security and privacy requirements when planning a new system or service.",
+        "Estimate the cost of meeting them over the system's life, including operation and supplier-related risk.",
+        "Create separate budget line items for information security and for privacy."
+      ],
+      "reviewed": false
+    },
+    "sa-3": {
+      "question": "Does your organization acquire, build, and manage its systems using a defined life cycle process that includes security and privacy from start to finish?",
+      "whyItMatters": "Security and privacy are cheaper and more effective when designed in than when added after a system is running. A defined life cycle brings the right people and risk decisions in at each stage.",
+      "doneLooksLike": "Systems are acquired, developed, and managed using the system development life cycle you define, and that life cycle incorporates security and privacy considerations. Security and privacy roles and responsibilities are defined and documented throughout the life cycle, the individuals in those roles are identified, and your security and privacy risk management processes are built into life cycle activities.",
+      "nextSteps": [
+        "Document the life cycle stages you follow for buying, building, operating, and retiring systems.",
+        "Add security and privacy checkpoints to each stage, such as requirements review, testing, and approval before go-live.",
+        "Assign named people to the security and privacy roles at each stage."
+      ],
+      "reviewed": false
+    },
+    "sa-4": {
+      "question": "Do your contracts for systems, components, and services include security and privacy requirements, documentation requirements, assigned responsibilities, and acceptance criteria?",
+      "whyItMatters": "Once a contract is signed, it is hard to require security the supplier never agreed to. Writing requirements into contracts sets clear expectations and gives you a basis to reject deliveries that fall short.",
+      "doneLooksLike": "Acquisition contracts, using standardized contract language or other language you choose, include explicitly or by reference: security and privacy functional requirements, strength of mechanism requirements, security and privacy assurance requirements, the controls needed to meet the requirements, documentation requirements and how that documentation is protected, a description of the development and intended operating environments, the parties responsible for information security, privacy, and supply chain risk management, and acceptance criteria.",
+      "nextSteps": [
+        "Create standard security and privacy contract language you can reuse in purchases.",
+        "Include required controls, documentation, and responsibilities for security, privacy, and supply chain risk in each contract.",
+        "Define acceptance criteria and check deliveries against them before accepting."
+      ],
+      "reviewed": false
+    },
+    "sa-4.10": {
+      "question": "Where your systems use Personal Identity Verification (PIV) smart cards, does your organization buy only products on the FIPS 201-approved products list?",
+      "whyItMatters": "PIV cards provide strong multi-factor authentication for federal employees and contractors. Limiting purchases to approved products confirms that cards, readers, and related components meet NIST's requirements.",
+      "doneLooksLike": "Every information technology product used to implement PIV capability in your systems comes from the FIPS 201-approved products list. Products not on the list are not used for PIV functions.",
+      "nextSteps": [
+        "Identify any systems that implement PIV card authentication.",
+        "Check each related product, such as card readers and supporting software, against the FIPS 201-approved products list.",
+        "Require approved-list products in purchasing for PIV equipment, and replace any that are not on the list."
+      ],
+      "reviewed": false
+    },
+    "sa-5": {
+      "question": "Does your organization have administrator and user documentation for its systems that explains secure setup, operation, and use of security and privacy features?",
+      "whyItMatters": "Security features only help when people know how to configure and use them correctly. Good documentation also records known weaknesses so administrators can avoid them.",
+      "doneLooksLike": "You have obtained or developed administrator documentation covering secure configuration, installation, and operation, effective use and maintenance of security and privacy functions, and known vulnerabilities in configuring and using administrative functions, plus user documentation covering user-accessible security and privacy functions and how to use them, ways to use the system more securely and protect privacy, and users' own responsibilities. Where documentation is unavailable, you record your attempts to obtain it and take the actions you define in response. Documentation is distributed to the personnel or roles you designate.",
+      "nextSteps": [
+        "Collect vendor administrator and user guides for each key system, focusing on security and privacy settings.",
+        "Write short internal guides where vendor documentation is missing or incomplete.",
+        "Record your attempts to obtain documentation that is unavailable, and decide what to do instead.",
+        "Share the documentation with the administrators, system owners, and users who need it."
+      ],
+      "reviewed": false
+    },
+    "sa-8": {
+      "question": "Does your organization apply defined security and privacy engineering principles when specifying, designing, building, implementing, and changing its systems?",
+      "whyItMatters": "Early design choices, such as layered defenses and minimal privileges, largely determine how well a system resists attack and protects personal information. Applying principles consistently produces systems that are harder to break and easier to trust.",
+      "doneLooksLike": "You have defined the systems security and privacy engineering principles you follow, such as layered protection, clear security boundaries, and threat modeling, and you apply them in the specification, design, development, implementation, and modification of systems and components. For existing systems, they are applied to upgrades and changes as far as is feasible.",
+      "nextSteps": [
+        "Choose and document a short set of security and privacy engineering principles.",
+        "Include the principles in requirements and design reviews for new systems and major changes.",
+        "Ask developers and suppliers to show how their designs apply the principles."
+      ],
+      "reviewed": false
+    },
+    "sa-9": {
+      "question": "Does your organization require its cloud and other external service providers to meet your security and privacy requirements, define oversight roles, and monitor their compliance?",
+      "whyItMatters": "When you use an outside service, your data is protected by controls you do not run yourself, but the risk remains yours. Clear requirements and ongoing oversight help confirm the provider does what you need.",
+      "doneLooksLike": "Providers of external system services are required to comply with your security and privacy requirements and to employ the controls you define. Your organizational oversight and user roles and responsibilities for those services are defined and documented, and you use the processes, methods, and techniques you define, such as reviewing provider assessment reports or service-level reporting, to monitor provider compliance on an ongoing basis.",
+      "nextSteps": [
+        "List the external services you rely on, such as cloud hosting, email, payroll, and managed IT.",
+        "Write your security and privacy requirements into each provider agreement.",
+        "Document who in your organization oversees each provider and what your users are responsible for.",
+        "Set up ongoing monitoring, such as reviewing each provider's security reports at a frequency you choose."
+      ],
+      "reviewed": false
+    },
+    "sa-22": {
+      "question": "Does your organization replace system components once the vendor stops supporting them, or arrange alternative support where replacement is not possible?",
+      "whyItMatters": "Software and hardware that no longer receive security updates accumulate known weaknesses that attackers can exploit. Replacing them, or securing other support, keeps those weaknesses from becoming permanent.",
+      "doneLooksLike": "System components are replaced when support is no longer available from the developer, vendor, or manufacturer. Where unsupported components remain in use, you provide alternative sources of continued support through the options you choose, such as in-house support or support from external providers.",
+      "nextSteps": [
+        "Inventory software, operating systems, and hardware, and note each item's end-of-support date.",
+        "Plan and budget replacements before support ends.",
+        "For anything that must remain in use, arrange in-house or external support and consider isolating it from untrusted networks."
+      ],
+      "reviewed": false
+    },
+    "sc-1": {
+      "question": "Does your organization have a documented system and communications protection policy and procedures that are shared, owned by a named official, and reviewed on a set schedule?",
+      "whyItMatters": "This family covers how your systems and networks protect information at their boundaries and in transit. A policy sets consistent expectations for network protections, encryption, and related safeguards.",
+      "doneLooksLike": "You have a written system and communications protection policy that covers purpose, scope, roles, responsibilities, management commitment, coordination across teams, and compliance, is consistent with applicable laws and regulations, and is backed by procedures for areas such as boundary protection, encryption, key management, and DNS. Both are distributed to the people or roles you designate and managed by an official you name. You review and update each at the frequency you set and after the events you define, such as a network compromise, an audit finding, or a major architecture change.",
+      "nextSteps": [
+        "Name the official responsible for system and communications protection policy and procedures.",
+        "Document a policy covering purpose, scope, roles, responsibilities, management commitment, coordination, and compliance.",
+        "Write procedures for network boundary protection, encryption, and key management, and share both documents with the people you designate.",
+        "Set a review frequency and the events that trigger an update."
+      ],
+      "reviewed": false
+    },
+    "sc-5": {
+      "question": "Has your organization identified the denial-of-service events it needs to handle and put controls in place to protect against or limit their effects?",
+      "whyItMatters": "A denial-of-service event, whether an attack that floods your systems or a simple lack of capacity, can make websites and services unavailable to customers and staff. Planned defenses shorten or prevent those outages.",
+      "doneLooksLike": "You have defined the types of denial-of-service events of concern and whether you will protect against them or limit their effects, and you employ the controls you define for each type, such as traffic filtering at your boundary, added capacity and bandwidth, or redundant services.",
+      "nextSteps": [
+        "Identify which services must stay available and the denial-of-service events that could affect them.",
+        "Decide whether to protect against or limit the effects of each type of event.",
+        "Put controls in place, such as traffic filtering from your internet or hosting provider, extra bandwidth, or redundancy for critical services."
+      ],
+      "reviewed": false
+    },
+    "sc-7": {
+      "question": "Does your organization monitor and control network traffic at its external boundaries and key internal points, and keep public-facing systems separate from internal networks?",
+      "whyItMatters": "The boundary between your network and the internet is where most attacks first arrive. Controlling traffic there, and isolating public systems, limits what an attacker can reach after compromising one system.",
+      "doneLooksLike": "Communications are monitored and controlled at the system's external managed interfaces and at key internal interfaces, using devices such as firewalls, gateways, and routers. Publicly accessible components, such as a public web server, sit on subnetworks that are physically or logically separated from internal networks, as you choose, and connections to external networks go only through managed interfaces arranged according to your security and privacy architecture.",
+      "nextSteps": [
+        "Map where your network connects to the internet and other outside networks.",
+        "Route every external connection through a firewall or similar managed device with rules that allow only needed traffic.",
+        "Place public-facing systems on a network segment separate from internal systems.",
+        "Review firewall logs and rules on a regular schedule."
+      ],
+      "reviewed": false
+    },
+    "sc-12": {
+      "question": "When your systems use encryption, does your organization create and manage the cryptographic keys according to defined key management requirements?",
+      "whyItMatters": "Encryption is only as strong as the protection of its keys. Lost keys can lock you out of your own data, and stolen or mishandled keys can expose it.",
+      "doneLooksLike": "Wherever cryptography is used in the system, cryptographic keys are established and managed according to the key management requirements you define, for example covering how keys are generated, stored, rotated, and revoked. Trust stores are managed so they contain only approved certificates and trust anchors.",
+      "nextSteps": [
+        "Identify where your systems use encryption, such as disk encryption, website certificates, and remote access connections.",
+        "Define requirements for generating, storing, backing up, rotating, and revoking keys and certificates.",
+        "Track key and certificate expiration dates and assign someone to renew them."
+      ],
+      "reviewed": false
+    },
+    "sc-13": {
+      "question": "Has your organization decided where it needs cryptography and which types of cryptography to use for each purpose, and put those decisions into practice?",
+      "whyItMatters": "Encryption protects data from being read or altered if it is intercepted or stolen. Choosing appropriate, well-established cryptography for each use avoids weak or outdated methods that give false confidence.",
+      "doneLooksLike": "You have identified your cryptographic uses, such as protecting stored data, protecting data in transit, or digital signatures, and you implement the types of cryptography you define for each use, consistent with the laws, regulations, and contracts that apply to you.",
+      "nextSteps": [
+        "List where your organization needs cryptography, such as stored data, data in transit, and digital signatures.",
+        "Specify the type of cryptography required for each use, including any validated cryptography your contracts or regulations require.",
+        "Check your systems against those requirements and replace weak or outdated methods."
+      ],
+      "reviewed": false
+    },
+    "sc-15": {
+      "question": "Does your organization prevent cameras, microphones, and meeting devices from being turned on remotely, except where you allow it, and show users when they are active?",
+      "whyItMatters": "A camera or microphone that can be switched on remotely could be used to eavesdrop on meetings or private conversations. Blocking remote activation and showing a clear in-use signal protects the people in the room.",
+      "doneLooksLike": "Remote activation of collaborative computing devices and applications, such as conference room systems, networked whiteboards, cameras, and microphones, is prohibited except for the exceptions you define. Users physically present at the devices get an explicit indication when they are in use, such as an indicator light.",
+      "nextSteps": [
+        "Inventory cameras, microphones, and meeting room devices.",
+        "Disable remote activation features except where you have approved an exception.",
+        "Confirm each device shows a clear signal, such as a light or on-screen notice, when it is active."
+      ],
+      "reviewed": false
+    },
+    "sc-20": {
+      "question": "If your organization runs authoritative DNS for its domain names, do the DNS answers it gives out include signatures that let others verify they are genuine?",
+      "whyItMatters": "DNS (the internet's naming system) translates names such as your website address into network addresses. Without a way to verify answers, attackers can forge them and send your customers to fake sites.",
+      "doneLooksLike": "The authoritative name resolution data your systems return to external queries comes with origin authentication and integrity verification artifacts, such as DNS Security Extensions (DNSSEC) digital signatures. As part of the DNS hierarchy, you also provide the means to indicate the security status of child zones and to verify a chain of trust between parent and child domains, such as delegation signer records.",
+      "nextSteps": [
+        "Identify who hosts the authoritative DNS for your domains, whether in-house or a DNS provider.",
+        "Enable DNSSEC signing for your domains and publish the matching delegation signer record through your domain registrar.",
+        "Monitor signing keys and signatures so they do not expire unnoticed."
+      ],
+      "reviewed": false
+    },
+    "sc-21": {
+      "question": "Do the DNS resolvers your systems rely on request and check signatures on the answers they receive, so that forged or altered responses are rejected?",
+      "whyItMatters": "If a resolver accepts any answer, an attacker who forges or alters DNS responses can redirect your users to malicious sites without their knowledge. Validation lets your systems detect and reject tampered answers.",
+      "doneLooksLike": "Your recursive or caching resolvers request and perform data origin authentication and data integrity verification on responses from authoritative sources, for example by validating DNSSEC signatures, or your clients use authenticated channels to resolvers that perform this validation.",
+      "nextSteps": [
+        "Identify which DNS resolvers your network and devices use.",
+        "Enable DNSSEC validation on internal resolvers, or use a validating resolver service reached over an authenticated channel.",
+        "Test that validation works by confirming that a deliberately mis-signed test domain fails to resolve."
+      ],
+      "reviewed": false
+    },
+    "sc-22": {
+      "question": "Are the systems that provide DNS for your organization fault-tolerant, with internal and external name resolution handled by separate servers?",
+      "whyItMatters": "If DNS fails, email, websites, and internal services can all stop working. Redundancy keeps a single failure from taking everything down, and separating internal from external roles keeps internal network details from being exposed.",
+      "doneLooksLike": "The systems that together provide name and address resolution for your organization are fault-tolerant, for example through primary and secondary authoritative servers in separate network locations, and implement role separation so that servers with internal roles answer only internal clients and servers with external roles answer only external clients.",
+      "nextSteps": [
+        "Confirm you have at least two authoritative DNS servers in separate locations, or a provider that offers equivalent redundancy.",
+        "Separate internal DNS, which answers your own devices, from external DNS, which answers the internet.",
+        "Restrict which clients can query each server according to its role."
+      ],
+      "reviewed": false
+    },
+    "sc-39": {
+      "question": "Do your systems keep each running process in its own separate execution domain, so that one process cannot interfere with another?",
+      "whyItMatters": "Process isolation stops a faulty or compromised program from reading or changing the memory and code of other programs. It limits the damage untrusted software can do.",
+      "doneLooksLike": "Each executing system process runs in its own execution domain, such as a separate address space, so that processes interact only through controlled mechanisms. Modern commercial operating systems provide this, and sandboxing or virtualization can add further separation.",
+      "nextSteps": [
+        "Confirm that your systems run current, supported operating systems that provide process isolation.",
+        "Avoid configurations or legacy software that disable memory protections.",
+        "Consider sandboxing or virtualization for untrusted or high-risk applications."
+      ],
+      "reviewed": false
+    },
+    "si-1": {
+      "question": "Does your organization have a documented system and information integrity policy and procedures that are shared, owned by a named official, and reviewed on a set schedule?",
+      "whyItMatters": "This family covers patching, malware protection, monitoring, and security alerts. A policy makes sure these everyday protections are assigned, carried out consistently, and kept up to date.",
+      "doneLooksLike": "You have a written system and information integrity policy that covers purpose, scope, roles, responsibilities, management commitment, coordination across teams, and compliance, is consistent with applicable laws and regulations, and is backed by procedures for patching, malware protection, monitoring, alerts, and information retention. Both are distributed to the people or roles you designate and managed by an official you name. You review and update each at the frequency you set and after the events you define, such as a malware outbreak, an audit finding, or a change in requirements.",
+      "nextSteps": [
+        "Name the official responsible for system and information integrity policy and procedures.",
+        "Document a policy covering purpose, scope, roles, responsibilities, management commitment, coordination, and compliance.",
+        "Write procedures for patching, malware protection, monitoring, and handling security alerts, and share both documents with the people you designate.",
+        "Set a review frequency and the events that trigger an update."
+      ],
+      "reviewed": false
+    },
+    "si-2": {
+      "question": "Does your organization find and fix software and firmware flaws, test updates before installing them, and install security updates within a time period you set?",
+      "whyItMatters": "Unpatched software is one of the most common ways attackers get in. A defined patching process closes known holes quickly while avoiding updates that break critical systems.",
+      "doneLooksLike": "System flaws are identified, reported, and corrected. Software and firmware updates that fix flaws are tested for effectiveness and side effects before installation, security-relevant updates are installed within the time period you define after their release, and flaw remediation is part of your configuration management process.",
+      "nextSteps": [
+        "Track security updates for all software and firmware, including network devices and printers.",
+        "Set the time period for installing security updates, which may vary by severity.",
+        "Test updates on a small group of systems before broad rollout.",
+        "Handle patching through your change management process so remediation can be tracked and verified."
+      ],
+      "reviewed": false
+    },
+    "si-3": {
+      "question": "Does your organization use automatically updated malware protection that scans regularly and in real time, blocks or quarantines threats, and alerts the right people?",
+      "whyItMatters": "Malicious software arrives through email, downloads, and removable media every day. Current, well-configured protection catches most of it before it can encrypt files or steal data.",
+      "doneLooksLike": "Malicious code protection, signature-based, non-signature-based, or both as you choose, is in place at system entry and exit points such as workstations, servers, email, and web gateways, and updates automatically under your configuration management procedures. It runs periodic scans at a frequency you define and real-time scans of files from external sources as they are downloaded, opened, or executed at the endpoint or network points you choose, takes the actions you define on detection, such as blocking or quarantining, and alerts the roles you designate. You also have a defined way to handle false positives and their potential effect on system availability.",
+      "nextSteps": [
+        "Install endpoint protection on all workstations and servers, and enable malware scanning for email and web traffic.",
+        "Turn on automatic updates and real-time scanning, and schedule periodic full scans.",
+        "Configure blocking or quarantine on detection, and send alerts to a named person or team.",
+        "Define how to report and resolve false positives without switching protection off."
+      ],
+      "reviewed": false
+    },
+    "si-4": {
+      "question": "Does your organization monitor its systems for attacks, unauthorized connections, and unauthorized use, analyze what it finds, and adjust monitoring when risk changes?",
+      "whyItMatters": "Many breaches go unnoticed for weeks because no one is watching. Monitoring helps you spot attacks early, when they are easier to contain.",
+      "doneLooksLike": "Systems are monitored to detect attacks and indicators of attack against the monitoring objectives you define, as well as unauthorized local, network, and remote connections, and unauthorized use is identified using the techniques you define. Monitoring is placed strategically to collect essential information and at ad hoc locations to track transactions of interest, detected events and anomalies are analyzed, and monitoring levels are adjusted when risk changes. You have obtained a legal opinion on your monitoring activities, and you provide the monitoring information you define to the roles you designate, as needed or at a frequency you set.",
+      "nextSteps": [
+        "Define what you need to detect, such as malware, unusual logins, and unauthorized connections.",
+        "Turn on logging and alerting at key points, such as firewalls, servers, and cloud services, and route alerts to someone who reviews them.",
+        "Ask a legal adviser to review your monitoring activities and confirm they are lawful.",
+        "Decide who receives monitoring information and how often."
+      ],
+      "reviewed": false
+    },
+    "si-5": {
+      "question": "Does your organization receive security alerts and advisories from outside sources, pass them to the right people, and act on security directives on time?",
+      "whyItMatters": "New threats and urgent fixes are announced constantly. Receiving and acting on alerts promptly lets you close gaps before attackers exploit them.",
+      "doneLooksLike": "You receive security alerts, advisories, and directives on an ongoing basis from the external organizations you define, such as government agencies, vendors, and partners, and you generate internal alerts when needed. Alerts are disseminated to the personnel, organizational elements, or external organizations you choose, and security directives are implemented within established time frames, or the issuing organization is notified of the degree of noncompliance.",
+      "nextSteps": [
+        "Subscribe to security alerts from your key vendors and relevant government sources.",
+        "Name a person to review incoming alerts and decide what action is needed.",
+        "Define who receives alerts internally and how they are distributed.",
+        "Track directives to completion, and notify the issuer if you cannot meet a deadline."
+      ],
+      "reviewed": false
+    },
+    "si-12": {
+      "question": "Does your organization manage and retain information in its systems, and information output from them, according to applicable laws, regulations, and operational needs?",
+      "whyItMatters": "Keeping information too briefly can break legal or contractual obligations, while keeping it too long increases what could be exposed in a breach. Defined retention rules balance both.",
+      "doneLooksLike": "Information within the system and information output from it, such as reports, logs, and printouts, are managed and retained in accordance with applicable laws, regulations, policies, and operational requirements. This covers the full life cycle of the information, including records produced by your security controls.",
+      "nextSteps": [
+        "Identify the laws, regulations, and contracts that set retention requirements for your information.",
+        "Create a retention schedule stating how long each type of record is kept and how it is disposed of.",
+        "Apply the schedule to system data, backups, and printed output, and coordinate with whoever manages records."
+      ],
+      "reviewed": false
+    },
+    "sr-1": {
+      "question": "Does your organization have a documented supply chain risk management policy and procedures that are shared, owned by a named official, and reviewed on a set schedule?",
+      "whyItMatters": "Your systems depend on products and services from many suppliers, and a problem anywhere in that chain can reach you. A policy sets how supply chain risk is identified, assigned, and managed across the organization.",
+      "doneLooksLike": "You have a written supply chain risk management policy that covers purpose, scope, roles, responsibilities, management commitment, coordination across teams such as purchasing, IT, and legal, and compliance, is consistent with applicable laws and regulations, and is backed by procedures for assessing suppliers, purchasing, inspection, and component disposal. Both are distributed to the people or roles you designate and managed by an official you name. You review and update each at the frequency you set and after the events you define, such as a supplier compromise, an audit finding, or a change in regulation.",
+      "nextSteps": [
+        "Name the official responsible for supply chain risk management policy and procedures.",
+        "Document a policy covering purpose, scope, roles, responsibilities, management commitment, coordination, and compliance.",
+        "Write procedures for evaluating suppliers, purchasing securely, and handling components, and share both documents with the people you designate.",
+        "Set a review frequency and the events that trigger an update."
+      ],
+      "reviewed": false
+    },
+    "sr-2": {
+      "question": "Does your organization have a plan for managing supply chain risks across the full life cycle of the systems, components, and services you define, and is it current and protected?",
+      "whyItMatters": "Counterfeit parts, tampered products, and supplier failures can affect you long before you notice. A plan sets out how you will identify and respond to these risks consistently.",
+      "doneLooksLike": "You have a supply chain risk management plan covering risks in the research and development, design, manufacturing, acquisition, delivery, integration, operation and maintenance, and disposal of the systems, components, or services you define. It is reviewed and updated at a frequency you set or as needed for threat, organizational, or environmental changes, and it is protected from unauthorized disclosure and modification.",
+      "nextSteps": [
+        "Identify the systems, components, and services in scope for the plan.",
+        "Document risks at each life cycle stage, your risk tolerance, mitigations, and who is responsible.",
+        "Set a review frequency, and restrict who can view and edit the plan."
+      ],
+      "reviewed": false
+    },
+    "sr-2.1": {
+      "question": "To carry out your supply chain risk management plan, has your organization set up a team with defined members and roles to lead and support supply chain risk activities?",
+      "whyItMatters": "Supply chain risk touches purchasing, IT, security, legal, and operations. A team with defined members brings those perspectives together so risks are not missed between departments.",
+      "doneLooksLike": "A supply chain risk management team, made up of the personnel, roles, and responsibilities you define, is established to lead and support the supply chain risk management activities you define.",
+      "nextSteps": [
+        "Decide which supply chain risk activities the team will lead, such as supplier assessments and reviews of major purchases.",
+        "Name team members from relevant functions, such as purchasing, IT, security, legal, and operations.",
+        "Document each member's role and responsibilities."
+      ],
+      "reviewed": false
+    },
+    "sr-3": {
+      "question": "Does your organization have processes to find and fix weaknesses in its supply chain, use defined controls against supply chain risks, and document them?",
+      "whyItMatters": "Weak points in how products are built, shipped, or maintained can be exploited to compromise your systems. Defined processes and controls reduce that exposure and limit harm when something goes wrong.",
+      "doneLooksLike": "You have a process to identify and address weaknesses or deficiencies in the supply chain elements and processes for the systems or components you define, coordinated with the supply chain personnel you designate. You employ the supply chain controls you define to protect against supply chain risks and limit harm from supply chain events, and you document the processes and controls in your security and privacy plans, supply chain risk management plan, or another document you choose.",
+      "nextSteps": [
+        "Identify the systems or components whose supply chain you will review.",
+        "Set up a process, with the relevant staff and suppliers, to identify and correct supply chain weaknesses.",
+        "Choose and apply controls, such as buying only from authorized sources and checking deliveries for tampering.",
+        "Record the processes and controls in your plans."
+      ],
+      "reviewed": false
+    },
+    "sr-5": {
+      "question": "Does your organization use defined purchasing strategies, contract tools, and procurement methods to protect against, identify, and reduce supply chain risks?",
+      "whyItMatters": "How you buy affects what you receive. Practices such as buying through trusted distribution channels and including contract terms against counterfeit parts reduce the chance of receiving compromised products.",
+      "doneLooksLike": "You employ the acquisition strategies, contract tools, and procurement methods you define, such as buying through authorized distributors, requiring tamper-evident packaging, or including contract terms that prohibit counterfeit components, to protect against, identify, and mitigate supply chain risks.",
+      "nextSteps": [
+        "Define approved purchasing channels for IT hardware and software.",
+        "Add contract terms that address counterfeit or tampered components and supplier security practices.",
+        "Use your supply chain risk assessment results to decide which strategies apply to each purchase."
+      ],
+      "reviewed": false
+    },
+    "sr-8": {
+      "question": "Does your organization have agreements with its suppliers to notify you of supply chain compromises, share assessment or audit results, or both?",
+      "whyItMatters": "If a supplier is breached or a product is compromised, early notice lets you respond before the problem reaches your systems. Without an agreement, you may hear about it late or not at all.",
+      "doneLooksLike": "You have established agreements and procedures with the entities in the supply chain for your systems, components, or services covering notification of supply chain compromises, sharing of the assessment or audit results you define, or both, as you choose.",
+      "nextSteps": [
+        "Identify the suppliers whose compromise would affect you most.",
+        "Add notification requirements to their contracts covering the information you choose to receive.",
+        "Define internal procedures for receiving and acting on supplier notifications."
+      ],
+      "reviewed": false
+    },
+    "sr-10": {
+      "question": "Does your organization inspect the systems or components you specify for signs of tampering, at random, on a schedule, or when there is reason to suspect a problem?",
+      "whyItMatters": "Equipment can be altered during shipping, repair, or travel. Inspection helps detect physical or logical tampering before the equipment is trusted with your data.",
+      "doneLooksLike": "The systems or system components you define are inspected to detect physical and logical tampering, at random, at a frequency you set, upon the indications of need you define, or a combination, as you choose. Indications might include changes in packaging or supplier, or a device returning from travel to a high-risk location.",
+      "nextSteps": [
+        "Identify which systems or components need tamper inspection, such as laptops that travel or equipment returning from repair.",
+        "Decide when inspections happen: at random, on a schedule, or when triggered by specific signs.",
+        "Define what to check, such as seals, packaging, and unexpected hardware or software changes."
+      ],
+      "reviewed": false
+    },
+    "sr-11": {
+      "question": "Does your organization have anti-counterfeit policy and procedures to detect and keep counterfeit components out of its systems, and does it report counterfeits it finds?",
+      "whyItMatters": "Counterfeit hardware and software can fail early, lack security updates, or contain malicious code. Detecting them before installation protects both reliability and security.",
+      "doneLooksLike": "You have developed and implemented an anti-counterfeit policy and procedures that include the means to detect and prevent counterfeit components from entering the system. Counterfeit components are reported to the parties you choose, such as the source of the component, external reporting organizations, or designated internal roles.",
+      "nextSteps": [
+        "Buy hardware and software only from manufacturers or their authorized resellers.",
+        "Write procedures for checking new components for authenticity before installation.",
+        "Define to whom counterfeit components are reported and how."
+      ],
+      "reviewed": false
+    },
+    "sr-11.1": {
+      "question": "In support of your anti-counterfeit procedures, does your organization train the people you designate to recognize counterfeit hardware, software, and firmware?",
+      "whyItMatters": "Procedures only work if the people buying, receiving, and installing equipment can spot a fake. Training makes it more likely counterfeit components are caught before they are used.",
+      "doneLooksLike": "The personnel or roles you define, such as those who purchase, receive, or install equipment, are trained to detect counterfeit system components, including hardware, software, and firmware.",
+      "nextSteps": [
+        "Identify who handles purchasing, receiving, and installing system components.",
+        "Provide training on signs of counterfeit products, such as unusual packaging, labeling, pricing, or unverifiable licenses.",
+        "Include counterfeit detection in onboarding for anyone taking on those roles."
+      ],
+      "reviewed": false
+    },
+    "sr-11.2": {
+      "question": "Does your organization keep configuration control over the components you specify while they await repair and after repair until they return to service?",
+      "whyItMatters": "Components that are out for repair or waiting on a shelf can be swapped, altered, or lost track of. Keeping them under control helps ensure that what returns to service is genuine and unaltered.",
+      "doneLooksLike": "The system components you define remain under configuration control while awaiting service or repair, and serviced or repaired components remain under configuration control until they return to service.",
+      "nextSteps": [
+        "Identify which components require configuration control during service and repair.",
+        "Track components sent for repair and returned, including serial numbers and who handled them.",
+        "Store components awaiting repair or return to service in a secured area, and verify them before reinstalling."
+      ],
+      "reviewed": false
+    },
+    "sr-12": {
+      "question": "Does your organization dispose of the data, documentation, tools, and system components you specify using defined techniques and methods?",
+      "whyItMatters": "Discarded equipment and documents can expose sensitive information or end up resold on the gray market. Defined disposal methods help prevent both.",
+      "doneLooksLike": "The data, documentation, tools, or system components you define are disposed of using the techniques and methods you define, such as disk cleaning, removal of cryptographic keys, or physical destruction, whenever disposal occurs in the life cycle, not only at retirement.",
+      "nextSteps": [
+        "Identify the items that require controlled disposal, such as storage devices, routers, and design documents.",
+        "Choose a disposal method for each, such as secure erasure, shredding, or physical destruction.",
+        "Make controlled disposal part of hardware replacement, prototyping, and repair processes."
+      ],
+      "reviewed": false
+    }
+  }
+}

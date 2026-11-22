@@ -600,7 +600,7 @@
     "ia-2.12": {
       "question": "Do your systems accept and electronically verify Personal Identity Verification (PIV) credentials, the federal government's standard smart card identity credential?",
       "whyItMatters": "PIV credentials provide strong, government-issued proof of identity. Accepting and electronically verifying them lets federal users authenticate with a trusted credential rather than a password alone.",
-      "doneLooksLike": "Your logical and physical access control systems accept PIV-compliant credentials, including derived PIV credentials where used, and verify them electronically.",
+      "doneLooksLike": "Your logical and physical access control systems accept credentials that conform to the PIV standard, including derived PIV credentials where used, and verify them electronically.",
       "nextSteps": [
         "Determine whether your users hold PIV or derived PIV credentials.",
         "Configure systems and applications to accept these credentials for logon and, where relevant, physical entry.",
@@ -678,7 +678,7 @@
     "ia-8.1": {
       "question": "Do your systems accept and electronically verify Personal Identity Verification (PIV) credentials issued by other federal agencies?",
       "whyItMatters": "Federal users from other agencies already hold strong identity credentials. Accepting them avoids issuing separate, often weaker credentials and gives you a trusted way to verify who is connecting.",
-      "doneLooksLike": "PIV-compliant credentials issued by other federal agencies are accepted by your logical and physical access control systems and electronically verified.",
+      "doneLooksLike": "Credentials that conform to the PIV standard and are issued by other federal agencies are accepted by your logical and physical access control systems and electronically verified.",
       "nextSteps": [
         "Identify users from other federal agencies who need access.",
         "Configure systems to accept PIV credentials issued by other agencies.",

@@ -41,9 +41,9 @@ extension Font {
     static let dsRequirementIDSmall = Font.system(.caption, design: .monospaced).weight(.medium)
 
     static let specimen: [TypeStyle] = [
-        TypeStyle(id: "largeTitle", name: "Large Title", font: .dsLargeTitle, spec: "Futura Bold 34, scales with Large Title",
+        TypeStyle(id: "largeTitle", name: "Large Title", font: .dsLargeTitle, spec: "Futura Bold 34, scales with Large Title up to AX1",
                   usage: "Top-level screen titles"),
-        TypeStyle(id: "title", name: "Title", font: .dsTitle, spec: "Futura Bold 28, scales with Title",
+        TypeStyle(id: "title", name: "Title", font: .dsTitle, spec: "Futura Bold 28, scales with Title up to AX1",
                   usage: "Dashboard figures and report headings"),
         TypeStyle(id: "title2", name: "Title 2", font: .dsTitle2, spec: "Futura Medium 22, scales with Title 2",
                   usage: "Requirement titles in detail views"),
@@ -67,6 +67,12 @@ extension Font {
 }
 
 extension View {
+    /// Caps the largest Futura display styles at the first accessibility size. They start at 28–34 pt,
+    /// and growing further makes single words break mid-word on iPhone. Reading text is never capped.
+    func dsDisplayTypeCap() -> some View {
+        dynamicTypeSize(...DynamicTypeSize.accessibility1)
+    }
+
     /// Futura section header styling for `List` sections.
     func dsSectionHeaderStyle() -> some View {
         self.font(.dsSectionHeader)
@@ -83,8 +89,9 @@ enum NavigationBarStyle {
     static func apply() {
         let largeBase = UIFont(name: Typeface.futuraBold, size: 34) ?? .preferredFont(forTextStyle: .largeTitle)
         let inlineBase = UIFont(name: Typeface.futuraMedium, size: 17) ?? .preferredFont(forTextStyle: .headline)
-        let large = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: largeBase)
-        let inline = UIFontMetrics(forTextStyle: .headline).scaledFont(for: inlineBase)
+        // Large titles are capped so common titles fit on one line on iPhone at accessibility sizes.
+        let large = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: largeBase, maximumPointSize: 40)
+        let inline = UIFontMetrics(forTextStyle: .headline).scaledFont(for: inlineBase, maximumPointSize: 28)
         let proxy = UINavigationBar.appearance()
         proxy.largeTitleTextAttributes = [.font: large]
         proxy.titleTextAttributes = [.font: inline]

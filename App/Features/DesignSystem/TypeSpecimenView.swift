@@ -35,7 +35,8 @@ struct TypeSpecimenView: View {
                 Section {
                     ForEach(Font.specimen) { style in
                         SpecimenRow(style: style, sample: Self.displaySamples[style.id] ?? style.name,
-                                    uppercase: style.id == "sectionHeader")
+                                    uppercase: style.id == "sectionHeader",
+                                    capped: style.id == "largeTitle" || style.id == "title")
                     }
                 } header: {
                     SectionHeader("Display · Futura")
@@ -152,15 +153,24 @@ private struct OptionalDynamicTypeSize: ViewModifier {
     }
 }
 
+private struct DisplayCap: ViewModifier {
+    let enabled: Bool
+    func body(content: Content) -> some View {
+        if enabled { content.dsDisplayTypeCap() } else { content }
+    }
+}
+
 private struct SpecimenRow: View {
     let style: TypeStyle
     let sample: String
     var uppercase = false
+    var capped = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: DS.Space.xxs) {
             Text(sample)
                 .font(style.font)
+                .modifier(DisplayCap(enabled: capped))
                 .textCase(uppercase ? .uppercase : nil)
                 .tracking(uppercase ? 0.6 : 0)
                 .foregroundStyle(Color.dsTextPrimary)

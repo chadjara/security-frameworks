@@ -9,11 +9,9 @@ struct StatusBadge: View {
     var style: Style = .plain
 
     var body: some View {
-        Label {
-            Text(status.title)
-        } icon: {
+        HStack(spacing: DS.Space.xs) {
             Image(systemName: status.symbolName)
-                .symbolRenderingMode(.hierarchical)
+            Text(status.title)
         }
         .font(.dsSubheadline.weight(.medium))
         .foregroundStyle(status.color)

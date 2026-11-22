@@ -96,9 +96,12 @@ private struct TokenRow: View {
                 .accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 2) {
                 Text(Self.displayName(token.id)).font(.dsHeadline).foregroundStyle(Color(token: token))
-                Text("Light \(token.light.description) · Dark \(token.dark.description)")
-                    .font(.dsFootnote.monospaced())
-                    .foregroundStyle(Color.dsTextSecondary)
+                Group {
+                    Text("Light \(token.light.description)")
+                    Text("Dark  \(token.dark.description)")
+                }
+                .font(.dsFootnote.monospaced())
+                .foregroundStyle(Color.dsTextSecondary)
             }
             Spacer(minLength: DS.Space.xs)
             Text(String(format: "%.1f:1", ratio))

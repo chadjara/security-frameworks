@@ -39,6 +39,7 @@ struct RequirementListView: View {
     @State private var showOutOfScope = false
     @State private var questionnaireStart: QuestionnaireStart?
     @State private var reasonRequest: RequirementRef?
+    @FocusState private var searchFocused: Bool
 
     var body: some View {
         let statuses = assessment.statusMap(frameworkID: framework.id)
@@ -56,6 +57,15 @@ struct RequirementListView: View {
         .listStyle(.insetGrouped)
         .navigationTitle(framework.document.shortName)
         .searchable(text: $searchText, prompt: "Search by ID or keyword")
+        .modifier(SearchFocus(focused: $searchFocused))
+        .background {
+            // ⌘F focuses search from a hardware keyboard (iOS 18 and later).
+            Button("Search") { searchFocused = true }
+                .keyboardShortcut("f", modifiers: .command)
+                .opacity(0)
+                .frame(width: 0, height: 0)
+                .accessibilityHidden(true)
+        }
         .task(id: searchText) { await runSearch() }
         .toolbar { toolbar }
         .fullScreenCover(item: $questionnaireStart) { start in
@@ -93,9 +103,16 @@ struct RequirementListView: View {
                     Button {
                         questionnaireStart = QuestionnaireStart(requirementID: nil)
                     } label: {
-                        Label(progress.answered == 0 ? "Start Guided Questions" : "Continue Guided Questions",
-                              systemImage: "arrow.forward.circle")
-                            .frame(maxWidth: .infinity)
+                        ViewThatFits(in: .horizontal) {
+                            Label(progress.answered == 0 ? "Start Guided Questions" : "Continue Guided Questions",
+                                  systemImage: "arrow.forward.circle")
+                                .lineLimit(1)
+                            Label(progress.answered == 0 ? "Start Questions" : "Continue Questions",
+                                  systemImage: "arrow.forward.circle")
+                                .lineLimit(1)
+                            Text(progress.answered == 0 ? "Start" : "Continue")
+                        }
+                        .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.dsPrimary)
                     .disabled(progress.total == 0)
@@ -276,6 +293,19 @@ struct RequirementListView: View {
             questionnaireStart = QuestionnaireStart(requirementID: nil)
         }
         #endif
+    }
+}
+
+/// Binds search field focus where the API exists (iOS 18+).
+struct SearchFocus: ViewModifier {
+    var focused: FocusState<Bool>.Binding
+
+    func body(content: Content) -> some View {
+        if #available(iOS 18.0, *) {
+            content.searchFocused(focused)
+        } else {
+            content
+        }
     }
 }
 

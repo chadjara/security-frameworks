@@ -14,6 +14,7 @@ struct RequirementDetailView: View {
 
     @Environment(\.modelContext) private var context
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var showingReasonSheet = false
     @State private var implementedTrigger = 0
     @State private var groupCompleteTrigger = 0
@@ -191,9 +192,14 @@ struct RequirementDetailView: View {
 
     private func header(_ r: Requirement, inScope: Bool) -> some View {
         VStack(alignment: .leading, spacing: DS.Space.s) {
-            HStack(alignment: .firstTextBaseline) {
+            let idLayout = dynamicTypeSize.isAccessibilitySize
+                ? AnyLayout(VStackLayout(alignment: .leading, spacing: DS.Space.xxs))
+                : AnyLayout(HStackLayout(alignment: .firstTextBaseline))
+            idLayout {
                 RequirementIDLabel(id: r.displayId, size: .large)
-                Spacer(minLength: DS.Space.xs)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.6)
+                if !dynamicTypeSize.isAccessibilitySize { Spacer(minLength: DS.Space.xs) }
                 Text(framework.kind(r.kind)?.singular ?? "")
                     .font(.dsFootnote)
                     .foregroundStyle(Color.dsTextSecondary)
@@ -202,6 +208,7 @@ struct RequirementDetailView: View {
                 .font(.dsTitle2)
                 .foregroundStyle(Color.dsTextPrimary)
                 .fixedSize(horizontal: false, vertical: true)
+                .dsDisplayTypeCap()
             Text(groupPath(r))
                 .font(.dsFootnote)
                 .foregroundStyle(Color.dsTextSecondary)

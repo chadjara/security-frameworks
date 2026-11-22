@@ -6,11 +6,12 @@ struct StatusPicker: View {
     let selected: RequirementStatus
     let onSelect: (RequirementStatus) -> Void
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
-    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-
+    /// Adaptive so the four options fit side by side only when there is room (for example, a wide
+    /// iPad detail column) and wrap to two rows or one column otherwise.
     private var columns: [GridItem] {
-        let count = dynamicTypeSize.isAccessibilitySize ? 1 : (horizontalSizeClass == .regular ? 4 : 2)
-        return Array(repeating: GridItem(.flexible(), spacing: DS.Space.xs), count: count)
+        if dynamicTypeSize.isAccessibilitySize { return [GridItem(.flexible())] }
+        let minimum: CGFloat = dynamicTypeSize >= .xxLarge ? 190 : 150
+        return [GridItem(.adaptive(minimum: minimum), spacing: DS.Space.xs)]
     }
 
     var body: some View {
@@ -40,7 +41,7 @@ private struct StatusOptionLabel: View {
 
     var body: some View {
         HStack(spacing: DS.Space.xs) {
-            Image(systemName: isSelected ? status.selectedSymbolName : status.symbolName)
+            Image(systemName: isSelected ? status.selectedSymbolName : status.outlineSymbolName)
                 .font(.dsBody.weight(.semibold))
             Text(status.title)
                 .font(.dsButtonSmall)
@@ -66,6 +67,16 @@ private struct StatusOptionLabel: View {
 }
 
 extension RequirementStatus {
+    /// Unselected options use outline symbols so none of them looks already chosen.
+    var outlineSymbolName: String {
+        switch self {
+        case .notStarted: return "circle"
+        case .inProgress: return "circle.lefthalf.filled"
+        case .implemented: return "checkmark.circle"
+        case .notApplicable: return "minus.circle"
+        }
+    }
+
     var selectedSymbolName: String {
         switch self {
         case .notStarted: return "circle.inset.filled"
@@ -144,8 +155,8 @@ struct ParameterField: View {
                         .accessibilityHidden(true)
                 }
             }
-            if let guidance = parameter.guidance {
-                Text(guidance.prefix(1).uppercased() + guidance.dropFirst())
+            if let guidance = Self.readableGuidance(parameter.guidance) {
+                Text(guidance)
                     .font(.dsFootnote)
                     .foregroundStyle(Color.dsTextSecondary)
             }
@@ -178,10 +189,28 @@ struct ParameterField: View {
                 TextField("Your value", text: $value, axis: .vertical)
                     .font(.dsBody)
                     .lineLimit(1...4)
-                    .textFieldStyle(.roundedBorder)
+                    .padding(.horizontal, DS.Space.s)
+                    .padding(.vertical, DS.Space.xs)
+                    .background(
+                        RoundedRectangle(cornerRadius: DS.Corner.small, style: .continuous)
+                            .fill(Color.dsGroupedBackground)
+                    )
             }
         }
         .padding(.vertical, DS.Space.xxs)
+    }
+
+    /// NIST phrases parameter guidance as an assessment determination ("the time period … is defined;").
+    /// Shown as a plain description: "The time period …".
+    static func readableGuidance(_ raw: String?) -> String? {
+        guard var text = raw?.trimmingCharacters(in: .whitespacesAndNewlines), !text.isEmpty else { return nil }
+        for suffix in [" is/are defined;", " is/are defined.", " is defined;", " is defined.", " are defined;", " are defined.",
+                       " is/are selected;", " is/are selected.", " is selected;", " is selected."] where text.hasSuffix(suffix) {
+            text = String(text.dropLast(suffix.count))
+            break
+        }
+        text = text.trimmingCharacters(in: CharacterSet(charactersIn: ";. "))
+        return text.prefix(1).uppercased() + text.dropFirst() + "."
     }
 
     private var title: String {

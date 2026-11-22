@@ -1,0 +1,12 @@
+{
+ "frameworkId": "csf-2.0",
+ "summary": {
+  "plainDescription": "A high-level framework for managing cybersecurity risk, organized around six functions: Govern, Identify, Protect, Detect, Respond, and Recover. It describes outcomes to achieve rather than specific technical controls, so it fits organizations of any size or sector.",
+  "audience": "Any organization, from small businesses to large enterprises and public agencies. No contract or regulation is needed to use it.",
+  "covers": "Outcomes for governance, risk management, asset management, supplier risk, identity and access, awareness and training, data security, platform and infrastructure security, monitoring, incident response, and recovery.",
+  "typicalEffort": "A first pass for a small organization usually takes a few days of focused work. A thorough assessment for a larger organization often takes several weeks and involves people from IT, security, legal, and leadership.",
+  "whenToChoose": "Choose CSF when you want a broad, plain-language picture of your cybersecurity program, need a shared vocabulary for leadership, or are not yet required to follow a specific control catalog. Many organizations start here and use SP 800-53 or SP 800-171 for control-level detail."
+ },
+ "notices": [],
+ "requirements": {}
+}

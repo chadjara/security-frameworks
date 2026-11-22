@@ -1,0 +1,123 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  content:
+    name: Content (converter and data)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install schema validator
+        run: pip install "jsonschema==4.23.0"
+      - name: Converter unit tests
+        run: python -m unittest discover -s tools/oscal_convert/tests -v
+      - name: Generated content is current
+        run: python tools/oscal_convert/convert.py --check
+
+  apple:
+    name: Build and test (iOS)
+    runs-on: macos-26
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select latest Xcode
+        run: |
+          XCODE=$(ls -d /Applications/Xcode_*.app | grep -vi beta | sort -V | tail -1)
+          echo "Using $XCODE"
+          sudo xcode-select -s "$XCODE"
+          xcodebuild -version
+          swift --version
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: FrameworkKit tests (swift test)
+        run: swift test --package-path Packages/FrameworkKit
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Pick simulators
+        id: sims
+        run: python3 .github/scripts/pick_simulators.py >> "$GITHUB_OUTPUT"
+
+      - name: Build for testing
+        run: |
+          set -o pipefail
+          xcodebuild build-for-testing \
+            -project FrameworkApp.xcodeproj -scheme FrameworkApp \
+            -destination "id=${{ steps.sims.outputs.iphone }}" \
+            -destination "id=${{ steps.sims.outputs.ipad }}" \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            -quiet
+
+      - name: Test on iPhone (${{ steps.sims.outputs.iphone_name }})
+        env:
+          TEST_RUNNER_SCREENSHOT_DIR: ${{ github.workspace }}/screenshots/iphone
+        run: |
+          set -o pipefail
+          xcodebuild test-without-building \
+            -project FrameworkApp.xcodeproj -scheme FrameworkApp \
+            -destination "id=${{ steps.sims.outputs.iphone }}" \
+            -derivedDataPath build/DerivedData \
+            -resultBundlePath build/iphone.xcresult \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Test on iPad (${{ steps.sims.outputs.ipad_name }})
+        if: always()
+        env:
+          TEST_RUNNER_SCREENSHOT_DIR: ${{ github.workspace }}/screenshots/ipad
+        run: |
+          set -o pipefail
+          xcodebuild test-without-building \
+            -project FrameworkApp.xcodeproj -scheme FrameworkApp \
+            -destination "id=${{ steps.sims.outputs.ipad }}" \
+            -derivedDataPath build/DerivedData \
+            -resultBundlePath build/ipad.xcresult \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Export screenshot attachments from result bundles
+        if: always()
+        run: |
+          for r in iphone ipad; do
+            if [ -d "build/$r.xcresult" ]; then
+              mkdir -p "screenshots/attachments-$r"
+              xcrun xcresulttool export attachments --path "build/$r.xcresult" --output-path "screenshots/attachments-$r" || true
+            fi
+          done
+          ls -R screenshots | head -100 || true
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: screenshots
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Upload result bundles
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xcresults
+          path: build/*.xcresult
+          retention-days: 7

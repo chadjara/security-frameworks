@@ -1,0 +1,25 @@
+{"catalog": {"groups": [
+ {"id": "GV", "class": "function", "title": "GOVERN", "props": [{"name": "sort-id", "value": "00001"}],
+  "parts": [{"id": "GV_overview", "name": "overview", "prose": "The organization's cybersecurity risk management strategy, expectations, and policy are established, communicated, and monitored"}],
+  "controls": [
+   {"id": "GV.RM", "class": "category", "title": "Risk Management Strategy", "props": [{"name": "sort-id", "value": "00001.00002"}],
+    "parts": [{"name": "statement", "prose": "The organization's priorities, constraints, risk tolerance and appetite statements, and assumptions are established, communicated, and used to support operational risk decisions"}],
+    "controls": [{"id": "GV.RM-01", "class": "subcategory", "title": "GV.RM-01", "props": [{"name": "sort-id", "value": "00001.00002.00001"}],
+      "parts": [{"name": "statement", "prose": "Risk management objectives are established and agreed to by organizational stakeholders"}]}]},
+   {"id": "GV.OC", "class": "category", "title": "Organizational Context", "props": [{"name": "sort-id", "value": "00001.00001"}],
+    "parts": [{"name": "statement", "prose": "The circumstances are understood"}],
+    "controls": [{"id": "GV.OC-01", "class": "subcategory", "title": "GV.OC-01", "props": [{"name": "sort-id", "value": "00001.00001.00001"}],
+      "parts": [{"name": "statement", "prose": "The organizational mission is understood and informs cybersecurity risk management"},
+                {"name": "guidance", "class": "example", "prose": "Share the organization's mission"}]}]}
+  ]},
+ {"id": "ID", "class": "function", "title": "IDENTIFY", "props": [{"name": "sort-id", "value": "00002"}],
+  "parts": [{"name": "overview", "prose": "The organization's current cybersecurity risks are understood"}],
+  "controls": [
+   {"id": "ID.AM", "class": "category", "title": "Asset Management", "props": [{"name": "sort-id", "value": "00002.00001"}],
+    "parts": [{"name": "statement", "prose": "Assets are identified and managed"}],
+    "controls": [{"id": "ID.AM-06", "class": "subcategory", "title": "ID.AM-06",
+      "props": [{"name": "sort-id", "value": "00002.00001.00006"}, {"name": "status", "value": "withdrawn"}],
+      "links": [{"href": "GV.RR-02", "rel": "incorporated_into"}],
+      "parts": [{"name": "statement", "prose": "Cybersecurity roles and responsibilities are established"}]}]}
+  ]}
+]}}

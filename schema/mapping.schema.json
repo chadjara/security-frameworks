@@ -1,0 +1,55 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://github.com/chadjara/security-frameworks/schema/mapping.schema.json",
+ "title": "Cross-framework mapping file (schema version 1)",
+ "description": "NIST-published relationships from requirements in one framework to requirements in another. See docs/SCHEMA.md.",
+ "type": "object",
+ "required": ["schemaVersion", "id", "title", "fromFramework", "toFramework", "contentVersion", "relationship", "source", "entries"],
+ "additionalProperties": false,
+ "properties": {
+  "schemaVersion": {"const": 1},
+  "id": {"type": "string", "pattern": "^[a-z0-9.-]+_to_[a-z0-9.-]+$"},
+  "title": {"type": "string"},
+  "fromFramework": {"type": "string"},
+  "toFramework": {"type": "string"},
+  "contentVersion": {"type": "string"},
+  "relationship": {
+   "type": "object", "required": ["type", "description"], "additionalProperties": false,
+   "properties": {
+    "type": {"enum": ["source-control", "informative-reference"]},
+    "description": {"type": "string"}
+   }
+  },
+  "source": {
+   "type": "object", "required": ["publisher", "url"],
+   "properties": {
+    "publisher": {"type": "string"},
+    "description": {"type": "string"},
+    "url": {"type": "string", "format": "uri"},
+    "browseUrl": {"type": "string", "format": "uri"},
+    "file": {"type": "string"},
+    "sha256": {"type": "string"},
+    "originalSha256": {"type": "string"},
+    "retrieved": {"type": "string"}
+   }
+  },
+  "entries": {
+   "type": "array",
+   "items": {
+    "type": "object", "required": ["from", "to"], "additionalProperties": false,
+    "properties": {
+     "from": {"type": "string"},
+     "to": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+    }
+   }
+  },
+  "unresolved": {
+   "type": "array",
+   "description": "Source references that could not be represented (withdrawn targets, family-level references). Kept for transparency; not used by the app.",
+   "items": {
+    "type": "object", "required": ["from", "sourceValue", "reason"], "additionalProperties": false,
+    "properties": {"from": {"type": "string"}, "sourceValue": {"type": "string"}, "reason": {"type": "string"}}
+   }
+  }
+ }
+}

@@ -1,0 +1,227 @@
+{
+ "schemaVersion": 1,
+ "contentVersion": "2026.11.0",
+ "frameworks": [
+  {
+   "id": "csf-2.0",
+   "file": "frameworks/csf-2.0.framework.json",
+   "shortName": "CSF 2.0",
+   "title": "The NIST Cybersecurity Framework (CSF) 2.0",
+   "publicationId": "NIST CSWP 29",
+   "version": "2.0",
+   "summary": {
+    "plainDescription": "A high-level framework for managing cybersecurity risk, organized around six functions: Govern, Identify, Protect, Detect, Respond, and Recover. It describes outcomes to achieve rather than specific technical controls, so it fits organizations of any size or sector.",
+    "audience": "Any organization, from small businesses to large enterprises and public agencies. No contract or regulation is needed to use it.",
+    "covers": "Outcomes for governance, risk management, asset management, supplier risk, identity and access, awareness and training, data security, platform and infrastructure security, monitoring, incident response, and recovery.",
+    "typicalEffort": "A first pass for a small organization usually takes a few days of focused work. A thorough assessment for a larger organization often takes several weeks and involves people from IT, security, legal, and leadership.",
+    "whenToChoose": "Choose CSF when you want a broad, plain-language picture of your cybersecurity program, need a shared vocabulary for leadership, or are not yet required to follow a specific control catalog. Many organizations start here and use SP 800-53 or SP 800-171 for control-level detail."
+   },
+   "kinds": [
+    {
+     "id": "subcategory",
+     "singular": "Subcategory",
+     "plural": "Subcategories"
+    }
+   ],
+   "groupLevels": [
+    {
+     "singular": "Function",
+     "plural": "Functions"
+    },
+    {
+     "singular": "Category",
+     "plural": "Categories"
+    }
+   ],
+   "baselines": [],
+   "notices": [],
+   "counts": {
+    "requirements": 106,
+    "byKind": {
+     "subcategory": 106
+    },
+    "groups": [
+     6,
+     22
+    ],
+    "withdrawn": 91,
+    "parameters": 0,
+    "withEditorial": 0
+   }
+  },
+  {
+   "id": "sp800-53r5",
+   "file": "frameworks/sp800-53r5.framework.json",
+   "shortName": "SP 800-53 Rev. 5",
+   "title": "Security and Privacy Controls for Information Systems and Organizations",
+   "publicationId": "NIST SP 800-53 Rev. 5",
+   "version": "5.2.0",
+   "summary": {
+    "plainDescription": "A comprehensive catalog of security and privacy controls. Each control describes a specific safeguard, and optional enhancements strengthen it. The SP 800-53B baselines select the controls that suit low-, moderate-, and high-impact systems, plus a privacy baseline.",
+    "audience": "Required for U.S. federal information systems, and widely used by federal contractors, state and local governments, and organizations that want a detailed, mature control set.",
+    "covers": "Controls in 20 families, from access control and audit logging to contingency planning, supply chain risk management, and the processing of personal information. Most organizations work from a baseline rather than the full catalog.",
+    "typicalEffort": "Substantial. Implementing the Low baseline is a meaningful project for a small team. The Moderate and High baselines usually take months and involve dedicated security staff.",
+    "whenToChoose": "Choose SP 800-53 when you operate or support federal systems, when a contract or regulator requires it, or when you need control-level detail beyond what CSF provides."
+   },
+   "kinds": [
+    {
+     "id": "control",
+     "singular": "Control",
+     "plural": "Controls"
+    },
+    {
+     "id": "enhancement",
+     "singular": "Control Enhancement",
+     "plural": "Control Enhancements"
+    }
+   ],
+   "groupLevels": [
+    {
+     "singular": "Family",
+     "plural": "Families"
+    }
+   ],
+   "baselines": [
+    {
+     "id": "low",
+     "title": "Low",
+     "additive": false,
+     "summary": "For systems where a loss of confidentiality, integrity, or availability would have a limited adverse effect."
+    },
+    {
+     "id": "moderate",
+     "title": "Moderate",
+     "additive": false,
+     "summary": "For systems where a loss would have a serious adverse effect. The most commonly selected baseline."
+    },
+    {
+     "id": "high",
+     "title": "High",
+     "additive": false,
+     "summary": "For systems where a loss would have a severe or catastrophic adverse effect."
+    },
+    {
+     "id": "privacy",
+     "title": "Privacy",
+     "additive": true,
+     "summary": "Added on top of a security baseline when a system processes personally identifiable information."
+    }
+   ],
+   "notices": [
+    {
+     "id": "baselines",
+     "title": "Start with a baseline",
+     "body": "Choose the Low, Moderate, or High baseline that matches the impact level of your system, and add the Privacy baseline if the system processes personal information. You can add other controls manually at any time."
+    }
+   ],
+   "counts": {
+    "requirements": 1014,
+    "byKind": {
+     "control": 300,
+     "enhancement": 714
+    },
+    "groups": [
+     20
+    ],
+    "withdrawn": 182,
+    "parameters": 1458,
+    "withEditorial": 0,
+    "byBaseline": {
+     "low": {
+      "control": 131,
+      "enhancement": 18
+     },
+     "moderate": {
+      "control": 177,
+      "enhancement": 110
+     },
+     "high": {
+      "control": 188,
+      "enhancement": 182
+     },
+     "privacy": {
+      "control": 75,
+      "enhancement": 21
+     }
+    }
+   }
+  },
+  {
+   "id": "sp800-171r3",
+   "file": "frameworks/sp800-171r3.framework.json",
+   "shortName": "SP 800-171 Rev. 3",
+   "title": "Protecting Controlled Unclassified Information in Nonfederal Systems and Organizations",
+   "publicationId": "NIST SP 800-171 Rev. 3",
+   "version": "3",
+   "summary": {
+    "plainDescription": "Security requirements for protecting Controlled Unclassified Information (CUI) when it is stored, processed, or transmitted on systems outside the federal government.",
+    "audience": "Contractors, universities, and other organizations that handle CUI for U.S. federal agencies, including companies in the defense industrial base.",
+    "covers": "Security requirements in 17 families, derived from SP 800-53 controls and tailored for nonfederal organizations. Many requirements include organization-defined parameters, such as time periods and frequencies, that you set yourself.",
+    "typicalEffort": "Moderate to substantial. A small organization with a well-defined CUI environment may need a few months. Larger or less well-defined environments often take longer.",
+    "whenToChoose": "Choose SP 800-171 when a contract or agreement requires you to protect CUI. Confirm which revision your contract specifies before you begin."
+   },
+   "kinds": [
+    {
+     "id": "requirement",
+     "singular": "Security Requirement",
+     "plural": "Security Requirements"
+    }
+   ],
+   "groupLevels": [
+    {
+     "singular": "Family",
+     "plural": "Families"
+    }
+   ],
+   "baselines": [],
+   "notices": [
+    {
+     "id": "cmmc-revision",
+     "title": "Confirm the required revision",
+     "body": "Organizations with U.S. Department of Defense contracts, including those preparing for CMMC, should confirm which revision of SP 800-171 their contract requires. Some contracts and assessments still reference Revision 2. This app covers Revision 3."
+    }
+   ],
+   "counts": {
+    "requirements": 97,
+    "byKind": {
+     "requirement": 97
+    },
+    "groups": [
+     17
+    ],
+    "withdrawn": 33,
+    "parameters": 88,
+    "withEditorial": 0
+   }
+  }
+ ],
+ "mappings": [
+  {
+   "id": "sp800-171r3_to_sp800-53r5",
+   "file": "mappings/sp800-171r3_to_sp800-53r5.mapping.json",
+   "fromFramework": "sp800-171r3",
+   "toFramework": "sp800-53r5",
+   "relationshipType": "source-control",
+   "entries": 97,
+   "pairs": 157
+  },
+  {
+   "id": "csf-2.0_to_sp800-53r5",
+   "file": "mappings/csf-2.0_to_sp800-53r5.mapping.json",
+   "fromFramework": "csf-2.0",
+   "toFramework": "sp800-53r5",
+   "relationshipType": "informative-reference",
+   "entries": 106,
+   "pairs": 736
+  },
+  {
+   "id": "csf-2.0_to_sp800-171r3",
+   "file": "mappings/csf-2.0_to_sp800-171r3.mapping.json",
+   "fromFramework": "csf-2.0",
+   "toFramework": "sp800-171r3",
+   "relationshipType": "informative-reference",
+   "entries": 89,
+   "pairs": 310
+  }
+ ]
+}

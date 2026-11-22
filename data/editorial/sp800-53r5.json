@@ -1,0 +1,18 @@
+{
+ "frameworkId": "sp800-53r5",
+ "summary": {
+  "plainDescription": "A comprehensive catalog of security and privacy controls. Each control describes a specific safeguard, and optional enhancements strengthen it. The SP 800-53B baselines select the controls that suit low-, moderate-, and high-impact systems, plus a privacy baseline.",
+  "audience": "Required for U.S. federal information systems, and widely used by federal contractors, state and local governments, and organizations that want a detailed, mature control set.",
+  "covers": "Controls in 20 families, from access control and audit logging to contingency planning, supply chain risk management, and the processing of personal information. Most organizations work from a baseline rather than the full catalog.",
+  "typicalEffort": "Substantial. Implementing the Low baseline is a meaningful project for a small team. The Moderate and High baselines usually take months and involve dedicated security staff.",
+  "whenToChoose": "Choose SP 800-53 when you operate or support federal systems, when a contract or regulator requires it, or when you need control-level detail beyond what CSF provides."
+ },
+ "notices": [
+  {
+   "id": "baselines",
+   "title": "Start with a baseline",
+   "body": "Choose the Low, Moderate, or High baseline that matches the impact level of your system, and add the Privacy baseline if the system processes personal information. You can add other controls manually at any time."
+  }
+ ],
+ "requirements": {}
+}

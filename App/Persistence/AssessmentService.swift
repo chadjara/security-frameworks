@@ -117,6 +117,7 @@ struct AssessmentService {
     func setParameter(_ parameterID: String, frameworkID: String, value: String, in assessment: Assessment) {
         if let existing = assessment.parameterValue(frameworkID: frameworkID, parameterID: parameterID) {
             if value.isEmpty {
+                assessment.parameterValues.removeAll { $0.persistentModelID == existing.persistentModelID }
                 context.delete(existing)
             } else {
                 existing.value = value
@@ -178,6 +179,7 @@ struct AssessmentService {
         }
         if item.responses.allSatisfy({ $0.ref == ref }) || item.responses.isEmpty {
             if let name = item.storedFileName { EvidenceFileStore.delete(storedFileName: name, assessmentID: assessment.id) }
+            assessment.evidence.removeAll { $0.id == item.id }
             context.delete(item)
         }
         assessment.touch()

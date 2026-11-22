@@ -157,6 +157,7 @@ struct NoAssessmentView: View {
                 .keyboardShortcut("n", modifiers: .command)
                 .accessibilityIdentifier("createFirstAssessment")
         }
+        .accessibilityElement(children: .contain)
         .accessibilityIdentifier("screen.noAssessment")
     }
 }

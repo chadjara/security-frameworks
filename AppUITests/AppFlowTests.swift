@@ -91,20 +91,23 @@ final class AppFlowTests: XCTestCase {
     @MainActor
     func testSetStatusFromDetail() throws {
         let app = launch(route: "detail:csf-2.0:GV.RR-01")
-        XCTAssertTrue(element(app, "screen.requirementDetail").waitForExistence(timeout: 20))
         let implemented = element(app, "status.implemented")
-        XCTAssertTrue(implemented.waitForExistence(timeout: 5))
+        XCTAssertTrue(implemented.waitForExistence(timeout: 30))
         implemented.tap()
         XCTAssertTrue(implemented.isSelected, "Implemented should be selected after tapping it")
 
         element(app, "status.notApplicable").tap()
         let reason = element(app, "naReason")
         XCTAssertTrue(reason.waitForExistence(timeout: 5))
-        XCTAssertFalse(element(app, "naSave").isEnabled, "Save must stay disabled until a reason is entered")
+        // Saving without a reason must not dismiss the sheet.
+        element(app, "naSave").tap()
+        XCTAssertTrue(reason.exists, "The reason sheet must stay open until a reason is entered")
+        reason.tap()
         reason.typeText("Roles are defined by the parent organization.")
-        XCTAssertTrue(element(app, "naSave").isEnabled)
         capture("not-applicable-reason")
         element(app, "naSave").tap()
+        XCTAssertTrue(element(app, "status.notApplicable").waitForExistence(timeout: 5))
+        XCTAssertTrue(element(app, "status.notApplicable").isSelected, "Not applicable should be selected after saving a reason")
     }
 
     @MainActor

@@ -1,0 +1,578 @@
+{
+  "requirements": {
+    "03.01.01": {
+      "question": "Does your organization control who gets an account on systems that handle CUI, review those accounts, and disable them when they are no longer needed?",
+      "whyItMatters": "Unused, shared, or forgotten accounts are a common way in for attackers. Managing accounts deliberately limits access to CUI to the people who need it.",
+      "doneLooksLike": "You have defined which account types are allowed and prohibited, create and change accounts according to documented criteria, record each account's users, group and role memberships, and privileges, approve access based on a valid authorization and intended use, and monitor account use. Accounts are disabled when they expire, sit inactive for the period you define, no longer belong to a user, violate policy, or belong to someone found to pose a significant risk. Account managers are notified within the time periods you set when accounts are no longer needed or people leave, transfer, or change roles, and users are required to log out after the inactivity period or in the circumstances you define.",
+      "nextSteps": [
+        "List every account on systems that store or process CUI, including service and shared accounts.",
+        "Define the account types you allow and prohibit, and the approval needed for each.",
+        "Set the inactivity period after which accounts are disabled, the notification times when people leave or change roles, and when users must log out.",
+        "Disable or remove accounts that have no current owner or need."
+      ],
+      "reviewed": false
+    },
+    "03.01.02": {
+      "question": "Do your systems technically enforce approved permissions, so people and processes can reach only the CUI and system resources they are authorized to use?",
+      "whyItMatters": "Approving access on paper does not help unless systems actually block what is not approved. Technical enforcement keeps an authorized user, or an attacker using that user's account, from reaching CUI outside their approved access.",
+      "doneLooksLike": "Access to CUI and system resources is controlled by technical mechanisms, such as file and folder permissions, application roles, and access control lists, configured to match approved authorizations and your access control policy. Requests outside a user's authorization are denied, including over remote connections and at the application and service level.",
+      "nextSteps": [
+        "Record who is approved to access each location, application, and file share that holds CUI.",
+        "Compare actual permissions on those resources with the approved list and correct any differences.",
+        "Remove broad permissions, such as access for all staff or everyone, from resources that hold CUI.",
+        "Test a sample of accounts to confirm they cannot open CUI they are not approved for."
+      ],
+      "reviewed": false
+    },
+    "03.01.03": {
+      "question": "Does your organization control where CUI is allowed to travel, both within your systems and between your systems and other connected systems?",
+      "whyItMatters": "Controlling who can see CUI is not enough if the information can still move to places it should not go, such as the open internet or an unapproved partner system. Flow controls keep CUI on approved paths even when someone with access makes a mistake.",
+      "doneLooksLike": "You have approved rules for where CUI may flow, and boundary devices such as firewalls, gateways, proxies, and encrypted tunnels enforce them. For example, CUI is not sent unencrypted to the internet, outbound web traffic uses approved paths, traffic falsely claiming to come from inside your network is blocked, and transfers to other organizations follow agreed terms.",
+      "nextSteps": [
+        "Diagram how CUI moves between your users, systems, cloud services, and outside organizations.",
+        "Write down which flows are approved and which must be blocked.",
+        "Configure firewall, gateway, and email rules to enforce those decisions.",
+        "Test a blocked flow, such as sending a test file to an unapproved destination, to confirm the rules work."
+      ],
+      "reviewed": false
+    },
+    "03.01.04": {
+      "question": "Has your organization identified duties that should be split between different people, and set up system access so no one person controls a sensitive process alone?",
+      "whyItMatters": "When one person can both make and approve a change, or both administer access and review the audit logs, misuse or mistakes can go unnoticed. Splitting duties means harmful activity would require more than one person to cooperate.",
+      "doneLooksLike": "You have a documented list of duties that require separation, such as administering access versus reviewing audit logs, or making system changes versus approving them. System access authorizations are defined so that the same person does not hold duties you have decided to keep apart.",
+      "nextSteps": [
+        "List the sensitive tasks in your environment, such as granting access, changing configurations, and reviewing logs.",
+        "Identify which combinations of those tasks one person should not hold.",
+        "Adjust roles and permissions so conflicting duties sit with different people.",
+        "Where you are too small to separate a duty, document it and consider an independent check, such as a second person reviewing the logs."
+      ],
+      "reviewed": false
+    },
+    "03.01.05": {
+      "question": "Do people and processes on systems that handle CUI have only the access they need for their assigned tasks, with privileges reviewed at a set frequency?",
+      "whyItMatters": "Every extra permission is something an attacker can use after taking over an account, and something a user can misuse by accident. Keeping access to the minimum limits the damage any single account can do.",
+      "doneLooksLike": "Users and processes acting for them are granted only the access needed for their assigned tasks. Access to the security functions and security-relevant information you define, such as account administration or firewall rules, is explicitly authorized. Privileges assigned to roles or classes of users are reviewed at the frequency you set, and privileges that are no longer needed are reassigned or removed.",
+      "nextSteps": [
+        "Define which security functions and security-relevant information require explicit authorization.",
+        "Review each role's privileges against what the job requires.",
+        "Set a review frequency and record the results of each review.",
+        "Remove or reassign privileges that are no longer needed."
+      ],
+      "reviewed": false
+    },
+    "03.01.06": {
+      "question": "Are administrator accounts on systems that handle CUI limited to specific people or roles, and do those people use a regular account for everyday work?",
+      "whyItMatters": "Administrator accounts can change security settings, install software, and reach almost any data. If an administrator reads email or browses the web while signed in with those rights, one malicious link can give an attacker the same control.",
+      "doneLooksLike": "Privileged accounts exist only for the personnel or roles you have defined. People with privileged accounts also have separate non-privileged accounts, and they use the non-privileged account for email, web browsing, and other work that does not involve security functions or security-relevant information.",
+      "nextSteps": [
+        "List every privileged account, including local administrator and cloud administrator accounts.",
+        "Define which roles may hold privileged accounts and remove any accounts outside that list.",
+        "Give each administrator a separate standard account for daily work.",
+        "Remove administrator rights from everyday user accounts."
+      ],
+      "reviewed": false
+    },
+    "03.01.07": {
+      "question": "Do your systems stop non-privileged users from performing administrative functions, and record a log entry whenever a privileged function is used?",
+      "whyItMatters": "Administrative functions such as creating accounts, changing settings, or turning off malware protection are exactly what attackers and malicious insiders want to perform. Blocking them for ordinary users and logging their use makes misuse harder to carry out and more likely to be detected.",
+      "doneLooksLike": "Non-privileged users cannot perform privileged functions such as creating accounts, changing system configuration, applying patches, managing cryptographic keys, or disabling security tools. Each use of a privileged function is recorded in an audit log.",
+      "nextSteps": [
+        "Confirm standard users cannot install software, change security settings, or disable endpoint protection.",
+        "Turn on logging of administrative actions on servers, workstations, network devices, and cloud services.",
+        "Include privileged-function events in your regular audit log review."
+      ],
+      "reviewed": false
+    },
+    "03.01.08": {
+      "question": "Do your systems limit how many failed sign-in attempts are allowed within a set period, and respond automatically when that limit is exceeded?",
+      "whyItMatters": "Without a limit, attackers can keep guessing passwords until one works, often with automated tools. A lockout, delay, or alert cuts off guessing attacks and gives you a chance to notice them.",
+      "doneLooksLike": "Systems enforce the maximum number of consecutive failed logon attempts within the time period you define. When the limit is exceeded, the system automatically takes the action you selected, such as locking the account or device for a set time, locking it until an administrator releases it, delaying the next logon prompt, or notifying an administrator.",
+      "nextSteps": [
+        "Decide the attempt limit, time window, and response for each type of system.",
+        "Weigh the risk that lockouts can be used to block legitimate users when choosing between a timed lockout and an administrator release.",
+        "Configure the settings in your directory service, cloud identity service, and applications that handle CUI.",
+        "Test the setting with a test account to confirm it triggers as intended."
+      ],
+      "reviewed": false
+    },
+    "03.01.09": {
+      "question": "Do people see a notice covering security and privacy before they sign in to systems that handle CUI?",
+      "whyItMatters": "A sign-in notice tells users that the system handles controlled information and sets out the conditions of use, such as monitoring. It reminds people of their responsibilities at the moment of access and supports your ability to act on misuse.",
+      "doneLooksLike": "A system use notification with privacy and security notices consistent with applicable CUI rules appears before users are granted access through logon screens. Where an automated banner cannot be displayed, posters or other printed notices are used instead.",
+      "nextSteps": [
+        "Draft notice text that reflects applicable CUI rules, and have it reviewed by whoever handles legal or contract matters.",
+        "Configure the banner on workstations, servers, remote access, and cloud sign-in pages that lead to CUI.",
+        "Use printed notices where a system cannot display a banner."
+      ],
+      "reviewed": false
+    },
+    "03.01.10": {
+      "question": "Do computers that handle CUI lock after a period of inactivity, or do users lock them before stepping away, hiding what was on screen?",
+      "whyItMatters": "An unlocked, unattended screen lets anyone nearby read CUI or act as the signed-in user. A device lock closes that gap during short absences without requiring a full log-out.",
+      "doneLooksLike": "Devices lock after the period of inactivity you define, users are required to lock them before leaving them unattended, or both, depending on what you selected. The lock stays in place until the user signs in again using normal authentication, and the locked screen shows a neutral image, such as a blank screen or clock, instead of what was previously displayed.",
+      "nextSteps": [
+        "Choose the inactivity period and configure automatic screen lock through central management where possible.",
+        "Require a password, PIN, or other authentication to unlock.",
+        "Configure lock screens so they do not show notifications or content that could include CUI.",
+        "Remind users to lock their screens whenever they step away."
+      ],
+      "reviewed": false
+    },
+    "03.01.11": {
+      "question": "Do your systems automatically end user sessions when the conditions you have defined occur, such as a period of inactivity or a time-of-day limit?",
+      "whyItMatters": "Sessions left open indefinitely give an attacker, or anyone with access to the device, a ready path to CUI. Ending sessions automatically removes that access without relying on users to sign out.",
+      "doneLooksLike": "You have defined the conditions or trigger events that end a user session, such as inactivity, time-of-day restrictions, or a response to certain types of incidents. Systems and applications that handle CUI end the user's session automatically when those conditions occur.",
+      "nextSteps": [
+        "Decide which conditions should end a session for each system or application.",
+        "Configure session timeouts in operating systems, remote access tools, and web applications that handle CUI.",
+        "Test that sessions end as configured and that users must sign in again."
+      ],
+      "reviewed": false
+    },
+    "03.01.12": {
+      "question": "Does your organization define and approve each type of remote access to systems that handle CUI, and route those connections through managed access points?",
+      "whyItMatters": "Remote connections over the internet are a common route for attackers. Allowing only approved methods through managed entry points lets you monitor and control remote access, and limiting remote administrative commands reduces what an intruder can do from outside.",
+      "doneLooksLike": "Each allowed type of remote access, such as a virtual private network (VPN, an encrypted connection into your network) or remote desktop gateway, has documented usage restrictions, configuration requirements, and connection requirements, and is authorized before connections are made. Remote connections pass through authorized, managed access control points. Remote execution of privileged commands and remote access to security-relevant information are specifically authorized.",
+      "nextSteps": [
+        "List every way people connect remotely, including remote support tools and cloud administration consoles.",
+        "Document the rules and configuration for each method you allow, and disable the rest.",
+        "Route remote connections through a managed gateway or VPN instead of exposing systems directly to the internet.",
+        "Decide who may run administrative commands remotely and record that authorization."
+      ],
+      "reviewed": false
+    },
+    "03.01.16": {
+      "question": "Does your organization set rules for wireless access to systems that handle CUI, authorize it before use, and protect it with authentication and encryption?",
+      "whyItMatters": "Wireless signals reach beyond your walls, so an unprotected or unknown wireless connection can let outsiders onto your network. Wireless features left on in devices that do not need them add openings you may not be watching.",
+      "doneLooksLike": "Each type of wireless access has documented usage restrictions, configuration requirements, and connection requirements, and is authorized before connections are made. Wireless access is protected with authentication and encryption. Wireless capabilities that are not intended for use are disabled before devices are issued or deployed.",
+      "nextSteps": [
+        "Identify every wireless network and wireless-capable device that connects to systems handling CUI.",
+        "Require authentication and encryption on wireless networks that reach those systems.",
+        "Disable Wi-Fi, Bluetooth, and other wireless features on devices that do not need them before issuing them.",
+        "Document the approved wireless access types, their configurations, and who approved them."
+      ],
+      "reviewed": false
+    },
+    "03.01.18": {
+      "question": "Does your organization set rules for phones and tablets that connect to systems handling CUI, approve each connection, and encrypt CUI stored on them?",
+      "whyItMatters": "Mobile devices are small, travel everywhere, and are often lost or stolen. Without encryption and defined rules, a lost phone can mean exposed CUI.",
+      "doneLooksLike": "You have documented usage restrictions, configuration requirements, and connection requirements for mobile devices, such as required updates, screen locks, and protective software. Only authorized mobile devices connect to the system, and CUI on them is protected by full-device encryption or an encrypted container that separates work data from personal data.",
+      "nextSteps": [
+        "Inventory the mobile devices that access email, files, or applications containing CUI.",
+        "Write down the requirements a mobile device must meet before it may connect.",
+        "Use mobile device management software to enforce encryption or a secure work container.",
+        "Block connections from devices that have not been authorized."
+      ],
+      "reviewed": false
+    },
+    "03.01.20": {
+      "question": "Does your organization prohibit using personal or other outside systems with CUI unless they are specifically authorized and meet the security requirements you have set?",
+      "whyItMatters": "Personal laptops, home computers, and systems run by other organizations sit outside your control. If CUI is accessed or stored on them without verified protections, you cannot be confident it is safe.",
+      "doneLooksLike": "External systems are prohibited unless specifically authorized, and you have defined the security requirements they must meet. Individuals use an external system to access your system or to process, store, or transmit CUI only after you verify those requirements are met and hold an approved connection or processing agreement with the organization hosting it. Use of your organization's portable storage devices on external systems is restricted.",
+      "nextSteps": [
+        "List the external systems people use today, including personal devices and systems run by partners or contractors.",
+        "Define the security requirements an external system must meet before it may be used.",
+        "Verify those requirements and keep an approved agreement for each authorized external system.",
+        "Set rules for using company-owned USB drives and other portable storage on external systems."
+      ],
+      "reviewed": false
+    },
+    "03.01.22": {
+      "question": "Does your organization train the people who post public content to keep CUI out of it, and review public sites and accounts for CUI?",
+      "whyItMatters": "Once CUI appears on a public website or social media account, anyone can copy it and it cannot be fully recalled. Training reduces the chance of a mistake, and review catches anything that slips through.",
+      "doneLooksLike": "People authorized to post to public websites, social media accounts, or other publicly accessible systems are trained to make sure that content does not contain CUI. Content on those systems is reviewed for CUI, and any CUI found is removed.",
+      "nextSteps": [
+        "Identify who can publish to your website, social media accounts, and other public platforms.",
+        "Train those people to recognize CUI and check content before posting.",
+        "Review existing public content for CUI and remove anything you find.",
+        "Decide how often you will repeat the review."
+      ],
+      "reviewed": false
+    },
+    "03.02.01": {
+      "question": "Do all users of systems that handle CUI receive security awareness training when they start and at a set frequency, including how to spot social engineering and insider threats?",
+      "whyItMatters": "Many attacks start by tricking a person rather than breaking technology, through phishing emails, impersonation, or quiet information gathering. Users who recognize these signs and know how to report them stop many attacks early.",
+      "doneLooksLike": "New users receive security literacy training as part of initial training, and all users receive it again at the frequency you define, when system changes require it, and after the events you specify. Training covers recognizing and reporting indicators of insider threat, social engineering, and social mining (gathering information about your organization for later attacks). Training content is updated at the frequency you set and after the events you define.",
+      "nextSteps": [
+        "Choose or build training that covers CUI handling, phishing and other social engineering, and insider threat indicators.",
+        "Make the training part of onboarding and schedule refresher training at the frequency you set.",
+        "Tell users exactly how and to whom to report suspicious activity.",
+        "Keep records of who completed training and when you last updated the content."
+      ],
+      "reviewed": false
+    },
+    "03.02.02": {
+      "question": "Do people with security-related roles, such as administrators, receive training specific to their duties before they get access and at a set frequency afterward?",
+      "whyItMatters": "Administrators, developers, and others with security responsibilities make decisions that general awareness training does not cover. Training tailored to their duties reduces configuration mistakes and helps them carry out security tasks correctly.",
+      "doneLooksLike": "Personnel receive role-based security training before being authorized to access the system or CUI and before performing assigned duties, then at the frequency you define, when system changes require it, and after the events you specify. Role-based training content is updated at the frequency you set and after the events you define.",
+      "nextSteps": [
+        "List the roles with security responsibilities, such as system administrators, help desk staff, and people who manage configurations or audit logs.",
+        "Identify the training each role needs for its specific duties.",
+        "Require that training before granting access, and schedule refresher training at the frequency you set.",
+        "Record completion, and update the content at the frequency and after the events you define."
+      ],
+      "reviewed": false
+    },
+    "03.03.01": {
+      "question": "Has your organization decided which types of events must be logged on systems that handle CUI, and do you review that list at a set frequency?",
+      "whyItMatters": "Logs are often the only way to reconstruct what happened during an incident. If you have not decided what to log, the events you need, such as failed logons or administrator actions, may never be recorded.",
+      "doneLooksLike": "You have a documented list of the event types to be logged, such as logons and failed logons, password changes, use of administrative privileges, and use of third-party credentials. The list is reviewed and updated at the frequency you define so it stays relevant as systems and needs change.",
+      "nextSteps": [
+        "Identify the security-relevant events for each system that handles CUI.",
+        "Document the selected event types and the reason for each choice.",
+        "Set a review frequency and update the list when systems or services change."
+      ],
+      "reviewed": false
+    },
+    "03.03.02": {
+      "question": "Do your audit records show what happened, when and where it happened, its source and outcome, and who or what was involved?",
+      "whyItMatters": "A log entry that lacks a time, a user, or an outcome is of little use in an investigation. Complete records let you trace activity back to a specific account and understand its effect.",
+      "doneLooksLike": "Audit records include the type of event, when and where it occurred, its source, its outcome such as success or failure, and the identity of the individuals, subjects, objects, or entities involved. Additional detail is captured where needed, such as source and destination addresses, file names, or the full text of privileged commands.",
+      "nextSteps": [
+        "Review sample log entries from each key system and check them against the six required elements.",
+        "Adjust logging settings wherever an element is missing.",
+        "Decide where extra detail is needed, such as identifying the individual behind a shared account."
+      ],
+      "reviewed": false
+    },
+    "03.03.03": {
+      "question": "Do your systems generate audit records for the event types and content you have specified, and keep them as long as your retention policy requires?",
+      "whyItMatters": "Deciding what to log only helps if systems are configured to produce those records and keep them. Investigations often begin weeks or months after the activity, so records that were never created or were deleted too early leave gaps.",
+      "doneLooksLike": "Systems are configured to generate audit records for the event types selected under 03.03.01, with the content required by 03.03.02. Audit records are retained for a time period consistent with your records retention policy.",
+      "nextSteps": [
+        "Compare each system's logging configuration with your list of selected event types.",
+        "Turn on any missing logging, including on cloud services and network devices.",
+        "Set log retention to match your records retention policy and confirm there is enough storage.",
+        "Check a sample of older records to confirm they are still available."
+      ],
+      "reviewed": false
+    },
+    "03.03.04": {
+      "question": "If logging stops working on a system that handles CUI, are the right people alerted within a set time, and do you take defined follow-up actions?",
+      "whyItMatters": "If logging fails without anyone noticing, whether from a software error or a full disk, you lose visibility at the moment you may need it most. Alerts make sure someone notices and fixes the problem.",
+      "doneLooksLike": "Designated personnel or roles are alerted within the time period you define when an audit logging process fails, such as a capture error or log storage reaching capacity. Any additional actions you have defined for these failures, such as overwriting the oldest records or stopping the system, are configured and carried out.",
+      "nextSteps": [
+        "Identify who should be alerted when logging fails and set the time period for the alert.",
+        "Configure alerts for logging errors and for log storage approaching capacity.",
+        "Decide what additional actions, if any, each system should take when logging fails.",
+        "Test the alert by simulating a logging failure."
+      ],
+      "reviewed": false
+    },
+    "03.03.05": {
+      "question": "Does someone review and analyze audit records from systems that handle CUI at a set frequency, report findings, and correlate records across different sources?",
+      "whyItMatters": "Logs that no one reads do not stop an attack in progress. Regular review, and looking at logs from different systems together, turns scattered entries into early warnings of misuse or compromise.",
+      "doneLooksLike": "Audit records are reviewed and analyzed at the frequency you define for signs of inappropriate or unusual activity and its potential impact. Findings are reported to designated personnel or roles, such as whoever handles incident response. Records from different log repositories are analyzed and correlated to give an organization-wide view of activity.",
+      "nextSteps": [
+        "Assign responsibility for log review and set the review frequency.",
+        "Bring logs from key systems together in one place, such as a central log server, so they can be correlated.",
+        "Define what counts as unusual activity and how findings are reported.",
+        "Keep a record of each review and its findings."
+      ],
+      "reviewed": false
+    },
+    "03.03.06": {
+      "question": "Can you filter, summarize, and report on audit records to support reviews and investigations, without altering the original records or their time order?",
+      "whyItMatters": "Raw logs can run to millions of entries. Tools that filter and summarize them let reviewers find what matters, while preserving the originals keeps the records trustworthy as evidence.",
+      "doneLooksLike": "You have a capability to search, filter, summarize, and generate reports from audit records that supports review, analysis, reporting, and after-the-fact investigation of incidents. The original content and time ordering of audit records are preserved when records are reduced or reports are produced.",
+      "nextSteps": [
+        "Choose a tool or service that can search and summarize logs from your key systems.",
+        "Build standard reports for the reviews and investigations you expect to run.",
+        "Confirm that searching and reporting do not change the original records or their order."
+      ],
+      "reviewed": false
+    },
+    "03.03.07": {
+      "question": "Do your systems use their internal clocks to time-stamp audit records with the accuracy you require, in UTC or with a recorded offset from UTC?",
+      "whyItMatters": "During an investigation you often need to line up events from several systems. If clocks drift or time zones are unclear, the sequence of events can be wrong or impossible to reconstruct.",
+      "doneLooksLike": "Audit record time stamps are generated from internal system clocks and meet the granularity of time measurement you define, meaning how closely clocks must agree with a reference clock. Time stamps use Coordinated Universal Time (UTC), use a fixed local offset from UTC, or include the local offset in each time stamp.",
+      "nextSteps": [
+        "Define how closely system clocks must match a reference clock.",
+        "Synchronize all systems that handle CUI to a reliable, common time source.",
+        "Confirm that log time stamps use UTC or include the offset from UTC."
+      ],
+      "reviewed": false
+    },
+    "03.03.08": {
+      "question": "Are audit logs and logging tools protected from unauthorized access, changes, and deletion, with management of logging limited to a small set of privileged users?",
+      "whyItMatters": "An attacker or insider who can edit or delete logs can erase evidence of what they did. Restricting who can manage logging keeps audit information reliable, even if an administrator account is misused.",
+      "doneLooksLike": "Audit records, log settings, audit reports, and logging tools are protected from unauthorized access, modification, and deletion. Only a defined subset of privileged users or roles can manage audit logging functionality, separate from general administrative privileges.",
+      "nextSteps": [
+        "Restrict read, change, and delete permissions on log files and logging tools.",
+        "Send logs to a separate system or storage location that ordinary administrators cannot alter.",
+        "Define the small group of roles allowed to change logging settings, and remove that ability from everyone else."
+      ],
+      "reviewed": false
+    },
+    "03.04.01": {
+      "question": "Does your organization keep a documented, current baseline configuration for systems that handle CUI, and update it at a set frequency and when components change?",
+      "whyItMatters": "A baseline configuration (an approved, documented description of how a system should be set up) gives you a known good state to build from and compare against. Without one, unapproved changes and gradual drift are hard to spot.",
+      "doneLooksLike": "A current baseline configuration is documented and maintained under configuration control, covering items such as system components, software versions, settings, network layout, and where components sit in the architecture. The baseline is reviewed and updated at the frequency you define and when components are installed or modified.",
+      "nextSteps": [
+        "Document the standard build for each type of system, including operating system, software, and key settings.",
+        "Store the baseline where changes to it are tracked and approved.",
+        "Set a review frequency, and update the baseline whenever components are installed or modified.",
+        "Compare systems against the baseline to find differences."
+      ],
+      "reviewed": false
+    },
+    "03.04.02": {
+      "question": "Have you established and applied the most restrictive security settings that still let your systems do their job, and documented and approved any deviations?",
+      "whyItMatters": "Default settings on many products favor convenience over security. Hardened settings close common openings, and tracking deviations shows where you have accepted extra risk.",
+      "doneLooksLike": "The configuration settings you have defined, such as account, permission, port, protocol, and remote connection settings, are documented and implemented on systems that handle CUI and reflect the most restrictive mode consistent with operational requirements. Any deviation from those settings is identified, documented, and approved.",
+      "nextSteps": [
+        "Start from a published secure configuration guide for each platform you use.",
+        "Adjust the guide to your operational needs and record the settings you adopt.",
+        "Apply the settings through central management where possible.",
+        "Record each deviation with its reason and approval."
+      ],
+      "reviewed": false
+    },
+    "03.04.03": {
+      "question": "Does your organization define which system changes need approval, review them for security impact, and document and monitor the changes it makes?",
+      "whyItMatters": "Unreviewed changes are a common cause of both outages and security gaps. A defined change process makes sure someone considers security before a change goes in and that there is a record afterward.",
+      "doneLooksLike": "You have defined the types of changes that are configuration-controlled. Proposed changes of those types are reviewed and approved or disapproved with explicit consideration of security impact, approved changes are implemented and documented, and activities related to those changes are monitored and reviewed.",
+      "nextSteps": [
+        "Define which changes require approval, such as software installations, firewall rule changes, and configuration updates.",
+        "Set up a change record that captures the request, security review, decision, and implementation.",
+        "Name the people who can approve changes.",
+        "Review change records and system logs for changes made without approval."
+      ],
+      "reviewed": false
+    },
+    "03.04.04": {
+      "question": "Before making changes to systems that handle CUI, do you analyze the potential security impact, and afterward confirm that security requirements are still met?",
+      "whyItMatters": "A change that seems routine can weaken a safeguard you rely on, such as opening a network port or turning off a logging setting. Analyzing changes beforehand and checking afterward catches these side effects.",
+      "doneLooksLike": "Changes to the system are analyzed for potential security impacts before they are implemented, by people with security responsibilities. After implementation, you verify that the system's security requirements continue to be met, for example by confirming that affected settings and safeguards still work as intended.",
+      "nextSteps": [
+        "Add a security impact question to your change request process.",
+        "Have someone with security knowledge review significant changes before they are made.",
+        "After each change, check that affected security settings and safeguards still work.",
+        "Record the analysis and the verification in the change record."
+      ],
+      "reviewed": false
+    },
+    "03.04.05": {
+      "question": "Have you defined, approved, and enforced limits on who can physically and logically make changes to systems that handle CUI?",
+      "whyItMatters": "Anyone who can change hardware, software, or settings can also weaken security, deliberately or by accident. Limiting change access to qualified, authorized people protects the system's integrity.",
+      "doneLooksLike": "Physical and logical access restrictions for making changes to the system are defined, documented, approved, and enforced. Examples include limiting administrative rights to authorized staff, controlling access to server rooms and software libraries, and allowing changes only during approved change windows.",
+      "nextSteps": [
+        "Identify who is authorized to change hardware, software, and configurations on each system.",
+        "Document those restrictions and have them approved.",
+        "Enforce them through permissions, physical locks, or change windows.",
+        "Review logs to confirm that only authorized people made changes."
+      ],
+      "reviewed": false
+    },
+    "03.04.06": {
+      "question": "Are systems that handle CUI set up to run only essential functions, with unneeded ports, protocols, and services turned off and reviewed at a set frequency?",
+      "whyItMatters": "Every unused service or open port is another way in that you have to maintain and defend. Turning off what you do not need reduces the number of ways an attacker can reach your systems.",
+      "doneLooksLike": "Systems provide only mission-essential capabilities. The functions, ports, protocols, connections, and services you have defined are prohibited or restricted. Systems are reviewed at the frequency you set to find unnecessary or nonsecure functions, ports, protocols, connections, and services, and those found are disabled or removed.",
+      "nextSteps": [
+        "Inventory the services, ports, and protocols running on each system.",
+        "Decide which are needed, and record which ones you prohibit or restrict.",
+        "Disable or remove the rest, such as unused file sharing or outdated protocols.",
+        "Scan systems at the frequency you set to catch anything new."
+      ],
+      "reviewed": false
+    },
+    "03.04.08": {
+      "question": "Does your organization keep a list of software approved to run on systems that handle CUI, and block everything that is not on that list?",
+      "whyItMatters": "Blocking unapproved software by default stops many kinds of malware and unvetted tools from running, including ones your malware protection does not recognize. It also keeps your software environment known and manageable.",
+      "doneLooksLike": "You have identified the software programs authorized to run on the system. A deny-all, allow-by-exception policy (often called application allowlisting) blocks anything not on the list from running. The list is reviewed and updated at the frequency you define.",
+      "nextSteps": [
+        "Inventory the software in use on systems that handle CUI.",
+        "Approve the programs needed for business and record them, including versions or sources where useful.",
+        "Configure application control to block unapproved programs, starting in a monitoring-only mode to find gaps.",
+        "Set a review frequency for the authorized software list."
+      ],
+      "reviewed": false
+    },
+    "03.04.10": {
+      "question": "Do you keep a documented inventory of the hardware, software, and firmware that make up your systems handling CUI, and keep it up to date?",
+      "whyItMatters": "You cannot protect, patch, or monitor a device or program you do not know about. An accurate inventory is the foundation for most other security activities.",
+      "doneLooksLike": "An inventory of system components is documented, with details such as component type, owner, location, version, serial number, and network address. It is reviewed and updated at the frequency you define, and updated as part of every installation, removal, and system update.",
+      "nextSteps": [
+        "List all hardware, software, and firmware components in your CUI environment.",
+        "Record the details needed for accountability, such as owner, location, version, and network address.",
+        "Make inventory updates part of your installation, removal, and update procedures.",
+        "Set a review frequency and compare the inventory against network scans."
+      ],
+      "reviewed": false
+    },
+    "03.04.11": {
+      "question": "Do you know and document where CUI is stored and processed, including which system components hold it, and record changes to those locations?",
+      "whyItMatters": "Protections such as access controls and encryption can only be applied to CUI you know about. Copies in unexpected places, such as personal folders or unapproved cloud storage, often go unprotected.",
+      "doneLooksLike": "You have documented where CUI is located and the system components on which it is processed and stored, such as specific servers, cloud services, and file shares. Changes to the system or component locations where CUI is processed and stored are documented.",
+      "nextSteps": [
+        "Identify the systems, applications, and storage locations where CUI is processed and stored.",
+        "Document each location along with the components involved.",
+        "Add a step to your change process to update the record when CUI moves.",
+        "Look for CUI in unexpected places, such as email archives or personal drives."
+      ],
+      "reviewed": false
+    },
+    "03.04.12": {
+      "question": "When staff travel to locations you consider high-risk, do they receive specially configured devices, and are those devices handled according to your requirements on return?",
+      "whyItMatters": "Devices taken to high-risk locations may be searched, tampered with, or targeted. Limiting what a device carries before travel, and checking it afterward, reduces what can be lost and keeps a compromised device off your network.",
+      "doneLooksLike": "Individuals traveling to locations you consider high-risk are issued systems or components with the configurations you define, such as limited applications and data. When they return, the security requirements you define are applied to those devices, such as inspecting for tampering or reimaging before reconnecting.",
+      "nextSteps": [
+        "Define which locations your organization treats as high-risk.",
+        "Specify the configuration for travel devices, such as a clean device with minimal data and applications.",
+        "Define the steps required on return, such as inspection and reimaging.",
+        "Build the process into travel approval so it happens every time."
+      ],
+      "reviewed": false
+    },
+    "03.05.01": {
+      "question": "Does every user of systems that handle CUI have a unique identity that is authenticated, and are users re-authenticated in the situations you define?",
+      "whyItMatters": "Shared or generic logons make it impossible to know who did what. Unique identification and authentication tie each action to a specific person, which supports accountability and investigations.",
+      "doneLooksLike": "Each system user has a unique identifier and is authenticated before access, and processes acting on behalf of users are associated with that user's identity. Users must re-authenticate in the circumstances you define, such as when roles or credentials change or before privileged functions are performed.",
+      "nextSteps": [
+        "Find shared or generic accounts and replace them with individual accounts.",
+        "Confirm every system that handles CUI requires users to authenticate.",
+        "Define when users must re-authenticate, and configure systems to enforce it."
+      ],
+      "reviewed": false
+    },
+    "03.05.02": {
+      "question": "Do your systems uniquely identify and authenticate the devices or device types you have specified before allowing them to connect?",
+      "whyItMatters": "If any device can plug in or join the network, an attacker's laptop or an unmanaged personal device can reach systems that handle CUI. Device authentication helps make sure only recognized devices connect.",
+      "doneLooksLike": "You have defined which devices or types of devices must be identified and authenticated, which may include devices your organization does not own. Those devices are uniquely identified and authenticated, for example with device certificates or network access control, before a connection to the system is established.",
+      "nextSteps": [
+        "Decide which devices or device types must be authenticated before connecting.",
+        "Choose a method, such as device certificates or network access control.",
+        "Configure network equipment and services to block devices that fail authentication."
+      ],
+      "reviewed": false
+    },
+    "03.05.03": {
+      "question": "Do users need multi-factor authentication to sign in to both administrator and regular accounts on systems that handle CUI?",
+      "whyItMatters": "Passwords are regularly stolen through phishing, reuse, and data breaches. Requiring a second factor means a stolen password alone is not enough to get in.",
+      "doneLooksLike": "Multi-factor authentication (two or more different factors, such as a password plus a code from a phone app or a hardware key) is required for access to all privileged and non-privileged user accounts.",
+      "nextSteps": [
+        "Turn on multi-factor authentication for administrator accounts first.",
+        "Extend it to all user accounts, including email, remote access, and cloud services that handle CUI.",
+        "Find any accounts or systems that do not yet require it, and set a date to close each gap."
+      ],
+      "reviewed": false
+    },
+    "03.05.04": {
+      "question": "Do the sign-in methods for administrator and regular accounts resist replay attacks, so captured sign-in data cannot be reused to gain access?",
+      "whyItMatters": "In a replay attack, someone records the information sent during a sign-in and sends it again later to impersonate the user. Replay-resistant methods make captured sign-in data useless.",
+      "doneLooksLike": "Authentication for privileged and non-privileged accounts uses replay-resistant mechanisms, such as challenge-response protocols or one-time codes, so that recorded authentication messages cannot be used to sign in.",
+      "nextSteps": [
+        "Identify the authentication protocols each system uses.",
+        "Replace or disable older protocols that send reusable credentials.",
+        "Confirm that remote access and cloud sign-ins use challenge-response or one-time authenticators."
+      ],
+      "reviewed": false
+    },
+    "03.05.05": {
+      "question": "Does your organization approve and assign unique identifiers for people, groups, roles, services, and devices, and prevent identifiers from being reused for a set period?",
+      "whyItMatters": "If an identifier is reused, records and permissions tied to the old owner can be confused with the new one, muddying audit trails. Identifiers that show a person's status also tell colleagues who they are dealing with, such as whether someone is a contractor.",
+      "doneLooksLike": "Identifiers are assigned only after authorization from designated personnel or roles, and each identifies a specific individual, group, role, service, or device. Identifiers are not reused for the time period you define. Individual identifiers also indicate the characteristic you define, such as whether a person is a contractor or foreign national.",
+      "nextSteps": [
+        "Define who approves new identifiers, and record each approval.",
+        "Adopt a naming convention that shows the status characteristic you choose, such as a contractor tag.",
+        "Configure systems or procedures to prevent reuse of retired identifiers for the period you set."
+      ],
+      "reviewed": false
+    },
+    "03.05.07": {
+      "question": "Do your systems block common or compromised passwords, protect passwords in transit and in storage, and require a new password after account recovery?",
+      "whyItMatters": "Attackers try known breached and common passwords first, and passwords that are sent or stored without protection can be harvested in bulk. These practices make stolen or guessed passwords far less useful.",
+      "doneLooksLike": "You maintain a list of commonly used, expected, and compromised passwords, update it at the frequency you define and when passwords are suspected of compromise, and check new or changed passwords against it. Passwords are sent only over encrypted channels and stored in cryptographically protected form, such as salted hashes. Users select a new password on first use after account recovery, and the composition and complexity rules you define are enforced.",
+      "nextSteps": [
+        "Turn on screening against known breached and common passwords in your identity system.",
+        "Confirm no system sends passwords unencrypted or stores them in readable form.",
+        "Require a new password at first sign-in after an account recovery or reset.",
+        "Define your password rules, favoring length over complicated character requirements."
+      ],
+      "reviewed": false
+    },
+    "03.05.11": {
+      "question": "Do sign-in screens hide passwords and other authentication information as users type, so people nearby cannot read them?",
+      "whyItMatters": "Passwords shown on screen can be read by anyone looking over the user's shoulder or by a camera. Obscuring feedback keeps that information private during sign-in.",
+      "doneLooksLike": "Systems obscure authentication information during sign-in, for example by showing dots or asterisks instead of characters, or on small mobile screens by showing each character briefly before hiding it.",
+      "nextSteps": [
+        "Check sign-in screens on workstations, applications, and devices that handle CUI.",
+        "Turn off any setting that displays passwords in readable form by default.",
+        "Review custom or older applications for sign-in forms that show passwords as they are typed."
+      ],
+      "reviewed": false
+    },
+    "03.05.12": {
+      "question": "Does your organization verify identity before issuing passwords, tokens, or other authenticators, change default credentials, and manage lost or compromised authenticators?",
+      "whyItMatters": "Authenticators such as passwords, keys, and tokens are what prove identity. If they are issued to the wrong person, left at factory defaults, or not revoked when lost, attackers can sign in as legitimate users.",
+      "doneLooksLike": "Identity is verified before an authenticator is first issued, and initial authenticator content, such as temporary passwords, is established for authenticators you issue. Documented procedures cover initial distribution, lost, compromised, or damaged authenticators, and revocation. Default credentials are changed at first use, authenticators are changed or refreshed at the frequency or after the events you define, and authenticator content is protected from unauthorized disclosure and modification.",
+      "nextSteps": [
+        "Write procedures for issuing, replacing, and revoking passwords, tokens, and certificates, including identity checks.",
+        "Change default passwords on all devices and software before putting them into use.",
+        "Define when authenticators must be changed, such as after suspected compromise.",
+        "Store authenticators securely, for example in a password manager or protected credential store."
+      ],
+      "reviewed": false
+    },
+    "03.06.01": {
+      "question": "Does your organization have a working incident-handling capability that follows your incident response plan and covers preparation, detection, containment, eradication, and recovery?",
+      "whyItMatters": "Most organizations will face a security incident at some point. A prepared capability shortens the time an attacker has in your systems and helps you restore normal operations with less damage.",
+      "doneLooksLike": "You have an incident-handling capability that is consistent with your incident response plan and covers preparation, detection and analysis, containment, eradication, and recovery. It draws on sources such as audit logs, network monitoring, and user reports, and coordinates with the people involved, such as business owners, system owners, human resources, legal counsel, and operations staff.",
+      "nextSteps": [
+        "Name the people who handle incidents and their backups.",
+        "Write step-by-step procedures for each phase, from preparation through recovery.",
+        "Identify the tools and outside help you may need, such as forensic support.",
+        "Keep an up-to-date contact list for the internal and external parties you would need during an incident."
+      ],
+      "reviewed": false
+    },
+    "03.06.02": {
+      "question": "Do you track and document security incidents, report them internally and to required authorities within set times, and give users a place to get help?",
+      "whyItMatters": "Recording incidents reveals patterns and supports investigations, and prompt reporting lets responders act before damage spreads. External reports may also be required by applicable laws, regulations, and policies.",
+      "doneLooksLike": "Security incidents are tracked and documented, including their status and other details needed for investigation. Personnel report suspected incidents to your incident response capability within the time period you define, and incident information is reported to the authorities you have identified. Users have a support resource, such as a help desk or designated contact, that offers advice and assistance on handling and reporting incidents.",
+      "nextSteps": [
+        "Set up an incident log or ticketing system to track each incident and its status.",
+        "Define the internal reporting time period and tell staff how to report.",
+        "Identify the external authorities you must report to and the information they need.",
+        "Designate a help desk or contact who can advise users on handling and reporting incidents."
+      ],
+      "reviewed": false
+    },
+    "03.06.03": {
+      "question": "Does your organization test how well its incident response capability works, at a frequency you have set?",
+      "whyItMatters": "A plan that has never been tested often fails under pressure, with missing contacts, unclear roles, or untried procedures. Testing exposes these weaknesses while there is still time to fix them.",
+      "doneLooksLike": "The effectiveness of your incident response capability is tested at the frequency you define, using methods such as checklists, walk-throughs or tabletop exercises (guided discussions of a realistic scenario), or simulations. Test results are recorded and used to identify weaknesses.",
+      "nextSteps": [
+        "Set a testing frequency.",
+        "Run a tabletop exercise using a realistic scenario, such as ransomware or a lost laptop containing CUI.",
+        "Record what worked, what did not, and who will fix each gap.",
+        "Update the plan and training based on the results."
+      ],
+      "reviewed": false
+    },
+    "03.06.04": {
+      "question": "Do users receive incident response training suited to their roles when they gain access or take on a role, after system changes, and at a set frequency?",
+      "whyItMatters": "During an incident, people act on what they have practiced. Most users need to know how to recognize and report an incident, while administrators and responders need deeper skills in handling, evidence collection, and recovery.",
+      "doneLooksLike": "Users receive incident response training consistent with their roles within the time period you define after taking on an incident response role or gaining system access, when system changes require it, and at the frequency you set thereafter. Training content is reviewed and updated at the frequency you define and after the events you specify, such as incident response tests or actual incidents.",
+      "nextSteps": [
+        "Define training levels by role, from recognition and reporting for all users to detailed handling for responders.",
+        "Set the time period for initial training and the refresher frequency.",
+        "Update training content after exercises, real incidents, and other events you define.",
+        "Keep records of who completed training."
+      ],
+      "reviewed": false
+    },
+    "03.06.05": {
+      "question": "Does your organization have a documented incident response plan that defines reportable incidents and responsibilities, is shared with responders, kept current, and protected?",
+      "whyItMatters": "In the confusion of an incident, a written plan tells people what to do, who decides, and whom to inform. Keeping it current makes sure it is accurate when needed, and protecting it keeps your response details away from attackers.",
+      "doneLooksLike": "A documented incident response plan provides a roadmap for your incident response capability, describes its structure and how it fits into the organization, defines reportable incidents, addresses sharing of incident information, and assigns responsibilities. Copies are distributed to designated incident response personnel and organizational elements, the plan is updated for system and organizational changes and for problems found during use or testing, and it is protected from unauthorized disclosure.",
+      "nextSteps": [
+        "Draft or update the plan to cover each required element, including what counts as a reportable incident.",
+        "Assign named people or roles to each responsibility.",
+        "Distribute the plan to responders and keep a record of who has it.",
+        "Store the plan with access restrictions, and update it after tests, incidents, and significant changes."
+      ],
+      "reviewed": false
+    }
+  }
+}

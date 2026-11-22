@@ -388,7 +388,18 @@
      "text": "Share the organization's mission (e.g., through vision and mission statements, marketing, and service strategies) to provide a basis for identifying risks that may impede that mission"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.OC-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.OC-01",
+   "editorial": {
+    "question": "Does your organization's understanding of its mission, and what it must keep delivering, shape how you decide which cybersecurity risks matter most?",
+    "whyItMatters": "Security decisions made without reference to the mission tend to protect the wrong things or spread effort evenly across everything. Knowing what the organization exists to do shows which disruptions would hurt most.",
+    "doneLooksLike": "Your mission is written down and shared, for example in a mission statement or service strategy, and the people who manage cybersecurity risk use it as the basis for identifying risks that could get in the way of that mission.",
+    "nextSteps": [
+     "Write a short statement of what your organization does and for whom, or locate the one you already have.",
+     "List the few activities that would most directly stop you delivering that mission if they were disrupted.",
+     "Share the mission statement with whoever makes security and technology decisions, and refer to it when ranking risks."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.OC-02",
@@ -412,7 +423,18 @@
      "text": "Identify relevant external stakeholders and their cybersecurity-related expectations (e.g., privacy expectations of customers, business expectations of partnerships, compliance expectations of regulators, ethics expectations of society)"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.OC-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.OC-02",
+   "editorial": {
+    "question": "Does your organization know who its internal and external stakeholders are and what each expects from you on cybersecurity, and take those expectations into account?",
+    "whyItMatters": "Customers, partners, regulators, owners, and staff each expect different things, such as privacy for customer data or reliability for a partner. Missing one of these expectations can cost trust, contracts, or penalties even when nothing has been breached.",
+    "doneLooksLike": "You have identified internal stakeholders (such as owners, directors, advisors, and employees) and external stakeholders (such as customers, partners, regulators, and the wider community), along with their cybersecurity and privacy expectations, and those expectations are considered when you set priorities.",
+    "nextSteps": [
+     "List the groups inside and outside the organization who rely on or oversee how you handle security.",
+     "Write down what each group expects, for example customer privacy, partner reliability, or regulator reporting.",
+     "Review the list when you set security priorities, and update it when you gain a major customer, partner, or regulator."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.OC-03",
@@ -440,7 +462,19 @@
      "text": "Align the organization's cybersecurity strategy with legal, regulatory, and contractual requirements"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.OC-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.OC-03",
+   "editorial": {
+    "question": "Does your organization know which laws, regulations, and contract terms set cybersecurity or privacy obligations for you, and have a way to track and meet them?",
+    "whyItMatters": "Privacy laws, industry regulations, and customer contracts often carry specific security duties and breach notification rules. Missing one can lead to fines, lost contracts, or harm to the people whose information you hold.",
+    "doneLooksLike": "You keep a current record of the legal, regulatory, and contractual cybersecurity requirements that apply to you, including privacy obligations that protect individuals' information and security terms in supplier, customer, and partner agreements. Someone tracks changes to these requirements, and your cybersecurity strategy is aligned with them.",
+    "nextSteps": [
+     "List the privacy and security laws that apply to you based on where you operate and the kinds of personal information you hold, such as health or consumer data.",
+     "Review your customer, supplier, and partner contracts for security and data handling clauses, and record them in one place.",
+     "Assign someone to watch for new or changed requirements and report them to leadership.",
+     "Check that your security plans address each requirement on the list."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.OC-04",
@@ -468,7 +502,19 @@
      "text": "Establish and communicate resilience objectives (e.g., recovery time objectives) for delivering critical capabilities and services in various operating states (e.g., under attack, during recovery, normal operation)"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.OC-04"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.OC-04",
+   "editorial": {
+    "question": "Does your organization know which of its services and capabilities customers and partners depend on most, and has that been communicated to the people who need to know?",
+    "whyItMatters": "When something goes wrong, you need to know which services to protect and restore first. Customers and partners who rely on you also need to know what to expect during an outage or attack.",
+    "doneLooksLike": "You have criteria for deciding which capabilities and services are critical, an understanding of the assets and operations they depend on and the impact of losing them (often from a business impact analysis), and resilience objectives, such as how long a service can be down, that you have communicated for normal operation, during an attack, and during recovery.",
+    "nextSteps": [
+     "List the services customers and partners rely on you for, and rank them by the harm an outage would cause.",
+     "Identify the systems, data, and people each critical service needs in order to run.",
+     "Set a target for how quickly each critical service must be restored and how it should operate during an attack or recovery.",
+     "Share these priorities and targets with the staff who run the services and, where appropriate, with key customers."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.OC-05",
@@ -492,7 +538,18 @@
      "text": "Identify and document external dependencies that are potential points of failure for the organization's critical capabilities and services, and share that information with appropriate personnel"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.OC-05"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.OC-05",
+   "editorial": {
+    "question": "Does your organization know which outside services and resources it depends on, such as cloud hosting, internet, or facilities, and is that shared with the right people?",
+    "whyItMatters": "Most organizations rely on providers they do not control, such as a hosting provider, payment processor, or building landlord. If one fails, your own services can stop, so knowing these points of failure lets you plan around them.",
+    "doneLooksLike": "You keep an inventory of external dependencies, such as facilities and cloud hosting providers, showing which assets and business functions rely on each. Dependencies that could become single points of failure for critical services are documented and shared with the people who need to plan for them.",
+    "nextSteps": [
+     "List the outside providers and resources your daily operations rely on, including internet, power, cloud services, and key vendors.",
+     "Note which business functions and systems would stop if each one failed.",
+     "Flag the dependencies that have no backup or alternative, and share that list with the people responsible for continuity planning."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.RM-01",
@@ -520,7 +577,18 @@
      "text": "Senior leaders agree about cybersecurity objectives and use them for measuring and managing risk and performance"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RM-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RM-01",
+   "editorial": {
+    "question": "Has your organization set cybersecurity risk management objectives that leadership has agreed to and uses to measure progress?",
+    "whyItMatters": "Without agreed objectives, security work drifts toward whatever is urgent or interesting rather than what the organization needs. Objectives that leadership has signed off on also make it clearer where to spend and whether efforts are working.",
+    "doneLooksLike": "You have written, measurable cybersecurity risk management objectives, both near term and long term, such as a target for the quality of staff training. Senior leaders agree on them, use them to measure and manage risk and performance, and update them during annual strategic planning and when major changes occur.",
+    "nextSteps": [
+     "Draft a few cybersecurity objectives tied to your business goals, each with a way to measure it.",
+     "Review the draft with the owners or senior leaders and agree on a final version.",
+     "Add a review of these objectives to your annual planning cycle and to your response to any major change in the business."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.RM-02",
@@ -548,7 +616,19 @@
      "text": "Refine organizational objectives and risk appetite periodically based on known risk exposure and residual risk"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RM-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RM-02",
+   "editorial": {
+    "question": "Has your organization stated how much cybersecurity risk it is willing to accept, and turned that into specific, measurable limits people understand?",
+    "whyItMatters": "Without a shared view of acceptable risk, people make inconsistent calls, accepting serious risks in one area while overspending on minor ones elsewhere. Clear limits let staff make routine decisions without escalating every question.",
+    "doneLooksLike": "Leadership has written risk appetite statements (the broad level of risk the organization is willing to take on) and translated them into risk tolerance statements (specific, measurable limits, such as the longest acceptable outage for a key system). These are communicated to the people who make risk decisions and refined periodically based on known exposure and remaining risk.",
+    "nextSteps": [
+     "Discuss with leadership which kinds of cybersecurity risk the organization will and will not accept, and write it down in a few sentences.",
+     "Turn each statement into a measurable limit that staff can apply, such as acceptable downtime or data loss for a key system.",
+     "Share the statements with the people who make technology and security decisions.",
+     "Set a time to revisit them, for example during annual planning."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.RM-03",
@@ -576,7 +656,18 @@
      "text": "Establish criteria for escalating cybersecurity risks within enterprise risk management"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RM-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RM-03",
+   "editorial": {
+    "question": "Are cybersecurity risks tracked and managed alongside your organization's other business risks, such as financial, legal, operational, and reputational risks?",
+    "whyItMatters": "When cybersecurity is handled separately, leaders cannot weigh it against other risks competing for the same money and attention. Bringing it into the same process helps serious cyber risks reach the people who decide.",
+    "doneLooksLike": "Cybersecurity risks are aggregated and managed in the same process used for other enterprise risks, the people who manage cybersecurity risk take part in enterprise risk planning, and there are defined criteria for when a cybersecurity risk is escalated.",
+    "nextSteps": [
+     "Add your main cybersecurity risks to the list or process you use for other business risks, or start one if none exists.",
+     "Include whoever manages cybersecurity in business risk and planning discussions.",
+     "Agree on the conditions under which a cybersecurity risk must be raised with owners or senior leaders."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.RM-04",
@@ -604,7 +695,19 @@
      "text": "Document conditions under which shared responsibility models are acceptable (e.g., outsourcing certain cybersecurity functions, having a third party perform financial transactions on behalf of the organization, using public cloud-based services)"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RM-04"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RM-04",
+   "editorial": {
+    "question": "Has your organization decided and communicated how it will respond to different kinds of cybersecurity risk, such as which risks to accept, avoid, insure, or share with providers?",
+    "whyItMatters": "Not every risk can or should be fixed. Clear direction on when to accept, avoid, transfer, or reduce a risk keeps decisions consistent and makes choices like buying insurance or outsourcing deliberate rather than accidental.",
+    "doneLooksLike": "You have documented criteria for accepting or avoiding cybersecurity risk for different classifications of data, a decision on whether to buy cybersecurity insurance, and the conditions under which shared responsibility arrangements are acceptable, such as outsourcing security functions, having a third party perform financial transactions for you, or using public cloud services. This direction is communicated to the people who make those decisions.",
+    "nextSteps": [
+     "Group your data by sensitivity and write down which risks you will accept or avoid for each group.",
+     "Decide whether cybersecurity insurance makes sense for your organization, and record the reasoning.",
+     "Write down when it is acceptable to rely on a provider for part of your security, such as cloud hosting or a managed security service.",
+     "Share this guidance with anyone who signs up for services or approves technology purchases."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.RM-05",
@@ -628,7 +731,18 @@
      "text": "Identify how all departments across the organization - such as management, operations, internal auditors, legal, acquisition, physical security, and HR - will communicate with each other about cybersecurity risks"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RM-05"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RM-05",
+   "editorial": {
+    "question": "Are there clear, agreed ways for people across your organization to raise and share cybersecurity risks, including risks that come from suppliers and other third parties?",
+    "whyItMatters": "Risks often surface in one part of an organization, such as purchasing, HR, or facilities, while the people who can act on them sit elsewhere. Defined lines of communication help these concerns reach leadership and the right teams in time.",
+    "doneLooksLike": "You have defined how and at what intervals senior executives, directors, and managers are updated on cybersecurity posture, and how departments such as operations, legal, purchasing, HR, physical security, and any internal audit function communicate with each other about cybersecurity risks, including supplier and third-party risks.",
+    "nextSteps": [
+     "Agree how often, and in what form, leadership will receive a cybersecurity update.",
+     "Name a contact in each department for raising cybersecurity concerns, and tell staff who it is.",
+     "Make sure the people who buy services or manage vendors know where to report supplier security concerns."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.RM-06",
@@ -660,7 +774,19 @@
      "text": "Use a consistent list of risk categories to support integrating, aggregating, and comparing cybersecurity risks"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RM-06"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RM-06",
+   "editorial": {
+    "question": "Does your organization use a consistent method to assess, record, categorize, and rank cybersecurity risks, and do the people involved know how to use it?",
+    "whyItMatters": "If each person rates risk differently, risks cannot be compared and the most serious ones may not get attention first. A shared method makes risk decisions repeatable and easier to explain.",
+    "doneLooksLike": "You have a documented way to calculate cybersecurity risk, whether with rating scales or numeric formulas, a standard template such as a risk register (a list of risks with their description, exposure, treatment, and owner), a consistent set of risk categories, and criteria for prioritizing risks at the right level of the organization. The method has been shared with the people who use it.",
+    "nextSteps": [
+     "Choose a rating approach, such as scoring likelihood and impact on a fixed scale, and write it down.",
+     "Create a risk register with columns for the risk, its rating, category, owner, and planned treatment.",
+     "Define a short list of risk categories and the rating at which a risk must be escalated.",
+     "Walk the people who record or review risks through the method."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.RM-07",
@@ -688,7 +814,18 @@
      "text": "Calculate, document, and prioritize positive risks alongside negative risks"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RM-07"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RM-07",
+   "editorial": {
+    "question": "When your organization discusses cybersecurity risk, does it also identify and weigh opportunities, such as ways security could support new business or better services?",
+    "whyItMatters": "Risk is not only about what could go wrong. Recognizing positive risks, such as a security capability that helps win customers or enables a new service, helps leaders balance protection with growth instead of treating security only as a cost.",
+    "doneLooksLike": "You have guidance and methods for identifying opportunities (positive risks) and including them in risk discussions, for example an analysis of strengths, weaknesses, opportunities, and threats. Stretch goals are documented, and opportunities are calculated, documented, and prioritized alongside negative risks.",
+    "nextSteps": [
+     "Add a standing question about opportunities to your risk reviews, such as where security improvements could help win work or enable new services.",
+     "Use a strengths, weaknesses, opportunities, and threats exercise during planning to surface positive risks.",
+     "Record promising opportunities and stretch goals in your risk register and rank them alongside other risks."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.RR-01",
@@ -720,7 +857,18 @@
      "text": "Conduct reviews to ensure adequate authority and coordination among those responsible for managing cybersecurity risk"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RR-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RR-01",
+   "editorial": {
+    "question": "Do your organization's leaders take responsibility for cybersecurity risk and actively encourage a culture that is risk-aware, ethical, and continually improving?",
+    "whyItMatters": "Staff take their cues from leadership. When owners and senior leaders treat cybersecurity as their own responsibility, it gets resources and attention, and people are more willing to report mistakes and concerns.",
+    "doneLooksLike": "Leaders have agreed on their roles in developing, implementing, and assessing the cybersecurity strategy, and they share expectations for a secure and ethical culture, for example by discussing relevant current events. They direct whoever leads cybersecurity to maintain a risk strategy that is reviewed at least annually and after major events, and they check that those responsible have enough authority and coordination.",
+    "nextSteps": [
+     "Agree among owners or senior leaders who is accountable for cybersecurity risk and what each leader's role is.",
+     "Have leaders talk about security expectations in staff meetings, using real-world incidents as examples.",
+     "Ask whoever leads cybersecurity to maintain a written risk strategy, and review it with leadership at least once a year and after major events."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.RR-02",
@@ -756,7 +904,19 @@
      "text": "Clearly articulate cybersecurity responsibilities within operations, risk functions, and internal audit functions"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RR-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RR-02",
+   "editorial": {
+    "question": "Has your organization defined who is responsible for which cybersecurity risk management tasks, and do those people understand their roles and act on them?",
+    "whyItMatters": "When responsibilities are vague, important tasks fall through the cracks because everyone assumes someone else is handling them. Clear roles also give people the authority to act when it matters.",
+    "doneLooksLike": "Cybersecurity risk management roles, responsibilities, and authorities are documented in policy, including who is responsible, who is accountable, and who must be consulted or informed. Responsibilities appear in job descriptions, people in these roles have performance goals that are measured periodically, responsibilities within operations, risk, and any internal audit function are spelled out, and the roles are enforced.",
+    "nextSteps": [
+     "List the main cybersecurity tasks, such as managing accounts, applying updates, and handling incidents, and assign an owner to each.",
+     "Record who is responsible, accountable, consulted, and informed for each task in a chart.",
+     "Add cybersecurity duties to relevant job descriptions and performance reviews.",
+     "Share the assignments so everyone knows whom to go to."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.RR-03",
@@ -784,7 +944,18 @@
      "text": "Provide adequate and sufficient people, process, and technical resources to support the cybersecurity strategy"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RR-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RR-03",
+   "editorial": {
+    "question": "Does your organization provide enough people, time, money, and tools to carry out its cybersecurity strategy, roles, and policies?",
+    "whyItMatters": "A strategy or policy without resources behind it is unlikely to be carried out. Matching resources to your risks helps avoid both underfunding critical protections and overspending on low-priority areas.",
+    "doneLooksLike": "Resource allocation and investment decisions reflect your risk tolerance and planned risk responses. People, processes, and technology are sufficient to support the cybersecurity strategy, and management periodically reviews whether those with cybersecurity responsibilities have the authority they need.",
+    "nextSteps": [
+     "Compare the tasks in your security strategy and policies with the people, time, and budget currently assigned to them.",
+     "Identify gaps where important work is unfunded or unowned, and decide whether to fund, outsource, or accept each one.",
+     "Schedule a periodic management review of cybersecurity resources and authority."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.RR-04",
@@ -816,7 +987,19 @@
      "text": "Define and enforce obligations for personnel to be aware of, adhere to, and uphold security policies as they relate to their roles"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RR-04"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.RR-04",
+   "editorial": {
+    "question": "Is cybersecurity built into your human resources practices, such as screening, onboarding, role changes, and offboarding of staff?",
+    "whyItMatters": "People's access and responsibilities change as they join, move, and leave. Building security into HR steps prevents gaps such as former staff keeping access or new hires not knowing the rules.",
+    "doneLooksLike": "Cybersecurity is part of HR processes for screening, onboarding, change notification, and offboarding. Background checks are done before onboarding people into sensitive roles and repeated periodically, cybersecurity knowledge counts in hiring, training, and retention decisions, and staff obligations to follow security policies relevant to their roles are defined and enforced.",
+    "nextSteps": [
+     "Add security steps to your onboarding and offboarding checklists, such as policy acknowledgment and removal of access.",
+     "Make sure HR notifies whoever manages access when someone changes roles or leaves.",
+     "Decide which roles are sensitive and require background checks before hiring and at intervals you define.",
+     "Include following security policies in role expectations and in your disciplinary process."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.PO-01",
@@ -852,7 +1035,19 @@
      "text": "Require personnel to acknowledge receipt of policy when first hired, annually, and whenever policy is updated"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.PO-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.PO-01",
+   "editorial": {
+    "question": "Does your organization have a written cybersecurity policy, approved by leadership and based on your priorities, that staff know about and are expected to follow?",
+    "whyItMatters": "A policy sets out what leadership expects and gives staff a reference for everyday decisions. Without one, security practices depend on individual habits and are hard to enforce.",
+    "doneLooksLike": "You have an understandable cybersecurity risk management policy that states management's intent, expectations, and direction and reflects your context, strategy, and priorities. Senior management has approved it, it is communicated across the organization with its supporting procedures, staff acknowledge receiving it (for example when hired, each year, and after updates), it is reviewed periodically, and it is enforced.",
+    "nextSteps": [
+     "Write a short policy covering your main security expectations, such as passwords, device use, data handling, and reporting incidents.",
+     "Have the owner or senior management formally approve it.",
+     "Share it with all staff and ask each person to confirm they have read it.",
+     "Explain what happens when the policy is not followed, and apply that consistently."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.PO-02",
@@ -884,7 +1079,18 @@
      "text": "Update policy to reflect changes in technology (e.g., adoption of artificial intelligence) and changes to the business (e.g., acquisition of a new business, new contract requirements)"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.PO-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.PO-02",
+   "editorial": {
+    "question": "Does your organization review and update its cybersecurity policy when laws, threats, technology, or the business change, and share the updated version with staff?",
+    "whyItMatters": "A policy written for last year's tools and risks can leave new technology, such as artificial intelligence services, or new contracts unaddressed. Regular updates keep the policy relevant and enforceable.",
+    "doneLooksLike": "You review the policy on a timeline you define and when the risk environment changes, and you update it based on risk management results and on changes in legal and regulatory requirements, technology, and the business, such as an acquisition or new contract terms. Updated versions are communicated and enforced.",
+    "nextSteps": [
+     "Set a review schedule for your policy and note the date of the last review.",
+     "List the events that should trigger an early review, such as adopting a new technology, signing a new type of contract, or a change in law.",
+     "Record what changed in each version and notify staff of updates."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.OV-01",
@@ -908,7 +1114,18 @@
      "text": "Examine whether cybersecurity risk strategies that impede operations or innovation should be adjusted"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.OV-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.OV-01",
+   "editorial": {
+    "question": "Does your organization review the results of its cybersecurity risk management strategy and use what it learns to adjust its direction?",
+    "whyItMatters": "A strategy that is never checked can keep costing money and slowing work without delivering the protection it promised. Reviewing outcomes shows what is working and where to change course.",
+    "doneLooksLike": "Leadership periodically assesses how well the cybersecurity risk strategy and its results have helped them make decisions and achieve organizational objectives, and examines whether security measures that get in the way of operations or innovation should be adjusted. The strategy is changed where the review shows a need.",
+    "nextSteps": [
+     "Set a regular time, for example once a year, for leadership to review the results of the cybersecurity strategy.",
+     "Ask whether recent security decisions helped the business meet its objectives, and gather examples.",
+     "Ask staff where security measures slow down work, and decide whether those measures should change."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.OV-02",
@@ -936,7 +1153,18 @@
      "text": "Review strategy in light of cybersecurity incidents"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.OV-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.OV-02",
+   "editorial": {
+    "question": "Does your organization periodically check that its cybersecurity risk management strategy still covers all of its requirements and risks, and adjust it when gaps appear?",
+    "whyItMatters": "Requirements and risks change as the business grows, contracts change, and incidents happen. Reviewing coverage catches gaps before an auditor, customer, or attacker finds them.",
+    "doneLooksLike": "You review audit findings to confirm whether the strategy has kept you in line with internal and external requirements, review oversight of people in cybersecurity roles to see whether policy changes are needed, and revisit the strategy in light of cybersecurity incidents. The strategy is adjusted when gaps are found.",
+    "nextSteps": [
+     "Compare your strategy with your list of legal, contractual, and internal requirements, and note anything not covered.",
+     "Review findings from any audits, assessments, or customer security questionnaires for gaps.",
+     "After each significant incident, ask whether the strategy needs to change and record the decision."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.OV-03",
@@ -964,7 +1192,18 @@
      "text": "Collect and communicate metrics on cybersecurity risk management with senior leadership"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.OV-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.OV-03",
+   "editorial": {
+    "question": "Does your organization measure how well its cybersecurity risk management is performing and review those measures to decide what to change?",
+    "whyItMatters": "Without measures, it is hard to know whether security is improving or slipping. Metrics give leadership a factual basis for adjusting priorities and resources.",
+    "doneLooksLike": "You review key performance indicators (measures of whether policies and procedures are achieving their objectives, such as training completion) and key risk indicators (signals of the risks you face and their likelihood and impact). These metrics are shared with senior leadership and used to identify needed adjustments.",
+    "nextSteps": [
+     "Pick a handful of measures that show how security is working, such as time to apply critical updates or the share of staff trained.",
+     "Collect them on a schedule you define and report them to leadership.",
+     "Review trends with leadership and agree on adjustments when measures move the wrong way."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.SC-01",
@@ -996,7 +1235,19 @@
      "text": "Establish a cross-organizational mechanism that ensures alignment between functions that contribute to cybersecurity supply chain risk management, such as cybersecurity, IT, operations, legal, human resources, and engineering"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-01",
+   "editorial": {
+    "question": "Has your organization set up an agreed approach, including goals, policies, and processes, for managing cybersecurity risks that come from suppliers and the wider supply chain?",
+    "whyItMatters": "Many breaches start at a vendor, software provider, or service partner. A defined approach makes sure supplier risks are handled deliberately rather than case by case, and that everyone who buys and manages suppliers works the same way.",
+    "doneLooksLike": "You have a cybersecurity supply chain risk management program (your organized approach to supplier-related security risk) with a strategy and objectives, a plan with milestones, and policies and procedures that stakeholders have agreed to, follow, and use to improve the program. Functions such as IT, security, operations, legal, HR, and engineering stay aligned through a defined cross-organizational mechanism.",
+    "nextSteps": [
+     "Write down what you want to achieve in managing supplier security risk, such as knowing which vendors hold your data.",
+     "Draft a short policy and procedure for evaluating, contracting with, and monitoring suppliers.",
+     "Agree on the approach with the people who buy, use, and manage suppliers, and set milestones for putting it in place.",
+     "Set up a regular check-in between the functions involved, such as IT, legal, and operations."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.SC-02",
@@ -1044,7 +1295,19 @@
      "text": "Establish rules and protocols for information sharing and reporting processes between the organization and its suppliers"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-02",
+   "editorial": {
+    "question": "Has your organization defined and communicated the cybersecurity roles and responsibilities of its own staff, suppliers, customers, and partners for managing supply chain risks?",
+    "whyItMatters": "Security gaps often appear where one party assumes the other is responsible, such as who patches a hosted system or who reports a breach. Clear roles on both sides prevent these gaps.",
+    "doneLooksLike": "Specific people are responsible and accountable for supply chain risk management, as recorded in policy, a responsibility matrix, job descriptions, and measured performance goals. Shared security responsibilities with suppliers, customers, and partners are defined and written into policies and agreements, communicated internally, and supported by rules for information sharing and reporting between you and your suppliers.",
+    "nextSteps": [
+     "Name who in your organization is responsible for supplier security risk.",
+     "For each key supplier, write down which security tasks are theirs and which are yours.",
+     "Add those responsibilities and reporting expectations to contracts or service agreements.",
+     "Tell staff who work with suppliers what each supplier is and is not responsible for."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.SC-03",
@@ -1076,7 +1339,19 @@
      "text": "Escalate material cybersecurity risks in supply chains to senior management, and address them at the enterprise risk management level"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-03",
+   "editorial": {
+    "question": "Is managing supplier and supply chain cybersecurity risk part of your organization's broader risk management, risk assessment, and improvement processes rather than a separate activity?",
+    "whyItMatters": "When supplier risk is handled on its own, serious issues with a key vendor may never reach the people weighing the organization's overall risks. Integration means supplier risks are compared, escalated, and improved like any other.",
+    "doneLooksLike": "You have identified where supply chain risk management overlaps with cybersecurity and enterprise risk management, use an integrated set of controls for both, include supply chain risk in improvement processes, and escalate material supply chain risks to senior management for handling at the enterprise level.",
+    "nextSteps": [
+     "Add significant supplier risks to the same risk register you use for other cybersecurity and business risks.",
+     "Use the same rating and review process for supplier risks as for internal risks.",
+     "Define when a supplier risk is serious enough to raise with senior management.",
+     "Include supplier issues in your regular lessons-learned and improvement reviews."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.SC-04",
@@ -1100,7 +1375,18 @@
      "text": "Keep a record of all suppliers, and prioritize suppliers based on the criticality criteria"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-04"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-04",
+   "editorial": {
+    "question": "Does your organization keep a record of all its suppliers and rank them by how critical they are to your operations and data?",
+    "whyItMatters": "You cannot manage risks from suppliers you do not know about. Ranking them shows where to focus limited time, since a provider holding customer data deserves more scrutiny than an office supply vendor.",
+    "doneLooksLike": "You keep a record of all suppliers and have criteria for criticality, such as the sensitivity of data they process or hold, their level of access to your systems, and how important their products or services are to your mission. Each supplier is prioritized against those criteria.",
+    "nextSteps": [
+     "Build a list of all suppliers, starting from accounts payable records and subscriptions.",
+     "Define criticality criteria, such as data access, system access, and impact if the supplier failed.",
+     "Rate each supplier against the criteria and mark the most critical ones for closer attention."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.SC-05",
@@ -1156,7 +1442,19 @@
      "text": "Specify in contracts and other agreements the rights and responsibilities of the organization, its suppliers, and their supply chains, with respect to potential cybersecurity risks"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-05"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-05",
+   "editorial": {
+    "question": "Do your contracts and agreements with suppliers and other third parties include cybersecurity requirements that match how critical each supplier is?",
+    "whyItMatters": "A contract is often your main lever with a supplier. Without written security requirements, you may have no right to be told about a breach at a vendor, ask for evidence of their practices, or require fixes.",
+    "doneLooksLike": "You have established and prioritized security requirements for suppliers, products, and services based on their criticality and potential impact if compromised, and these are written into contracts and other agreements. Depending on criticality, agreements cover information sharing, how compliance with requirements will be verified, security performance in service-level agreements (formal service commitments), disclosure of vulnerabilities, component inventories for critical products, vetting of supplier staff, evidence of security practices, and each party's rights and responsibilities.",
+    "nextSteps": [
+     "Write standard security clauses for supplier agreements, such as breach notification, data protection, and the right to request evidence of security practices.",
+     "Decide which additional requirements apply to your most critical suppliers.",
+     "Add the clauses to new contracts, and to existing contracts when they come up for renewal.",
+     "Keep a record of which suppliers have agreed to which requirements."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.SC-06",
@@ -1188,7 +1486,19 @@
      "text": "Assess the authenticity, integrity, and security of critical products prior to acquisition and use"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-06"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-06",
+   "editorial": {
+    "question": "Before signing with a new supplier or other third party, does your organization assess their security practices and plan how to reduce the risks they could introduce?",
+    "whyItMatters": "It is far simpler to address security concerns before a contract is signed than after. Due diligence helps you avoid suppliers who cannot protect your data or systems and sets expectations from the start.",
+    "doneLooksLike": "You plan and perform due diligence on prospective suppliers in proportion to the risk, criticality, and complexity of the relationship. This includes assessing their technology, cybersecurity capabilities, and risk management practices against your business and security requirements, and checking the authenticity, integrity, and security of critical products before you acquire and use them.",
+    "nextSteps": [
+     "Create a short security questionnaire for prospective suppliers, with more depth for critical ones.",
+     "Review the answers and any evidence they provide before approving the supplier.",
+     "Record the assessment result and any conditions or risk reductions agreed before signing.",
+     "For critical products, confirm they come from the genuine source and have not been altered."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.SC-07",
@@ -1224,7 +1534,19 @@
      "text": "Plan for unexpected supplier and supply chain-related interruptions to ensure business continuity"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-07"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-07",
+   "editorial": {
+    "question": "Does your organization keep track of the risks each supplier and third party poses, and monitor and respond to them throughout the relationship?",
+    "whyItMatters": "A supplier that was safe when you signed can change through a breach, an acquisition, or slipping practices. Ongoing monitoring catches these changes before they become your incident.",
+    "doneLooksLike": "Supplier and third-party risks are understood, recorded, prioritized, assessed, responded to, and monitored for the life of the relationship. Assessment format and frequency match each supplier's criticality and reputation, evidence of meeting contract requirements is reviewed, critical suppliers are monitored for changes in their risk profile and reassessed, and you have plans for unexpected supplier interruptions.",
+    "nextSteps": [
+     "Set how often each tier of supplier is reassessed, with the most critical reviewed most often.",
+     "Request and review updated evidence from critical suppliers, such as security attestations or assessment reports.",
+     "Watch for breaches, ownership changes, or service problems at critical suppliers, and reassess when they occur.",
+     "Plan how you would keep operating if a critical supplier suddenly became unavailable."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.SC-08",
@@ -1260,7 +1582,19 @@
      "text": "Conduct collaborative lessons learned sessions with critical suppliers"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-08"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-08",
+   "editorial": {
+    "question": "Are your relevant suppliers and other third parties included in your incident response planning, exercises, and recovery activities?",
+    "whyItMatters": "Many incidents involve a supplier, either as the source or as a partner you need during recovery. Agreeing in advance on who does what and how you will communicate saves critical time during an incident.",
+    "doneLooksLike": "You have defined how incident response and recovery status is reported between your organization and its suppliers, documented each side's incident response roles, included critical suppliers in exercises and simulations, agreed on crisis communication methods with critical suppliers, and held joint lessons-learned sessions with them.",
+    "nextSteps": [
+     "Add contact details and incident roles for critical suppliers to your incident response plan.",
+     "Agree with each critical supplier how and how quickly incidents will be reported in both directions.",
+     "Invite critical suppliers to take part in an incident response exercise.",
+     "Hold a joint review with the supplier after any incident that involves them."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.SC-09",
@@ -1296,7 +1630,19 @@
      "text": "Policies and procedure require checking upgrades to critical hardware for unauthorized changes"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-09"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-09",
+   "editorial": {
+    "question": "Does your organization build supply chain security into its risk management and check how well those practices work across the life of the technology you buy?",
+    "whyItMatters": "Tampered hardware, counterfeit parts, and malicious software updates can arrive through trusted channels. Confirming where technology comes from and how it is maintained reduces the chance of bringing a compromise in yourself.",
+    "doneLooksLike": "Supply chain security practices are part of your cybersecurity and enterprise risk management programs, and their performance is monitored throughout the product and service life cycle. Policies require provenance records (where a product came from) for acquired technology, patches and updates come only from authenticated and trustworthy providers, maintenance is done by approved supplier personnel, upgrades to critical hardware are checked for unauthorized changes, and leaders receive periodic reports on how acquired components are confirmed to be authentic and untampered.",
+    "nextSteps": [
+     "Record the source of each technology purchase, and buy from the manufacturer or authorized sellers.",
+     "Configure systems to get software updates only from the vendor's official, verified channels.",
+     "Allow only approved supplier personnel to perform maintenance on supplier products.",
+     "Report periodically to leadership on how you confirm that acquired technology is authentic and untampered."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "GV.SC-10",
@@ -1340,7 +1686,19 @@
      "text": "Manage data leakage risks associated with supplier termination"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-10"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=GV.SC-10",
+   "editorial": {
+    "question": "When a supplier relationship or service agreement ends, does your organization have a plan for removing access, recovering or destroying data, and handling the transition?",
+    "whyItMatters": "Ending a relationship carelessly can leave a former vendor with access to your systems, copies of your data, or unsupported products still in use. Planning for the end reduces data leakage and disruption.",
+    "doneLooksLike": "Your supply chain risk management plans cover ending relationships under both normal and adverse circumstances. They include promptly deactivating supplier access, returning or safely disposing of assets that contain your data, managing data leakage and other risks created by termination, transitioning suppliers with security and resilience in mind, and planning for end-of-life support and obsolescence of components.",
+    "nextSteps": [
+     "Create a supplier offboarding checklist that covers access removal, data return or destruction, and written confirmation.",
+     "Include exit and data return terms in new supplier contracts.",
+     "Identify products nearing the end of vendor support and plan their replacement.",
+     "For critical suppliers, outline how you would move to an alternative if the relationship ended abruptly."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.AM-01",
@@ -1364,7 +1722,19 @@
      "text": "Constantly monitor networks to detect new hardware and automatically update inventories"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.AM-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.AM-01",
+   "editorial": {
+    "question": "Does your organization keep an up-to-date inventory of the hardware it manages, including computers, phones, network equipment, and connected devices?",
+    "whyItMatters": "You cannot protect a device you do not know about. Unknown or forgotten devices often miss updates and become an entry point for attackers.",
+    "doneLooksLike": "You maintain inventories of all types of hardware you manage, including IT equipment, mobile devices, internet-connected devices such as cameras and smart equipment, and operational technology (equipment that controls physical processes) if you have it. Where practical, network monitoring detects new hardware and updates the inventory automatically.",
+    "nextSteps": [
+     "List every device you own or manage, with its type, user or owner, and location.",
+     "Include phones, printers, routers, cameras, and other connected devices, not only computers.",
+     "Assign someone to update the list when devices are bought, reassigned, or retired.",
+     "Consider a tool that detects new devices on your network and flags them for review."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.AM-02",
@@ -1392,7 +1762,19 @@
      "text": "Maintain an inventory of the organization's systems"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.AM-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.AM-02",
+   "editorial": {
+    "question": "Does your organization keep an up-to-date inventory of the software, online services, and systems it manages, including cloud applications?",
+    "whyItMatters": "Software you do not know about cannot be updated, licensed, or secured. An inventory also lets you respond quickly when a vulnerability is announced in a product you might be using.",
+    "doneLooksLike": "You maintain inventories of all types of software and services, including commercial, open-source, and custom-built applications, application programming interface (API) services, and cloud-based applications, as well as an inventory of your systems. Where practical, platforms such as virtual machines and containers are monitored for software and service changes.",
+    "nextSteps": [
+     "List the software installed on your devices and the cloud services your staff use, with an owner for each.",
+     "Record the systems your organization runs and the software each one includes.",
+     "Review the list at a frequency you define and whenever new software or services are adopted.",
+     "Use device management or inventory tools to detect software changes automatically where possible."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.AM-03",
@@ -1424,7 +1806,19 @@
      "text": "Maintain documentation of expected network ports, protocols, and services that are typically used among authorized systems"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.AM-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.AM-03",
+   "editorial": {
+    "question": "Does your organization maintain an up-to-date picture of how data is expected to flow across its networks and to and from outside parties?",
+    "whyItMatters": "Knowing what normal network traffic looks like makes it possible to spot unusual connections and to protect the paths sensitive data takes. It also shows where data leaves your control.",
+    "doneLooksLike": "You maintain documentation, such as network diagrams and data flow maps, of authorized communication and data flows within your wired and wireless networks, between your organization and third parties, and within any cloud infrastructure you use. The network ports, protocols, and services expected between authorized systems are documented.",
+    "nextSteps": [
+     "Draw a basic diagram of your network showing key systems, internet connections, and wireless networks.",
+     "Map where sensitive data travels, including to cloud services and partners.",
+     "Document which network ports and services your systems are expected to use.",
+     "Update the diagrams when you add systems, services, or connections."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.AM-04",
@@ -1448,7 +1842,18 @@
      "text": "Update the inventory when a new external service is going to be utilized to ensure adequate cybersecurity risk management monitoring of the organization's use of that service"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.AM-04"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.AM-04",
+   "editorial": {
+    "question": "Does your organization keep an up-to-date list of the services it receives from suppliers, such as cloud applications, hosting, and externally hosted tools?",
+    "whyItMatters": "Outside services often hold sensitive data and connect to your systems, yet staff can sign up for them without anyone keeping track. A current list makes sure each one is included in your security oversight.",
+    "doneLooksLike": "You maintain an inventory of all external services you use, including cloud infrastructure, platform, and software services, application programming interfaces (APIs), and other externally hosted applications. The inventory is updated before a new external service is put into use so it can be included in risk management and monitoring.",
+    "nextSteps": [
+     "List every external service your organization uses, including free tools, with the business owner and the data each holds.",
+     "Check billing and expense records for subscriptions that are not on the list.",
+     "Require that new services be added to the list, and reviewed for security, before they are used."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.AM-05",
@@ -1476,7 +1881,18 @@
      "text": "Track the asset priorities and update them periodically or when significant changes to the organization occur"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.AM-05"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.AM-05",
+   "editorial": {
+    "question": "Has your organization ranked its assets, such as systems, data, and devices, by how sensitive and critical they are and how much their loss would affect the mission?",
+    "whyItMatters": "Not every asset needs the same protection. Prioritizing shows where to spend limited time and money first, and which systems to restore first after an incident.",
+    "doneLooksLike": "You have defined criteria for prioritizing each class of asset based on classification, criticality, resources, and impact on the mission, and applied them to your assets. You track the resulting priorities and update them periodically and when significant changes occur.",
+    "nextSteps": [
+     "Define a few priority levels and the criteria for each, such as data sensitivity and the effect on operations if the asset were lost.",
+     "Assign a priority to each item in your hardware, software, service, and data inventories.",
+     "Review priorities at an interval you define and after major changes, such as a new line of business or an acquisition."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.AM-07",
@@ -1508,7 +1924,19 @@
      "text": "Track the provenance, data owner, and geolocation of each instance of designated data types"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.AM-07"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.AM-07",
+   "editorial": {
+    "question": "Does your organization keep an inventory of where its important types of data, such as personal, financial, or health information, are stored and who owns them?",
+    "whyItMatters": "Sensitive data spreads into email, shared drives, and cloud services over time. Knowing where it lives is necessary to protect it, respond to a breach, and meet privacy obligations.",
+    "doneLooksLike": "You have a list of designated data types of interest, such as personal information, health information, financial account numbers, and intellectual property, and an inventory of where instances of that data reside. Data is tagged or labeled with a classification, its source, owner, and geographic location are tracked, and discovery is used to find new instances where practical.",
+    "nextSteps": [
+     "Decide which types of data you need to track, such as customer personal information or payment details.",
+     "List the systems, services, and locations where each type is stored, and name an owner for each.",
+     "Label the data, or the systems that hold it, with a classification.",
+     "Search shared drives and cloud storage periodically for sensitive data in unexpected places."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.AM-08",
@@ -1560,7 +1988,19 @@
      "text": "Offer methods for destroying paper, storage media, and other physical forms of data storage"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.AM-08"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.AM-08",
+   "editorial": {
+    "question": "Does your organization manage security for its systems, hardware, software, services, and data across their whole life, from acquisition and setup to retirement and disposal?",
+    "whyItMatters": "Risks appear at every stage: insecure default settings at setup, forgotten systems that stop receiving updates, and old drives discarded with data still on them. Managing the full life cycle closes these gaps.",
+    "doneLooksLike": "Security is considered throughout the life cycles of your systems, hardware, software, services, and data. Assets are configured securely before use, inventories are updated when assets move, unofficial technology (shadow IT) and redundant assets are identified, data is destroyed according to your retention policy with records kept, storage is sanitized before hardware is retired, reassigned, or sent for repair, and methods are available for destroying paper and other physical media.",
+    "nextSteps": [
+     "Create a setup checklist that secures new devices and services before they go into use.",
+     "Review your inventories periodically for unused, redundant, or unapproved technology, and remove or approve it.",
+     "Wipe or destroy storage before any device is retired, reassigned, or sent for repair, and keep a record.",
+     "Provide a secure way to dispose of paper records and removable media, such as a shredder or a disposal service."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.RA-01",
@@ -1600,7 +2040,19 @@
      "text": "Review processes and procedures for weaknesses that could be exploited to affect cybersecurity"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-01",
+   "editorial": {
+    "question": "Does your organization regularly look for weaknesses in its systems, software, facilities, and processes, confirm which ones are real, and record them?",
+    "whyItMatters": "Unpatched software and misconfigured systems are among the most common ways attackers get in. Finding and recording weaknesses is the first step to fixing them before someone else exploits them.",
+    "doneLooksLike": "You identify, validate, and record vulnerabilities (weaknesses that could be exploited) in your assets. This includes using tools to find unpatched and misconfigured software, assessing network and system design, reviewing or testing software you develop, assessing facilities that house critical systems, monitoring threat intelligence for newly announced vulnerabilities, and reviewing processes for exploitable weaknesses.",
+    "nextSteps": [
+     "Run a vulnerability scanning tool across your devices and systems at a frequency you define.",
+     "Sign up for security notices from the vendors of your key software and devices.",
+     "Record each confirmed vulnerability with the affected asset, its severity, and an owner.",
+     "Review locations that house critical equipment, and processes such as payment approvals, for weaknesses that could be exploited."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.RA-02",
@@ -1628,7 +2080,19 @@
      "text": "Monitor sources of cyber threat intelligence for information on the types of vulnerabilities that emerging technologies may have"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-02",
+   "editorial": {
+    "question": "Does your organization receive and review cyber threat information from trusted sources, such as government advisories, industry groups, or security providers?",
+    "whyItMatters": "Threat information tells you what attackers are doing now and which weaknesses they are targeting. Without it, you may learn about a relevant threat only after it reaches you.",
+    "doneLooksLike": "You receive cyber threat intelligence (information about current threats, attackers, and their methods) from information sharing forums and reputable sources, and someone reviews advisories about threat actors and their tactics. Security tools with detection or response features are configured to securely take in threat intelligence feeds, and you watch for the kinds of vulnerabilities that emerging technologies may have.",
+    "nextSteps": [
+     "Subscribe to free cybersecurity alerts from your national cybersecurity agency.",
+     "Join an information sharing group for your industry or region, if one exists.",
+     "Assign someone to review alerts on a regular schedule and pass on anything that affects your systems.",
+     "Turn on threat intelligence features in your existing security tools where they are available."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.RA-03",
@@ -1656,7 +2120,19 @@
      "text": "Implement processes for identifying internal threat actors"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-03",
+   "editorial": {
+    "question": "Has your organization identified and recorded the internal and external threats it faces, such as criminal groups, fraudsters, or insiders, and how they might attack?",
+    "whyItMatters": "Different organizations attract different attackers. Knowing who is likely to target you, and how, helps you focus defenses on the methods that matter most for your situation.",
+    "doneLooksLike": "You keep a record of the internal and external threats relevant to you, using threat intelligence to understand the kinds of threat actors likely to target you and the tactics, techniques, and procedures (methods) they tend to use. You have processes for identifying internal threat actors and, where you have the capability, actively look for signs of attackers already in your environment (threat hunting).",
+    "nextSteps": [
+     "List the kinds of attackers likely to target an organization like yours, such as ransomware groups, payment fraudsters, or insiders.",
+     "Note the methods each tends to use, drawing on the threat alerts you receive.",
+     "Set up a way to identify insider threats, such as reviewing unusual access by staff.",
+     "Update the threat list when you see new advisories or experience an incident."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.RA-04",
@@ -1684,7 +2160,19 @@
      "text": "Account for the potential impacts of cascading failures for systems of systems"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-04"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-04",
+   "editorial": {
+    "question": "Has your organization estimated and recorded how likely it is that threats will exploit its weaknesses and what the business impact would be?",
+    "whyItMatters": "Likelihood and impact turn a long list of weaknesses into a clear picture of what could actually hurt the business. That picture lets you decide what to address first.",
+    "doneLooksLike": "Business leaders and the people managing cybersecurity risk work together to estimate the likelihood and impact of risk scenarios and record them, often in a risk register. You have listed the potential business impacts of unauthorized access to your communications, systems, and data, and you account for cascading failures, where one system's failure affects others.",
+    "nextSteps": [
+     "Write a handful of realistic risk scenarios, such as ransomware on your main file server or a stolen laptop holding customer data.",
+     "With business leaders, estimate how likely each scenario is and what it would cost in money, downtime, and reputation.",
+     "Record the estimates in your risk register.",
+     "Note where one failure could trigger others, such as an email outage stopping order processing."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.RA-05",
@@ -1708,7 +2196,18 @@
      "text": "Prioritize cybersecurity resource allocations and investments based on estimated likelihoods and impacts"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-05"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-05",
+   "editorial": {
+    "question": "Does your organization combine what it knows about threats, weaknesses, likelihood, and impact to understand its overall risk and decide which risks to address first?",
+    "whyItMatters": "Combining these factors keeps attention and money on the risks that matter most, rather than on whatever seems most alarming. It also gives you a defensible basis for prioritizing security work.",
+    "doneLooksLike": "Threats, vulnerabilities, likelihoods, and impacts are used together to understand inherent risk (risk before additional safeguards) and to prioritize risk responses. Threat models help you understand risks to your data, and cybersecurity resources and investments are prioritized based on estimated likelihood and impact.",
+    "nextSteps": [
+     "For each risk in your register, combine its likelihood and impact into an overall rating using your agreed method.",
+     "Rank the risks and use the ranking to decide where to spend time and budget.",
+     "For your most sensitive data or systems, walk through how an attacker might reach them to identify the protections you need."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.RA-06",
@@ -1744,7 +2243,19 @@
      "text": "Communicate planned risk responses to affected stakeholders in priority order"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-06"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-06",
+   "editorial": {
+    "question": "When your organization identifies a cybersecurity risk, does it choose a response, plan it, track progress, and tell the people affected?",
+    "whyItMatters": "Identifying risks has little value if nothing is done about them. Tracked, communicated responses make sure decisions are carried out and that people know what changes are coming.",
+    "doneLooksLike": "For each risk, you choose whether to accept, transfer, reduce, or avoid it using defined criteria, including criteria for selecting compensating controls (alternative safeguards). Responses are prioritized and planned based on risk assessment findings, progress is tracked, for example in a risk register or a plan of action with milestones, and planned responses are communicated to affected stakeholders in priority order.",
+    "nextSteps": [
+     "For each high-priority risk, decide whether to accept, transfer, reduce, or avoid it, and record the reason.",
+     "Assign an owner and target date to each planned response.",
+     "Review progress at regular meetings and update the risk register.",
+     "Tell the people affected about planned changes, starting with the highest-priority ones."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.RA-07",
@@ -1776,7 +2287,19 @@
      "text": "Periodically review risks that were accepted based upon planned future actions or milestones"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-07"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-07",
+   "editorial": {
+    "question": "Does your organization assess and record the risk of changes to its systems, and of exceptions to its security rules, before approving them, and then track them?",
+    "whyItMatters": "Unreviewed changes are a common cause of outages and new security gaps, and exceptions that are never revisited can quietly become permanent. Managing both keeps risk visible and under control.",
+    "doneLooksLike": "Proposed changes and requested exceptions are formally documented, reviewed, tested, and approved. For each change you record the risks of making it and of not making it and how to roll it back, for each exception you record the related risks and the plan for responding to them, and you periodically review risks that were accepted on the basis of planned future actions.",
+    "nextSteps": [
+     "Set up a request form or ticket for system changes that records the reason, risk, test plan, and rollback steps.",
+     "Require approval from a named person before significant changes go ahead.",
+     "Keep a list of approved exceptions to security rules, each with an owner, the risk, and a review or end date.",
+     "Review the exception list periodically and close or renew each entry."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.RA-08",
@@ -1800,7 +2323,19 @@
      "text": "Assign responsibilities and verify the execution of procedures for processing, analyzing the impact of, and responding to cybersecurity threat, vulnerability, or incident disclosures by suppliers, customers, partners, and government cybersecurity organizations"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-08"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-08",
+   "editorial": {
+    "question": "Does your organization have a process for receiving, analyzing, and responding to reports of security weaknesses from suppliers, customers, partners, or government agencies?",
+    "whyItMatters": "Others may find problems in your systems, or in products you use, before you do. A clear process makes sure these reports reach the right person and lead to timely action instead of being lost.",
+    "doneLooksLike": "Responsibilities are assigned, and their execution verified, for receiving, analyzing the impact of, and responding to threat, vulnerability, or incident disclosures from suppliers, customers, partners, and government cybersecurity organizations. Vulnerability information is exchanged with suppliers according to the rules and protocols in your contracts.",
+    "nextSteps": [
+     "Assign a person or role to receive and assess vulnerability reports.",
+     "Publish a way for outsiders to report security issues to you, such as a dedicated email address.",
+     "Define steps for confirming a report, assessing its impact, responding, and informing the reporter.",
+     "Follow the information sharing terms in supplier contracts when exchanging vulnerability information."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.RA-09",
@@ -1820,7 +2355,18 @@
      "text": "Assess the authenticity and cybersecurity of critical technology products and services prior to acquisition and use"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-09"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-09",
+   "editorial": {
+    "question": "Before buying or installing hardware and software, does your organization check that it is genuine and has not been tampered with?",
+    "whyItMatters": "Counterfeit devices and altered software can carry hidden malicious code or fail unexpectedly. Checking authenticity and integrity before use keeps compromised products out of your environment.",
+    "doneLooksLike": "You assess the authenticity and integrity of hardware and software before acquiring and using them, with particular attention to the authenticity and cybersecurity of critical technology products and services.",
+    "nextSteps": [
+     "Buy hardware and software only from the manufacturer or its authorized resellers.",
+     "Download software only from official sources, and verify digital signatures or checksums (codes that confirm a file is unaltered) where they are provided.",
+     "Inspect critical hardware on arrival for signs of tampering or counterfeiting."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.RA-10",
@@ -1840,7 +2386,18 @@
      "text": "Conduct supplier risk assessments against business and applicable cybersecurity requirements, including the supply chain"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-10"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.RA-10",
+   "editorial": {
+    "question": "Before acquiring products or services from a supplier you will depend on heavily, does your organization assess the security risks that supplier brings?",
+    "whyItMatters": "Critical suppliers can have deep access to your data or operations, so their weaknesses can become yours. Assessing them before you commit gives you the chance to negotiate safeguards or choose another provider.",
+    "doneLooksLike": "Critical suppliers are assessed before acquisition against your business and cybersecurity requirements, including the risks in their own supply chains, and the results inform the decision to proceed.",
+    "nextSteps": [
+     "Use your supplier criticality criteria to decide which prospective suppliers need a full assessment.",
+     "Assess each critical supplier against your business and security requirements before signing, including how they manage their own suppliers.",
+     "Document the result and any conditions for approval, and keep it with the contract file."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.IM-01",
@@ -1868,7 +2425,18 @@
      "text": "Constantly evaluate compliance with selected cybersecurity requirements through automated means"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.IM-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.IM-01",
+   "editorial": {
+    "question": "Does your organization use self-assessments, independent audits, or other evaluations of its cybersecurity program to identify specific improvements?",
+    "whyItMatters": "Evaluations show where practice falls short of intent. Turning their findings into a list of improvements keeps the program moving forward instead of repeating the same gaps.",
+    "doneLooksLike": "You identify improvements from evaluations, such as self-assessments of critical services that take current threats and attacker methods into account, third-party assessments or independent audits of your program's effectiveness, and automated checks against the cybersecurity requirements you have selected.",
+    "nextSteps": [
+     "Complete a self-assessment of your cybersecurity program, such as this one, at a frequency you define.",
+     "Consider an independent assessment of your most critical services.",
+     "Record each finding as an improvement item with an owner and a priority."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.IM-02",
@@ -1908,7 +2476,19 @@
      "text": "Collect and analyze performance metrics using security tools and services to inform improvements to the cybersecurity program"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.IM-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.IM-02",
+   "editorial": {
+    "question": "Does your organization run security tests and exercises, including some with key suppliers, and use the results to identify improvements?",
+    "whyItMatters": "Tests and exercises show how plans and defenses perform under realistic conditions before a real incident does. Including suppliers reveals gaps at the handoffs between organizations.",
+    "doneLooksLike": "You identify improvements from tests and exercises, such as tabletop exercises (guided discussions of a scenario), simulations, internal reviews, independent audits, and leadership-approved penetration tests (authorized simulated attacks) of selected high-risk systems. Some business continuity, disaster recovery, and incident response exercises involve critical service providers and suppliers, including scenarios where products turn out to be counterfeit or altered, internal stakeholders such as executives, legal, and HR take part as appropriate, and performance metrics from security tools also inform improvements.",
+    "nextSteps": [
+     "Run a tabletop exercise on a realistic scenario, such as ransomware, with leadership and key staff.",
+     "Invite a critical supplier or service provider to join an exercise that depends on them.",
+     "Consider a penetration test of your highest-risk systems, with leadership approval.",
+     "Record the improvements identified and assign an owner to each."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.IM-03",
@@ -1936,7 +2516,19 @@
      "text": "Use metrics to assess operational cybersecurity performance over time"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.IM-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.IM-03",
+   "editorial": {
+    "question": "Does your organization review how its everyday security processes and procedures work in practice and use those lessons to identify improvements?",
+    "whyItMatters": "Running a process reveals problems that plans miss, such as steps that are skipped or take too long. Capturing those lessons makes the next run better.",
+    "doneLooksLike": "Improvements are identified from carrying out operational processes, procedures, and activities. You hold lessons-learned sessions, including with suppliers, review policies, processes, and procedures periodically (for example annually) to take lessons learned into account, and use metrics to assess operational security performance over time.",
+    "nextSteps": [
+     "After significant operational work, such as a system migration or an access review, note what worked and what did not.",
+     "Hold lessons-learned sessions with suppliers whose services affect your security.",
+     "Review your security policies and procedures on a schedule you define, for example once a year, to incorporate lessons learned.",
+     "Track a few operational measures over time, such as time to apply updates, to spot trends."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ID.IM-04",
@@ -1972,7 +2564,19 @@
      "text": "Review and update all cybersecurity plans annually or when a need for significant improvements is identified"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.IM-04"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=ID.IM-04",
+   "editorial": {
+    "question": "Does your organization have incident response and other operational cybersecurity plans that are written, shared with the people who carry them out, and kept up to date?",
+    "whyItMatters": "During an incident there is little time to work out who does what. Current plans that the right people know about help limit damage, restore operations sooner, and protect the organization's reputation.",
+    "doneLooksLike": "You have contingency plans, such as incident response, business continuity, and disaster recovery plans, and a vulnerability management plan. The contingency plans include contact and communication details, procedures for common scenarios, and criteria for prioritization and escalation, and all plans and their updates are communicated to those responsible and to affected parties, then reviewed and improved periodically (for example annually) and when significant improvements are needed.",
+    "nextSteps": [
+     "Write or update an incident response plan with contact details, roles, steps for common scenarios, and escalation criteria.",
+     "Create business continuity and disaster recovery plans for your critical services, and a plan for managing vulnerabilities.",
+     "Share each plan, and each update, with everyone who has a role in it.",
+     "Set a review date for each plan, and update it after exercises, incidents, or major changes."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.AA-01",
@@ -2004,7 +2608,19 @@
      "text": "Physically label authorized hardware with an identifier for inventory and servicing purposes"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.AA-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.AA-01",
+   "editorial": {
+    "question": "Does your organization manage the accounts, passwords, keys, and other credentials used by its people, services, and devices, from issuing them to revoking them?",
+    "whyItMatters": "Every account, service login, and device identity is a possible way in. If nobody tracks who and what holds credentials, old or unneeded ones linger and can be misused without anyone noticing.",
+    "doneLooksLike": "Requests for new or additional access are tracked, reviewed, and fulfilled, with approval from system or data owners when needed. Certificates, identity tokens, cryptographic keys, and other credentials are issued, managed, and revoked deliberately, and each authorized device has a unique identifier, with hardware physically labeled for inventory and servicing.",
+    "nextSteps": [
+     "Set up one way to request, approve, and record new or changed access, with the system or data owner approving when needed.",
+     "List the credentials your organization depends on, including service accounts, certificates, and cryptographic keys, and note who manages and revokes each.",
+     "Give each authorized device a unique identifier and label hardware so it can be matched to your inventory.",
+     "Revoke credentials promptly when people leave, services are retired, or devices are disposed of."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.AA-02",
@@ -2028,7 +2644,18 @@
      "text": "Issue a different credential for each person (i.e., no credential sharing)"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.AA-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.AA-02",
+   "editorial": {
+    "question": "Before issuing an account or credential, does your organization confirm that the person is who they claim to be, with checks that fit what the access allows?",
+    "whyItMatters": "If someone can obtain an account by claiming to be someone else, every other access control rests on a false identity. Shared credentials cause a similar problem: you can no longer tell who did what.",
+    "doneLooksLike": "At enrollment, you verify each person's claimed identity (identity proofing) with checks suited to the context, such as government-issued identification for higher-risk access, and bind the verified identity to their credential. Each person receives their own credential, and credentials are not shared.",
+    "nextSteps": [
+     "Decide which identity checks are needed before granting each kind of access, with stronger checks for more sensitive access.",
+     "Verify identity in person or through a trusted process before issuing credentials to new staff, contractors, and others.",
+     "Replace shared logins with individual accounts so every action can be traced to one person."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.AA-03",
@@ -2060,7 +2687,19 @@
      "text": "Ensure that authorized personnel can access accounts essential for protecting safety under emergency conditions"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.AA-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.AA-03",
+   "editorial": {
+    "question": "Does your organization require people, services, and devices to prove their identity before gaining access, for example with multi-factor authentication for user logins?",
+    "whyItMatters": "Stolen and guessed passwords are among the most common ways attackers get in. Strong authentication makes a stolen password far less useful on its own.",
+    "doneLooksLike": "Multi-factor authentication (a second check beyond a password) is required, and minimum strength rules apply to passwords, PINs, and similar authenticators. Users, services, and devices are reauthenticated periodically based on risk, and authorized personnel can still reach accounts essential to protecting safety in an emergency.",
+    "nextSteps": [
+     "Turn on multi-factor authentication, starting with email, remote access, administrator accounts, and cloud services.",
+     "Set minimum strength rules for passwords and PINs, and give staff a password manager to help meet them.",
+     "Decide how often sessions and device connections must reauthenticate, based on the risk of what they reach.",
+     "Document how authorized people can reach accounts essential to safety during an emergency."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.AA-04",
@@ -2088,7 +2727,19 @@
      "text": "Implement standards-based approaches for identity assertions in all contexts, and follow all guidance for the generation (e.g., data models, metadata), protection (e.g., digital signing, encryption), and verification (e.g., signature validation) of identity assertions"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.AA-04"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.AA-04",
+   "editorial": {
+    "question": "When your organization uses single sign-on or lets one system vouch for a user to another, are those identity assertions protected in transit and verified on receipt?",
+    "whyItMatters": "Single sign-on (one login that grants access to many services) works by passing a signed statement, called an identity assertion, about who the user is. If that statement can be forged, intercepted, or replayed, an attacker can get in without ever knowing a password.",
+    "doneLooksLike": "Identity assertions passed through single sign-on and between federated systems (separate organizations or services that trust each other's logins) use standards-based approaches. They are generated, digitally signed or encrypted, and verified according to the applicable guidance, and receiving systems validate signatures before accepting them.",
+    "nextSteps": [
+     "List the services that rely on single sign-on or accept logins from another identity provider.",
+     "Confirm that each integration uses a standards-based protocol with signing, and encryption where supported, turned on.",
+     "Check that every receiving service validates assertion signatures and rejects assertions that fail validation.",
+     "Follow your identity provider's configuration guidance and revisit integrations when that guidance changes."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.AA-05",
@@ -2120,7 +2771,19 @@
      "text": "Periodically review the privileges associated with critical business functions to confirm proper separation of duties"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.AA-05"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.AA-05",
+   "editorial": {
+    "question": "Does your organization give people only the access their role needs, follow a written access policy, and review permissions regularly and when roles change?",
+    "whyItMatters": "Broad access turns one compromised account into a much larger problem. Splitting sensitive tasks between people also makes fraud and errors harder to carry out unnoticed.",
+    "doneLooksLike": "A policy defines how access permissions and authorizations are granted, and they are managed and enforced according to it. Access is limited to the minimum needed (least privilege), and critical business functions are split so no single person controls them end to end (separation of duties). Logical and physical access is reviewed periodically and when people change roles or leave, and privileges that are no longer needed are removed promptly.",
+    "nextSteps": [
+     "Write down who approves access to each key system and what each role should be able to do.",
+     "Remove administrator rights and other privileges people do not need for their current work.",
+     "Review access periodically and whenever someone changes roles or leaves, and rescind what is no longer needed.",
+     "Split critical tasks, such as approving and sending payments, between different people."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.AA-06",
@@ -2148,7 +2811,19 @@
      "text": "Escort guests, vendors, and other third parties within areas that contain business-critical assets"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.AA-06"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.AA-06",
+   "editorial": {
+    "question": "Does your organization control and monitor who can physically reach its offices, equipment, and records, with stronger protection where the risk is higher?",
+    "whyItMatters": "Someone who can walk up to a server, network closet, or unattended laptop can often bypass technical safeguards. Physical controls limit that kind of access to the people who need it.",
+    "doneLooksLike": "Physical controls such as locked entrances, alarm systems, cameras, or guards restrict and monitor access to your facilities in proportion to risk. Areas holding high-risk assets have additional protection, and guests, vendors, and other third parties are escorted in areas with business-critical assets.",
+    "nextSteps": [
+     "Identify the rooms and equipment that hold your most important assets, such as servers, network equipment, and paper records.",
+     "Lock those areas and limit keys or badges to the people who need them.",
+     "Escort visitors and vendors whenever they are in sensitive areas.",
+     "Add monitoring, such as an alarm or camera, where the risk justifies it."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.AT-01",
@@ -2184,7 +2859,19 @@
      "text": "Require annual refreshers to reinforce existing practices and introduce new practices"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.AT-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.AT-01",
+   "editorial": {
+    "question": "Do your staff, contractors, and other users receive cybersecurity awareness training that helps them spot common attacks and handle everyday tasks safely?",
+    "whyItMatters": "Many attacks begin with a convincing email, call, or message aimed at an ordinary employee. People who know what to look for, and how to report it, catch problems that technology misses.",
+    "doneLooksLike": "Everyone who uses your non-public resources, including contractors, partners, and suppliers, receives basic training on recognizing social engineering (manipulating people into revealing information or taking harmful actions), reporting suspicious activity, following acceptable use policies, and basic hygiene such as updating software, choosing passwords, and protecting credentials. Training explains the consequences of policy violations, understanding is assessed periodically, and refreshers are given on a regular schedule, such as annually.",
+    "nextSteps": [
+     "Choose or create a short awareness course covering phishing, passwords, credential protection, software updates, and how to report concerns.",
+     "Make the training part of onboarding for employees and for contractors and others who use your systems.",
+     "Check understanding periodically, for example with quizzes or simulated phishing messages.",
+     "Schedule refreshers and update the content as attack methods change."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.AT-02",
@@ -2216,7 +2903,19 @@
      "text": "Require annual refreshers to reinforce existing practices and introduce new practices"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.AT-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.AT-02",
+   "editorial": {
+    "question": "Do people in roles with greater cybersecurity exposure, such as finance, leadership, IT, and security staff, receive additional training specific to their duties?",
+    "whyItMatters": "Some roles are targeted more often or can do more damage if deceived. A person who approves payments or an administrator with broad access needs knowledge beyond general awareness.",
+    "doneLooksLike": "You have identified the roles that need more training, such as physical and cybersecurity staff, finance personnel, senior leadership, and anyone with access to business-critical data. People in those roles, including contractors, partners, suppliers, and other third parties, receive role-based training, their understanding is assessed periodically, and refreshers are given on a regular schedule.",
+    "nextSteps": [
+     "List the roles in your organization that handle money, business-critical data, administrator access, or security duties.",
+     "Provide training tailored to each role, such as payment fraud for finance or secure administration for IT.",
+     "Include contractors and other third parties who fill those roles.",
+     "Assess understanding periodically and refresh the training on a set schedule."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.DS-01",
@@ -2252,7 +2951,18 @@
      "text": "Physically secure removable media containing unencrypted sensitive information, such as within locked offices or file cabinets"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.DS-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.DS-01",
+   "editorial": {
+    "question": "Does your organization protect stored data, on laptops, servers, cloud storage, and removable media, from unauthorized viewing, alteration, or loss?",
+    "whyItMatters": "A lost laptop, stolen drive, or breached file store exposes whatever is on it unless the data is protected. Encryption and integrity checks help keep stored information private and trustworthy.",
+    "doneLooksLike": "Stored data in files, databases, and virtual machine or container images is protected with encryption, and with digital signatures or cryptographic hashes where integrity matters. Laptops and other endpoints use full disk encryption, software signatures are validated, removable media use is restricted, and removable media holding unencrypted sensitive information is physically secured.",
+    "nextSteps": [
+     "Turn on full disk encryption for all laptops, desktops, and mobile devices.",
+     "Confirm that databases, file shares, and cloud storage holding sensitive data are encrypted.",
+     "Restrict the use of USB drives and other removable media, and lock up any that hold unencrypted sensitive information."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.DS-02",
@@ -2284,7 +2994,19 @@
      "text": "Prevent reuse of sensitive data from production environments (e.g., customer records) in development, testing, and other non-production environments"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.DS-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.DS-02",
+   "editorial": {
+    "question": "Does your organization protect data as it travels across networks, including email and web traffic, so it cannot be read or altered along the way?",
+    "whyItMatters": "Data moving over the internet or a shared network can be intercepted or tampered with. Data can also leave through personal email or file-sharing accounts that your organization does not control.",
+    "doneLooksLike": "Network communications are encrypted, with digital signatures or hashes protecting integrity where needed. Depending on your risk and how data is classified, outgoing email and other messages containing sensitive data are automatically encrypted or blocked, personal email and file-sharing services are blocked from organizational systems, and production data such as customer records is kept out of development and test environments.",
+    "nextSteps": [
+     "Require encrypted connections for your websites, remote access, and email.",
+     "Set rules that encrypt or block outgoing messages containing sensitive data.",
+     "Decide whether to block personal email and file-sharing services on work devices and networks.",
+     "Use made-up or masked data, rather than real customer records, for development and testing."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.DS-10",
@@ -2308,7 +3030,18 @@
      "text": "Protect data in use from access by other users and processes of the same platform"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.DS-10"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.DS-10",
+   "editorial": {
+    "question": "Does your organization protect sensitive data while applications are actively using it, so other users and processes on the same system cannot reach it?",
+    "whyItMatters": "Data usually has to be decrypted while it is being worked on, which makes memory a target. An attacker with a foothold on a shared system may try to read data belonging to other programs or users.",
+    "doneLooksLike": "Data that must stay confidential is removed from memory and processors as soon as it is no longer needed. Systems keep data in use isolated from other users and processes running on the same platform.",
+    "nextSteps": [
+     "Identify the systems that process your most sensitive data, including shared servers and cloud hosts.",
+     "Ask your developers or software providers how their applications clear sensitive data from memory after use.",
+     "Use platform features that isolate users and processes from each other, and avoid running sensitive workloads alongside untrusted ones."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.DS-11",
@@ -2340,7 +3073,19 @@
      "text": "Enforce geographic separation and geolocation restrictions for data backup storage"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.DS-11"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.DS-11",
+   "editorial": {
+    "question": "Does your organization back up its important data on a set schedule, keep the backups protected, and test that it can restore from them?",
+    "whyItMatters": "Backups are often the difference between a short disruption and permanent loss after ransomware, hardware failure, or human error. A backup that cannot be restored, or that attackers can encrypt too, offers little protection.",
+    "doneLooksLike": "Critical data is backed up continuously or in near-real-time, and other data on agreed schedules. Backups are protected and maintained, some are stored offline and offsite with geographic separation so one incident or disaster cannot damage them all, and backups and restores are tested for every type of data source at a frequency you define, such as at least annually.",
+    "nextSteps": [
+     "List your critical data and decide how often each type must be backed up.",
+     "Keep at least one backup copy offline and in a separate location.",
+     "Restrict who can change or delete backups.",
+     "Restore a sample of each type of data on a regular schedule and record the results."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.PS-01",
@@ -2368,7 +3113,19 @@
      "text": "Monitor implemented software for deviations from approved baselines"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.PS-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.PS-01",
+   "editorial": {
+    "question": "Does your organization set secure standard configurations for its systems, review default settings, and check that systems stay configured that way over time?",
+    "whyItMatters": "Systems often ship with default settings and extra features that attackers know how to exploit. A known, hardened configuration reduces those weaknesses and makes unexpected changes stand out.",
+    "doneLooksLike": "You establish, test, deploy, and maintain hardened baselines (approved secure configurations) that enforce your policies and enable only the capabilities each system needs. Default settings that could affect security are reviewed when software is installed or upgraded, and systems are monitored for deviations from their approved baselines.",
+    "nextSteps": [
+     "Write down a secure baseline for each common system type, such as laptops, servers, network devices, and cloud accounts.",
+     "Change default passwords and turn off features and services you do not use.",
+     "Review security-related default settings whenever you install or upgrade software.",
+     "Check systems periodically, or with automated tools, for changes from the baseline."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.PS-02",
@@ -2408,7 +3165,18 @@
      "text": "Define and implement plans for software and service end-of-life maintenance support and obsolescence"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.PS-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.PS-02",
+   "editorial": {
+    "question": "Does your organization keep software patched, replace versions that are no longer supported, and remove software that is unauthorized or unnecessary?",
+    "whyItMatters": "Attackers routinely exploit known flaws in unpatched or unsupported software. Every unneeded program is one more thing to patch and one more tool an attacker could misuse.",
+    "doneLooksLike": "Routine and emergency patches are applied within the timeframes in your vulnerability management plan, and container images are updated and replaced rather than patched in place. You plan for software end of life, replace unsupported versions with maintained ones, and remove unauthorized software and unnecessary components that attackers might misuse.",
+    "nextSteps": [
+     "Turn on automatic updates where possible and set target timeframes for routine and emergency patches.",
+     "Identify software that is near or past its end of support and plan its replacement.",
+     "Remove unauthorized programs and unneeded components, such as utilities attackers could misuse."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.PS-03",
@@ -2436,7 +3204,18 @@
      "text": "Perform hardware disposal in a secure, responsible, and auditable manner"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.PS-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.PS-03",
+   "editorial": {
+    "question": "Does your organization maintain its hardware, replace devices that can no longer support needed security features, and dispose of old equipment securely?",
+    "whyItMatters": "Older devices may stop receiving security updates or lack features such as hardware encryption support. Discarded equipment can still hold data that someone else can recover.",
+    "doneLooksLike": "Hardware is replaced when it lacks needed security capabilities or cannot run software that has them, and you have plans for end-of-life support and obsolescence. Disposal is secure, responsible, and auditable, with records showing how each device was handled.",
+    "nextSteps": [
+     "Record the end-of-support dates for your computers, phones, and network equipment.",
+     "Budget and schedule replacements for devices that will lose security support.",
+     "Wipe or destroy storage before disposing of devices, and keep a record of what was disposed of and how."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.PS-04",
@@ -2464,7 +3243,18 @@
      "text": "Configure log generators to record the data needed by zero-trust architectures"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.PS-04"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.PS-04",
+   "editorial": {
+    "question": "Do your systems, applications, and cloud services record activity logs and send them somewhere your organization can review them?",
+    "whyItMatters": "Logs are often the only record of what happened during an attack. Without them, problems go unnoticed and investigations have little to work with.",
+    "doneLooksLike": "Operating systems, applications, and services, including cloud services, are configured to generate log records. Those logs are shared securely with your logging infrastructure and include the data your monitoring needs, including what any zero trust architecture (an approach that verifies every access request rather than trusting the network) relies on.",
+    "nextSteps": [
+     "List your important systems and cloud services and confirm logging is turned on for each.",
+     "Send logs securely to a central place where they can be reviewed and protected from tampering.",
+     "Confirm the logs capture key events, such as logins, administrator actions, and configuration changes."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.PS-05",
@@ -2496,7 +3286,19 @@
      "text": "Configure platforms to allow the installation of organization-approved software only"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.PS-05"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.PS-05",
+   "editorial": {
+    "question": "Does your organization prevent people from installing or running software that has not been approved?",
+    "whyItMatters": "Malware often arrives disguised as a useful program or browser add-on. Limiting what can be installed and run stops much of it before it starts.",
+    "doneLooksLike": "Platforms allow installation of organization-approved software only, and where risk warrants, execution is limited to permitted programs or prohibited software is blocked. The source and integrity of new software are verified before installation, and devices use approved DNS services (the system that turns web addresses into network locations) that block known malicious domains.",
+    "nextSteps": [
+     "Remove administrator rights from everyday user accounts so software installation goes through an approval step.",
+     "Keep a list of approved software and a process for requesting additions.",
+     "Use application allowlisting (permitting only approved programs to run) on high-risk systems.",
+     "Configure devices to use a DNS filtering service that blocks known malicious sites."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.PS-06",
@@ -2524,7 +3326,19 @@
      "text": "Maintain the software used in production environments, and securely dispose of software once it is no longer needed"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.PS-06"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.PS-06",
+   "editorial": {
+    "question": "If your organization develops software, does it build security into each stage of development and track how well those practices are working?",
+    "whyItMatters": "Flaws introduced during development become vulnerabilities in what you release or run. Tampering with source code or build tools can slip malicious code into software you and your customers trust.",
+    "doneLooksLike": "Secure development practices are integrated into every phase of the software development life cycle, and their performance is monitored. All components of your software are protected from tampering and unauthorized access, releases have minimal vulnerabilities, production software is maintained, and software that is no longer needed is securely disposed of.",
+    "nextSteps": [
+     "Restrict and log access to source code, build systems, and release processes.",
+     "Add security reviews and automated vulnerability testing before each release.",
+     "Track measures, such as vulnerabilities found before and after release, to see whether your practices are working.",
+     "Retire and securely remove software you no longer maintain."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.IR-01",
@@ -2556,7 +3370,19 @@
      "text": "Check the cyber health of endpoints before allowing them to access and use production resources"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.IR-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.IR-01",
+   "editorial": {
+    "question": "Does your organization separate its networks by trust level and limit what traffic can enter from the internet or move between network segments?",
+    "whyItMatters": "On a flat network, an attacker who compromises one device can reach everything else. Segmentation and tight access rules contain that spread and keep untrusted devices away from important systems.",
+    "doneLooksLike": "Networks and cloud platforms are logically segmented by trust boundaries and platform types, such as office IT, internet of things devices, operational technology, mobile, and guest networks, with only required communications allowed between segments. Only necessary traffic enters from external networks, network access to each resource is limited to the minimum needed, and the health of endpoints is checked before they can use production resources.",
+    "nextSteps": [
+     "Put guest Wi-Fi and smart devices, such as cameras and printers, on networks separate from business systems.",
+     "Review firewall rules and close inbound access that is not needed.",
+     "Limit which users and devices can reach each important system.",
+     "Check that devices are patched and protected before they can connect to sensitive resources."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.IR-02",
@@ -2580,7 +3406,18 @@
      "text": "Include protection from environmental threats and provisions for adequate operating infrastructure in requirements for service providers that operate systems on the organization's behalf"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.IR-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.IR-02",
+   "editorial": {
+    "question": "Is your organization's equipment protected from environmental threats such as fire, flooding, wind, heat, and humidity, including at providers that run systems for you?",
+    "whyItMatters": "A burst pipe, overheated server closet, or fire can take systems offline as surely as an attack. Providers that host your systems face the same risks.",
+    "doneLooksLike": "Equipment is protected against the environmental threats known for its location, such as flooding, fire, wind, and excessive heat and humidity. Requirements for service providers that operate systems on your behalf include protection from environmental threats and adequate operating infrastructure, such as power and cooling.",
+    "nextSteps": [
+     "Walk through the spaces where equipment sits and note risks such as water pipes, poor ventilation, or flood exposure.",
+     "Add protections that fit those risks, such as raised mounting, temperature monitoring, or fire suppression.",
+     "Include environmental protection and adequate power and cooling in your requirements for hosting and service providers."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.IR-03",
@@ -2608,7 +3445,18 @@
      "text": "Use high-availability components like redundant storage and power supplies to improve system reliability"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.IR-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.IR-03",
+   "editorial": {
+    "question": "Has your organization built redundancy into critical systems so they keep running in normal conditions and during disruptions, such as a failed component?",
+    "whyItMatters": "If one server, internet connection, or power supply is all that keeps a critical service running, a single failure becomes an outage. Redundancy lets operations continue while the problem is fixed.",
+    "doneLooksLike": "You know the resilience requirements for your critical systems and have mechanisms that meet them in both normal and adverse situations. Single points of failure are avoided, and measures such as load balancing (spreading work across several systems), redundant storage, and redundant power supplies are used where needed.",
+    "nextSteps": [
+     "Identify single points of failure in your critical systems, including internet connections, power, and key servers.",
+     "Add redundancy where an outage would be most costly, such as a second internet connection or a backup power supply.",
+     "Confirm that backup components take over as expected when a primary component fails."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "PR.IR-04",
@@ -2632,7 +3480,18 @@
      "text": "Forecast future needs, and scale resources accordingly"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.IR-04"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=PR.IR-04",
+   "editorial": {
+    "question": "Does your organization monitor the storage, computing, power, and network capacity its systems use, and add resources before shortages affect availability?",
+    "whyItMatters": "Running out of disk space, bandwidth, or computing power can bring services down without any attacker involved. Spare capacity also helps systems absorb sudden spikes in demand.",
+    "doneLooksLike": "Use of storage, power, compute, network bandwidth, and other resources is monitored. You forecast future needs and scale resources so that availability is maintained.",
+    "nextSteps": [
+     "Set alerts for storage, bandwidth, and computing use that approach their limits.",
+     "Review usage trends periodically and forecast what you will need next.",
+     "Plan upgrades or scale cloud resources before limits are reached."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "DE.AE-02",
@@ -2664,7 +3523,19 @@
      "text": "Use log analysis tools to generate reports on their findings"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.AE-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.AE-02",
+   "editorial": {
+    "question": "Does your organization analyze security logs and alerts, with tools or by hand, to understand what is happening when suspicious activity appears?",
+    "whyItMatters": "Logs and alerts only help if someone or something examines them. Analysis turns a stream of events into an understanding of whether something malicious is under way.",
+    "doneLooksLike": "Log events are monitored continuously for known malicious and suspicious activity using a security information and event management (SIEM) system or other tools, informed by current threat intelligence. Logs from technologies that automation cannot cover well are reviewed manually on a regular basis, and analysis tools produce reports on their findings.",
+    "nextSteps": [
+     "Decide which logs matter most, such as email, login, firewall, and endpoint protection logs.",
+     "Use a monitoring tool or service to watch those logs for suspicious activity.",
+     "Schedule manual reviews for systems that automated tools cannot monitor well.",
+     "Keep reports of findings so you can spot trends and follow up."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "DE.AE-03",
@@ -2692,7 +3563,18 @@
      "text": "Utilize cyber threat intelligence to help correlate events among log sources"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.AE-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.AE-03",
+   "editorial": {
+    "question": "Does your organization bring together information from multiple sources, such as logs from different systems, to see connections between related events?",
+    "whyItMatters": "A single login, file change, or network connection can look harmless on its own. Seen together across systems, the same events can reveal an attack in progress.",
+    "doneLooksLike": "Log data from your various sources flows continuously to a small number of log servers. Event correlation technology, such as a SIEM (a system that collects and analyzes security events), links information captured by multiple sources, and threat intelligence helps connect events across those sources.",
+    "nextSteps": [
+     "Send logs from your key systems and cloud services to one central location.",
+     "Use a tool or service that can correlate events across those sources.",
+     "Add threat intelligence feeds so related activity can be linked to known attack patterns."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "DE.AE-04",
@@ -2716,7 +3598,18 @@
      "text": "A person creates their own estimates of impact and scope"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.AE-04"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.AE-04",
+   "editorial": {
+    "question": "When a potentially harmful event is detected, does your organization estimate how far it reaches and how much it could affect the business?",
+    "whyItMatters": "Knowing whether an event touches one laptop or the whole network shapes how urgently and how broadly you respond. Underestimating scope can leave part of a problem unaddressed.",
+    "doneLooksLike": "For adverse events, you estimate impact and scope, either with tools such as a SIEM or through a knowledgeable person's own assessment. Those estimates are reviewed and refined as more is learned.",
+    "nextSteps": [
+     "Define a few impact levels based on which systems, data, and customers are affected.",
+     "Assign someone to estimate impact and scope when a significant event is detected.",
+     "Revisit the estimate as the analysis progresses and record how it changed."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "DE.AE-06",
@@ -2748,7 +3641,18 @@
      "text": "Manually create and assign tickets in the organization's ticketing system when technical staff discover indicators of compromise"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.AE-06"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.AE-06",
+   "editorial": {
+    "question": "When security tools detect something concerning, do the alerts reach the right people and systems, and can responders see analysis findings whenever they need them?",
+    "whyItMatters": "An alert that sits unread in a console protects no one. Getting findings to the right people quickly is what makes detection useful.",
+    "doneLooksLike": "Security software generates alerts and delivers them to your security operations center (SOC), incident responders, or response tools. Authorized responders can access log analysis findings at all times, and tickets are created and assigned automatically for certain alerts and manually when staff discover indicators of compromise (signs that a system has been breached).",
+    "nextSteps": [
+     "Decide who receives each type of security alert, including any outside provider that monitors for you.",
+     "Route alerts into a ticketing system or tracked queue so each one is assigned an owner.",
+     "Confirm that responders can reach log findings outside business hours."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "DE.AE-07",
@@ -2776,7 +3680,18 @@
      "text": "Rapidly acquire and analyze vulnerability disclosures for the organization's technologies from suppliers, vendors, and third-party security advisories"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.AE-07"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.AE-07",
+   "editorial": {
+    "question": "Does your organization use threat intelligence, asset information, and vendor security advisories to inform how it analyzes suspicious activity?",
+    "whyItMatters": "Context changes what an event means. Knowing which systems are critical, which vulnerabilities affect you, and what attackers are currently doing helps you separate real threats from noise.",
+    "doneLooksLike": "Cyber threat intelligence (information about current attackers, their methods, and signs of their activity) and asset inventory information are securely provided to your detection tools, processes, and staff. Vulnerability disclosures from suppliers, vendors, and third-party advisories for the technologies you use are acquired and analyzed quickly.",
+    "nextSteps": [
+     "Subscribe to security advisories from the vendors of software and devices you rely on.",
+     "Make your asset inventory available to whoever analyzes alerts so they know what each system does and how important it is.",
+     "Feed threat intelligence into your monitoring tools, or confirm that your monitoring provider does."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "DE.AE-08",
@@ -2800,7 +3715,18 @@
      "text": "Take known false positives into account when applying incident criteria"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.AE-08"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.AE-08",
+   "editorial": {
+    "question": "Does your organization have defined criteria for when a suspicious event becomes an incident, and apply them consistently when deciding whether to declare one?",
+    "whyItMatters": "Without clear criteria, serious events can be dismissed while minor ones trigger a full response. Declaring an incident is what sets the response in motion, so the decision needs to be timely and consistent.",
+    "doneLooksLike": "You have defined incident criteria. Staff apply them to the known and assumed characteristics of activity, take known false positives into account, and declare an incident when the criteria are met.",
+    "nextSteps": [
+     "Write down what makes an event an incident, such as confirmed unauthorized access, malware on a system, or exposed customer data.",
+     "Name who has the authority to declare an incident.",
+     "Keep a list of known false positives so they are recognized during the decision."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "DE.CM-01",
@@ -2836,7 +3762,19 @@
      "text": "Monitor network communications to identify changes in security postures for zero trust purposes"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.CM-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.CM-01",
+   "editorial": {
+    "question": "Does your organization monitor its networks and network services for warning signs, such as unknown devices connecting or unusual traffic patterns?",
+    "whyItMatters": "Attackers have to move across networks to reach data and systems. Watching network activity can expose intruders, rogue devices, and data leaving by unexpected routes.",
+    "doneLooksLike": "Network services such as DNS (which translates web addresses) and BGP (which routes traffic between networks) are monitored for adverse events, wired and wireless networks are monitored for unauthorized endpoints, and facilities are checked for rogue wireless networks. Actual network flows are compared with baselines to spot deviations, and network communications are watched for changes in security posture.",
+    "nextSteps": [
+     "Keep a list of devices allowed on your network and set alerts for unknown ones.",
+     "Scan your premises periodically for wireless networks you did not set up.",
+     "Establish what normal traffic looks like and set alerts for significant deviations.",
+     "Monitor DNS activity for lookups of known malicious domains."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "DE.CM-02",
@@ -2868,7 +3806,18 @@
      "text": "Monitor the physical environment using alarm systems, cameras, and security guards"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.CM-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.CM-02",
+   "editorial": {
+    "question": "Does your organization monitor its physical spaces, through alarms, cameras, access logs, or visitor records, to spot unusual or unauthorized activity?",
+    "whyItMatters": "Physical intrusion and tampering can lead directly to stolen equipment or data. Monitoring helps you notice them while there is still time to act.",
+    "doneLooksLike": "Logs from physical access control systems, such as badge readers, are reviewed for unusual access patterns and failed attempts, and visitor registrations and sign-in sheets are reviewed. Locks, latches, hinge pins, and alarms are checked for signs of tampering, and the environment is watched with alarm systems, cameras, or guards as appropriate.",
+    "nextSteps": [
+     "Keep visitor sign-in records and review them periodically.",
+     "Review badge or key-access logs for after-hours entries and repeated failed attempts.",
+     "Inspect locks, doors, and alarm equipment for signs of tampering."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "DE.CM-03",
@@ -2896,7 +3845,18 @@
      "text": "Continuously monitor deception technology, including user accounts, for any usage"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.CM-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.CM-03",
+   "editorial": {
+    "question": "Does your organization monitor account activity and technology use for signs of misuse, such as unusual access patterns, repeated failed logins, or insider threats?",
+    "whyItMatters": "Compromised accounts and malicious insiders act with legitimate credentials, so they can be hard to spot. Watching for unusual patterns helps catch misuse that perimeter defenses miss.",
+    "doneLooksLike": "Logs from logical access control systems are monitored for unusual access patterns and failed access attempts. Where appropriate, behavior analytics tools flag anomalous user activity, and any deception technology, such as decoy accounts that no legitimate user should touch, is monitored continuously for use.",
+    "nextSteps": [
+     "Turn on alerts for bursts of failed logins and logins from unusual locations or at unusual times.",
+     "Review administrator and other privileged account activity on a regular schedule.",
+     "Consider creating decoy accounts or files and alerting on any use of them."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "DE.CM-06",
@@ -2920,7 +3880,18 @@
      "text": "Monitor activity from cloud-based services, internet service providers, and other service providers for deviations from expected behavior"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.CM-06"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.CM-06",
+   "editorial": {
+    "question": "Does your organization monitor the activities and services of its IT providers, cloud services, and other outside vendors for signs of trouble?",
+    "whyItMatters": "Providers often have powerful access to your systems, and attackers target them to reach their customers. Their services can also change behavior without warning.",
+    "doneLooksLike": "Remote and onsite administration and maintenance that external providers perform on your systems is monitored. Activity from cloud services, internet service providers, and other providers is watched for deviations from expected behavior.",
+    "nextSteps": [
+     "List the providers that can access your systems and how each one connects.",
+     "Require providers to perform maintenance through accounts whose activity you can log and review.",
+     "Review provider activity logs and cloud service audit logs for unexpected actions."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "DE.CM-09",
@@ -2956,7 +3927,19 @@
      "text": "Use technologies with a presence on endpoints to detect cyber health issues (e.g., missing patches, malware infections, unauthorized software), and redirect the endpoints to a remediation environment before access is authorized"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.CM-09"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=DE.CM-09",
+   "editorial": {
+    "question": "Does your organization monitor its computers, software, email, and cloud services for malware, phishing, credential attacks, tampering, and unexpected configuration changes?",
+    "whyItMatters": "Email, web browsing, and file sharing are where many attacks start, and endpoints are where they land. Monitoring these areas helps catch malware, stolen credentials, and data leaks early.",
+    "doneLooksLike": "Email, web, file sharing, and collaboration services are monitored for malware, phishing, data leaks, and exfiltration (unauthorized transfer of data out of the organization). Authentication attempts are watched for credential attacks and reuse, software configurations are checked against security baselines, hardware and software are monitored for tampering, and endpoint tools detect health issues such as missing patches, malware, or unauthorized software and redirect affected devices for remediation before access is allowed.",
+    "nextSteps": [
+     "Use endpoint protection on every computer and confirm its alerts reach someone who will act on them.",
+     "Turn on the malware, phishing, and data-loss protections available in your email and file-sharing services.",
+     "Monitor login activity for password guessing and use of stolen credentials.",
+     "Check systems for configuration changes that depart from your security baselines."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RS.MA-01",
@@ -2988,7 +3971,19 @@
      "text": "Initiate execution of additional cybersecurity plans as needed to support incident response (for example, business continuity and disaster recovery)"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.MA-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.MA-01",
+   "editorial": {
+    "question": "Once an incident is declared, does your organization carry out its incident response plan, coordinating with outside parties such as response providers when needed?",
+    "whyItMatters": "The first hours of an incident are stressful, and decisions made in a hurry can make things worse. Following a prepared plan, with outside help arranged in advance, keeps the response organized.",
+    "doneLooksLike": "When an incident is declared, the response plan is put into action and an incident lead is designated. Relevant third parties, such as an incident response provider, are engaged as the plan specifies, detection tools report confirmed incidents automatically where possible, and supporting plans such as business continuity and disaster recovery are started when needed.",
+    "nextSteps": [
+     "Make sure you have a written incident response plan and that the people named in it know their roles.",
+     "Decide in advance who leads an incident and who serves as backup.",
+     "Arrange incident response support, such as an agreement with a response provider or your IT provider, and keep their contact details in the plan.",
+     "Note in the plan when to start business continuity or disaster recovery plans."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RS.MA-02",
@@ -3012,7 +4007,18 @@
      "text": "Apply criteria to estimate the severity of an incident"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.MA-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.MA-02",
+   "editorial": {
+    "question": "When an incident is reported, does your organization promptly check whether it is a real cybersecurity issue and estimate how severe it is?",
+    "whyItMatters": "Not every report is a security incident, and not every incident is equally urgent. Prompt triage directs effort where it is needed and avoids both overreaction and missed threats.",
+    "doneLooksLike": "Each incident report receives a preliminary review to confirm it is cybersecurity-related and requires incident response. Defined criteria are applied to estimate its severity.",
+    "nextSteps": [
+     "Name who reviews incoming incident reports and how quickly, within a timeframe you set, the review should start.",
+     "Write severity criteria, such as the sensitivity of the data involved and the number of systems or people affected.",
+     "Record each report, the triage decision, and the reason for it."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RS.MA-03",
@@ -3040,7 +4046,18 @@
      "text": "Select incident response strategies for active incidents by balancing the need to quickly recover from an incident with the need to observe the attacker or conduct a more thorough investigation"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.MA-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.MA-03",
+   "editorial": {
+    "question": "Does your organization categorize incidents by type and prioritize them by scope, likely impact, and urgency when deciding how to respond?",
+    "whyItMatters": "A ransomware attack, an account takeover, and a data breach each call for different actions. Categorizing and prioritizing helps you apply limited people and time to what matters most.",
+    "doneLooksLike": "Incidents are categorized by type, such as data breach, ransomware, denial of service (overwhelming a service with traffic), or account compromise. They are prioritized by scope, likely impact, and time sensitivity, and response strategies balance the need to recover quickly against the need to observe the attacker or investigate more thoroughly.",
+    "nextSteps": [
+     "Define the incident categories you are most likely to face and the first response steps for each.",
+     "Set rules for ranking incidents by scope, likely impact, and urgency.",
+     "Decide in advance who chooses between restoring service quickly and preserving the chance to investigate further."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RS.MA-04",
@@ -3064,7 +4081,18 @@
      "text": "Coordinate incident escalation or elevation with designated internal and external stakeholders"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.MA-04"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.MA-04",
+   "editorial": {
+    "question": "Does your organization track the status of every open incident and escalate incidents to designated internal and external stakeholders when needed?",
+    "whyItMatters": "Some incidents turn out larger than they first appeared or need decisions beyond the responder's authority. Timely escalation brings in the right people and resources.",
+    "doneLooksLike": "The status of every ongoing incident is tracked and validated. Escalation or elevation is coordinated with designated internal and external stakeholders, such as leadership or outside providers.",
+    "nextSteps": [
+     "Keep a single log of open incidents with an owner and current status for each.",
+     "Define when an incident must be escalated, for example by severity or time without progress, and to whom.",
+     "Keep current contact details for internal and external escalation contacts."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RS.MA-05",
@@ -3088,7 +4116,18 @@
      "text": "Take the possible operational disruption of incident recovery activities into account"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.MA-05"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.MA-05",
+   "editorial": {
+    "question": "Does your organization have criteria for deciding when to begin recovery from an incident, and apply them while weighing the disruption recovery may cause?",
+    "whyItMatters": "Starting recovery too early can restore systems that an attacker still controls, while waiting too long prolongs the outage. Clear criteria make that decision deliberate.",
+    "doneLooksLike": "Recovery criteria are applied to the known and assumed characteristics of an incident to decide whether to start recovery. The decision takes into account the operational disruption that recovery activities may cause.",
+    "nextSteps": [
+     "Define the conditions that must be met before recovery begins, such as confirmed containment.",
+     "Name who approves the start of recovery.",
+     "Consider how recovery steps, such as taking systems offline to restore them, will affect operations, and plan around that."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RS.AN-03",
@@ -3120,7 +4159,18 @@
      "text": "Check any cyber deception technology for additional information on attacker behavior"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.AN-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.AN-03",
+   "editorial": {
+    "question": "When an incident occurs, does your organization investigate what happened, which systems were involved, and the underlying root cause?",
+    "whyItMatters": "Fixing only the visible symptom leaves the door open for the same attack to succeed again. Understanding how it happened is what allows lasting fixes.",
+    "doneLooksLike": "You reconstruct the sequence of events and the assets and resources involved in each, and try to identify the vulnerabilities, threats, and threat actors directly or indirectly involved. The analysis looks for underlying, systemic root causes, and any deception technology is checked for more information on attacker behavior.",
+    "nextSteps": [
+     "Build a timeline of each significant incident from logs, alerts, and staff accounts.",
+     "Identify the weakness that was exploited and why it existed, such as a missed patch or an unclear process.",
+     "Record the root causes you find so they can be addressed."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RS.AN-06",
@@ -3144,7 +4194,18 @@
      "text": "Require the incident lead to document the incident in detail and be responsible for preserving the integrity of the documentation and the sources of all information being reported"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.AN-06"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.AN-06",
+   "editorial": {
+    "question": "During an incident investigation, does your organization record the actions responders take and protect those records from being altered?",
+    "whyItMatters": "A reliable record shows what was done, by whom, and when, which matters for later review and for any legal or regulatory follow-up. Records that could have been changed carry little weight.",
+    "doneLooksLike": "Each responder, including system administrators and engineers who perform response tasks, records their actions, and those records cannot be changed afterward. The incident lead documents the incident in detail and is responsible for preserving the integrity of the documentation and the sources of the information reported.",
+    "nextSteps": [
+     "Give responders a shared, time-stamped log for recording what they do.",
+     "Store investigation records where entries cannot be edited or deleted, such as write-once storage.",
+     "Make the incident lead responsible for the completeness and integrity of the incident documentation."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RS.AN-07",
@@ -3164,7 +4225,18 @@
      "text": "Collect, preserve, and safeguard the integrity of all pertinent incident data and metadata (e.g., data source, date/time of collection) based on evidence preservation and chain-of-custody procedures"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.AN-07"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.AN-07",
+   "editorial": {
+    "question": "Does your organization collect incident evidence, such as logs and system images, in a way that preserves its integrity and records where it came from?",
+    "whyItMatters": "Evidence that has been altered, or cannot be traced to its source, may be unusable for investigation, insurance claims, or legal action. Careful collection keeps those options open.",
+    "doneLooksLike": "Pertinent incident data and metadata, such as the data source and the date and time of collection, are collected and safeguarded following evidence preservation and chain-of-custody (a record of who handled evidence and when) procedures.",
+    "nextSteps": [
+     "Write a short evidence-handling procedure covering what to collect, how to copy it, and where to store it.",
+     "Record the source, date, time, and collector for every item gathered.",
+     "Store evidence securely and log every time it is accessed or transferred."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RS.AN-08",
@@ -3188,7 +4260,19 @@
      "text": "Automatically run tools on targets to look for indicators of compromise and evidence of persistence"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.AN-08"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.AN-08",
+   "editorial": {
+    "question": "During an incident, does your organization check other systems that could have been affected to confirm how widespread the incident really is?",
+    "whyItMatters": "Attackers often reach more systems than the first one discovered and leave ways to return. Missing them means the incident is not really over.",
+    "doneLooksLike": "Other potential targets are reviewed, manually or with automated tools, for indicators of compromise and evidence of persistence (ways an attacker keeps access). The estimated magnitude of the incident is validated against what is found.",
+    "nextSteps": [
+     "When one system is compromised, list other systems that share accounts, networks, or software with it.",
+     "Scan those systems for the same indicators of compromise.",
+     "Look for signs of persistence, such as new accounts, scheduled tasks, or unfamiliar remote access tools.",
+     "Update the incident's estimated scope based on what you find."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RS.CO-02",
@@ -3216,7 +4300,19 @@
      "text": "Notify law enforcement agencies and regulatory bodies of incidents based on criteria in the incident response plan and management approval"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.CO-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.CO-02",
+   "editorial": {
+    "question": "When an incident occurs, does your organization notify the internal and external parties who need to know, such as affected customers, partners, regulators, or law enforcement?",
+    "whyItMatters": "Customers and partners may have contractual or legal rights to be told about incidents, and they may need to protect themselves. Late or missed notifications can add harm and damage trust.",
+    "doneLooksLike": "After discovering a data breach, you follow your breach notification procedures, including notifying affected customers. Business partners and customers are notified as contracts require, and law enforcement and regulators are notified based on criteria in your incident response plan and with management approval.",
+    "nextSteps": [
+     "Identify the notification requirements that apply to you, including laws where you operate and terms in customer and partner contracts.",
+     "Write a breach notification procedure that names who decides, who sends notices, and what they contain.",
+     "Add criteria to your incident response plan for when to contact law enforcement and regulators, and who approves that contact.",
+     "Keep current contact details for the parties you may need to notify."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RS.CO-03",
@@ -3256,7 +4352,19 @@
      "text": "Coordinate crisis communication methods between the organization and its critical suppliers"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.CO-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.CO-03",
+   "editorial": {
+    "question": "During an incident, does your organization share relevant information securely with designated people inside and outside the organization, such as leadership, suppliers, and partners?",
+    "whyItMatters": "Leaders need current information to make decisions, and suppliers and partners may need it to protect themselves or to help you. Sharing in a controlled way avoids both silence and leaks.",
+    "doneLooksLike": "Information is shared securely according to your response plans and information sharing agreements, and senior leadership receives regular updates on major incidents. HR is notified of malicious insider activity, incident information is exchanged with suppliers as contracts specify, crisis communication methods are coordinated with critical suppliers, and you may voluntarily share details of attacker tactics, with sensitive data removed, with an Information Sharing and Analysis Center (ISAC, an industry group that pools threat information).",
+    "nextSteps": [
+     "Decide who receives incident updates, how often, and through which secure channel.",
+     "Review supplier contracts for rules on sharing incident information.",
+     "Agree on crisis communication methods with your critical suppliers before an incident occurs.",
+     "Consider joining an information sharing group for your industry."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RS.MI-01",
@@ -3288,7 +4396,18 @@
      "text": "Automatically transfer compromised endpoints to a remediation virtual local area network (VLAN)"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.MI-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.MI-01",
+   "editorial": {
+    "question": "When an incident happens, can your organization contain it quickly, for example by isolating an infected computer or disabling a compromised account?",
+    "whyItMatters": "Containment stops an incident from spreading while you work out what to do next. Every hour an attacker keeps moving can increase the damage.",
+    "doneLooksLike": "Incidents are contained through automatic actions by security tools and by features of operating systems and network devices, through manual actions chosen by responders, or through actions a third party such as an internet service provider or managed security service provider takes for you. Compromised endpoints may be moved automatically to an isolated remediation network.",
+    "nextSteps": [
+     "Turn on the automatic isolation or quarantine features in your endpoint protection.",
+     "Document how to disconnect a device, disable an account, and block network traffic, and who is allowed to do each.",
+     "Confirm which containment actions your IT or security provider can take for you and how to request them."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RS.MI-02",
@@ -3316,7 +4435,19 @@
      "text": "Allow a third party (e.g., managed security service provider) to perform eradication actions on behalf of the organization"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.MI-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RS.MI-02",
+   "editorial": {
+    "question": "After containing an incident, does your organization remove the attacker's presence, such as malware, unauthorized accounts, and backdoors, from affected systems?",
+    "whyItMatters": "If malware or an attacker's access remains, the incident can restart as soon as systems come back online. Eradication removes the cause before recovery begins.",
+    "doneLooksLike": "Eradication is carried out automatically by security tools and by features of operating systems and network devices, manually by responders, or by a third party such as a managed security service provider. Malicious files, unauthorized accounts, backdoors (hidden ways back in), and other traces of the attacker are removed.",
+    "nextSteps": [
+     "Use your endpoint protection to remove detected malware and confirm that it is gone.",
+     "Delete unauthorized accounts and reset credentials the attacker may have obtained.",
+     "Decide when to rebuild a system from a known-good state rather than clean it.",
+     "Agree with your IT or security provider on what eradication work they will perform."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RC.RP-01",
@@ -3340,7 +4471,18 @@
      "text": "Make all individuals with recovery responsibilities aware of the plans for recovery and the authorizations required to implement each aspect of the plans"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RC.RP-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RC.RP-01",
+   "editorial": {
+    "question": "When your incident response process calls for recovery, does your organization carry out the recovery part of its plan, with everyone involved knowing their role?",
+    "whyItMatters": "Recovery is where the business gets back to work, and confusion at this stage prolongs outages. People who know the plan and their authority can act without delay.",
+    "doneLooksLike": "Recovery procedures begin during or after incident response, once the response process initiates them. Everyone with recovery responsibilities knows the recovery plans and the authorizations required to carry out each part of them.",
+    "nextSteps": [
+     "Make sure your incident response plan includes a recovery section with clear steps and owners.",
+     "Brief everyone with recovery duties on the plan and on who must approve each step.",
+     "Store the plan where it can be reached even if your main systems are down."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RC.RP-02",
@@ -3364,7 +4506,18 @@
      "text": "Change planned recovery actions based on a reassessment of organizational needs and resources"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RC.RP-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RC.RP-02",
+   "editorial": {
+    "question": "During recovery, does your organization choose, scope, and prioritize its recovery actions based on its plan and available resources, and adjust as needs change?",
+    "whyItMatters": "Not everything can be restored at once. Choosing what to restore first, and how, determines how quickly critical work resumes.",
+    "doneLooksLike": "Recovery actions are selected using the criteria in your incident response plan and the resources available, then scoped, prioritized, and performed. Planned actions are changed when a reassessment of organizational needs and resources calls for it.",
+    "nextSteps": [
+     "Rank your systems and services by how important they are to operations.",
+     "Add criteria to your incident response plan for choosing recovery actions.",
+     "Reassess priorities during recovery as you learn more about the damage and your available resources."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RC.RP-03",
@@ -3384,7 +4537,18 @@
      "text": "Check restoration assets for indicators of compromise, file corruption, and other integrity issues before use"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RC.RP-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RC.RP-03",
+   "editorial": {
+    "question": "Before restoring from backups or other restoration sources, does your organization check them for malware, corruption, and other integrity problems?",
+    "whyItMatters": "Backups can contain the same malware or corruption that caused the incident. Restoring from a compromised backup can bring the problem straight back.",
+    "doneLooksLike": "Backups and other restoration assets, such as system images and installation media, are checked for indicators of compromise, file corruption, and other integrity issues before they are used for restoration.",
+    "nextSteps": [
+     "Scan backups with up-to-date malware detection tools before restoring from them.",
+     "Identify the most recent backup made before the incident began.",
+     "Verify backup integrity, for example with checksums or a test restore in an isolated environment, before restoring to production."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RC.RP-04",
@@ -3412,7 +4576,18 @@
      "text": "Monitor the performance of restored systems to verify the adequacy of the restoration"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RC.RP-04"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RC.RP-04",
+   "editorial": {
+    "question": "When recovering from an incident, does your organization use its knowledge of critical business functions and cybersecurity risk to decide what normal operations should look like afterward?",
+    "whyItMatters": "Returning to normal is not always returning to exactly how things were before. Considering business priorities and risk helps restore the most important services first without reopening the weakness that was exploited.",
+    "doneLooksLike": "Business impact and system categorization records, including service delivery objectives, are used to confirm that essential services are restored in the right order. System owners confirm successful restoration and the return to normal operations, and restored systems are monitored to verify that the restoration is adequate.",
+    "nextSteps": [
+     "Record which business functions are most critical and how quickly each must be restored.",
+     "Have system owners confirm when their systems are back in normal operation.",
+     "Monitor restored systems closely for a period after restoration to confirm they perform as expected."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RC.RP-05",
@@ -3436,7 +4611,18 @@
      "text": "Verify the correctness and adequacy of the restoration actions taken before putting a restored system online"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RC.RP-05"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RC.RP-05",
+   "editorial": {
+    "question": "Before putting restored systems back into use, does your organization verify that they are clean and correctly restored, and then confirm normal operation?",
+    "whyItMatters": "A restored system that still carries the attacker's foothold, or the original weakness, can be compromised again right away. Checking before going live helps prevent a second incident.",
+    "doneLooksLike": "Restored assets are checked for indicators of compromise, and to confirm the incident's root causes have been remediated, before production use. The correctness and adequacy of restoration actions are verified before a system goes back online, and normal operating status is confirmed.",
+    "nextSteps": [
+     "Scan restored systems for signs of compromise before reconnecting them.",
+     "Confirm that the weakness that allowed the incident has been fixed on each restored system.",
+     "Test that restored systems and data work correctly before returning them to users."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RC.RP-06",
@@ -3460,7 +4646,18 @@
      "text": "Declare the end of incident recovery once the criteria are met"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RC.RP-06"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RC.RP-06",
+   "editorial": {
+    "question": "Does your organization declare the end of incident recovery based on defined criteria and complete an after-action report documenting what happened and what was learned?",
+    "whyItMatters": "A clear end point lets staff return to normal duties and keeps loose ends from being forgotten. A written record of the incident and its lessons helps you handle the next one better.",
+    "doneLooksLike": "Recovery is declared complete once defined criteria are met. An after-action report documents the incident, the response and recovery actions taken, and lessons learned.",
+    "nextSteps": [
+     "Define the criteria for declaring recovery complete, such as all critical services restored and verified.",
+     "Use a standard after-action report template covering the incident, actions taken, and lessons learned.",
+     "Hold a short review with the people involved before closing the incident."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RC.CO-03",
@@ -3492,7 +4689,18 @@
      "text": "Coordinate crisis communication between the organization and its critical suppliers"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RC.CO-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RC.CO-03",
+   "editorial": {
+    "question": "During recovery, does your organization keep designated internal and external stakeholders, such as leadership and critical suppliers, informed of restoration progress?",
+    "whyItMatters": "Leaders, staff, and suppliers plan their own work around when services return. Regular, accurate updates reduce confusion and duplicated effort.",
+    "doneLooksLike": "Recovery information, including restoration progress, is shared securely according to response plans and information sharing agreements. Senior leadership receives regular updates on major incidents, contractual rules for sharing incident information with suppliers are followed, and crisis communication is coordinated with critical suppliers.",
+    "nextSteps": [
+     "Name who receives recovery updates during a major incident and how often.",
+     "Prepare a status update format covering what is restored, what is not, and expected next steps.",
+     "Agree with critical suppliers on how you will communicate with each other during recovery."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "RC.CO-04",
@@ -3516,7 +4724,18 @@
      "text": "Explain the steps being taken to recover from the incident and to prevent a recurrence"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RC.CO-04"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/CSF_2_0_0/home?element=RC.CO-04",
+   "editorial": {
+    "question": "When an incident affects your customers or the public, does your organization share recovery updates only through approved channels and with approved messaging?",
+    "whyItMatters": "Inconsistent or unapproved public statements can create confusion, legal exposure, or loss of trust. Clear, approved updates show customers what you are doing to recover and to prevent a repeat.",
+    "doneLooksLike": "Public updates on recovery are released through approved methods with approved messaging. For data breaches, you follow your breach notification procedures, and updates explain the steps being taken to recover and to prevent a recurrence.",
+    "nextSteps": [
+     "Decide who approves public statements about incidents and which channels you will use, such as your website or customer email.",
+     "Prepare message templates for likely incident types in advance.",
+     "Include in each update what you are doing to recover and to prevent the incident from happening again."
+    ],
+    "reviewed": false
+   }
   }
  ],
  "withdrawn": [

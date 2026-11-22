@@ -1,0 +1,723 @@
+{
+  "requirements": {
+    "ac-1": {
+      "question": "Does your organization have a documented access control policy and supporting procedures, shared with the right people, owned by a named official, and reviewed on a schedule?",
+      "whyItMatters": "Access decisions made case by case drift over time and are hard to explain later. A written policy sets out who may access what and why, and procedures turn that intent into repeatable steps for granting, changing, and removing access.",
+      "doneLooksLike": "A documented access control policy, at the organization, business process, or system level you choose, addresses purpose, scope, roles, responsibilities, management commitment, coordination among teams, and compliance, and is consistent with the laws and regulations that apply to you. Procedures describe how the policy and access controls are carried out, such as requesting, approving, and removing access. Both are distributed to the people or roles you define, managed by a designated official, and reviewed and updated at the frequency you set and after events you define, such as audit findings or incidents.",
+      "nextSteps": [
+        "Write an access control policy that states its purpose and scope, who is responsible for what, and management's commitment.",
+        "Document procedures for requesting, approving, changing, and removing access.",
+        "Name the official who owns the policy and procedures, and decide which people or roles must receive them.",
+        "Set a review frequency and the events, such as incidents or audit findings, that trigger an earlier update."
+      ],
+      "reviewed": false
+    },
+    "ac-2": {
+      "question": "Does your organization define which account types are allowed, approve each new account, monitor account use, and disable accounts promptly when people leave or no longer need them?",
+      "whyItMatters": "Forgotten, shared, and over-privileged accounts are among the most common ways attackers get in and stay in. Managing the full life of each account keeps access tied to a real, current need.",
+      "doneLooksLike": "You have documented the account types that are allowed and prohibited, assigned account managers, set prerequisites for group and role membership, and specified each account's authorized users, memberships, privileges, and any other attributes you require, with new accounts approved by the roles you define. Accounts are created, enabled, modified, disabled, and removed according to your procedures, access is granted based on a valid authorization and intended use, account use is monitored, and account managers and the roles you define are notified within the times you set when accounts are no longer needed, users leave or transfer, or their need changes. Accounts are reviewed at the frequency you define, shared or group account passwords are changed when someone leaves the group, and account management is aligned with your termination and transfer processes.",
+      "nextSteps": [
+        "List every account on the system, including shared, service, guest, and emergency accounts, and record an owner for each.",
+        "Define the allowed and prohibited account types and who must approve new accounts.",
+        "Connect account changes to your offboarding and role-change process, with notification times you set.",
+        "Schedule account reviews at a frequency you define, and change shared account passwords when a member leaves."
+      ],
+      "reviewed": false
+    },
+    "ac-3": {
+      "question": "Do your systems technically enforce the access permissions you have approved, so people and processes can reach only the information and functions they are authorized for?",
+      "whyItMatters": "Approving access on paper does little if the system lets anyone open any file. Enforcement inside the system is what actually stops a user, or malware running under their account, from reaching data they should not.",
+      "doneLooksLike": "Your systems and applications use permissions, roles, or access lists to enforce approved authorizations for files, records, applications, and other resources, consistent with your access control policy. Spot checks confirm that users cannot reach resources they have not been approved for.",
+      "nextSteps": [
+        "Map who should have access to each major system, shared folder, and application.",
+        "Configure permissions or roles in each system to match those approvals, and remove broad access granted to everyone.",
+        "Test a sample of accounts to confirm they cannot open resources outside their role."
+      ],
+      "reviewed": false
+    },
+    "ac-7": {
+      "question": "Do your systems limit the number of consecutive failed logon attempts and respond automatically, for example by locking the account, when that limit is exceeded?",
+      "whyItMatters": "Without a limit, an attacker can keep guessing passwords until one works. Capping failed attempts makes automated guessing slow and noisy enough to stop or detect.",
+      "doneLooksLike": "Your systems enforce a maximum number of consecutive invalid logon attempts within a time period you define. When the limit is exceeded, the system automatically takes the action you have chosen, such as locking the account for a set time, locking it until an administrator releases it, delaying the next logon prompt, or notifying an administrator.",
+      "nextSteps": [
+        "Decide the number of allowed failed attempts, the time window, and the response for each system.",
+        "Configure lockout or delay settings in your operating systems, cloud services, and key applications.",
+        "Test the setting with a non-production account and confirm the expected response."
+      ],
+      "reviewed": false
+    },
+    "ac-8": {
+      "question": "Do your systems display an approved notice or banner before logon that explains monitoring, prohibited use, and consent, and keep it on screen until users acknowledge it?",
+      "whyItMatters": "A clear notice tells users the rules before they log in and supports your ability to monitor activity and act on misuse. Legal and privacy review of the wording helps make sure it says what you intend.",
+      "doneLooksLike": "Before granting access, your systems display the notice you have defined, consistent with applicable laws and policies, stating that users are accessing a U.S. Government system, that use may be monitored, recorded, and audited, that unauthorized use is prohibited and subject to criminal and civil penalties, and that use indicates consent to monitoring and recording. The banner stays on screen until the user acknowledges it and takes an explicit action to log on. For publicly accessible systems, you display system use information under the conditions you define, include any monitoring references consistent with privacy requirements, and describe the authorized uses of the system.",
+      "nextSteps": [
+        "Draft banner text covering monitoring, recording, prohibited use, penalties, and consent, and have it reviewed by legal and privacy advisors.",
+        "Configure the banner on workstations, servers, remote access, and administrative interfaces so users must acknowledge it before logging on.",
+        "For public-facing systems, publish a description of authorized uses and any monitoring notices."
+      ],
+      "reviewed": false
+    },
+    "ac-14": {
+      "question": "Has your organization identified and documented which actions, if any, people can perform on your systems without logging in, along with the reason each is allowed?",
+      "whyItMatters": "Some actions, such as viewing a public web page, reasonably need no logon. Listing them deliberately prevents unauthenticated access from appearing by accident and makes every exception a conscious decision.",
+      "doneLooksLike": "You have identified the user actions you allow without identification or authentication, consistent with your mission and business needs, or decided that there are none. Each allowed action and its supporting rationale is documented in the system's security plan.",
+      "nextSteps": [
+        "Review each system for functions that work without a logon, such as public pages, kiosks, or guest services.",
+        "Decide which of these are acceptable, and remove or protect the rest.",
+        "Record the allowed actions and the reason for each in your security plan."
+      ],
+      "reviewed": false
+    },
+    "ac-17": {
+      "question": "Has your organization defined the rules and technical requirements for each type of remote access it allows, and approved each type before anyone connects?",
+      "whyItMatters": "Remote connections cross networks you do not control, such as home internet and public Wi-Fi. Defining and approving each method keeps remote work from opening unplanned paths into your systems.",
+      "doneLooksLike": "For each type of remote access you allow, such as a virtual private network (VPN, an encrypted connection over the internet) or a remote desktop service, you have documented usage restrictions, configuration and connection requirements, and implementation guidance. Each type of remote access is authorized before such connections are allowed.",
+      "nextSteps": [
+        "List every way people connect remotely today, including VPNs, remote desktop tools, and cloud administration consoles.",
+        "Document usage rules and required configuration for each method you intend to allow.",
+        "Formally approve each method, and disable any that are not approved."
+      ],
+      "reviewed": false
+    },
+    "ac-18": {
+      "question": "Has your organization set configuration and connection requirements for each type of wireless access, and authorized each type before allowing it to connect to your systems?",
+      "whyItMatters": "Wireless signals reach beyond your walls, so a poorly configured network or an unapproved access point can let outsiders connect. Setting requirements and approving each type keeps wireless use deliberate.",
+      "doneLooksLike": "For each type of wireless access used with the system, such as Wi-Fi or Bluetooth, you have established configuration requirements, connection requirements, and implementation guidance. Each type is authorized before connections to the system are allowed.",
+      "nextSteps": [
+        "Inventory the wireless networks and wireless technologies that connect to your systems.",
+        "Document the required settings for each, such as the authentication method and encryption.",
+        "Approve each wireless type in writing, and remove unapproved access points or connections."
+      ],
+      "reviewed": false
+    },
+    "ac-19": {
+      "question": "Has your organization set configuration and connection requirements for its company-controlled phones and tablets, including use offsite, and authorized their connection to company systems?",
+      "whyItMatters": "Phones and tablets are often lost or stolen, are used outside the office, and can hold or reach sensitive data. Clear requirements and approval before connection reduce the chance that a single device becomes a way in.",
+      "doneLooksLike": "You have established configuration requirements, connection requirements, and implementation guidance for organization-controlled mobile devices, including when they are used outside controlled areas such as your offices. Mobile devices connect to organizational systems only after their connection has been authorized.",
+      "nextSteps": [
+        "List the organization-controlled phones and tablets that access company systems.",
+        "Define required settings, such as screen lock, encryption, current updates, and protective software.",
+        "Require approval before a mobile device can connect, and keep a record of approved devices."
+      ],
+      "reviewed": false
+    },
+    "ac-20": {
+      "question": "Has your organization set terms for using external systems, such as personal devices or partner systems, with your information, or prohibited the types it does not allow?",
+      "whyItMatters": "Systems you do not own or manage may not have the protections you rely on. Setting terms, or ruling some systems out, keeps your information from ending up on devices and services you cannot oversee.",
+      "doneLooksLike": "Consistent with your trust relationships with the organizations that own or operate external systems, you have established terms and conditions, identified the controls those systems are expected to have, or both, before authorized individuals access your system from them or use them to process, store, or transmit your information. Where you choose, you prohibit specific types of external systems, such as personally owned devices.",
+      "nextSteps": [
+        "Identify the external systems people use for work, such as personal laptops, home computers, and partner or contractor systems.",
+        "Decide which are allowed, and write terms covering what they may access and the most sensitive information they may hold.",
+        "Tell staff and contractors which types of external systems are prohibited."
+      ],
+      "reviewed": false
+    },
+    "ac-22": {
+      "question": "Does your organization limit who can publish content on its public systems, review content before and after posting, and remove any nonpublic information found there?",
+      "whyItMatters": "Websites and public portals sometimes expose internal documents, personal data, or other nonpublic information by mistake. Controlling who posts, and checking what they post, reduces accidental disclosure.",
+      "doneLooksLike": "You have designated the individuals authorized to make information publicly accessible and trained them to keep nonpublic information out of it. Proposed content is reviewed before posting, and content on public systems is reviewed for nonpublic information at the frequency you define, with any such information removed when found.",
+      "nextSteps": [
+        "Name the people allowed to publish to your website and other public systems, and remove publishing rights from everyone else.",
+        "Train those people on what counts as nonpublic information.",
+        "Add a review step before publication, and schedule recurring reviews of existing public content."
+      ],
+      "reviewed": false
+    },
+    "at-1": {
+      "question": "Does your organization have a documented security awareness and training policy with procedures, shared with the right people, owned by a named official, and reviewed regularly?",
+      "whyItMatters": "Training is often delivered once and then forgotten. A written policy sets who must be trained, on what, and how often, and procedures make sure training actually happens and stays current.",
+      "doneLooksLike": "A documented awareness and training policy, at the organization, business process, or system level you choose, addresses purpose, scope, roles, responsibilities, management commitment, coordination among teams, and compliance, and is consistent with applicable laws and regulations. Procedures describe how awareness, role-based training, and training records are handled. Both are distributed to the people or roles you define, managed by a designated official, and reviewed and updated at the frequency and after the events you define.",
+      "nextSteps": [
+        "Write an awareness and training policy that states who must complete which training and who is responsible for delivering it.",
+        "Document procedures for assigning, delivering, and recording training.",
+        "Name an official to own the policy and procedures, and distribute them to the people or roles you define.",
+        "Set a review frequency and the events, such as new threats or audit findings, that prompt an update."
+      ],
+      "reviewed": false
+    },
+    "at-2": {
+      "question": "Do all system users, including managers, executives, and contractors, receive security and privacy awareness training when they start and on a recurring schedule?",
+      "whyItMatters": "People are often the first target of attackers, through phishing emails, fake calls, and malicious links. Regular training helps everyone recognize these attempts, protect personal information, and report suspected incidents.",
+      "doneLooksLike": "All system users, including managers, senior executives, and contractors, receive security and privacy literacy training as new users, at the frequency you define thereafter, and when system changes or events you define require it. You use the awareness techniques you have chosen, such as posters, logon messages, or email advisories, update the content at the frequency and after the events you define, and incorporate lessons learned from internal or external incidents and breaches.",
+      "nextSteps": [
+        "Choose or build basic security and privacy training that covers phishing, password handling, personal information, and how to report incidents.",
+        "Require it for every new user, and set a recurring schedule for everyone else.",
+        "Pick ongoing awareness methods, such as short reminders or posters, and refresh content after notable incidents."
+      ],
+      "reviewed": false
+    },
+    "at-2.2": {
+      "question": "Does your awareness training also teach people to recognize potential signs of insider threat and how to report those concerns?",
+      "whyItMatters": "Some of the most damaging incidents involve people who already have legitimate access. Teaching staff what warning signs can look like, and where to raise a concern, helps catch problems before harm is done.",
+      "doneLooksLike": "Your literacy training covers recognizing potential indicators of insider threat, such as attempts to access information not needed for a job, serious policy violations, or harassment of coworkers, and explains how to report concerns through the channels you have established.",
+      "nextSteps": [
+        "Add an insider threat module to your existing awareness training.",
+        "Define the reporting channel for concerns, and explain it in the training.",
+        "Consider tailoring content for managers, who are well placed to notice changes in behavior."
+      ],
+      "reviewed": false
+    },
+    "at-3": {
+      "question": "Do people in security-relevant roles, such as administrators and developers, receive role-specific security and privacy training before starting their duties and on a recurring schedule?",
+      "whyItMatters": "General awareness training does not teach an administrator how to configure systems securely or a developer how to avoid common flaws. Role-based training gives people the specific skills their duties require.",
+      "doneLooksLike": "Personnel in the roles you define receive role-based security and privacy training before they are authorized to access the system or information or perform assigned duties, at the frequency you define thereafter, and when system changes require it. Training content is updated at the frequency and after the events you define, and incorporates lessons learned from internal or external incidents and breaches.",
+      "nextSteps": [
+        "List the roles that need specialized training, such as system administrators, developers, and people who handle personal information.",
+        "Identify suitable training for each role, and require it before access is granted.",
+        "Set a refresh schedule, and update content after incidents or significant system changes."
+      ],
+      "reviewed": false
+    },
+    "at-4": {
+      "question": "Does your organization record and track security and privacy training for each person, and keep those records for a period it has defined?",
+      "whyItMatters": "Records show who has completed which training and who is overdue. Without them, gaps go unnoticed and you cannot show that training happened.",
+      "doneLooksLike": "Security and privacy training activities, including awareness training and role-based training, are documented and monitored. Individual training records are retained for the time period you define.",
+      "nextSteps": [
+        "Choose where training records will live, such as a learning platform or a spreadsheet.",
+        "Record completion dates for awareness and role-based training for each person.",
+        "Set a retention period, and review completion status regularly to follow up on overdue training."
+      ],
+      "reviewed": false
+    },
+    "au-1": {
+      "question": "Does your organization have a documented audit and accountability policy and procedures covering event logging and review, distributed to the right people, owned by a named official, and kept current?",
+      "whyItMatters": "Logging decisions made system by system leave gaps that often surface only during an investigation. A policy and procedures set consistent expectations for what is recorded, how records are protected, and who reviews them.",
+      "doneLooksLike": "A documented audit and accountability policy, at the organization, business process, or system level you choose, addresses purpose, scope, roles, responsibilities, management commitment, coordination among teams, and compliance, and is consistent with applicable laws and regulations. Procedures describe how logging, log review, log protection, and retention are carried out. Both are distributed to the people or roles you define, managed by a designated official, and reviewed and updated at the frequency and after the events you define.",
+      "nextSteps": [
+        "Write an audit and accountability policy stating what must be logged, who reviews logs, and how records are protected and retained.",
+        "Document procedures for configuring logging, reviewing records, and responding to logging failures.",
+        "Name an official to own the policy and procedures, distribute them, and set a review frequency and the events that trigger an update."
+      ],
+      "reviewed": false
+    },
+    "au-2": {
+      "question": "Has your organization decided which security-relevant events its systems log, explained why that set is enough for investigations, and reviewed the list on a schedule?",
+      "whyItMatters": "When something goes wrong, logs are often the only record of what happened. Choosing events deliberately means you capture what an investigation needs, such as failed logons and use of administrator privileges, without drowning in noise.",
+      "doneLooksLike": "You have identified the event types your system can log, coordinated with other parts of the organization that need audit information, and specified the subset to be logged along with how often or in what situations each is logged. You have documented why the selected event types are adequate to support after-the-fact investigations of incidents, and you review and update the selection at the frequency you define.",
+      "nextSteps": [
+        "List the event types each key system can log, such as logons, failed logons, password changes, and administrator actions.",
+        "Ask the people who rely on logs, such as IT, legal, and incident responders, what they need.",
+        "Document which events you will log and why, and set a review frequency."
+      ],
+      "reviewed": false
+    },
+    "au-3": {
+      "question": "Do your audit records capture what happened, when and where it happened, its source and outcome, and who or what was involved?",
+      "whyItMatters": "A log entry that lacks a time, a user, or an outcome may be of little use during an investigation. Complete records let you reconstruct events and attribute actions to the right people.",
+      "doneLooksLike": "Audit records contain information that establishes the type of event, when it occurred, where it occurred, its source, its outcome (such as success or failure), and the identity of any individuals, subjects, or objects associated with it.",
+      "nextSteps": [
+        "Review sample log entries from each key system against these six elements.",
+        "Adjust logging settings where entries are missing user, time, source, or outcome details.",
+        "Check whether logs capture personal information, and consider how to reduce that exposure where it is not needed."
+      ],
+      "reviewed": false
+    },
+    "au-4": {
+      "question": "Has your organization allocated enough log storage capacity to keep audit records for as long as its retention requirements say?",
+      "whyItMatters": "If log storage fills up, systems may stop recording or overwrite older entries, leaving gaps exactly when you might need the history.",
+      "doneLooksLike": "Audit log storage capacity is allocated to accommodate your defined audit log retention requirements, taking into account the types of logging you perform and how logs are processed.",
+      "nextSteps": [
+        "Estimate daily log volume for each key system.",
+        "Multiply by your retention period, and confirm that local or central storage can hold it.",
+        "Recheck capacity when you add systems or change what you log."
+      ],
+      "reviewed": false
+    },
+    "au-5": {
+      "question": "Are designated people alerted within a set time when audit logging fails, and does your organization take any additional actions it has defined?",
+      "whyItMatters": "A logging failure can go unnoticed for weeks, leaving a blind spot an attacker could exploit. Prompt alerts let you fix the problem before important records are lost.",
+      "doneLooksLike": "When an audit logging process fails, for example through software or hardware errors, capture failures, or full log storage, the personnel or roles you define are alerted within the time period you set. Any additional actions you have defined, such as overwriting the oldest records or shutting down the system, are then taken.",
+      "nextSteps": [
+        "Decide who must be alerted when logging fails and how quickly.",
+        "Configure alerts for logging errors and storage limits on each key system or on your central log collector.",
+        "Decide what else, if anything, should happen on failure, and configure it."
+      ],
+      "reviewed": false
+    },
+    "au-6": {
+      "question": "Does someone review and analyze your audit records on a set schedule for unusual or inappropriate activity, and report what they find to the right people?",
+      "whyItMatters": "Logs that nobody reads cannot warn you of an attack in progress. Regular review turns stored records into early detection.",
+      "doneLooksLike": "System audit records are reviewed and analyzed at the frequency you define for indications of the inappropriate or unusual activity you have defined and its potential impact. Findings are reported to the personnel or roles you define, and you adjust the level of review, analysis, and reporting when credible information, such as from law enforcement or intelligence sources, indicates a change in risk.",
+      "nextSteps": [
+        "Define what counts as unusual activity, such as repeated failed logons, off-hours administrator access, or disabled security tools.",
+        "Assign someone to review logs at a set frequency and record what they checked.",
+        "Decide who receives findings, and increase review when you learn of a relevant new threat."
+      ],
+      "reviewed": false
+    },
+    "au-8": {
+      "question": "Do your systems use their internal clocks to time-stamp audit records, in Coordinated Universal Time or with a stated offset, at a precision you define?",
+      "whyItMatters": "Investigations depend on putting events from different systems in the right order. Consistent, reliable time stamps make it possible to build an accurate timeline.",
+      "doneLooksLike": "Audit record time stamps are generated from internal system clocks and meet the granularity of time measurement you define. They use Coordinated Universal Time (UTC), a fixed local offset from UTC, or include the local offset as part of the time stamp.",
+      "nextSteps": [
+        "Check the time format used in logs on each key system.",
+        "Configure systems to record UTC or include the time zone offset.",
+        "Define how closely system clocks must stay synchronized with a reference time source, and configure them to meet it."
+      ],
+      "reviewed": false
+    },
+    "au-9": {
+      "question": "Are your audit logs and logging tools protected from unauthorized access, changes, and deletion, with alerts to designated people if tampering is detected?",
+      "whyItMatters": "An attacker who can edit or delete logs can erase evidence of what they did. Protecting logs keeps the record trustworthy.",
+      "doneLooksLike": "Audit information, including records, log settings, and reports, and the tools used for logging are protected from unauthorized access, modification, and deletion, with access limited to authorized individuals. The personnel or roles you define are alerted when unauthorized access, modification, or deletion of audit information is detected.",
+      "nextSteps": [
+        "Limit who can view, change, or delete logs and logging settings to a small set of authorized people.",
+        "Set permissions on log files and logging tools so ordinary users cannot read, alter, or remove them.",
+        "Configure alerts for log deletion, log clearing, or changes to logging settings."
+      ],
+      "reviewed": false
+    },
+    "au-11": {
+      "question": "Does your organization keep audit records for a defined period that supports incident investigations and meets its legal and regulatory retention requirements?",
+      "whyItMatters": "Some incidents are discovered months after they begin. If logs are deleted too soon, you lose the ability to see how an attacker got in or what they touched.",
+      "doneLooksLike": "Audit records are retained for the time period you define, chosen to support after-the-fact investigations of incidents and to meet regulatory and organizational information retention requirements.",
+      "nextSteps": [
+        "Identify any legal, contractual, or regulatory requirements for how long you must keep logs.",
+        "Set a retention period for audit records that satisfies those requirements and your investigation needs.",
+        "Configure systems and log storage to keep records for that period."
+      ],
+      "reviewed": false
+    },
+    "au-12": {
+      "question": "Can your system components generate audit records for the events you chose to log, with the required details, and can designated people choose what each component logs?",
+      "whyItMatters": "Choosing events only matters if systems actually produce the records. This control confirms that logging is switched on where you need it and controlled by the right people.",
+      "doneLooksLike": "The system components you define can generate audit records for the event types you identified under event logging (AU-2), and the personnel or roles you define can select which event types specific components log. The system generates records for your selected events that include the content required under audit record content (AU-3).",
+      "nextSteps": [
+        "List the components that must produce audit records, such as servers, firewalls, and key applications.",
+        "Turn on logging for your selected events on each component, and confirm records include the required details.",
+        "Limit who can change logging settings to the roles you designate."
+      ],
+      "reviewed": false
+    },
+    "ca-1": {
+      "question": "Does your organization have a documented policy and procedures for assessing controls, authorizing systems, and monitoring them over time, with a named owner and regular reviews?",
+      "whyItMatters": "Without a defined approach, control checks happen unevenly and decisions to accept risk go unrecorded. A policy and procedures set out how controls are assessed, who authorizes systems, and how ongoing monitoring is handled.",
+      "doneLooksLike": "A documented assessment, authorization, and monitoring policy, at the organization, business process, or system level you choose, addresses purpose, scope, roles, responsibilities, management commitment, coordination among teams, and compliance, and is consistent with applicable laws and regulations. Procedures describe how control assessments, authorization decisions, remediation tracking, and continuous monitoring are carried out. Both are distributed to the people or roles you define, managed by a designated official, and reviewed and updated at the frequency and after the events you define.",
+      "nextSteps": [
+        "Write a policy that states who assesses controls, who authorizes systems for use, and how monitoring results are reported.",
+        "Document procedures for planning assessments, tracking remediation, and maintaining authorizations.",
+        "Name an official to own the policy and procedures, share them with the roles you define, and set a review schedule and triggering events."
+      ],
+      "reviewed": false
+    },
+    "ca-2": {
+      "question": "Does your organization regularly assess whether its security and privacy controls are implemented correctly and working as intended, using a planned approach and a documented report?",
+      "whyItMatters": "Controls can look fine on paper but fail in practice through misconfiguration or neglect. Planned assessments find these gaps before an attacker does and give leaders accurate information for risk decisions.",
+      "doneLooksLike": "You select an appropriate assessor or team and develop an assessment plan describing the controls being assessed, the assessment procedures, and the assessment environment, team, and roles. The authorizing official or a designated representative approves the plan before the assessment begins, and controls are assessed at the frequency you define to determine whether they are implemented correctly, operating as intended, and producing the desired outcome. A report documents the results and is provided to the individuals or roles you define.",
+      "nextSteps": [
+        "Choose who will assess your controls, internal staff or an outside assessor, with the needed skills.",
+        "Write an assessment plan listing the controls in scope, how each will be tested, and who is involved, and get it approved.",
+        "Run the assessment, document the results in a report, and share it with the people you have designated."
+      ],
+      "reviewed": false
+    },
+    "ca-3": {
+      "question": "Does your organization approve and manage information exchanges with other systems through written agreements, and review those agreements on a schedule?",
+      "whyItMatters": "Each connection or data exchange with another system can bring that system's weaknesses into yours. Written agreements make each side's security and privacy responsibilities clear.",
+      "doneLooksLike": "Information exchanges between your system and other systems are approved and managed using the types of agreement you choose, such as interconnection or information exchange agreements, service level agreements, or non-disclosure agreements. Each agreement documents the interface characteristics, security and privacy requirements, controls, responsibilities for each system, and impact level of the information exchanged, and agreements are reviewed and updated at the frequency you define.",
+      "nextSteps": [
+        "List the systems and outside parties your systems exchange information with, including cloud services and partners.",
+        "Put an agreement in place for each, covering how data is exchanged, required protections, and responsibilities.",
+        "Set a review frequency for these agreements, and track when each is due."
+      ],
+      "reviewed": false
+    },
+    "ca-5": {
+      "question": "Does your organization keep a plan of action and milestones that tracks how and when it will fix known security weaknesses, and update it regularly?",
+      "whyItMatters": "Assessments and audits find problems, but without a tracked plan, fixes slip. A plan of action and milestones records each weakness alongside the planned fix and target dates.",
+      "doneLooksLike": "A plan of action and milestones for the system documents the planned remediation actions to correct weaknesses or deficiencies found during control assessments and to reduce or eliminate known vulnerabilities. It is updated at the frequency you define based on findings from control assessments, independent audits or reviews, and continuous monitoring.",
+      "nextSteps": [
+        "Compile open weaknesses from assessments, audits, scans, and monitoring into one list.",
+        "Record the planned fix and target milestones for each.",
+        "Update the plan at the frequency you define, using new assessment, audit, and monitoring findings."
+      ],
+      "reviewed": false
+    },
+    "ca-6": {
+      "question": "Has a senior official formally authorized your system to operate, accepted the use of any shared controls it relies on, and renewed that authorization on a schedule?",
+      "whyItMatters": "Authorization makes a named senior leader accountable for accepting the system's remaining risk. It ensures someone with authority has weighed the evidence before the system goes into operation.",
+      "doneLooksLike": "A senior official is assigned as the authorizing official for the system, and one is assigned for any common controls (shared safeguards that several systems inherit). Before operations begin, the system's authorizing official accepts the use of inherited common controls and authorizes the system to operate, and the common control authorizing official authorizes those controls for inheritance. Authorizations are updated at the frequency you define.",
+      "nextSteps": [
+        "Name a senior official to be accountable for authorizing the system, and one for any shared controls.",
+        "Assemble the evidence they need, such as the security plan, assessment report, and plan of action and milestones.",
+        "Record the authorization decision, and set a frequency for updating it."
+      ],
+      "reviewed": false
+    },
+    "ca-7": {
+      "question": "Does your organization have a continuous monitoring strategy that tracks defined security metrics, assesses controls on a schedule, responds to findings, and reports status to designated people?",
+      "whyItMatters": "Systems, threats, and staff change constantly, so a one-time assessment goes stale. Ongoing monitoring keeps decision-makers aware of the current security and privacy posture.",
+      "doneLooksLike": "You have a system-level continuous monitoring strategy, implemented in line with your organization-level strategy, that establishes the metrics you define and the frequencies for monitoring and for assessing control effectiveness. It includes ongoing control assessments, ongoing monitoring of metrics, correlation and analysis of the results, response actions, and reporting of security and privacy status to the personnel or roles you define at the frequency you define.",
+      "nextSteps": [
+        "Choose a small set of metrics to track, for example patch status, open vulnerabilities, and failed logons.",
+        "Set how often each metric is monitored and how often controls are reassessed.",
+        "Assign someone to analyze results, act on problems, and report status to the people you designate on a set schedule."
+      ],
+      "reviewed": false
+    },
+    "ca-7.4": {
+      "question": "Does your continuous monitoring strategy include risk monitoring that checks whether safeguards are effective, whether required measures are in place, and what has changed?",
+      "whyItMatters": "Monitoring individual controls can miss the bigger picture. Risk monitoring connects day-to-day results to whether your overall risk is still within the level you are willing to accept.",
+      "doneLooksLike": "Risk monitoring is an integral part of your continuous monitoring strategy and includes effectiveness monitoring (whether risk responses are working), compliance monitoring (whether required risk responses and security and privacy requirements are in place), and change monitoring (changes to systems and environments that may affect risk).",
+      "nextSteps": [
+        "Add a risk monitoring section to your continuous monitoring strategy.",
+        "Define how you will check effectiveness, verify that required measures are implemented, and track relevant changes.",
+        "Compare results against your organization's risk tolerance when reporting."
+      ],
+      "reviewed": false
+    },
+    "ca-9": {
+      "question": "Does your organization authorize and document internal connections of devices such as printers, phones, and servers to its system, and periodically confirm each is still needed?",
+      "whyItMatters": "Every connected device, including printers, scanners, and phones, is a possible path into the system. Authorizing and reviewing these connections keeps unnecessary or forgotten devices from lingering.",
+      "doneLooksLike": "Internal connections of the system components you define are authorized, individually or by class of similar components. For each connection, the interface characteristics, security and privacy requirements, and nature of the information communicated are documented. Connections are terminated under the conditions you define, and the continued need for each is reviewed at the frequency you define.",
+      "nextSteps": [
+        "List the types of components that connect internally, such as printers, scanners, mobile devices, and servers.",
+        "Authorize connections by component or by class, and document what each exchanges and how it is protected.",
+        "Set conditions for disconnecting components and a schedule for reviewing whether each connection is still needed."
+      ],
+      "reviewed": false
+    },
+    "cm-1": {
+      "question": "Does your organization have a documented configuration management policy and procedures, covering baselines, settings, and changes, shared with the right people, owned by a named official, and reviewed regularly?",
+      "whyItMatters": "Unmanaged changes are a common cause of both outages and security gaps. A policy and procedures make sure systems are set up consistently and changed in a controlled, traceable way.",
+      "doneLooksLike": "A documented configuration management policy, at the organization, business process, or system level you choose, addresses purpose, scope, roles, responsibilities, management commitment, coordination among teams, and compliance, and is consistent with applicable laws and regulations. Procedures describe how baseline configurations, configuration settings, change control, and component inventories are handled. Both are distributed to the people or roles you define, managed by a designated official, and reviewed and updated at the frequency and after the events you define.",
+      "nextSteps": [
+        "Write a configuration management policy stating how systems are configured, who approves changes, and who maintains inventories.",
+        "Document procedures for requesting, reviewing, and recording changes and for maintaining baselines.",
+        "Name an official to own the policy and procedures, distribute them to the roles you define, and set a review frequency and triggering events."
+      ],
+      "reviewed": false
+    },
+    "cm-2": {
+      "question": "Does your organization keep a documented, current baseline configuration for its system under change control, and review it on a schedule and when components change?",
+      "whyItMatters": "A baseline is your agreed record of how systems should be set up. It lets you spot unauthorized changes, rebuild systems consistently, and understand what you are protecting.",
+      "doneLooksLike": "A current baseline configuration of the system, covering components, settings, software, network layout, and connectivity, is documented and maintained under configuration control. It is reviewed and updated at the frequency you define, when circumstances you define require it, and when system components are installed or upgraded.",
+      "nextSteps": [
+        "Document the standard setup for each type of system component, including operating system versions, key settings, and installed software.",
+        "Store the baseline where changes to it are tracked and approved.",
+        "Set a review frequency, and update the baseline whenever components are installed or upgraded."
+      ],
+      "reviewed": false
+    },
+    "cm-4": {
+      "question": "Before making changes to your system, does your organization analyze how each change could affect security and privacy?",
+      "whyItMatters": "Routine changes, such as a new software version or firewall rule, can weaken protections without anyone noticing. Thinking through the impact first prevents avoidable incidents.",
+      "doneLooksLike": "Changes to the system are analyzed for potential security impacts and privacy impacts before they are implemented, by people with the skills to judge them. Change records show the analysis took place, including how the change affects existing controls and whether additional controls are needed.",
+      "nextSteps": [
+        "Add security and privacy impact questions to your change request process.",
+        "Assign people with the right skills to review proposed changes before approval.",
+        "Keep a record of the analysis with each change."
+      ],
+      "reviewed": false
+    },
+    "cm-5": {
+      "question": "Has your organization defined, approved, and enforced restrictions on who can physically and logically access systems to make changes to them?",
+      "whyItMatters": "If anyone can change a system, unauthorized or poorly tested changes become likely. Restricting change access to qualified, authorized people protects stability and security.",
+      "doneLooksLike": "Physical and logical access restrictions for making changes to the system are defined, documented, approved, and enforced. Examples include limiting administrator rights, restricting access to equipment rooms and software libraries, and allowing changes only during set change windows.",
+      "nextSteps": [
+        "Identify who needs to make changes to each system, and remove change rights from others.",
+        "Document and approve these restrictions, including physical access to equipment.",
+        "Configure systems to enforce the restrictions, for example through limited administrator accounts."
+      ],
+      "reviewed": false
+    },
+    "cm-6": {
+      "question": "Does your organization set and apply secure configuration settings for its system components, approve documented exceptions, and monitor and control changes to those settings?",
+      "whyItMatters": "Default settings often favor convenience over security. Applying the most restrictive settings that still let people work closes many common gaps.",
+      "doneLooksLike": "Configuration settings that reflect the most restrictive mode consistent with operational requirements are established and documented for system components, using the common secure configurations you define, and are implemented. Deviations for the components you define are identified, documented with their operational reason, and approved, and changes to settings are monitored and controlled according to your policies and procedures.",
+      "nextSteps": [
+        "Choose an established secure configuration guide for each major platform you use.",
+        "Apply the settings, and document any you cannot apply with the business reason and an approval.",
+        "Monitor for changes to settings, and route changes through your change process."
+      ],
+      "reviewed": false
+    },
+    "cm-7": {
+      "question": "Are your systems configured to provide only the capabilities your organization needs, with unneeded functions, ports, protocols, software, and services prohibited or restricted?",
+      "whyItMatters": "Every unused service or open port is something an attacker can probe. Removing what you do not need shrinks the number of ways in.",
+      "doneLooksLike": "Systems are configured to provide only the mission-essential capabilities you define. The functions, ports, protocols, software, and services you have identified are prohibited or restricted.",
+      "nextSteps": [
+        "Review each system for unnecessary software, services, and open ports.",
+        "Decide which are needed for business, and document the rest as prohibited or restricted.",
+        "Disable or remove prohibited items, and use network scanning to confirm they stay disabled."
+      ],
+      "reviewed": false
+    },
+    "cm-8": {
+      "question": "Does your organization keep an accurate, complete inventory of its system components, with the details it needs for accountability, and update it on a schedule?",
+      "whyItMatters": "You cannot protect, patch, or recover what you do not know you have. An accurate inventory is the foundation for most other security work.",
+      "doneLooksLike": "A documented inventory of system components accurately reflects the system, includes all its components, avoids duplicates and components assigned to other systems, is detailed enough for tracking and reporting, and records the information you define, such as owner, version, serial number, or location. It is reviewed and updated at the frequency you define.",
+      "nextSteps": [
+        "List all hardware, software, and firmware components in the system, using discovery tools where available.",
+        "Decide what details to record for each, such as owner, model, version, and location.",
+        "Remove duplicates, and set a review frequency."
+      ],
+      "reviewed": false
+    },
+    "cm-10": {
+      "question": "Does your organization use software in line with its licenses and copyright law, track quantity-limited licenses, and control the use of peer-to-peer file sharing?",
+      "whyItMatters": "Unlicensed copies create legal and financial exposure, and peer-to-peer file sharing tools can be used to distribute copyrighted material. Tracking licenses also helps you know what software is in use.",
+      "doneLooksLike": "Software and its documentation are used according to contract agreements and copyright law. Use of software protected by quantity licenses is tracked to control copying and distribution, and use of peer-to-peer file sharing technology is controlled and documented so it is not used to distribute, display, perform, or reproduce copyrighted work without authorization.",
+      "nextSteps": [
+        "Gather your software licenses, and compare license counts with actual installations.",
+        "Track installations of quantity-licensed software as part of your inventory.",
+        "Decide whether peer-to-peer file sharing is allowed, document the rule, and block or monitor it accordingly."
+      ],
+      "reviewed": false
+    },
+    "cm-11": {
+      "question": "Does your organization have rules for installing software by users, enforce those rules, and check that they are followed on a schedule?",
+      "whyItMatters": "Software from unknown sources can contain malware or introduce vulnerabilities. Clear, enforced rules keep control over what runs on your systems.",
+      "doneLooksLike": "You have established the policies you define governing software installation by users, for example allowing updates and approved app store downloads while prohibiting software of unknown origin. You enforce them through the methods you define, procedural or automated, and monitor compliance with them at the frequency you define.",
+      "nextSteps": [
+        "Write rules stating what users may and may not install.",
+        "Enforce the rules, for example by removing local administrator rights or offering an approved software catalog.",
+        "Check installed software against the rules at a set frequency."
+      ],
+      "reviewed": false
+    },
+    "cp-1": {
+      "question": "Does your organization have a documented contingency planning policy and procedures for responding to disruptions, shared with the right people, owned by a named official, and reviewed regularly?",
+      "whyItMatters": "When an outage or disaster hits, there is no time to decide who is in charge or what matters most. A policy and procedures settle those questions in advance and keep planning, training, testing, and backups consistent.",
+      "doneLooksLike": "A documented contingency planning policy, at the organization, business process, or system level you choose, addresses purpose, scope, roles, responsibilities, management commitment, coordination among teams, and compliance, and is consistent with applicable laws and regulations. Procedures describe how contingency plans, training, testing, backups, and recovery are carried out. Both are distributed to the people or roles you define, managed by a designated official, and reviewed and updated at the frequency and after the events you define.",
+      "nextSteps": [
+        "Write a contingency planning policy stating which systems need plans, who is responsible, and how often plans are tested.",
+        "Document procedures for building, testing, and updating contingency plans and for backup and recovery.",
+        "Name an official to own the policy and procedures, distribute them to the roles you define, and set a review frequency and triggering events."
+      ],
+      "reviewed": false
+    },
+    "cp-2": {
+      "question": "Does your organization have an approved contingency plan for keeping essential functions running and restoring the system after a disruption, and keep it current and protected?",
+      "whyItMatters": "Outages, ransomware, and disasters happen without warning. A plan prepared in advance tells people what to do, in what order, and who to call, which shortens downtime and limits losses.",
+      "doneLooksLike": "The contingency plan identifies essential mission and business functions and their contingency requirements; sets recovery objectives, restoration priorities, and metrics; names roles, responsibilities, and assigned people with contact information; and addresses keeping essential functions running during a disruption, full restoration without weakening the original controls, and sharing contingency information. The plan is reviewed and approved by the roles you define, distributed to the key personnel and organizational elements you define, coordinated with incident handling, and protected from unauthorized disclosure and modification. You review it at the frequency you define, update it for organizational, system, or environment changes and for problems found during testing or use, communicate changes to key personnel, and feed lessons learned from tests, training, and actual events into testing and training.",
+      "nextSteps": [
+        "Identify your essential business functions and how long each can operate without its systems.",
+        "Write the plan with recovery priorities, roles, and current contact details, and have it approved.",
+        "Distribute it to key people, protect it from unauthorized changes, and schedule reviews at the frequency you define."
+      ],
+      "reviewed": false
+    },
+    "cp-3": {
+      "question": "Do people with contingency roles receive training on their responsibilities when they take on the role, when systems change, and on a recurring schedule?",
+      "whyItMatters": "A plan only works if people know their part. Training means staff can act quickly and correctly during an outage instead of improvising.",
+      "doneLooksLike": "System users with contingency roles receive training consistent with those roles within the time period you define after taking them on, when system changes require it, and at the frequency you define thereafter. Training content is reviewed and updated at the frequency and after the events you define, such as plan tests or actual disruptions.",
+      "nextSteps": [
+        "List who has a role in the contingency plan and what each person needs to know.",
+        "Provide role-appropriate training, which can include taking part in plan exercises.",
+        "Set a refresh schedule, and update content after tests and real events."
+      ],
+      "reviewed": false
+    },
+    "cp-4": {
+      "question": "Does your organization test its contingency plan on a schedule, review the results, and take corrective action where the test reveals problems?",
+      "whyItMatters": "Untested plans often fail when they are needed, through outdated contacts, missing steps, or backups that will not restore. Testing finds these gaps while the stakes are low.",
+      "doneLooksLike": "The contingency plan is tested at the frequency you define using the tests you choose, such as checklists, walk-throughs, tabletop exercises, or simulations, to determine the plan's effectiveness and your readiness to carry it out. Test results are reviewed, and corrective actions are started where needed.",
+      "nextSteps": [
+        "Schedule a tabletop exercise that walks key people through a realistic outage scenario.",
+        "Record what worked and what did not.",
+        "Assign fixes for the problems found, and update the plan."
+      ],
+      "reviewed": false
+    },
+    "cp-9": {
+      "question": "Does your organization back up user data, system-level information, and system documentation on schedules it defines, and protect those backups?",
+      "whyItMatters": "Backups are often the only way to recover from ransomware, hardware failure, or accidental deletion. Backups that are missing, out of date, or exposed can turn a recoverable event into a lasting loss.",
+      "doneLooksLike": "Backups of user-level information on the components you define, of system-level information such as operating systems, applications, and configurations, and of system documentation, including security and privacy documentation, are taken at the frequencies you define. The confidentiality, integrity, and availability of backup information are protected, for example through encryption, access restrictions, and integrity checks.",
+      "nextSteps": [
+        "Identify which systems hold user data and which system-level information and documentation must be backed up.",
+        "Set backup frequencies, and configure automated backups.",
+        "Protect backups with restricted access and encryption, and keep a copy separate from the systems being backed up."
+      ],
+      "reviewed": false
+    },
+    "cp-10": {
+      "question": "Can your organization recover and rebuild its system to a known, trusted state within a time period based on its recovery time and recovery point objectives?",
+      "whyItMatters": "Restoring service quickly is only part of recovery. Returning to a known good state ensures you are not restoring an attacker's changes or a broken configuration.",
+      "doneLooksLike": "After a disruption, compromise, or failure, you can recover the system and reconstitute it to a known state within the time period you define, consistent with your recovery time objective (how long you can be without the system) and recovery point objective (how much recent data you can afford to lose). Reconstitution includes returning the system to full operation and deactivating any temporary capabilities used during recovery.",
+      "nextSteps": [
+        "Set recovery time and recovery point objectives for the system.",
+        "Document step-by-step recovery and rebuild procedures, including known-good configurations.",
+        "Test recovery to confirm you can meet the time period you defined."
+      ],
+      "reviewed": false
+    },
+    "ia-1": {
+      "question": "Does your organization have a documented identification and authentication policy and procedures, covering how users and devices prove who they are, with a named owner and regular reviews?",
+      "whyItMatters": "How people log on determines how hard it is for an attacker to pose as them. A policy and procedures set consistent rules for identifiers, passwords, multi-factor authentication, and other credentials across your systems.",
+      "doneLooksLike": "A documented identification and authentication policy, at the organization, business process, or system level you choose, addresses purpose, scope, roles, responsibilities, management commitment, coordination among teams, and compliance, and is consistent with applicable laws and regulations. Procedures describe how identifiers are assigned and how authenticators such as passwords, tokens, and certificates are issued, managed, and revoked. Both are distributed to the people or roles you define, managed by a designated official, and reviewed and updated at the frequency and after the events you define.",
+      "nextSteps": [
+        "Write an identification and authentication policy stating how users, devices, and services are identified and what authentication each requires.",
+        "Document procedures for issuing, resetting, and revoking credentials.",
+        "Name an official to own the policy and procedures, distribute them to the roles you define, and set a review frequency and triggering events."
+      ],
+      "reviewed": false
+    },
+    "ia-2": {
+      "question": "Does every person in your organization log on with their own unique account, so actions on your systems can be traced back to the individual?",
+      "whyItMatters": "Shared logons make it impossible to know who did what, and a single leaked shared password exposes everyone who uses it. Unique identification is the basis for accountability and for most other access controls.",
+      "doneLooksLike": "Organizational users, including employees and others treated like employees such as contractors, are uniquely identified and authenticated, and processes running on their behalf are associated with their identity. Exceptions are limited to actions documented as permitted without identification (AC-14) and authorized use of group authenticators.",
+      "nextSteps": [
+        "Replace shared logons with individual accounts wherever possible.",
+        "Confirm every user authenticates with credentials only they hold.",
+        "Document any remaining shared or anonymous access and the reason it is permitted."
+      ],
+      "reviewed": false
+    },
+    "ia-2.1": {
+      "question": "Do administrator and other privileged accounts require multi-factor authentication, a second check beyond a password, whether access is local, over the network, or remote?",
+      "whyItMatters": "Privileged accounts can change settings, read all data, and turn off protections, so they are prime targets. Requiring a second factor means a stolen password alone is not enough to take control.",
+      "doneLooksLike": "Multi-factor authentication, using two or more different factors such as something you know, something you have, or something you are, is implemented for all access to privileged accounts, whether local, network, or remote.",
+      "nextSteps": [
+        "Identify all privileged accounts, including cloud administrator, server administrator, and network device accounts.",
+        "Turn on multi-factor authentication for each, using an authenticator app, hardware key, or smart card.",
+        "Confirm no privileged account can sign in with a password alone."
+      ],
+      "reviewed": false
+    },
+    "ia-2.2": {
+      "question": "Do regular, non-administrator user accounts also require multi-factor authentication, a second check beyond a password, when people sign in?",
+      "whyItMatters": "Phishing and password reuse put ordinary accounts at constant risk, and a compromised user account is often an attacker's first foothold. Multi-factor authentication makes a stolen password far less useful.",
+      "doneLooksLike": "Multi-factor authentication is implemented for access to non-privileged accounts, whether local, network, or remote, using options appropriate to the level of risk.",
+      "nextSteps": [
+        "Enable multi-factor authentication for all user accounts in your email, cloud, and remote access services.",
+        "Help staff enroll an authenticator app or security key.",
+        "Extend multi-factor authentication to local and network logons on the system."
+      ],
+      "reviewed": false
+    },
+    "ia-2.8": {
+      "question": "Does your organization use authentication methods that resist replay, so a captured logon cannot be reused, for the privileged or non-privileged accounts it has selected?",
+      "whyItMatters": "If an attacker can capture authentication traffic and send it again, they may be able to log in without knowing the password. Replay-resistant methods make each logon unique, so recorded logons cannot be reused.",
+      "doneLooksLike": "Replay-resistant authentication mechanisms, such as protocols that use one-time challenges, time-based codes, or cryptographic authenticators, are implemented for access to the account types you have selected: privileged accounts, non-privileged accounts, or both.",
+      "nextSteps": [
+        "Decide which account types this applies to.",
+        "Confirm your authentication methods use challenges, time-based one-time codes, or cryptographic authenticators.",
+        "Retire older logon protocols that send reusable credentials."
+      ],
+      "reviewed": false
+    },
+    "ia-2.12": {
+      "question": "Do your systems accept and electronically verify Personal Identity Verification (PIV) credentials, the federal government's standard smart card identity credential?",
+      "whyItMatters": "PIV credentials provide strong, government-issued proof of identity. Accepting and electronically verifying them lets federal users authenticate with a trusted credential rather than a password alone.",
+      "doneLooksLike": "Your logical and physical access control systems accept PIV-compliant credentials, including derived PIV credentials where used, and verify them electronically.",
+      "nextSteps": [
+        "Determine whether your users hold PIV or derived PIV credentials.",
+        "Configure systems and applications to accept these credentials for logon and, where relevant, physical entry.",
+        "Confirm credentials are electronically verified, including checks that they are valid and not revoked."
+      ],
+      "reviewed": false
+    },
+    "ia-4": {
+      "question": "Does your organization require authorization before assigning usernames and other identifiers, assign each to the intended person or device, and prevent reuse for a defined period?",
+      "whyItMatters": "If identifiers are handed out loosely or reused, records can point to the wrong person, and a new user may inherit an old user's access or history.",
+      "doneLooksLike": "Identifiers for individuals, groups, roles, services, and devices are assigned only with authorization from the personnel or roles you define. Each identifier is selected to identify its subject and assigned to the intended individual, group, role, service, or device, and identifiers are not reused for the time period you define.",
+      "nextSteps": [
+        "Define who must approve new usernames and device identifiers.",
+        "Adopt a naming convention that clearly identifies each person, service, or device.",
+        "Set a period during which retired identifiers cannot be reassigned, and configure systems to enforce it where possible."
+      ],
+      "reviewed": false
+    },
+    "ia-5": {
+      "question": "Does your organization manage passwords, keys, tokens, and other authenticators securely, from issuing them through changing, replacing, and revoking them?",
+      "whyItMatters": "Authenticators are what prove identity. Weak, default, shared, or poorly protected credentials let attackers impersonate legitimate users.",
+      "doneLooksLike": "You verify identity before issuing an authenticator, set initial authenticator content, make sure authenticators are strong enough for their intended use, and follow procedures for initial distribution, for lost, compromised, or damaged authenticators, and for revocation. Default credentials are changed before first use, authenticators are changed or refreshed at the periods you define by type or when events you define occur, and authenticator content is protected from unauthorized disclosure and modification. Individuals and devices are required to take specific steps to protect authenticators, and authenticators for group or role accounts are changed when membership changes.",
+      "nextSteps": [
+        "Change default passwords on all devices and software before putting them into use.",
+        "Document procedures for issuing, replacing lost or compromised, and revoking authenticators, including identity checks before issuing.",
+        "Define when each type of authenticator must be changed, and change group account credentials when membership changes.",
+        "Store authenticators securely, for example in a password manager, and tell staff how to protect theirs."
+      ],
+      "reviewed": false
+    },
+    "ia-5.1": {
+      "question": "For password logons, does your organization block common or compromised passwords, protect passwords in transit and in storage, and allow long passphrases?",
+      "whyItMatters": "Attackers routinely try leaked and common passwords first. Screening them out, allowing long passphrases, and storing passwords safely reduce the chance of a successful guess and limit the damage if password files are stolen.",
+      "doneLooksLike": "You maintain a list of commonly used, expected, or compromised passwords, update it at the frequency you define and when compromise is suspected, and check new or changed passwords against it. Passwords are sent only over encrypted channels, stored using an approved salted key derivation function (a one-way transformation designed to resist cracking), and must be replaced immediately after account recovery. Users can choose long passwords and passphrases with spaces and all printable characters, automated tools help them choose strong passwords, and the composition and complexity rules you define are enforced.",
+      "nextSteps": [
+        "Turn on screening against breached and common passwords in your identity or directory service.",
+        "Confirm passwords are sent only over encrypted connections and stored as salted hashes.",
+        "Allow long passphrases, require a new password after account recovery, and set any composition rules you choose."
+      ],
+      "reviewed": false
+    },
+    "ia-6": {
+      "question": "Do your systems hide what users type during logon, for example by showing dots or asterisks instead of password characters?",
+      "whyItMatters": "Passwords displayed on screen can be read by someone looking over a user's shoulder. Obscuring feedback protects credentials in shared or public spaces.",
+      "doneLooksLike": "Authentication feedback is obscured during logon, for example by displaying asterisks or showing each character only briefly, using a method suited to the device, so that authentication information cannot be read and used by unauthorized individuals.",
+      "nextSteps": [
+        "Check logon screens on your systems and applications to confirm password characters are masked.",
+        "Fix any custom applications that display passwords in clear text.",
+        "Review mobile device settings so that any brief display of characters fits your risk."
+      ],
+      "reviewed": false
+    },
+    "ia-7": {
+      "question": "Where your systems use cryptographic modules, do the mechanisms for authenticating to those modules meet the laws, regulations, and standards that apply to you?",
+      "whyItMatters": "Cryptographic modules protect keys and perform encryption. If anyone can operate them or take on an administrative role within them, the protection they provide can be bypassed.",
+      "doneLooksLike": "Mechanisms for authenticating operators to cryptographic modules, and for verifying that an operator is authorized for the requested role and services, are implemented and meet the requirements of applicable laws, executive orders, directives, policies, regulations, standards, and guidelines.",
+      "nextSteps": [
+        "Identify the cryptographic modules your systems rely on, such as hardware security modules and built-in encryption components.",
+        "Determine which authentication requirements apply to those modules.",
+        "Configure module authentication and role assignments to meet those requirements."
+      ],
+      "reviewed": false
+    },
+    "ia-8": {
+      "question": "Does your system uniquely identify and authenticate people outside your organization, such as customers, partners, or members of the public, who use it?",
+      "whyItMatters": "Outside users can reach sensitive features and data too. Identifying each of them individually lets you control what they do and trace activity back to a specific account.",
+      "doneLooksLike": "Non-organizational users, and processes acting on their behalf, are uniquely identified and authenticated, except for actions you have explicitly documented as permitted without identification or authentication.",
+      "nextSteps": [
+        "List the types of outside users who access your system.",
+        "Require each to have an individual account with appropriate authentication.",
+        "Confirm any access without logon is limited to the actions you have documented as permitted."
+      ],
+      "reviewed": false
+    },
+    "ia-8.1": {
+      "question": "Do your systems accept and electronically verify Personal Identity Verification (PIV) credentials issued by other federal agencies?",
+      "whyItMatters": "Federal users from other agencies already hold strong identity credentials. Accepting them avoids issuing separate, often weaker credentials and gives you a trusted way to verify who is connecting.",
+      "doneLooksLike": "PIV-compliant credentials issued by other federal agencies are accepted by your logical and physical access control systems and electronically verified.",
+      "nextSteps": [
+        "Identify users from other federal agencies who need access.",
+        "Configure systems to accept PIV credentials issued by other agencies.",
+        "Test that those credentials are electronically verified before access is granted."
+      ],
+      "reviewed": false
+    },
+    "ia-8.2": {
+      "question": "When your system accepts sign-in credentials issued by outside providers, does it accept only ones that meet NIST requirements and keep a list of them?",
+      "whyItMatters": "Public-facing systems often let users sign in with credentials issued by other providers. Accepting only those that meet NIST's requirements keeps weak external credentials from undermining your system.",
+      "doneLooksLike": "Only external authenticators that meet NIST's digital identity requirements are accepted, and you document and maintain a list of the external authenticators you accept.",
+      "nextSteps": [
+        "Identify any external sign-in providers your public-facing systems accept.",
+        "Confirm each meets NIST's digital identity guidelines, and stop accepting those that do not.",
+        "Document the accepted providers, and keep the list current."
+      ],
+      "reviewed": false
+    },
+    "ia-8.4": {
+      "question": "Does your system conform to the identity management profiles your organization has chosen for identifying and authenticating outside users?",
+      "whyItMatters": "Following defined identity profiles built on open standards lets your system work reliably with outside identity providers while applying consistent security expectations.",
+      "doneLooksLike": "Your system conforms to the identity management profiles you define, based on open identity management standards, when identifying and authenticating non-organizational users.",
+      "nextSteps": [
+        "Choose the identity management profiles your system will follow.",
+        "Configure your identity federation or sign-in services to conform to those profiles.",
+        "Recheck conformance when the profiles or your identity services change."
+      ],
+      "reviewed": false
+    },
+    "ia-11": {
+      "question": "Does your organization require users to authenticate again in situations it has defined, such as before privileged actions or after a set time?",
+      "whyItMatters": "A session left open or taken over can be misused long after the original logon. Requiring re-authentication at key moments confirms the right person is still at the keyboard.",
+      "doneLooksLike": "Users are required to re-authenticate in the circumstances or situations you define, for example when roles or credentials change, before privileged functions are performed, or after a fixed period.",
+      "nextSteps": [
+        "Decide which situations should require re-authentication.",
+        "Configure systems and applications to prompt for authentication in those situations.",
+        "Test that re-authentication prompts appear as expected."
+      ],
+      "reviewed": false
+    }
+  }
+}

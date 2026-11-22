@@ -1,0 +1,608 @@
+{
+  "requirements": {
+    "GV.OC-01": {
+      "question": "Does your organization's understanding of its mission, and what it must keep delivering, shape how you decide which cybersecurity risks matter most?",
+      "whyItMatters": "Security decisions made without reference to the mission tend to protect the wrong things or spread effort evenly across everything. Knowing what the organization exists to do shows which disruptions would hurt most.",
+      "doneLooksLike": "Your mission is written down and shared, for example in a mission statement or service strategy, and the people who manage cybersecurity risk use it as the basis for identifying risks that could get in the way of that mission.",
+      "nextSteps": [
+        "Write a short statement of what your organization does and for whom, or locate the one you already have.",
+        "List the few activities that would most directly stop you delivering that mission if they were disrupted.",
+        "Share the mission statement with whoever makes security and technology decisions, and refer to it when ranking risks."
+      ],
+      "reviewed": false
+    },
+    "GV.OC-02": {
+      "question": "Does your organization know who its internal and external stakeholders are and what each expects from you on cybersecurity, and take those expectations into account?",
+      "whyItMatters": "Customers, partners, regulators, owners, and staff each expect different things, such as privacy for customer data or reliability for a partner. Missing one of these expectations can cost trust, contracts, or penalties even when nothing has been breached.",
+      "doneLooksLike": "You have identified internal stakeholders (such as owners, directors, advisors, and employees) and external stakeholders (such as customers, partners, regulators, and the wider community), along with their cybersecurity and privacy expectations, and those expectations are considered when you set priorities.",
+      "nextSteps": [
+        "List the groups inside and outside the organization who rely on or oversee how you handle security.",
+        "Write down what each group expects, for example customer privacy, partner reliability, or regulator reporting.",
+        "Review the list when you set security priorities, and update it when you gain a major customer, partner, or regulator."
+      ],
+      "reviewed": false
+    },
+    "GV.OC-03": {
+      "question": "Does your organization know which laws, regulations, and contract terms set cybersecurity or privacy obligations for you, and have a way to track and meet them?",
+      "whyItMatters": "Privacy laws, industry regulations, and customer contracts often carry specific security duties and breach notification rules. Missing one can lead to fines, lost contracts, or harm to the people whose information you hold.",
+      "doneLooksLike": "You keep a current record of the legal, regulatory, and contractual cybersecurity requirements that apply to you, including privacy obligations that protect individuals' information and security terms in supplier, customer, and partner agreements. Someone tracks changes to these requirements, and your cybersecurity strategy is aligned with them.",
+      "nextSteps": [
+        "List the privacy and security laws that apply to you based on where you operate and the kinds of personal information you hold, such as health or consumer data.",
+        "Review your customer, supplier, and partner contracts for security and data handling clauses, and record them in one place.",
+        "Assign someone to watch for new or changed requirements and report them to leadership.",
+        "Check that your security plans address each requirement on the list."
+      ],
+      "reviewed": false
+    },
+    "GV.OC-04": {
+      "question": "Does your organization know which of its services and capabilities customers and partners depend on most, and has that been communicated to the people who need to know?",
+      "whyItMatters": "When something goes wrong, you need to know which services to protect and restore first. Customers and partners who rely on you also need to know what to expect during an outage or attack.",
+      "doneLooksLike": "You have criteria for deciding which capabilities and services are critical, an understanding of the assets and operations they depend on and the impact of losing them (often from a business impact analysis), and resilience objectives, such as how long a service can be down, that you have communicated for normal operation, during an attack, and during recovery.",
+      "nextSteps": [
+        "List the services customers and partners rely on you for, and rank them by the harm an outage would cause.",
+        "Identify the systems, data, and people each critical service needs in order to run.",
+        "Set a target for how quickly each critical service must be restored and how it should operate during an attack or recovery.",
+        "Share these priorities and targets with the staff who run the services and, where appropriate, with key customers."
+      ],
+      "reviewed": false
+    },
+    "GV.OC-05": {
+      "question": "Does your organization know which outside services and resources it depends on, such as cloud hosting, internet, or facilities, and is that shared with the right people?",
+      "whyItMatters": "Most organizations rely on providers they do not control, such as a hosting provider, payment processor, or building landlord. If one fails, your own services can stop, so knowing these points of failure lets you plan around them.",
+      "doneLooksLike": "You keep an inventory of external dependencies, such as facilities and cloud hosting providers, showing which assets and business functions rely on each. Dependencies that could become single points of failure for critical services are documented and shared with the people who need to plan for them.",
+      "nextSteps": [
+        "List the outside providers and resources your daily operations rely on, including internet, power, cloud services, and key vendors.",
+        "Note which business functions and systems would stop if each one failed.",
+        "Flag the dependencies that have no backup or alternative, and share that list with the people responsible for continuity planning."
+      ],
+      "reviewed": false
+    },
+    "GV.RM-01": {
+      "question": "Has your organization set cybersecurity risk management objectives that leadership has agreed to and uses to measure progress?",
+      "whyItMatters": "Without agreed objectives, security work drifts toward whatever is urgent or interesting rather than what the organization needs. Objectives that leadership has signed off on also make it clearer where to spend and whether efforts are working.",
+      "doneLooksLike": "You have written, measurable cybersecurity risk management objectives, both near term and long term, such as a target for the quality of staff training. Senior leaders agree on them, use them to measure and manage risk and performance, and update them during annual strategic planning and when major changes occur.",
+      "nextSteps": [
+        "Draft a few cybersecurity objectives tied to your business goals, each with a way to measure it.",
+        "Review the draft with the owners or senior leaders and agree on a final version.",
+        "Add a review of these objectives to your annual planning cycle and to your response to any major change in the business."
+      ],
+      "reviewed": false
+    },
+    "GV.RM-02": {
+      "question": "Has your organization stated how much cybersecurity risk it is willing to accept, and turned that into specific, measurable limits people understand?",
+      "whyItMatters": "Without a shared view of acceptable risk, people make inconsistent calls, accepting serious risks in one area while overspending on minor ones elsewhere. Clear limits let staff make routine decisions without escalating every question.",
+      "doneLooksLike": "Leadership has written risk appetite statements (the broad level of risk the organization is willing to take on) and translated them into risk tolerance statements (specific, measurable limits, such as the longest acceptable outage for a key system). These are communicated to the people who make risk decisions and refined periodically based on known exposure and remaining risk.",
+      "nextSteps": [
+        "Discuss with leadership which kinds of cybersecurity risk the organization will and will not accept, and write it down in a few sentences.",
+        "Turn each statement into a measurable limit that staff can apply, such as acceptable downtime or data loss for a key system.",
+        "Share the statements with the people who make technology and security decisions.",
+        "Set a time to revisit them, for example during annual planning."
+      ],
+      "reviewed": false
+    },
+    "GV.RM-03": {
+      "question": "Are cybersecurity risks tracked and managed alongside your organization's other business risks, such as financial, legal, operational, and reputational risks?",
+      "whyItMatters": "When cybersecurity is handled separately, leaders cannot weigh it against other risks competing for the same money and attention. Bringing it into the same process helps serious cyber risks reach the people who decide.",
+      "doneLooksLike": "Cybersecurity risks are aggregated and managed in the same process used for other enterprise risks, the people who manage cybersecurity risk take part in enterprise risk planning, and there are defined criteria for when a cybersecurity risk is escalated.",
+      "nextSteps": [
+        "Add your main cybersecurity risks to the list or process you use for other business risks, or start one if none exists.",
+        "Include whoever manages cybersecurity in business risk and planning discussions.",
+        "Agree on the conditions under which a cybersecurity risk must be raised with owners or senior leaders."
+      ],
+      "reviewed": false
+    },
+    "GV.RM-04": {
+      "question": "Has your organization decided and communicated how it will respond to different kinds of cybersecurity risk, such as which risks to accept, avoid, insure, or share with providers?",
+      "whyItMatters": "Not every risk can or should be fixed. Clear direction on when to accept, avoid, transfer, or reduce a risk keeps decisions consistent and makes choices like buying insurance or outsourcing deliberate rather than accidental.",
+      "doneLooksLike": "You have documented criteria for accepting or avoiding cybersecurity risk for different classifications of data, a decision on whether to buy cybersecurity insurance, and the conditions under which shared responsibility arrangements are acceptable, such as outsourcing security functions, having a third party perform financial transactions for you, or using public cloud services. This direction is communicated to the people who make those decisions.",
+      "nextSteps": [
+        "Group your data by sensitivity and write down which risks you will accept or avoid for each group.",
+        "Decide whether cybersecurity insurance makes sense for your organization, and record the reasoning.",
+        "Write down when it is acceptable to rely on a provider for part of your security, such as cloud hosting or a managed security service.",
+        "Share this guidance with anyone who signs up for services or approves technology purchases."
+      ],
+      "reviewed": false
+    },
+    "GV.RM-05": {
+      "question": "Are there clear, agreed ways for people across your organization to raise and share cybersecurity risks, including risks that come from suppliers and other third parties?",
+      "whyItMatters": "Risks often surface in one part of an organization, such as purchasing, HR, or facilities, while the people who can act on them sit elsewhere. Defined lines of communication help these concerns reach leadership and the right teams in time.",
+      "doneLooksLike": "You have defined how and at what intervals senior executives, directors, and managers are updated on cybersecurity posture, and how departments such as operations, legal, purchasing, HR, physical security, and any internal audit function communicate with each other about cybersecurity risks, including supplier and third-party risks.",
+      "nextSteps": [
+        "Agree how often, and in what form, leadership will receive a cybersecurity update.",
+        "Name a contact in each department for raising cybersecurity concerns, and tell staff who it is.",
+        "Make sure the people who buy services or manage vendors know where to report supplier security concerns."
+      ],
+      "reviewed": false
+    },
+    "GV.RM-06": {
+      "question": "Does your organization use a consistent method to assess, record, categorize, and rank cybersecurity risks, and do the people involved know how to use it?",
+      "whyItMatters": "If each person rates risk differently, risks cannot be compared and the most serious ones may not get attention first. A shared method makes risk decisions repeatable and easier to explain.",
+      "doneLooksLike": "You have a documented way to calculate cybersecurity risk, whether with rating scales or numeric formulas, a standard template such as a risk register (a list of risks with their description, exposure, treatment, and owner), a consistent set of risk categories, and criteria for prioritizing risks at the right level of the organization. The method has been shared with the people who use it.",
+      "nextSteps": [
+        "Choose a rating approach, such as scoring likelihood and impact on a fixed scale, and write it down.",
+        "Create a risk register with columns for the risk, its rating, category, owner, and planned treatment.",
+        "Define a short list of risk categories and the rating at which a risk must be escalated.",
+        "Walk the people who record or review risks through the method."
+      ],
+      "reviewed": false
+    },
+    "GV.RM-07": {
+      "question": "When your organization discusses cybersecurity risk, does it also identify and weigh opportunities, such as ways security could support new business or better services?",
+      "whyItMatters": "Risk is not only about what could go wrong. Recognizing positive risks, such as a security capability that helps win customers or enables a new service, helps leaders balance protection with growth instead of treating security only as a cost.",
+      "doneLooksLike": "You have guidance and methods for identifying opportunities (positive risks) and including them in risk discussions, for example an analysis of strengths, weaknesses, opportunities, and threats. Stretch goals are documented, and opportunities are calculated, documented, and prioritized alongside negative risks.",
+      "nextSteps": [
+        "Add a standing question about opportunities to your risk reviews, such as where security improvements could help win work or enable new services.",
+        "Use a strengths, weaknesses, opportunities, and threats exercise during planning to surface positive risks.",
+        "Record promising opportunities and stretch goals in your risk register and rank them alongside other risks."
+      ],
+      "reviewed": false
+    },
+    "GV.RR-01": {
+      "question": "Do your organization's leaders take responsibility for cybersecurity risk and actively encourage a culture that is risk-aware, ethical, and continually improving?",
+      "whyItMatters": "Staff take their cues from leadership. When owners and senior leaders treat cybersecurity as their own responsibility, it gets resources and attention, and people are more willing to report mistakes and concerns.",
+      "doneLooksLike": "Leaders have agreed on their roles in developing, implementing, and assessing the cybersecurity strategy, and they share expectations for a secure and ethical culture, for example by discussing relevant current events. They direct whoever leads cybersecurity to maintain a risk strategy that is reviewed at least annually and after major events, and they check that those responsible have enough authority and coordination.",
+      "nextSteps": [
+        "Agree among owners or senior leaders who is accountable for cybersecurity risk and what each leader's role is.",
+        "Have leaders talk about security expectations in staff meetings, using real-world incidents as examples.",
+        "Ask whoever leads cybersecurity to maintain a written risk strategy, and review it with leadership at least once a year and after major events."
+      ],
+      "reviewed": false
+    },
+    "GV.RR-02": {
+      "question": "Has your organization defined who is responsible for which cybersecurity risk management tasks, and do those people understand their roles and act on them?",
+      "whyItMatters": "When responsibilities are vague, important tasks fall through the cracks because everyone assumes someone else is handling them. Clear roles also give people the authority to act when it matters.",
+      "doneLooksLike": "Cybersecurity risk management roles, responsibilities, and authorities are documented in policy, including who is responsible, who is accountable, and who must be consulted or informed. Responsibilities appear in job descriptions, people in these roles have performance goals that are measured periodically, responsibilities within operations, risk, and any internal audit function are spelled out, and the roles are enforced.",
+      "nextSteps": [
+        "List the main cybersecurity tasks, such as managing accounts, applying updates, and handling incidents, and assign an owner to each.",
+        "Record who is responsible, accountable, consulted, and informed for each task in a chart.",
+        "Add cybersecurity duties to relevant job descriptions and performance reviews.",
+        "Share the assignments so everyone knows whom to go to."
+      ],
+      "reviewed": false
+    },
+    "GV.RR-03": {
+      "question": "Does your organization provide enough people, time, money, and tools to carry out its cybersecurity strategy, roles, and policies?",
+      "whyItMatters": "A strategy or policy without resources behind it is unlikely to be carried out. Matching resources to your risks helps avoid both underfunding critical protections and overspending on low-priority areas.",
+      "doneLooksLike": "Resource allocation and investment decisions reflect your risk tolerance and planned risk responses. People, processes, and technology are sufficient to support the cybersecurity strategy, and management periodically reviews whether those with cybersecurity responsibilities have the authority they need.",
+      "nextSteps": [
+        "Compare the tasks in your security strategy and policies with the people, time, and budget currently assigned to them.",
+        "Identify gaps where important work is unfunded or unowned, and decide whether to fund, outsource, or accept each one.",
+        "Schedule a periodic management review of cybersecurity resources and authority."
+      ],
+      "reviewed": false
+    },
+    "GV.RR-04": {
+      "question": "Is cybersecurity built into your human resources practices, such as screening, onboarding, role changes, and offboarding of staff?",
+      "whyItMatters": "People's access and responsibilities change as they join, move, and leave. Building security into HR steps prevents gaps such as former staff keeping access or new hires not knowing the rules.",
+      "doneLooksLike": "Cybersecurity is part of HR processes for screening, onboarding, change notification, and offboarding. Background checks are done before onboarding people into sensitive roles and repeated periodically, cybersecurity knowledge counts in hiring, training, and retention decisions, and staff obligations to follow security policies relevant to their roles are defined and enforced.",
+      "nextSteps": [
+        "Add security steps to your onboarding and offboarding checklists, such as policy acknowledgment and removal of access.",
+        "Make sure HR notifies whoever manages access when someone changes roles or leaves.",
+        "Decide which roles are sensitive and require background checks before hiring and at intervals you define.",
+        "Include following security policies in role expectations and in your disciplinary process."
+      ],
+      "reviewed": false
+    },
+    "GV.PO-01": {
+      "question": "Does your organization have a written cybersecurity policy, approved by leadership and based on your priorities, that staff know about and are expected to follow?",
+      "whyItMatters": "A policy sets out what leadership expects and gives staff a reference for everyday decisions. Without one, security practices depend on individual habits and are hard to enforce.",
+      "doneLooksLike": "You have an understandable cybersecurity risk management policy that states management's intent, expectations, and direction and reflects your context, strategy, and priorities. Senior management has approved it, it is communicated across the organization with its supporting procedures, staff acknowledge receiving it (for example when hired, each year, and after updates), it is reviewed periodically, and it is enforced.",
+      "nextSteps": [
+        "Write a short policy covering your main security expectations, such as passwords, device use, data handling, and reporting incidents.",
+        "Have the owner or senior management formally approve it.",
+        "Share it with all staff and ask each person to confirm they have read it.",
+        "Explain what happens when the policy is not followed, and apply that consistently."
+      ],
+      "reviewed": false
+    },
+    "GV.PO-02": {
+      "question": "Does your organization review and update its cybersecurity policy when laws, threats, technology, or the business change, and share the updated version with staff?",
+      "whyItMatters": "A policy written for last year's tools and risks can leave new technology, such as artificial intelligence services, or new contracts unaddressed. Regular updates keep the policy relevant and enforceable.",
+      "doneLooksLike": "You review the policy on a timeline you define and when the risk environment changes, and you update it based on risk management results and on changes in legal and regulatory requirements, technology, and the business, such as an acquisition or new contract terms. Updated versions are communicated and enforced.",
+      "nextSteps": [
+        "Set a review schedule for your policy and note the date of the last review.",
+        "List the events that should trigger an early review, such as adopting a new technology, signing a new type of contract, or a change in law.",
+        "Record what changed in each version and notify staff of updates."
+      ],
+      "reviewed": false
+    },
+    "GV.OV-01": {
+      "question": "Does your organization review the results of its cybersecurity risk management strategy and use what it learns to adjust its direction?",
+      "whyItMatters": "A strategy that is never checked can keep costing money and slowing work without delivering the protection it promised. Reviewing outcomes shows what is working and where to change course.",
+      "doneLooksLike": "Leadership periodically assesses how well the cybersecurity risk strategy and its results have helped them make decisions and achieve organizational objectives, and examines whether security measures that get in the way of operations or innovation should be adjusted. The strategy is changed where the review shows a need.",
+      "nextSteps": [
+        "Set a regular time, for example once a year, for leadership to review the results of the cybersecurity strategy.",
+        "Ask whether recent security decisions helped the business meet its objectives, and gather examples.",
+        "Ask staff where security measures slow down work, and decide whether those measures should change."
+      ],
+      "reviewed": false
+    },
+    "GV.OV-02": {
+      "question": "Does your organization periodically check that its cybersecurity risk management strategy still covers all of its requirements and risks, and adjust it when gaps appear?",
+      "whyItMatters": "Requirements and risks change as the business grows, contracts change, and incidents happen. Reviewing coverage catches gaps before an auditor, customer, or attacker finds them.",
+      "doneLooksLike": "You review audit findings to confirm whether the strategy has kept you in line with internal and external requirements, review oversight of people in cybersecurity roles to see whether policy changes are needed, and revisit the strategy in light of cybersecurity incidents. The strategy is adjusted when gaps are found.",
+      "nextSteps": [
+        "Compare your strategy with your list of legal, contractual, and internal requirements, and note anything not covered.",
+        "Review findings from any audits, assessments, or customer security questionnaires for gaps.",
+        "After each significant incident, ask whether the strategy needs to change and record the decision."
+      ],
+      "reviewed": false
+    },
+    "GV.OV-03": {
+      "question": "Does your organization measure how well its cybersecurity risk management is performing and review those measures to decide what to change?",
+      "whyItMatters": "Without measures, it is hard to know whether security is improving or slipping. Metrics give leadership a factual basis for adjusting priorities and resources.",
+      "doneLooksLike": "You review key performance indicators (measures of whether policies and procedures are achieving their objectives, such as training completion) and key risk indicators (signals of the risks you face and their likelihood and impact). These metrics are shared with senior leadership and used to identify needed adjustments.",
+      "nextSteps": [
+        "Pick a handful of measures that show how security is working, such as time to apply critical updates or the share of staff trained.",
+        "Collect them on a schedule you define and report them to leadership.",
+        "Review trends with leadership and agree on adjustments when measures move the wrong way."
+      ],
+      "reviewed": false
+    },
+    "GV.SC-01": {
+      "question": "Has your organization set up an agreed approach, including goals, policies, and processes, for managing cybersecurity risks that come from suppliers and the wider supply chain?",
+      "whyItMatters": "Many breaches start at a vendor, software provider, or service partner. A defined approach makes sure supplier risks are handled deliberately rather than case by case, and that everyone who buys and manages suppliers works the same way.",
+      "doneLooksLike": "You have a cybersecurity supply chain risk management program (your organized approach to supplier-related security risk) with a strategy and objectives, a plan with milestones, and policies and procedures that stakeholders have agreed to, follow, and use to improve the program. Functions such as IT, security, operations, legal, HR, and engineering stay aligned through a defined cross-organizational mechanism.",
+      "nextSteps": [
+        "Write down what you want to achieve in managing supplier security risk, such as knowing which vendors hold your data.",
+        "Draft a short policy and procedure for evaluating, contracting with, and monitoring suppliers.",
+        "Agree on the approach with the people who buy, use, and manage suppliers, and set milestones for putting it in place.",
+        "Set up a regular check-in between the functions involved, such as IT, legal, and operations."
+      ],
+      "reviewed": false
+    },
+    "GV.SC-02": {
+      "question": "Has your organization defined and communicated the cybersecurity roles and responsibilities of its own staff, suppliers, customers, and partners for managing supply chain risks?",
+      "whyItMatters": "Security gaps often appear where one party assumes the other is responsible, such as who patches a hosted system or who reports a breach. Clear roles on both sides prevent these gaps.",
+      "doneLooksLike": "Specific people are responsible and accountable for supply chain risk management, as recorded in policy, a responsibility matrix, job descriptions, and measured performance goals. Shared security responsibilities with suppliers, customers, and partners are defined and written into policies and agreements, communicated internally, and supported by rules for information sharing and reporting between you and your suppliers.",
+      "nextSteps": [
+        "Name who in your organization is responsible for supplier security risk.",
+        "For each key supplier, write down which security tasks are theirs and which are yours.",
+        "Add those responsibilities and reporting expectations to contracts or service agreements.",
+        "Tell staff who work with suppliers what each supplier is and is not responsible for."
+      ],
+      "reviewed": false
+    },
+    "GV.SC-03": {
+      "question": "Is managing supplier and supply chain cybersecurity risk part of your organization's broader risk management, risk assessment, and improvement processes rather than a separate activity?",
+      "whyItMatters": "When supplier risk is handled on its own, serious issues with a key vendor may never reach the people weighing the organization's overall risks. Integration means supplier risks are compared, escalated, and improved like any other.",
+      "doneLooksLike": "You have identified where supply chain risk management overlaps with cybersecurity and enterprise risk management, use an integrated set of controls for both, include supply chain risk in improvement processes, and escalate material supply chain risks to senior management for handling at the enterprise level.",
+      "nextSteps": [
+        "Add significant supplier risks to the same risk register you use for other cybersecurity and business risks.",
+        "Use the same rating and review process for supplier risks as for internal risks.",
+        "Define when a supplier risk is serious enough to raise with senior management.",
+        "Include supplier issues in your regular lessons-learned and improvement reviews."
+      ],
+      "reviewed": false
+    },
+    "GV.SC-04": {
+      "question": "Does your organization keep a record of all its suppliers and rank them by how critical they are to your operations and data?",
+      "whyItMatters": "You cannot manage risks from suppliers you do not know about. Ranking them shows where to focus limited time, since a provider holding customer data deserves more scrutiny than an office supply vendor.",
+      "doneLooksLike": "You keep a record of all suppliers and have criteria for criticality, such as the sensitivity of data they process or hold, their level of access to your systems, and how important their products or services are to your mission. Each supplier is prioritized against those criteria.",
+      "nextSteps": [
+        "Build a list of all suppliers, starting from accounts payable records and subscriptions.",
+        "Define criticality criteria, such as data access, system access, and impact if the supplier failed.",
+        "Rate each supplier against the criteria and mark the most critical ones for closer attention."
+      ],
+      "reviewed": false
+    },
+    "GV.SC-05": {
+      "question": "Do your contracts and agreements with suppliers and other third parties include cybersecurity requirements that match how critical each supplier is?",
+      "whyItMatters": "A contract is often your main lever with a supplier. Without written security requirements, you may have no right to be told about a breach at a vendor, ask for evidence of their practices, or require fixes.",
+      "doneLooksLike": "You have established and prioritized security requirements for suppliers, products, and services based on their criticality and potential impact if compromised, and these are written into contracts and other agreements. Depending on criticality, agreements cover information sharing, how compliance with requirements will be verified, security performance in service-level agreements (formal service commitments), disclosure of vulnerabilities, component inventories for critical products, vetting of supplier staff, evidence of security practices, and each party's rights and responsibilities.",
+      "nextSteps": [
+        "Write standard security clauses for supplier agreements, such as breach notification, data protection, and the right to request evidence of security practices.",
+        "Decide which additional requirements apply to your most critical suppliers.",
+        "Add the clauses to new contracts, and to existing contracts when they come up for renewal.",
+        "Keep a record of which suppliers have agreed to which requirements."
+      ],
+      "reviewed": false
+    },
+    "GV.SC-06": {
+      "question": "Before signing with a new supplier or other third party, does your organization assess their security practices and plan how to reduce the risks they could introduce?",
+      "whyItMatters": "It is far simpler to address security concerns before a contract is signed than after. Due diligence helps you avoid suppliers who cannot protect your data or systems and sets expectations from the start.",
+      "doneLooksLike": "You plan and perform due diligence on prospective suppliers in proportion to the risk, criticality, and complexity of the relationship. This includes assessing their technology, cybersecurity capabilities, and risk management practices against your business and security requirements, and checking the authenticity, integrity, and security of critical products before you acquire and use them.",
+      "nextSteps": [
+        "Create a short security questionnaire for prospective suppliers, with more depth for critical ones.",
+        "Review the answers and any evidence they provide before approving the supplier.",
+        "Record the assessment result and any conditions or risk reductions agreed before signing.",
+        "For critical products, confirm they come from the genuine source and have not been altered."
+      ],
+      "reviewed": false
+    },
+    "GV.SC-07": {
+      "question": "Does your organization keep track of the risks each supplier and third party poses, and monitor and respond to them throughout the relationship?",
+      "whyItMatters": "A supplier that was safe when you signed can change through a breach, an acquisition, or slipping practices. Ongoing monitoring catches these changes before they become your incident.",
+      "doneLooksLike": "Supplier and third-party risks are understood, recorded, prioritized, assessed, responded to, and monitored for the life of the relationship. Assessment format and frequency match each supplier's criticality and reputation, evidence of meeting contract requirements is reviewed, critical suppliers are monitored for changes in their risk profile and reassessed, and you have plans for unexpected supplier interruptions.",
+      "nextSteps": [
+        "Set how often each tier of supplier is reassessed, with the most critical reviewed most often.",
+        "Request and review updated evidence from critical suppliers, such as security attestations or assessment reports.",
+        "Watch for breaches, ownership changes, or service problems at critical suppliers, and reassess when they occur.",
+        "Plan how you would keep operating if a critical supplier suddenly became unavailable."
+      ],
+      "reviewed": false
+    },
+    "GV.SC-08": {
+      "question": "Are your relevant suppliers and other third parties included in your incident response planning, exercises, and recovery activities?",
+      "whyItMatters": "Many incidents involve a supplier, either as the source or as a partner you need during recovery. Agreeing in advance on who does what and how you will communicate saves critical time during an incident.",
+      "doneLooksLike": "You have defined how incident response and recovery status is reported between your organization and its suppliers, documented each side's incident response roles, included critical suppliers in exercises and simulations, agreed on crisis communication methods with critical suppliers, and held joint lessons-learned sessions with them.",
+      "nextSteps": [
+        "Add contact details and incident roles for critical suppliers to your incident response plan.",
+        "Agree with each critical supplier how and how quickly incidents will be reported in both directions.",
+        "Invite critical suppliers to take part in an incident response exercise.",
+        "Hold a joint review with the supplier after any incident that involves them."
+      ],
+      "reviewed": false
+    },
+    "GV.SC-09": {
+      "question": "Does your organization build supply chain security into its risk management and check how well those practices work across the life of the technology you buy?",
+      "whyItMatters": "Tampered hardware, counterfeit parts, and malicious software updates can arrive through trusted channels. Confirming where technology comes from and how it is maintained reduces the chance of bringing a compromise in yourself.",
+      "doneLooksLike": "Supply chain security practices are part of your cybersecurity and enterprise risk management programs, and their performance is monitored throughout the product and service life cycle. Policies require provenance records (where a product came from) for acquired technology, patches and updates come only from authenticated and trustworthy providers, maintenance is done by approved supplier personnel, upgrades to critical hardware are checked for unauthorized changes, and leaders receive periodic reports on how acquired components are confirmed to be authentic and untampered.",
+      "nextSteps": [
+        "Record the source of each technology purchase, and buy from the manufacturer or authorized sellers.",
+        "Configure systems to get software updates only from the vendor's official, verified channels.",
+        "Allow only approved supplier personnel to perform maintenance on supplier products.",
+        "Report periodically to leadership on how you confirm that acquired technology is authentic and untampered."
+      ],
+      "reviewed": false
+    },
+    "GV.SC-10": {
+      "question": "When a supplier relationship or service agreement ends, does your organization have a plan for removing access, recovering or destroying data, and handling the transition?",
+      "whyItMatters": "Ending a relationship carelessly can leave a former vendor with access to your systems, copies of your data, or unsupported products still in use. Planning for the end reduces data leakage and disruption.",
+      "doneLooksLike": "Your supply chain risk management plans cover ending relationships under both normal and adverse circumstances. They include promptly deactivating supplier access, returning or safely disposing of assets that contain your data, managing data leakage and other risks created by termination, transitioning suppliers with security and resilience in mind, and planning for end-of-life support and obsolescence of components.",
+      "nextSteps": [
+        "Create a supplier offboarding checklist that covers access removal, data return or destruction, and written confirmation.",
+        "Include exit and data return terms in new supplier contracts.",
+        "Identify products nearing the end of vendor support and plan their replacement.",
+        "For critical suppliers, outline how you would move to an alternative if the relationship ended abruptly."
+      ],
+      "reviewed": false
+    },
+    "ID.AM-01": {
+      "question": "Does your organization keep an up-to-date inventory of the hardware it manages, including computers, phones, network equipment, and connected devices?",
+      "whyItMatters": "You cannot protect a device you do not know about. Unknown or forgotten devices often miss updates and become an entry point for attackers.",
+      "doneLooksLike": "You maintain inventories of all types of hardware you manage, including IT equipment, mobile devices, internet-connected devices such as cameras and smart equipment, and operational technology (equipment that controls physical processes) if you have it. Where practical, network monitoring detects new hardware and updates the inventory automatically.",
+      "nextSteps": [
+        "List every device you own or manage, with its type, user or owner, and location.",
+        "Include phones, printers, routers, cameras, and other connected devices, not only computers.",
+        "Assign someone to update the list when devices are bought, reassigned, or retired.",
+        "Consider a tool that detects new devices on your network and flags them for review."
+      ],
+      "reviewed": false
+    },
+    "ID.AM-02": {
+      "question": "Does your organization keep an up-to-date inventory of the software, online services, and systems it manages, including cloud applications?",
+      "whyItMatters": "Software you do not know about cannot be updated, licensed, or secured. An inventory also lets you respond quickly when a vulnerability is announced in a product you might be using.",
+      "doneLooksLike": "You maintain inventories of all types of software and services, including commercial, open-source, and custom-built applications, application programming interface (API) services, and cloud-based applications, as well as an inventory of your systems. Where practical, platforms such as virtual machines and containers are monitored for software and service changes.",
+      "nextSteps": [
+        "List the software installed on your devices and the cloud services your staff use, with an owner for each.",
+        "Record the systems your organization runs and the software each one includes.",
+        "Review the list at a frequency you define and whenever new software or services are adopted.",
+        "Use device management or inventory tools to detect software changes automatically where possible."
+      ],
+      "reviewed": false
+    },
+    "ID.AM-03": {
+      "question": "Does your organization maintain an up-to-date picture of how data is expected to flow across its networks and to and from outside parties?",
+      "whyItMatters": "Knowing what normal network traffic looks like makes it possible to spot unusual connections and to protect the paths sensitive data takes. It also shows where data leaves your control.",
+      "doneLooksLike": "You maintain documentation, such as network diagrams and data flow maps, of authorized communication and data flows within your wired and wireless networks, between your organization and third parties, and within any cloud infrastructure you use. The network ports, protocols, and services expected between authorized systems are documented.",
+      "nextSteps": [
+        "Draw a basic diagram of your network showing key systems, internet connections, and wireless networks.",
+        "Map where sensitive data travels, including to cloud services and partners.",
+        "Document which network ports and services your systems are expected to use.",
+        "Update the diagrams when you add systems, services, or connections."
+      ],
+      "reviewed": false
+    },
+    "ID.AM-04": {
+      "question": "Does your organization keep an up-to-date list of the services it receives from suppliers, such as cloud applications, hosting, and externally hosted tools?",
+      "whyItMatters": "Outside services often hold sensitive data and connect to your systems, yet staff can sign up for them without anyone keeping track. A current list makes sure each one is included in your security oversight.",
+      "doneLooksLike": "You maintain an inventory of all external services you use, including cloud infrastructure, platform, and software services, application programming interfaces (APIs), and other externally hosted applications. The inventory is updated before a new external service is put into use so it can be included in risk management and monitoring.",
+      "nextSteps": [
+        "List every external service your organization uses, including free tools, with the business owner and the data each holds.",
+        "Check billing and expense records for subscriptions that are not on the list.",
+        "Require that new services be added to the list, and reviewed for security, before they are used."
+      ],
+      "reviewed": false
+    },
+    "ID.AM-05": {
+      "question": "Has your organization ranked its assets, such as systems, data, and devices, by how sensitive and critical they are and how much their loss would affect the mission?",
+      "whyItMatters": "Not every asset needs the same protection. Prioritizing shows where to spend limited time and money first, and which systems to restore first after an incident.",
+      "doneLooksLike": "You have defined criteria for prioritizing each class of asset based on classification, criticality, resources, and impact on the mission, and applied them to your assets. You track the resulting priorities and update them periodically and when significant changes occur.",
+      "nextSteps": [
+        "Define a few priority levels and the criteria for each, such as data sensitivity and the effect on operations if the asset were lost.",
+        "Assign a priority to each item in your hardware, software, service, and data inventories.",
+        "Review priorities at an interval you define and after major changes, such as a new line of business or an acquisition."
+      ],
+      "reviewed": false
+    },
+    "ID.AM-07": {
+      "question": "Does your organization keep an inventory of where its important types of data, such as personal, financial, or health information, are stored and who owns them?",
+      "whyItMatters": "Sensitive data spreads into email, shared drives, and cloud services over time. Knowing where it lives is necessary to protect it, respond to a breach, and meet privacy obligations.",
+      "doneLooksLike": "You have a list of designated data types of interest, such as personal information, health information, financial account numbers, and intellectual property, and an inventory of where instances of that data reside. Data is tagged or labeled with a classification, its source, owner, and geographic location are tracked, and discovery is used to find new instances where practical.",
+      "nextSteps": [
+        "Decide which types of data you need to track, such as customer personal information or payment details.",
+        "List the systems, services, and locations where each type is stored, and name an owner for each.",
+        "Label the data, or the systems that hold it, with a classification.",
+        "Search shared drives and cloud storage periodically for sensitive data in unexpected places."
+      ],
+      "reviewed": false
+    },
+    "ID.AM-08": {
+      "question": "Does your organization manage security for its systems, hardware, software, services, and data across their whole life, from acquisition and setup to retirement and disposal?",
+      "whyItMatters": "Risks appear at every stage: insecure default settings at setup, forgotten systems that stop receiving updates, and old drives discarded with data still on them. Managing the full life cycle closes these gaps.",
+      "doneLooksLike": "Security is considered throughout the life cycles of your systems, hardware, software, services, and data. Assets are configured securely before use, inventories are updated when assets move, unofficial technology (shadow IT) and redundant assets are identified, data is destroyed according to your retention policy with records kept, storage is sanitized before hardware is retired, reassigned, or sent for repair, and methods are available for destroying paper and other physical media.",
+      "nextSteps": [
+        "Create a setup checklist that secures new devices and services before they go into use.",
+        "Review your inventories periodically for unused, redundant, or unapproved technology, and remove or approve it.",
+        "Wipe or destroy storage before any device is retired, reassigned, or sent for repair, and keep a record.",
+        "Provide a secure way to dispose of paper records and removable media, such as a shredder or a disposal service."
+      ],
+      "reviewed": false
+    },
+    "ID.RA-01": {
+      "question": "Does your organization regularly look for weaknesses in its systems, software, facilities, and processes, confirm which ones are real, and record them?",
+      "whyItMatters": "Unpatched software and misconfigured systems are among the most common ways attackers get in. Finding and recording weaknesses is the first step to fixing them before someone else exploits them.",
+      "doneLooksLike": "You identify, validate, and record vulnerabilities (weaknesses that could be exploited) in your assets. This includes using tools to find unpatched and misconfigured software, assessing network and system design, reviewing or testing software you develop, assessing facilities that house critical systems, monitoring threat intelligence for newly announced vulnerabilities, and reviewing processes for exploitable weaknesses.",
+      "nextSteps": [
+        "Run a vulnerability scanning tool across your devices and systems at a frequency you define.",
+        "Sign up for security notices from the vendors of your key software and devices.",
+        "Record each confirmed vulnerability with the affected asset, its severity, and an owner.",
+        "Review locations that house critical equipment, and processes such as payment approvals, for weaknesses that could be exploited."
+      ],
+      "reviewed": false
+    },
+    "ID.RA-02": {
+      "question": "Does your organization receive and review cyber threat information from trusted sources, such as government advisories, industry groups, or security providers?",
+      "whyItMatters": "Threat information tells you what attackers are doing now and which weaknesses they are targeting. Without it, you may learn about a relevant threat only after it reaches you.",
+      "doneLooksLike": "You receive cyber threat intelligence (information about current threats, attackers, and their methods) from information sharing forums and reputable sources, and someone reviews advisories about threat actors and their tactics. Security tools with detection or response features are configured to securely take in threat intelligence feeds, and you watch for the kinds of vulnerabilities that emerging technologies may have.",
+      "nextSteps": [
+        "Subscribe to free cybersecurity alerts from your national cybersecurity agency.",
+        "Join an information sharing group for your industry or region, if one exists.",
+        "Assign someone to review alerts on a regular schedule and pass on anything that affects your systems.",
+        "Turn on threat intelligence features in your existing security tools where they are available."
+      ],
+      "reviewed": false
+    },
+    "ID.RA-03": {
+      "question": "Has your organization identified and recorded the internal and external threats it faces, such as criminal groups, fraudsters, or insiders, and how they might attack?",
+      "whyItMatters": "Different organizations attract different attackers. Knowing who is likely to target you, and how, helps you focus defenses on the methods that matter most for your situation.",
+      "doneLooksLike": "You keep a record of the internal and external threats relevant to you, using threat intelligence to understand the kinds of threat actors likely to target you and the tactics, techniques, and procedures (methods) they tend to use. You have processes for identifying internal threat actors and, where you have the capability, actively look for signs of attackers already in your environment (threat hunting).",
+      "nextSteps": [
+        "List the kinds of attackers likely to target an organization like yours, such as ransomware groups, payment fraudsters, or insiders.",
+        "Note the methods each tends to use, drawing on the threat alerts you receive.",
+        "Set up a way to identify insider threats, such as reviewing unusual access by staff.",
+        "Update the threat list when you see new advisories or experience an incident."
+      ],
+      "reviewed": false
+    },
+    "ID.RA-04": {
+      "question": "Has your organization estimated and recorded how likely it is that threats will exploit its weaknesses and what the business impact would be?",
+      "whyItMatters": "Likelihood and impact turn a long list of weaknesses into a clear picture of what could actually hurt the business. That picture lets you decide what to address first.",
+      "doneLooksLike": "Business leaders and the people managing cybersecurity risk work together to estimate the likelihood and impact of risk scenarios and record them, often in a risk register. You have listed the potential business impacts of unauthorized access to your communications, systems, and data, and you account for cascading failures, where one system's failure affects others.",
+      "nextSteps": [
+        "Write a handful of realistic risk scenarios, such as ransomware on your main file server or a stolen laptop holding customer data.",
+        "With business leaders, estimate how likely each scenario is and what it would cost in money, downtime, and reputation.",
+        "Record the estimates in your risk register.",
+        "Note where one failure could trigger others, such as an email outage stopping order processing."
+      ],
+      "reviewed": false
+    },
+    "ID.RA-05": {
+      "question": "Does your organization combine what it knows about threats, weaknesses, likelihood, and impact to understand its overall risk and decide which risks to address first?",
+      "whyItMatters": "Combining these factors keeps attention and money on the risks that matter most, rather than on whatever seems most alarming. It also gives you a defensible basis for prioritizing security work.",
+      "doneLooksLike": "Threats, vulnerabilities, likelihoods, and impacts are used together to understand inherent risk (risk before additional safeguards) and to prioritize risk responses. Threat models help you understand risks to your data, and cybersecurity resources and investments are prioritized based on estimated likelihood and impact.",
+      "nextSteps": [
+        "For each risk in your register, combine its likelihood and impact into an overall rating using your agreed method.",
+        "Rank the risks and use the ranking to decide where to spend time and budget.",
+        "For your most sensitive data or systems, walk through how an attacker might reach them to identify the protections you need."
+      ],
+      "reviewed": false
+    },
+    "ID.RA-06": {
+      "question": "When your organization identifies a cybersecurity risk, does it choose a response, plan it, track progress, and tell the people affected?",
+      "whyItMatters": "Identifying risks has little value if nothing is done about them. Tracked, communicated responses make sure decisions are carried out and that people know what changes are coming.",
+      "doneLooksLike": "For each risk, you choose whether to accept, transfer, reduce, or avoid it using defined criteria, including criteria for selecting compensating controls (alternative safeguards). Responses are prioritized and planned based on risk assessment findings, progress is tracked, for example in a risk register or a plan of action with milestones, and planned responses are communicated to affected stakeholders in priority order.",
+      "nextSteps": [
+        "For each high-priority risk, decide whether to accept, transfer, reduce, or avoid it, and record the reason.",
+        "Assign an owner and target date to each planned response.",
+        "Review progress at regular meetings and update the risk register.",
+        "Tell the people affected about planned changes, starting with the highest-priority ones."
+      ],
+      "reviewed": false
+    },
+    "ID.RA-07": {
+      "question": "Does your organization assess and record the risk of changes to its systems, and of exceptions to its security rules, before approving them, and then track them?",
+      "whyItMatters": "Unreviewed changes are a common cause of outages and new security gaps, and exceptions that are never revisited can quietly become permanent. Managing both keeps risk visible and under control.",
+      "doneLooksLike": "Proposed changes and requested exceptions are formally documented, reviewed, tested, and approved. For each change you record the risks of making it and of not making it and how to roll it back, for each exception you record the related risks and the plan for responding to them, and you periodically review risks that were accepted on the basis of planned future actions.",
+      "nextSteps": [
+        "Set up a request form or ticket for system changes that records the reason, risk, test plan, and rollback steps.",
+        "Require approval from a named person before significant changes go ahead.",
+        "Keep a list of approved exceptions to security rules, each with an owner, the risk, and a review or end date.",
+        "Review the exception list periodically and close or renew each entry."
+      ],
+      "reviewed": false
+    },
+    "ID.RA-08": {
+      "question": "Does your organization have a process for receiving, analyzing, and responding to reports of security weaknesses from suppliers, customers, partners, or government agencies?",
+      "whyItMatters": "Others may find problems in your systems, or in products you use, before you do. A clear process makes sure these reports reach the right person and lead to timely action instead of being lost.",
+      "doneLooksLike": "Responsibilities are assigned, and their execution verified, for receiving, analyzing the impact of, and responding to threat, vulnerability, or incident disclosures from suppliers, customers, partners, and government cybersecurity organizations. Vulnerability information is exchanged with suppliers according to the rules and protocols in your contracts.",
+      "nextSteps": [
+        "Assign a person or role to receive and assess vulnerability reports.",
+        "Publish a way for outsiders to report security issues to you, such as a dedicated email address.",
+        "Define steps for confirming a report, assessing its impact, responding, and informing the reporter.",
+        "Follow the information sharing terms in supplier contracts when exchanging vulnerability information."
+      ],
+      "reviewed": false
+    },
+    "ID.RA-09": {
+      "question": "Before buying or installing hardware and software, does your organization check that it is genuine and has not been tampered with?",
+      "whyItMatters": "Counterfeit devices and altered software can carry hidden malicious code or fail unexpectedly. Checking authenticity and integrity before use keeps compromised products out of your environment.",
+      "doneLooksLike": "You assess the authenticity and integrity of hardware and software before acquiring and using them, with particular attention to the authenticity and cybersecurity of critical technology products and services.",
+      "nextSteps": [
+        "Buy hardware and software only from the manufacturer or its authorized resellers.",
+        "Download software only from official sources, and verify digital signatures or checksums (codes that confirm a file is unaltered) where they are provided.",
+        "Inspect critical hardware on arrival for signs of tampering or counterfeiting."
+      ],
+      "reviewed": false
+    },
+    "ID.RA-10": {
+      "question": "Before acquiring products or services from a supplier you will depend on heavily, does your organization assess the security risks that supplier brings?",
+      "whyItMatters": "Critical suppliers can have deep access to your data or operations, so their weaknesses can become yours. Assessing them before you commit gives you the chance to negotiate safeguards or choose another provider.",
+      "doneLooksLike": "Critical suppliers are assessed before acquisition against your business and cybersecurity requirements, including the risks in their own supply chains, and the results inform the decision to proceed.",
+      "nextSteps": [
+        "Use your supplier criticality criteria to decide which prospective suppliers need a full assessment.",
+        "Assess each critical supplier against your business and security requirements before signing, including how they manage their own suppliers.",
+        "Document the result and any conditions for approval, and keep it with the contract file."
+      ],
+      "reviewed": false
+    },
+    "ID.IM-01": {
+      "question": "Does your organization use self-assessments, independent audits, or other evaluations of its cybersecurity program to identify specific improvements?",
+      "whyItMatters": "Evaluations show where practice falls short of intent. Turning their findings into a list of improvements keeps the program moving forward instead of repeating the same gaps.",
+      "doneLooksLike": "You identify improvements from evaluations, such as self-assessments of critical services that take current threats and attacker methods into account, third-party assessments or independent audits of your program's effectiveness, and automated checks against the cybersecurity requirements you have selected.",
+      "nextSteps": [
+        "Complete a self-assessment of your cybersecurity program, such as this one, at a frequency you define.",
+        "Consider an independent assessment of your most critical services.",
+        "Record each finding as an improvement item with an owner and a priority."
+      ],
+      "reviewed": false
+    },
+    "ID.IM-02": {
+      "question": "Does your organization run security tests and exercises, including some with key suppliers, and use the results to identify improvements?",
+      "whyItMatters": "Tests and exercises show how plans and defenses perform under realistic conditions before a real incident does. Including suppliers reveals gaps at the handoffs between organizations.",
+      "doneLooksLike": "You identify improvements from tests and exercises, such as tabletop exercises (guided discussions of a scenario), simulations, internal reviews, independent audits, and leadership-approved penetration tests (authorized simulated attacks) of selected high-risk systems. Some business continuity, disaster recovery, and incident response exercises involve critical service providers and suppliers, including scenarios where products turn out to be counterfeit or altered, internal stakeholders such as executives, legal, and HR take part as appropriate, and performance metrics from security tools also inform improvements.",
+      "nextSteps": [
+        "Run a tabletop exercise on a realistic scenario, such as ransomware, with leadership and key staff.",
+        "Invite a critical supplier or service provider to join an exercise that depends on them.",
+        "Consider a penetration test of your highest-risk systems, with leadership approval.",
+        "Record the improvements identified and assign an owner to each."
+      ],
+      "reviewed": false
+    },
+    "ID.IM-03": {
+      "question": "Does your organization review how its everyday security processes and procedures work in practice and use those lessons to identify improvements?",
+      "whyItMatters": "Running a process reveals problems that plans miss, such as steps that are skipped or take too long. Capturing those lessons makes the next run better.",
+      "doneLooksLike": "Improvements are identified from carrying out operational processes, procedures, and activities. You hold lessons-learned sessions, including with suppliers, review policies, processes, and procedures periodically (for example annually) to take lessons learned into account, and use metrics to assess operational security performance over time.",
+      "nextSteps": [
+        "After significant operational work, such as a system migration or an access review, note what worked and what did not.",
+        "Hold lessons-learned sessions with suppliers whose services affect your security.",
+        "Review your security policies and procedures on a schedule you define, for example once a year, to incorporate lessons learned.",
+        "Track a few operational measures over time, such as time to apply updates, to spot trends."
+      ],
+      "reviewed": false
+    },
+    "ID.IM-04": {
+      "question": "Does your organization have incident response and other operational cybersecurity plans that are written, shared with the people who carry them out, and kept up to date?",
+      "whyItMatters": "During an incident there is little time to work out who does what. Current plans that the right people know about help limit damage, restore operations sooner, and protect the organization's reputation.",
+      "doneLooksLike": "You have contingency plans, such as incident response, business continuity, and disaster recovery plans, and a vulnerability management plan. The contingency plans include contact and communication details, procedures for common scenarios, and criteria for prioritization and escalation, and all plans and their updates are communicated to those responsible and to affected parties, then reviewed and improved periodically (for example annually) and when significant improvements are needed.",
+      "nextSteps": [
+        "Write or update an incident response plan with contact details, roles, steps for common scenarios, and escalation criteria.",
+        "Create business continuity and disaster recovery plans for your critical services, and a plan for managing vulnerabilities.",
+        "Share each plan, and each update, with everyone who has a role in it.",
+        "Set a review date for each plan, and update it after exercises, incidents, or major changes."
+      ],
+      "reviewed": false
+    }
+  }
+}

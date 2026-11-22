@@ -1,0 +1,619 @@
+{
+  "requirements": {
+    "PR.AA-01": {
+      "question": "Does your organization manage the accounts, passwords, keys, and other credentials used by its people, services, and devices, from issuing them to revoking them?",
+      "whyItMatters": "Every account, service login, and device identity is a possible way in. If nobody tracks who and what holds credentials, old or unneeded ones linger and can be misused without anyone noticing.",
+      "doneLooksLike": "Requests for new or additional access are tracked, reviewed, and fulfilled, with approval from system or data owners when needed. Certificates, identity tokens, cryptographic keys, and other credentials are issued, managed, and revoked deliberately, and each authorized device has a unique identifier, with hardware physically labeled for inventory and servicing.",
+      "nextSteps": [
+        "Set up one way to request, approve, and record new or changed access, with the system or data owner approving when needed.",
+        "List the credentials your organization depends on, including service accounts, certificates, and cryptographic keys, and note who manages and revokes each.",
+        "Give each authorized device a unique identifier and label hardware so it can be matched to your inventory.",
+        "Revoke credentials promptly when people leave, services are retired, or devices are disposed of."
+      ],
+      "reviewed": false
+    },
+    "PR.AA-02": {
+      "question": "Before issuing an account or credential, does your organization confirm that the person is who they claim to be, with checks that fit what the access allows?",
+      "whyItMatters": "If someone can obtain an account by claiming to be someone else, every other access control rests on a false identity. Shared credentials cause a similar problem: you can no longer tell who did what.",
+      "doneLooksLike": "At enrollment, you verify each person's claimed identity (identity proofing) with checks suited to the context, such as government-issued identification for higher-risk access, and bind the verified identity to their credential. Each person receives their own credential, and credentials are not shared.",
+      "nextSteps": [
+        "Decide which identity checks are needed before granting each kind of access, with stronger checks for more sensitive access.",
+        "Verify identity in person or through a trusted process before issuing credentials to new staff, contractors, and others.",
+        "Replace shared logins with individual accounts so every action can be traced to one person."
+      ],
+      "reviewed": false
+    },
+    "PR.AA-03": {
+      "question": "Does your organization require people, services, and devices to prove their identity before gaining access, for example with multi-factor authentication for user logins?",
+      "whyItMatters": "Stolen and guessed passwords are among the most common ways attackers get in. Strong authentication makes a stolen password far less useful on its own.",
+      "doneLooksLike": "Multi-factor authentication (a second check beyond a password) is required, and minimum strength rules apply to passwords, PINs, and similar authenticators. Users, services, and devices are reauthenticated periodically based on risk, and authorized personnel can still reach accounts essential to protecting safety in an emergency.",
+      "nextSteps": [
+        "Turn on multi-factor authentication, starting with email, remote access, administrator accounts, and cloud services.",
+        "Set minimum strength rules for passwords and PINs, and give staff a password manager to help meet them.",
+        "Decide how often sessions and device connections must reauthenticate, based on the risk of what they reach.",
+        "Document how authorized people can reach accounts essential to safety during an emergency."
+      ],
+      "reviewed": false
+    },
+    "PR.AA-04": {
+      "question": "When your organization uses single sign-on or lets one system vouch for a user to another, are those identity assertions protected in transit and verified on receipt?",
+      "whyItMatters": "Single sign-on (one login that grants access to many services) works by passing a signed statement, called an identity assertion, about who the user is. If that statement can be forged, intercepted, or replayed, an attacker can get in without ever knowing a password.",
+      "doneLooksLike": "Identity assertions passed through single sign-on and between federated systems (separate organizations or services that trust each other's logins) use standards-based approaches. They are generated, digitally signed or encrypted, and verified according to the applicable guidance, and receiving systems validate signatures before accepting them.",
+      "nextSteps": [
+        "List the services that rely on single sign-on or accept logins from another identity provider.",
+        "Confirm that each integration uses a standards-based protocol with signing, and encryption where supported, turned on.",
+        "Check that every receiving service validates assertion signatures and rejects assertions that fail validation.",
+        "Follow your identity provider's configuration guidance and revisit integrations when that guidance changes."
+      ],
+      "reviewed": false
+    },
+    "PR.AA-05": {
+      "question": "Does your organization give people only the access their role needs, follow a written access policy, and review permissions regularly and when roles change?",
+      "whyItMatters": "Broad access turns one compromised account into a much larger problem. Splitting sensitive tasks between people also makes fraud and errors harder to carry out unnoticed.",
+      "doneLooksLike": "A policy defines how access permissions and authorizations are granted, and they are managed and enforced according to it. Access is limited to the minimum needed (least privilege), and critical business functions are split so no single person controls them end to end (separation of duties). Logical and physical access is reviewed periodically and when people change roles or leave, and privileges that are no longer needed are removed promptly.",
+      "nextSteps": [
+        "Write down who approves access to each key system and what each role should be able to do.",
+        "Remove administrator rights and other privileges people do not need for their current work.",
+        "Review access periodically and whenever someone changes roles or leaves, and rescind what is no longer needed.",
+        "Split critical tasks, such as approving and sending payments, between different people."
+      ],
+      "reviewed": false
+    },
+    "PR.AA-06": {
+      "question": "Does your organization control and monitor who can physically reach its offices, equipment, and records, with stronger protection where the risk is higher?",
+      "whyItMatters": "Someone who can walk up to a server, network closet, or unattended laptop can often bypass technical safeguards. Physical controls limit that kind of access to the people who need it.",
+      "doneLooksLike": "Physical controls such as locked entrances, alarm systems, cameras, or guards restrict and monitor access to your facilities in proportion to risk. Areas holding high-risk assets have additional protection, and guests, vendors, and other third parties are escorted in areas with business-critical assets.",
+      "nextSteps": [
+        "Identify the rooms and equipment that hold your most important assets, such as servers, network equipment, and paper records.",
+        "Lock those areas and limit keys or badges to the people who need them.",
+        "Escort visitors and vendors whenever they are in sensitive areas.",
+        "Add monitoring, such as an alarm or camera, where the risk justifies it."
+      ],
+      "reviewed": false
+    },
+    "PR.AT-01": {
+      "question": "Do your staff, contractors, and other users receive cybersecurity awareness training that helps them spot common attacks and handle everyday tasks safely?",
+      "whyItMatters": "Many attacks begin with a convincing email, call, or message aimed at an ordinary employee. People who know what to look for, and how to report it, catch problems that technology misses.",
+      "doneLooksLike": "Everyone who uses your non-public resources, including contractors, partners, and suppliers, receives basic training on recognizing social engineering (manipulating people into revealing information or taking harmful actions), reporting suspicious activity, following acceptable use policies, and basic hygiene such as updating software, choosing passwords, and protecting credentials. Training explains the consequences of policy violations, understanding is assessed periodically, and refreshers are given on a regular schedule, such as annually.",
+      "nextSteps": [
+        "Choose or create a short awareness course covering phishing, passwords, credential protection, software updates, and how to report concerns.",
+        "Make the training part of onboarding for employees and for contractors and others who use your systems.",
+        "Check understanding periodically, for example with quizzes or simulated phishing messages.",
+        "Schedule refreshers and update the content as attack methods change."
+      ],
+      "reviewed": false
+    },
+    "PR.AT-02": {
+      "question": "Do people in roles with greater cybersecurity exposure, such as finance, leadership, IT, and security staff, receive additional training specific to their duties?",
+      "whyItMatters": "Some roles are targeted more often or can do more damage if deceived. A person who approves payments or an administrator with broad access needs knowledge beyond general awareness.",
+      "doneLooksLike": "You have identified the roles that need more training, such as physical and cybersecurity staff, finance personnel, senior leadership, and anyone with access to business-critical data. People in those roles, including contractors, partners, suppliers, and other third parties, receive role-based training, their understanding is assessed periodically, and refreshers are given on a regular schedule.",
+      "nextSteps": [
+        "List the roles in your organization that handle money, business-critical data, administrator access, or security duties.",
+        "Provide training tailored to each role, such as payment fraud for finance or secure administration for IT.",
+        "Include contractors and other third parties who fill those roles.",
+        "Assess understanding periodically and refresh the training on a set schedule."
+      ],
+      "reviewed": false
+    },
+    "PR.DS-01": {
+      "question": "Does your organization protect stored data, on laptops, servers, cloud storage, and removable media, from unauthorized viewing, alteration, or loss?",
+      "whyItMatters": "A lost laptop, stolen drive, or breached file store exposes whatever is on it unless the data is protected. Encryption and integrity checks help keep stored information private and trustworthy.",
+      "doneLooksLike": "Stored data in files, databases, and virtual machine or container images is protected with encryption, and with digital signatures or cryptographic hashes where integrity matters. Laptops and other endpoints use full disk encryption, software signatures are validated, removable media use is restricted, and removable media holding unencrypted sensitive information is physically secured.",
+      "nextSteps": [
+        "Turn on full disk encryption for all laptops, desktops, and mobile devices.",
+        "Confirm that databases, file shares, and cloud storage holding sensitive data are encrypted.",
+        "Restrict the use of USB drives and other removable media, and lock up any that hold unencrypted sensitive information."
+      ],
+      "reviewed": false
+    },
+    "PR.DS-02": {
+      "question": "Does your organization protect data as it travels across networks, including email and web traffic, so it cannot be read or altered along the way?",
+      "whyItMatters": "Data moving over the internet or a shared network can be intercepted or tampered with. Data can also leave through personal email or file-sharing accounts that your organization does not control.",
+      "doneLooksLike": "Network communications are encrypted, with digital signatures or hashes protecting integrity where needed. Depending on your risk and how data is classified, outgoing email and other messages containing sensitive data are automatically encrypted or blocked, personal email and file-sharing services are blocked from organizational systems, and production data such as customer records is kept out of development and test environments.",
+      "nextSteps": [
+        "Require encrypted connections for your websites, remote access, and email.",
+        "Set rules that encrypt or block outgoing messages containing sensitive data.",
+        "Decide whether to block personal email and file-sharing services on work devices and networks.",
+        "Use made-up or masked data, rather than real customer records, for development and testing."
+      ],
+      "reviewed": false
+    },
+    "PR.DS-10": {
+      "question": "Does your organization protect sensitive data while applications are actively using it, so other users and processes on the same system cannot reach it?",
+      "whyItMatters": "Data usually has to be decrypted while it is being worked on, which makes memory a target. An attacker with a foothold on a shared system may try to read data belonging to other programs or users.",
+      "doneLooksLike": "Data that must stay confidential is removed from memory and processors as soon as it is no longer needed. Systems keep data in use isolated from other users and processes running on the same platform.",
+      "nextSteps": [
+        "Identify the systems that process your most sensitive data, including shared servers and cloud hosts.",
+        "Ask your developers or software providers how their applications clear sensitive data from memory after use.",
+        "Use platform features that isolate users and processes from each other, and avoid running sensitive workloads alongside untrusted ones."
+      ],
+      "reviewed": false
+    },
+    "PR.DS-11": {
+      "question": "Does your organization back up its important data on a set schedule, keep the backups protected, and test that it can restore from them?",
+      "whyItMatters": "Backups are often the difference between a short disruption and permanent loss after ransomware, hardware failure, or human error. A backup that cannot be restored, or that attackers can encrypt too, offers little protection.",
+      "doneLooksLike": "Critical data is backed up continuously or in near-real-time, and other data on agreed schedules. Backups are protected and maintained, some are stored offline and offsite with geographic separation so one incident or disaster cannot damage them all, and backups and restores are tested for every type of data source at a frequency you define, such as at least annually.",
+      "nextSteps": [
+        "List your critical data and decide how often each type must be backed up.",
+        "Keep at least one backup copy offline and in a separate location.",
+        "Restrict who can change or delete backups.",
+        "Restore a sample of each type of data on a regular schedule and record the results."
+      ],
+      "reviewed": false
+    },
+    "PR.PS-01": {
+      "question": "Does your organization set secure standard configurations for its systems, review default settings, and check that systems stay configured that way over time?",
+      "whyItMatters": "Systems often ship with default settings and extra features that attackers know how to exploit. A known, hardened configuration reduces those weaknesses and makes unexpected changes stand out.",
+      "doneLooksLike": "You establish, test, deploy, and maintain hardened baselines (approved secure configurations) that enforce your policies and enable only the capabilities each system needs. Default settings that could affect security are reviewed when software is installed or upgraded, and systems are monitored for deviations from their approved baselines.",
+      "nextSteps": [
+        "Write down a secure baseline for each common system type, such as laptops, servers, network devices, and cloud accounts.",
+        "Change default passwords and turn off features and services you do not use.",
+        "Review security-related default settings whenever you install or upgrade software.",
+        "Check systems periodically, or with automated tools, for changes from the baseline."
+      ],
+      "reviewed": false
+    },
+    "PR.PS-02": {
+      "question": "Does your organization keep software patched, replace versions that are no longer supported, and remove software that is unauthorized or unnecessary?",
+      "whyItMatters": "Attackers routinely exploit known flaws in unpatched or unsupported software. Every unneeded program is one more thing to patch and one more tool an attacker could misuse.",
+      "doneLooksLike": "Routine and emergency patches are applied within the timeframes in your vulnerability management plan, and container images are updated and replaced rather than patched in place. You plan for software end of life, replace unsupported versions with maintained ones, and remove unauthorized software and unnecessary components that attackers might misuse.",
+      "nextSteps": [
+        "Turn on automatic updates where possible and set target timeframes for routine and emergency patches.",
+        "Identify software that is near or past its end of support and plan its replacement.",
+        "Remove unauthorized programs and unneeded components, such as utilities attackers could misuse."
+      ],
+      "reviewed": false
+    },
+    "PR.PS-03": {
+      "question": "Does your organization maintain its hardware, replace devices that can no longer support needed security features, and dispose of old equipment securely?",
+      "whyItMatters": "Older devices may stop receiving security updates or lack features such as hardware encryption support. Discarded equipment can still hold data that someone else can recover.",
+      "doneLooksLike": "Hardware is replaced when it lacks needed security capabilities or cannot run software that has them, and you have plans for end-of-life support and obsolescence. Disposal is secure, responsible, and auditable, with records showing how each device was handled.",
+      "nextSteps": [
+        "Record the end-of-support dates for your computers, phones, and network equipment.",
+        "Budget and schedule replacements for devices that will lose security support.",
+        "Wipe or destroy storage before disposing of devices, and keep a record of what was disposed of and how."
+      ],
+      "reviewed": false
+    },
+    "PR.PS-04": {
+      "question": "Do your systems, applications, and cloud services record activity logs and send them somewhere your organization can review them?",
+      "whyItMatters": "Logs are often the only record of what happened during an attack. Without them, problems go unnoticed and investigations have little to work with.",
+      "doneLooksLike": "Operating systems, applications, and services, including cloud services, are configured to generate log records. Those logs are shared securely with your logging infrastructure and include the data your monitoring needs, including what any zero trust architecture (an approach that verifies every access request rather than trusting the network) relies on.",
+      "nextSteps": [
+        "List your important systems and cloud services and confirm logging is turned on for each.",
+        "Send logs securely to a central place where they can be reviewed and protected from tampering.",
+        "Confirm the logs capture key events, such as logins, administrator actions, and configuration changes."
+      ],
+      "reviewed": false
+    },
+    "PR.PS-05": {
+      "question": "Does your organization prevent people from installing or running software that has not been approved?",
+      "whyItMatters": "Malware often arrives disguised as a useful program or browser add-on. Limiting what can be installed and run stops much of it before it starts.",
+      "doneLooksLike": "Platforms allow installation of organization-approved software only, and where risk warrants, execution is limited to permitted programs or prohibited software is blocked. The source and integrity of new software are verified before installation, and devices use approved DNS services (the system that turns web addresses into network locations) that block known malicious domains.",
+      "nextSteps": [
+        "Remove administrator rights from everyday user accounts so software installation goes through an approval step.",
+        "Keep a list of approved software and a process for requesting additions.",
+        "Use application allowlisting (permitting only approved programs to run) on high-risk systems.",
+        "Configure devices to use a DNS filtering service that blocks known malicious sites."
+      ],
+      "reviewed": false
+    },
+    "PR.PS-06": {
+      "question": "If your organization develops software, does it build security into each stage of development and track how well those practices are working?",
+      "whyItMatters": "Flaws introduced during development become vulnerabilities in what you release or run. Tampering with source code or build tools can slip malicious code into software you and your customers trust.",
+      "doneLooksLike": "Secure development practices are integrated into every phase of the software development life cycle, and their performance is monitored. All components of your software are protected from tampering and unauthorized access, releases have minimal vulnerabilities, production software is maintained, and software that is no longer needed is securely disposed of.",
+      "nextSteps": [
+        "Restrict and log access to source code, build systems, and release processes.",
+        "Add security reviews and automated vulnerability testing before each release.",
+        "Track measures, such as vulnerabilities found before and after release, to see whether your practices are working.",
+        "Retire and securely remove software you no longer maintain."
+      ],
+      "reviewed": false
+    },
+    "PR.IR-01": {
+      "question": "Does your organization separate its networks by trust level and limit what traffic can enter from the internet or move between network segments?",
+      "whyItMatters": "On a flat network, an attacker who compromises one device can reach everything else. Segmentation and tight access rules contain that spread and keep untrusted devices away from important systems.",
+      "doneLooksLike": "Networks and cloud platforms are logically segmented by trust boundaries and platform types, such as office IT, internet of things devices, operational technology, mobile, and guest networks, with only required communications allowed between segments. Only necessary traffic enters from external networks, network access to each resource is limited to the minimum needed, and the health of endpoints is checked before they can use production resources.",
+      "nextSteps": [
+        "Put guest Wi-Fi and smart devices, such as cameras and printers, on networks separate from business systems.",
+        "Review firewall rules and close inbound access that is not needed.",
+        "Limit which users and devices can reach each important system.",
+        "Check that devices are patched and protected before they can connect to sensitive resources."
+      ],
+      "reviewed": false
+    },
+    "PR.IR-02": {
+      "question": "Is your organization's equipment protected from environmental threats such as fire, flooding, wind, heat, and humidity, including at providers that run systems for you?",
+      "whyItMatters": "A burst pipe, overheated server closet, or fire can take systems offline as surely as an attack. Providers that host your systems face the same risks.",
+      "doneLooksLike": "Equipment is protected against the environmental threats known for its location, such as flooding, fire, wind, and excessive heat and humidity. Requirements for service providers that operate systems on your behalf include protection from environmental threats and adequate operating infrastructure, such as power and cooling.",
+      "nextSteps": [
+        "Walk through the spaces where equipment sits and note risks such as water pipes, poor ventilation, or flood exposure.",
+        "Add protections that fit those risks, such as raised mounting, temperature monitoring, or fire suppression.",
+        "Include environmental protection and adequate power and cooling in your requirements for hosting and service providers."
+      ],
+      "reviewed": false
+    },
+    "PR.IR-03": {
+      "question": "Has your organization built redundancy into critical systems so they keep running in normal conditions and during disruptions, such as a failed component?",
+      "whyItMatters": "If one server, internet connection, or power supply is all that keeps a critical service running, a single failure becomes an outage. Redundancy lets operations continue while the problem is fixed.",
+      "doneLooksLike": "You know the resilience requirements for your critical systems and have mechanisms that meet them in both normal and adverse situations. Single points of failure are avoided, and measures such as load balancing (spreading work across several systems), redundant storage, and redundant power supplies are used where needed.",
+      "nextSteps": [
+        "Identify single points of failure in your critical systems, including internet connections, power, and key servers.",
+        "Add redundancy where an outage would be most costly, such as a second internet connection or a backup power supply.",
+        "Confirm that backup components take over as expected when a primary component fails."
+      ],
+      "reviewed": false
+    },
+    "PR.IR-04": {
+      "question": "Does your organization monitor the storage, computing, power, and network capacity its systems use, and add resources before shortages affect availability?",
+      "whyItMatters": "Running out of disk space, bandwidth, or computing power can bring services down without any attacker involved. Spare capacity also helps systems absorb sudden spikes in demand.",
+      "doneLooksLike": "Use of storage, power, compute, network bandwidth, and other resources is monitored. You forecast future needs and scale resources so that availability is maintained.",
+      "nextSteps": [
+        "Set alerts for storage, bandwidth, and computing use that approach their limits.",
+        "Review usage trends periodically and forecast what you will need next.",
+        "Plan upgrades or scale cloud resources before limits are reached."
+      ],
+      "reviewed": false
+    },
+    "DE.AE-02": {
+      "question": "Does your organization analyze security logs and alerts, with tools or by hand, to understand what is happening when suspicious activity appears?",
+      "whyItMatters": "Logs and alerts only help if someone or something examines them. Analysis turns a stream of events into an understanding of whether something malicious is under way.",
+      "doneLooksLike": "Log events are monitored continuously for known malicious and suspicious activity using a security information and event management (SIEM) system or other tools, informed by current threat intelligence. Logs from technologies that automation cannot cover well are reviewed manually on a regular basis, and analysis tools produce reports on their findings.",
+      "nextSteps": [
+        "Decide which logs matter most, such as email, login, firewall, and endpoint protection logs.",
+        "Use a monitoring tool or service to watch those logs for suspicious activity.",
+        "Schedule manual reviews for systems that automated tools cannot monitor well.",
+        "Keep reports of findings so you can spot trends and follow up."
+      ],
+      "reviewed": false
+    },
+    "DE.AE-03": {
+      "question": "Does your organization bring together information from multiple sources, such as logs from different systems, to see connections between related events?",
+      "whyItMatters": "A single login, file change, or network connection can look harmless on its own. Seen together across systems, the same events can reveal an attack in progress.",
+      "doneLooksLike": "Log data from your various sources flows continuously to a small number of log servers. Event correlation technology, such as a SIEM (a system that collects and analyzes security events), links information captured by multiple sources, and threat intelligence helps connect events across those sources.",
+      "nextSteps": [
+        "Send logs from your key systems and cloud services to one central location.",
+        "Use a tool or service that can correlate events across those sources.",
+        "Add threat intelligence feeds so related activity can be linked to known attack patterns."
+      ],
+      "reviewed": false
+    },
+    "DE.AE-04": {
+      "question": "When a potentially harmful event is detected, does your organization estimate how far it reaches and how much it could affect the business?",
+      "whyItMatters": "Knowing whether an event touches one laptop or the whole network shapes how urgently and how broadly you respond. Underestimating scope can leave part of a problem unaddressed.",
+      "doneLooksLike": "For adverse events, you estimate impact and scope, either with tools such as a SIEM or through a knowledgeable person's own assessment. Those estimates are reviewed and refined as more is learned.",
+      "nextSteps": [
+        "Define a few impact levels based on which systems, data, and customers are affected.",
+        "Assign someone to estimate impact and scope when a significant event is detected.",
+        "Revisit the estimate as the analysis progresses and record how it changed."
+      ],
+      "reviewed": false
+    },
+    "DE.AE-06": {
+      "question": "When security tools detect something concerning, do the alerts reach the right people and systems, and can responders see analysis findings whenever they need them?",
+      "whyItMatters": "An alert that sits unread in a console protects no one. Getting findings to the right people quickly is what makes detection useful.",
+      "doneLooksLike": "Security software generates alerts and delivers them to your security operations center (SOC), incident responders, or response tools. Authorized responders can access log analysis findings at all times, and tickets are created and assigned automatically for certain alerts and manually when staff discover indicators of compromise (signs that a system has been breached).",
+      "nextSteps": [
+        "Decide who receives each type of security alert, including any outside provider that monitors for you.",
+        "Route alerts into a ticketing system or tracked queue so each one is assigned an owner.",
+        "Confirm that responders can reach log findings outside business hours."
+      ],
+      "reviewed": false
+    },
+    "DE.AE-07": {
+      "question": "Does your organization use threat intelligence, asset information, and vendor security advisories to inform how it analyzes suspicious activity?",
+      "whyItMatters": "Context changes what an event means. Knowing which systems are critical, which vulnerabilities affect you, and what attackers are currently doing helps you separate real threats from noise.",
+      "doneLooksLike": "Cyber threat intelligence (information about current attackers, their methods, and signs of their activity) and asset inventory information are securely provided to your detection tools, processes, and staff. Vulnerability disclosures from suppliers, vendors, and third-party advisories for the technologies you use are acquired and analyzed quickly.",
+      "nextSteps": [
+        "Subscribe to security advisories from the vendors of software and devices you rely on.",
+        "Make your asset inventory available to whoever analyzes alerts so they know what each system does and how important it is.",
+        "Feed threat intelligence into your monitoring tools, or confirm that your monitoring provider does."
+      ],
+      "reviewed": false
+    },
+    "DE.AE-08": {
+      "question": "Does your organization have defined criteria for when a suspicious event becomes an incident, and apply them consistently when deciding whether to declare one?",
+      "whyItMatters": "Without clear criteria, serious events can be dismissed while minor ones trigger a full response. Declaring an incident is what sets the response in motion, so the decision needs to be timely and consistent.",
+      "doneLooksLike": "You have defined incident criteria. Staff apply them to the known and assumed characteristics of activity, take known false positives into account, and declare an incident when the criteria are met.",
+      "nextSteps": [
+        "Write down what makes an event an incident, such as confirmed unauthorized access, malware on a system, or exposed customer data.",
+        "Name who has the authority to declare an incident.",
+        "Keep a list of known false positives so they are recognized during the decision."
+      ],
+      "reviewed": false
+    },
+    "DE.CM-01": {
+      "question": "Does your organization monitor its networks and network services for warning signs, such as unknown devices connecting or unusual traffic patterns?",
+      "whyItMatters": "Attackers have to move across networks to reach data and systems. Watching network activity can expose intruders, rogue devices, and data leaving by unexpected routes.",
+      "doneLooksLike": "Network services such as DNS (which translates web addresses) and BGP (which routes traffic between networks) are monitored for adverse events, wired and wireless networks are monitored for unauthorized endpoints, and facilities are checked for rogue wireless networks. Actual network flows are compared with baselines to spot deviations, and network communications are watched for changes in security posture.",
+      "nextSteps": [
+        "Keep a list of devices allowed on your network and set alerts for unknown ones.",
+        "Scan your premises periodically for wireless networks you did not set up.",
+        "Establish what normal traffic looks like and set alerts for significant deviations.",
+        "Monitor DNS activity for lookups of known malicious domains."
+      ],
+      "reviewed": false
+    },
+    "DE.CM-02": {
+      "question": "Does your organization monitor its physical spaces, through alarms, cameras, access logs, or visitor records, to spot unusual or unauthorized activity?",
+      "whyItMatters": "Physical intrusion and tampering can lead directly to stolen equipment or data. Monitoring helps you notice them while there is still time to act.",
+      "doneLooksLike": "Logs from physical access control systems, such as badge readers, are reviewed for unusual access patterns and failed attempts, and visitor registrations and sign-in sheets are reviewed. Locks, latches, hinge pins, and alarms are checked for signs of tampering, and the environment is watched with alarm systems, cameras, or guards as appropriate.",
+      "nextSteps": [
+        "Keep visitor sign-in records and review them periodically.",
+        "Review badge or key-access logs for after-hours entries and repeated failed attempts.",
+        "Inspect locks, doors, and alarm equipment for signs of tampering."
+      ],
+      "reviewed": false
+    },
+    "DE.CM-03": {
+      "question": "Does your organization monitor account activity and technology use for signs of misuse, such as unusual access patterns, repeated failed logins, or insider threats?",
+      "whyItMatters": "Compromised accounts and malicious insiders act with legitimate credentials, so they can be hard to spot. Watching for unusual patterns helps catch misuse that perimeter defenses miss.",
+      "doneLooksLike": "Logs from logical access control systems are monitored for unusual access patterns and failed access attempts. Where appropriate, behavior analytics tools flag anomalous user activity, and any deception technology, such as decoy accounts that no legitimate user should touch, is monitored continuously for use.",
+      "nextSteps": [
+        "Turn on alerts for bursts of failed logins and logins from unusual locations or at unusual times.",
+        "Review administrator and other privileged account activity on a regular schedule.",
+        "Consider creating decoy accounts or files and alerting on any use of them."
+      ],
+      "reviewed": false
+    },
+    "DE.CM-06": {
+      "question": "Does your organization monitor the activities and services of its IT providers, cloud services, and other outside vendors for signs of trouble?",
+      "whyItMatters": "Providers often have powerful access to your systems, and attackers target them to reach their customers. Their services can also change behavior without warning.",
+      "doneLooksLike": "Remote and onsite administration and maintenance that external providers perform on your systems is monitored. Activity from cloud services, internet service providers, and other providers is watched for deviations from expected behavior.",
+      "nextSteps": [
+        "List the providers that can access your systems and how each one connects.",
+        "Require providers to perform maintenance through accounts whose activity you can log and review.",
+        "Review provider activity logs and cloud service audit logs for unexpected actions."
+      ],
+      "reviewed": false
+    },
+    "DE.CM-09": {
+      "question": "Does your organization monitor its computers, software, email, and cloud services for malware, phishing, credential attacks, tampering, and unexpected configuration changes?",
+      "whyItMatters": "Email, web browsing, and file sharing are where many attacks start, and endpoints are where they land. Monitoring these areas helps catch malware, stolen credentials, and data leaks early.",
+      "doneLooksLike": "Email, web, file sharing, and collaboration services are monitored for malware, phishing, data leaks, and exfiltration (unauthorized transfer of data out of the organization). Authentication attempts are watched for credential attacks and reuse, software configurations are checked against security baselines, hardware and software are monitored for tampering, and endpoint tools detect health issues such as missing patches, malware, or unauthorized software and redirect affected devices for remediation before access is allowed.",
+      "nextSteps": [
+        "Use endpoint protection on every computer and confirm its alerts reach someone who will act on them.",
+        "Turn on the malware, phishing, and data-loss protections available in your email and file-sharing services.",
+        "Monitor login activity for password guessing and use of stolen credentials.",
+        "Check systems for configuration changes that depart from your security baselines."
+      ],
+      "reviewed": false
+    },
+    "RS.MA-01": {
+      "question": "Once an incident is declared, does your organization carry out its incident response plan, coordinating with outside parties such as response providers when needed?",
+      "whyItMatters": "The first hours of an incident are stressful, and decisions made in a hurry can make things worse. Following a prepared plan, with outside help arranged in advance, keeps the response organized.",
+      "doneLooksLike": "When an incident is declared, the response plan is put into action and an incident lead is designated. Relevant third parties, such as an incident response provider, are engaged as the plan specifies, detection tools report confirmed incidents automatically where possible, and supporting plans such as business continuity and disaster recovery are started when needed.",
+      "nextSteps": [
+        "Make sure you have a written incident response plan and that the people named in it know their roles.",
+        "Decide in advance who leads an incident and who serves as backup.",
+        "Arrange incident response support, such as an agreement with a response provider or your IT provider, and keep their contact details in the plan.",
+        "Note in the plan when to start business continuity or disaster recovery plans."
+      ],
+      "reviewed": false
+    },
+    "RS.MA-02": {
+      "question": "When an incident is reported, does your organization promptly check whether it is a real cybersecurity issue and estimate how severe it is?",
+      "whyItMatters": "Not every report is a security incident, and not every incident is equally urgent. Prompt triage directs effort where it is needed and avoids both overreaction and missed threats.",
+      "doneLooksLike": "Each incident report receives a preliminary review to confirm it is cybersecurity-related and requires incident response. Defined criteria are applied to estimate its severity.",
+      "nextSteps": [
+        "Name who reviews incoming incident reports and how quickly, within a timeframe you set, the review should start.",
+        "Write severity criteria, such as the sensitivity of the data involved and the number of systems or people affected.",
+        "Record each report, the triage decision, and the reason for it."
+      ],
+      "reviewed": false
+    },
+    "RS.MA-03": {
+      "question": "Does your organization categorize incidents by type and prioritize them by scope, likely impact, and urgency when deciding how to respond?",
+      "whyItMatters": "A ransomware attack, an account takeover, and a data breach each call for different actions. Categorizing and prioritizing helps you apply limited people and time to what matters most.",
+      "doneLooksLike": "Incidents are categorized by type, such as data breach, ransomware, denial of service (overwhelming a service with traffic), or account compromise. They are prioritized by scope, likely impact, and time sensitivity, and response strategies balance the need to recover quickly against the need to observe the attacker or investigate more thoroughly.",
+      "nextSteps": [
+        "Define the incident categories you are most likely to face and the first response steps for each.",
+        "Set rules for ranking incidents by scope, likely impact, and urgency.",
+        "Decide in advance who chooses between restoring service quickly and preserving the chance to investigate further."
+      ],
+      "reviewed": false
+    },
+    "RS.MA-04": {
+      "question": "Does your organization track the status of every open incident and escalate incidents to designated internal and external stakeholders when needed?",
+      "whyItMatters": "Some incidents turn out larger than they first appeared or need decisions beyond the responder's authority. Timely escalation brings in the right people and resources.",
+      "doneLooksLike": "The status of every ongoing incident is tracked and validated. Escalation or elevation is coordinated with designated internal and external stakeholders, such as leadership or outside providers.",
+      "nextSteps": [
+        "Keep a single log of open incidents with an owner and current status for each.",
+        "Define when an incident must be escalated, for example by severity or time without progress, and to whom.",
+        "Keep current contact details for internal and external escalation contacts."
+      ],
+      "reviewed": false
+    },
+    "RS.MA-05": {
+      "question": "Does your organization have criteria for deciding when to begin recovery from an incident, and apply them while weighing the disruption recovery may cause?",
+      "whyItMatters": "Starting recovery too early can restore systems that an attacker still controls, while waiting too long prolongs the outage. Clear criteria make that decision deliberate.",
+      "doneLooksLike": "Recovery criteria are applied to the known and assumed characteristics of an incident to decide whether to start recovery. The decision takes into account the operational disruption that recovery activities may cause.",
+      "nextSteps": [
+        "Define the conditions that must be met before recovery begins, such as confirmed containment.",
+        "Name who approves the start of recovery.",
+        "Consider how recovery steps, such as taking systems offline to restore them, will affect operations, and plan around that."
+      ],
+      "reviewed": false
+    },
+    "RS.AN-03": {
+      "question": "When an incident occurs, does your organization investigate what happened, which systems were involved, and the underlying root cause?",
+      "whyItMatters": "Fixing only the visible symptom leaves the door open for the same attack to succeed again. Understanding how it happened is what allows lasting fixes.",
+      "doneLooksLike": "You reconstruct the sequence of events and the assets and resources involved in each, and try to identify the vulnerabilities, threats, and threat actors directly or indirectly involved. The analysis looks for underlying, systemic root causes, and any deception technology is checked for more information on attacker behavior.",
+      "nextSteps": [
+        "Build a timeline of each significant incident from logs, alerts, and staff accounts.",
+        "Identify the weakness that was exploited and why it existed, such as a missed patch or an unclear process.",
+        "Record the root causes you find so they can be addressed."
+      ],
+      "reviewed": false
+    },
+    "RS.AN-06": {
+      "question": "During an incident investigation, does your organization record the actions responders take and protect those records from being altered?",
+      "whyItMatters": "A reliable record shows what was done, by whom, and when, which matters for later review and for any legal or regulatory follow-up. Records that could have been changed carry little weight.",
+      "doneLooksLike": "Each responder, including system administrators and engineers who perform response tasks, records their actions, and those records cannot be changed afterward. The incident lead documents the incident in detail and is responsible for preserving the integrity of the documentation and the sources of the information reported.",
+      "nextSteps": [
+        "Give responders a shared, time-stamped log for recording what they do.",
+        "Store investigation records where entries cannot be edited or deleted, such as write-once storage.",
+        "Make the incident lead responsible for the completeness and integrity of the incident documentation."
+      ],
+      "reviewed": false
+    },
+    "RS.AN-07": {
+      "question": "Does your organization collect incident evidence, such as logs and system images, in a way that preserves its integrity and records where it came from?",
+      "whyItMatters": "Evidence that has been altered, or cannot be traced to its source, may be unusable for investigation, insurance claims, or legal action. Careful collection keeps those options open.",
+      "doneLooksLike": "Pertinent incident data and metadata, such as the data source and the date and time of collection, are collected and safeguarded following evidence preservation and chain-of-custody (a record of who handled evidence and when) procedures.",
+      "nextSteps": [
+        "Write a short evidence-handling procedure covering what to collect, how to copy it, and where to store it.",
+        "Record the source, date, time, and collector for every item gathered.",
+        "Store evidence securely and log every time it is accessed or transferred."
+      ],
+      "reviewed": false
+    },
+    "RS.AN-08": {
+      "question": "During an incident, does your organization check other systems that could have been affected to confirm how widespread the incident really is?",
+      "whyItMatters": "Attackers often reach more systems than the first one discovered and leave ways to return. Missing them means the incident is not really over.",
+      "doneLooksLike": "Other potential targets are reviewed, manually or with automated tools, for indicators of compromise and evidence of persistence (ways an attacker keeps access). The estimated magnitude of the incident is validated against what is found.",
+      "nextSteps": [
+        "When one system is compromised, list other systems that share accounts, networks, or software with it.",
+        "Scan those systems for the same indicators of compromise.",
+        "Look for signs of persistence, such as new accounts, scheduled tasks, or unfamiliar remote access tools.",
+        "Update the incident's estimated scope based on what you find."
+      ],
+      "reviewed": false
+    },
+    "RS.CO-02": {
+      "question": "When an incident occurs, does your organization notify the internal and external parties who need to know, such as affected customers, partners, regulators, or law enforcement?",
+      "whyItMatters": "Customers and partners may have contractual or legal rights to be told about incidents, and they may need to protect themselves. Late or missed notifications can add harm and damage trust.",
+      "doneLooksLike": "After discovering a data breach, you follow your breach notification procedures, including notifying affected customers. Business partners and customers are notified as contracts require, and law enforcement and regulators are notified based on criteria in your incident response plan and with management approval.",
+      "nextSteps": [
+        "Identify the notification requirements that apply to you, including laws where you operate and terms in customer and partner contracts.",
+        "Write a breach notification procedure that names who decides, who sends notices, and what they contain.",
+        "Add criteria to your incident response plan for when to contact law enforcement and regulators, and who approves that contact.",
+        "Keep current contact details for the parties you may need to notify."
+      ],
+      "reviewed": false
+    },
+    "RS.CO-03": {
+      "question": "During an incident, does your organization share relevant information securely with designated people inside and outside the organization, such as leadership, suppliers, and partners?",
+      "whyItMatters": "Leaders need current information to make decisions, and suppliers and partners may need it to protect themselves or to help you. Sharing in a controlled way avoids both silence and leaks.",
+      "doneLooksLike": "Information is shared securely according to your response plans and information sharing agreements, and senior leadership receives regular updates on major incidents. HR is notified of malicious insider activity, incident information is exchanged with suppliers as contracts specify, crisis communication methods are coordinated with critical suppliers, and you may voluntarily share details of attacker tactics, with sensitive data removed, with an Information Sharing and Analysis Center (ISAC, an industry group that pools threat information).",
+      "nextSteps": [
+        "Decide who receives incident updates, how often, and through which secure channel.",
+        "Review supplier contracts for rules on sharing incident information.",
+        "Agree on crisis communication methods with your critical suppliers before an incident occurs.",
+        "Consider joining an information sharing group for your industry."
+      ],
+      "reviewed": false
+    },
+    "RS.MI-01": {
+      "question": "When an incident happens, can your organization contain it quickly, for example by isolating an infected computer or disabling a compromised account?",
+      "whyItMatters": "Containment stops an incident from spreading while you work out what to do next. Every hour an attacker keeps moving can increase the damage.",
+      "doneLooksLike": "Incidents are contained through automatic actions by security tools and by features of operating systems and network devices, through manual actions chosen by responders, or through actions a third party such as an internet service provider or managed security service provider takes for you. Compromised endpoints may be moved automatically to an isolated remediation network.",
+      "nextSteps": [
+        "Turn on the automatic isolation or quarantine features in your endpoint protection.",
+        "Document how to disconnect a device, disable an account, and block network traffic, and who is allowed to do each.",
+        "Confirm which containment actions your IT or security provider can take for you and how to request them."
+      ],
+      "reviewed": false
+    },
+    "RS.MI-02": {
+      "question": "After containing an incident, does your organization remove the attacker's presence, such as malware, unauthorized accounts, and backdoors, from affected systems?",
+      "whyItMatters": "If malware or an attacker's access remains, the incident can restart as soon as systems come back online. Eradication removes the cause before recovery begins.",
+      "doneLooksLike": "Eradication is carried out automatically by security tools and by features of operating systems and network devices, manually by responders, or by a third party such as a managed security service provider. Malicious files, unauthorized accounts, backdoors (hidden ways back in), and other traces of the attacker are removed.",
+      "nextSteps": [
+        "Use your endpoint protection to remove detected malware and confirm that it is gone.",
+        "Delete unauthorized accounts and reset credentials the attacker may have obtained.",
+        "Decide when to rebuild a system from a known-good state rather than clean it.",
+        "Agree with your IT or security provider on what eradication work they will perform."
+      ],
+      "reviewed": false
+    },
+    "RC.RP-01": {
+      "question": "When your incident response process calls for recovery, does your organization carry out the recovery part of its plan, with everyone involved knowing their role?",
+      "whyItMatters": "Recovery is where the business gets back to work, and confusion at this stage prolongs outages. People who know the plan and their authority can act without delay.",
+      "doneLooksLike": "Recovery procedures begin during or after incident response, once the response process initiates them. Everyone with recovery responsibilities knows the recovery plans and the authorizations required to carry out each part of them.",
+      "nextSteps": [
+        "Make sure your incident response plan includes a recovery section with clear steps and owners.",
+        "Brief everyone with recovery duties on the plan and on who must approve each step.",
+        "Store the plan where it can be reached even if your main systems are down."
+      ],
+      "reviewed": false
+    },
+    "RC.RP-02": {
+      "question": "During recovery, does your organization choose, scope, and prioritize its recovery actions based on its plan and available resources, and adjust as needs change?",
+      "whyItMatters": "Not everything can be restored at once. Choosing what to restore first, and how, determines how quickly critical work resumes.",
+      "doneLooksLike": "Recovery actions are selected using the criteria in your incident response plan and the resources available, then scoped, prioritized, and performed. Planned actions are changed when a reassessment of organizational needs and resources calls for it.",
+      "nextSteps": [
+        "Rank your systems and services by how important they are to operations.",
+        "Add criteria to your incident response plan for choosing recovery actions.",
+        "Reassess priorities during recovery as you learn more about the damage and your available resources."
+      ],
+      "reviewed": false
+    },
+    "RC.RP-03": {
+      "question": "Before restoring from backups or other restoration sources, does your organization check them for malware, corruption, and other integrity problems?",
+      "whyItMatters": "Backups can contain the same malware or corruption that caused the incident. Restoring from a compromised backup can bring the problem straight back.",
+      "doneLooksLike": "Backups and other restoration assets, such as system images and installation media, are checked for indicators of compromise, file corruption, and other integrity issues before they are used for restoration.",
+      "nextSteps": [
+        "Scan backups with up-to-date malware detection tools before restoring from them.",
+        "Identify the most recent backup made before the incident began.",
+        "Verify backup integrity, for example with checksums or a test restore in an isolated environment, before restoring to production."
+      ],
+      "reviewed": false
+    },
+    "RC.RP-04": {
+      "question": "When recovering from an incident, does your organization use its knowledge of critical business functions and cybersecurity risk to decide what normal operations should look like afterward?",
+      "whyItMatters": "Returning to normal is not always returning to exactly how things were before. Considering business priorities and risk helps restore the most important services first without reopening the weakness that was exploited.",
+      "doneLooksLike": "Business impact and system categorization records, including service delivery objectives, are used to confirm that essential services are restored in the right order. System owners confirm successful restoration and the return to normal operations, and restored systems are monitored to verify that the restoration is adequate.",
+      "nextSteps": [
+        "Record which business functions are most critical and how quickly each must be restored.",
+        "Have system owners confirm when their systems are back in normal operation.",
+        "Monitor restored systems closely for a period after restoration to confirm they perform as expected."
+      ],
+      "reviewed": false
+    },
+    "RC.RP-05": {
+      "question": "Before putting restored systems back into use, does your organization verify that they are clean and correctly restored, and then confirm normal operation?",
+      "whyItMatters": "A restored system that still carries the attacker's foothold, or the original weakness, can be compromised again right away. Checking before going live helps prevent a second incident.",
+      "doneLooksLike": "Restored assets are checked for indicators of compromise, and to confirm the incident's root causes have been remediated, before production use. The correctness and adequacy of restoration actions are verified before a system goes back online, and normal operating status is confirmed.",
+      "nextSteps": [
+        "Scan restored systems for signs of compromise before reconnecting them.",
+        "Confirm that the weakness that allowed the incident has been fixed on each restored system.",
+        "Test that restored systems and data work correctly before returning them to users."
+      ],
+      "reviewed": false
+    },
+    "RC.RP-06": {
+      "question": "Does your organization declare the end of incident recovery based on defined criteria and complete an after-action report documenting what happened and what was learned?",
+      "whyItMatters": "A clear end point lets staff return to normal duties and keeps loose ends from being forgotten. A written record of the incident and its lessons helps you handle the next one better.",
+      "doneLooksLike": "Recovery is declared complete once defined criteria are met. An after-action report documents the incident, the response and recovery actions taken, and lessons learned.",
+      "nextSteps": [
+        "Define the criteria for declaring recovery complete, such as all critical services restored and verified.",
+        "Use a standard after-action report template covering the incident, actions taken, and lessons learned.",
+        "Hold a short review with the people involved before closing the incident."
+      ],
+      "reviewed": false
+    },
+    "RC.CO-03": {
+      "question": "During recovery, does your organization keep designated internal and external stakeholders, such as leadership and critical suppliers, informed of restoration progress?",
+      "whyItMatters": "Leaders, staff, and suppliers plan their own work around when services return. Regular, accurate updates reduce confusion and duplicated effort.",
+      "doneLooksLike": "Recovery information, including restoration progress, is shared securely according to response plans and information sharing agreements. Senior leadership receives regular updates on major incidents, contractual rules for sharing incident information with suppliers are followed, and crisis communication is coordinated with critical suppliers.",
+      "nextSteps": [
+        "Name who receives recovery updates during a major incident and how often.",
+        "Prepare a status update format covering what is restored, what is not, and expected next steps.",
+        "Agree with critical suppliers on how you will communicate with each other during recovery."
+      ],
+      "reviewed": false
+    },
+    "RC.CO-04": {
+      "question": "When an incident affects your customers or the public, does your organization share recovery updates only through approved channels and with approved messaging?",
+      "whyItMatters": "Inconsistent or unapproved public statements can create confusion, legal exposure, or loss of trust. Clear, approved updates show customers what you are doing to recover and to prevent a repeat.",
+      "doneLooksLike": "Public updates on recovery are released through approved methods with approved messaging. For data breaches, you follow your breach notification procedures, and updates explain the steps being taken to recover and to prevent a recurrence.",
+      "nextSteps": [
+        "Decide who approves public statements about incidents and which channels you will use, such as your website or customer email.",
+        "Prepare message templates for likely incident types in advance.",
+        "Include in each update what you are doing to recover and to prevent the incident from happening again."
+      ],
+      "reviewed": false
+    }
+  }
+}

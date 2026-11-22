@@ -1,0 +1,550 @@
+{
+  "requirements": {
+    "03.07.04": {
+      "question": "Does your organization approve and monitor the tools used to maintain systems that handle CUI, and check diagnostic media for malicious code before use?",
+      "whyItMatters": "Maintenance tools, such as diagnostic software and network analyzers, have deep access to your systems, and test programs brought in on media can carry malicious code. Equipment that leaves the building after maintenance can also carry CUI with it.",
+      "doneLooksLike": "You keep a list of approved maintenance tools, control who can use them, and monitor their use. Media containing diagnostic and test programs is checked for malicious code before it is used in the system. Maintenance equipment leaves the facility only after you verify it holds no CUI or you sanitize or destroy it; otherwise it stays on site.",
+      "nextSteps": [
+        "List the hardware and software maintenance tools in use, including cloud-based tools and those vendors bring with them.",
+        "Approve the tools you allow, and withdraw approval for outdated, unsupported, or unused ones.",
+        "Scan diagnostic and test media for malicious code, or verify its hash or digital signature, before use.",
+        "Set a rule that maintenance equipment leaves the facility only after it is checked for CUI, sanitized, or destroyed."
+      ],
+      "reviewed": false
+    },
+    "03.07.05": {
+      "question": "Does your organization approve and monitor remote maintenance on systems that handle CUI, require multi-factor authentication for those sessions, and close connections afterward?",
+      "whyItMatters": "Remote maintenance sessions give technicians administrator-level access over a network. A stolen password or a session left open can let an attacker use that same path to reach CUI.",
+      "doneLooksLike": "Each nonlocal (remote) maintenance or diagnostic session is approved and monitored. Sessions are established with multi-factor authentication (a second check beyond a password) that is replay resistant, meaning captured login data cannot be reused, and session and network connections are terminated when the work is finished.",
+      "nextSteps": [
+        "Require approval before any vendor or staff member starts a remote maintenance session.",
+        "Configure remote maintenance access to require replay-resistant multi-factor authentication.",
+        "Log or observe remote maintenance sessions while they are active.",
+        "Close remote sessions, and disable the accounts or tunnels used, as soon as each maintenance job ends."
+      ],
+      "reviewed": false
+    },
+    "03.07.06": {
+      "question": "Does your organization authorize who may perform maintenance on systems that handle CUI and supervise maintenance workers who lack the required access authorizations?",
+      "whyItMatters": "Technicians often work with privileged access and little oversight. Knowing who is authorized, and supervising those who are not, keeps a repair visit from becoming an unmonitored path to CUI.",
+      "doneLooksLike": "You have a documented process for authorizing maintenance personnel and keep a current list of authorized maintenance organizations or individuals. You verify that anyone performing maintenance without an escort has the required access authorizations, and you designate staff with those authorizations and the technical competence to supervise technicians who do not.",
+      "nextSteps": [
+        "Write down how maintenance personnel are approved and who approves them.",
+        "Keep a list of authorized maintenance vendors and technicians, and update it when contracts or staff change.",
+        "Name the staff members who can supervise unauthorized technicians and who understand the work being done.",
+        "Consider issuing one-time or short-lived credentials for unplanned vendor visits."
+      ],
+      "reviewed": false
+    },
+    "03.08.01": {
+      "question": "Does your organization keep physical control of media that contain CUI, such as drives, discs, and paper, and store that media securely?",
+      "whyItMatters": "Paper files and portable drives can be lost, copied, or taken without anyone noticing. Secure storage and accountability make it clear where CUI media is and who has it.",
+      "doneLooksLike": "Digital and non-digital media containing CUI are kept in secure storage, such as locked drawers or cabinets or a controlled media library. You keep an inventory, use a check-out and return process where media is shared, and can account for stored media at any time.",
+      "nextSteps": [
+        "Identify where media containing CUI is kept today, including paper, removable drives, and backup tapes.",
+        "Move CUI media into locked storage or a controlled area.",
+        "Start an inventory and a check-out and return log for CUI media."
+      ],
+      "reviewed": false
+    },
+    "03.08.02": {
+      "question": "Does your organization limit access to CUI on drives, discs, paper, and other media to the people or roles authorized to see it?",
+      "whyItMatters": "Anyone who can pick up a drive or open a file drawer can read what is on it. Restricting access keeps CUI on media within the group that needs it.",
+      "doneLooksLike": "You have identified which personnel or roles are authorized to access CUI on system media, and only they can. Physical media is controlled through locked storage, inventories, and check-out procedures, and digital media can be protected with encryption so that only authorized users can read it.",
+      "nextSteps": [
+        "Define which personnel or roles may access CUI on each type of media.",
+        "Restrict access to CUI media storage to those people or roles.",
+        "Encrypt removable digital media that contains CUI so only authorized users can read it."
+      ],
+      "reviewed": false
+    },
+    "03.08.03": {
+      "question": "Does your organization sanitize media that contain CUI, including storage inside copiers, laptops, and phones, before disposal, reuse, or release outside your control?",
+      "whyItMatters": "Deleting files or reformatting a drive often leaves data recoverable. Discarded laptops, returned leased copiers, and recycled paper are common sources of data exposure.",
+      "doneLooksLike": "Before media containing CUI is discarded, reused, or leaves your control, it is sanitized so the CUI cannot be retrieved or reconstructed, using methods such as clearing, purging, cryptographic erase, or destruction. This covers paper and the storage built into printers, copiers, scanners, workstations, mobile devices, and network equipment.",
+      "nextSteps": [
+        "List the devices and media that hold CUI, including storage built into copiers, printers, and network equipment.",
+        "Choose a sanitization method for each media type, following NARA guidance for CUI, and use destruction when other methods cannot be applied.",
+        "Add sanitization steps to equipment return, lease-end, and disposal processes.",
+        "Keep a record of each item sanitized or destroyed, the method used, and the date, so you can show it was done."
+      ],
+      "reviewed": false
+    },
+    "03.08.04": {
+      "question": "Does your organization mark media that contain CUI, such as documents, drives, and discs, with CUI markings, distribution limitations, and handling caveats?",
+      "whyItMatters": "Markings tell people at a glance that an item contains CUI and how it must be handled. Unmarked media is more likely to be shared, stored, or discarded incorrectly.",
+      "doneLooksLike": "Digital and non-digital media containing CUI carry human-readable markings that show the applicable CUI markings, any distribution limitations, and handling caveats, consistent with NARA's CUI marking requirements.",
+      "nextSteps": [
+        "Review NARA's CUI marking guidance and any marking instructions in your contracts.",
+        "Mark existing documents, removable drives, and discs that contain CUI.",
+        "Provide labels and document templates so staff can mark new media consistently."
+      ],
+      "reviewed": false
+    },
+    "03.08.05": {
+      "question": "Does your organization protect, track, and document media that contain CUI whenever it is carried or shipped outside your controlled areas?",
+      "whyItMatters": "Media is most exposed when it leaves your premises, whether in a bag, a car, or a courier's van. Protection and tracking help prevent loss and let you detect tampering or a missing item.",
+      "doneLooksLike": "Media containing CUI is protected and controlled during transport outside controlled areas, for example with encryption or locked containers. Accountability is maintained by limiting transport to authorized people, including approved couriers, and tracking media until delivery, and transport activities are documented.",
+      "nextSteps": [
+        "Encrypt digital media before it leaves controlled areas, and use locked containers for physical items.",
+        "Limit who may transport CUI media, and approve couriers in advance.",
+        "Keep a transport log recording what was sent, by whom, to whom, and when it arrived."
+      ],
+      "reviewed": false
+    },
+    "03.08.07": {
+      "question": "Has your organization decided which types of removable media are restricted or prohibited, and does it bar removable media that has no identifiable owner?",
+      "whyItMatters": "Flash drives and external disks are a common way for malicious code to get in and for data to get out. Restricting their use and requiring an owner for each device reduces both risks and makes someone accountable for it.",
+      "doneLooksLike": "You have defined the types of system media whose use is restricted or prohibited, and you enforce that choice through technical measures, such as disabling USB storage or write access, and non-technical measures, such as policy and rules of behavior. Removable media without an identifiable owner, such as an individual, organization, or project, is not used on your systems.",
+      "nextSteps": [
+        "Decide which types of media, such as flash drives or external hard drives, you restrict or prohibit.",
+        "Configure computers to block or limit unapproved removable storage.",
+        "Issue approved, organization-owned devices and assign each one to an owner.",
+        "Tell staff not to connect found, unknown, or personal drives."
+      ],
+      "reviewed": false
+    },
+    "03.08.09": {
+      "question": "Does your organization encrypt backups that contain CUI so the information stays confidential wherever backup copies are stored?",
+      "whyItMatters": "Backups hold a full copy of your data and are often stored offsite or in the cloud with less attention than everyday systems. An unencrypted backup that is lost or reached by the wrong party exposes all of the CUI in it.",
+      "doneLooksLike": "The confidentiality of backup information is protected, and cryptographic mechanisms prevent unauthorized disclosure of CUI at every backup storage location, including offsite and cloud locations.",
+      "nextSteps": [
+        "Identify every location where backups containing CUI are stored.",
+        "Turn on encryption for backup data, and confirm it applies to offsite and cloud copies.",
+        "Protect the backup encryption keys, and test that you can still restore from encrypted backups."
+      ],
+      "reviewed": false
+    },
+    "03.09.01": {
+      "question": "Does your organization screen people before giving them access to systems that handle CUI, and rescreen them under conditions you define?",
+      "whyItMatters": "People with access can misuse CUI, deliberately or carelessly. Screening helps confirm that someone is trustworthy before they are given that access.",
+      "doneLooksLike": "Individuals are screened before they are authorized to access the system, consistent with applicable laws and the level of access their position requires. They are rescreened under the conditions your organization defines, for example when their access is elevated.",
+      "nextSteps": [
+        "Define the screening required before system access is granted, based on applicable laws and the access each position needs.",
+        "Define the conditions that trigger rescreening.",
+        "Confirm screening is complete before accounts are created for new staff and contractors."
+      ],
+      "reviewed": false
+    },
+    "03.09.02": {
+      "question": "When someone leaves or changes roles, does your organization promptly remove or adjust their access to systems that handle CUI and recover security-related property?",
+      "whyItMatters": "Former employees whose accounts still work, or transferred staff who keep old privileges, are a common source of unauthorized access. Badges, keys, and tokens that are not returned can also be used to get in.",
+      "doneLooksLike": "When employment ends, system access is disabled within the time period you define, the person's authenticators and credentials are revoked, and security-related property such as tokens, keys, ID cards, and building passes is retrieved. When people are transferred or reassigned, you review their logical and physical access and change it to match their new role.",
+      "nextSteps": [
+        "Set the time period within which system access must be disabled after employment ends.",
+        "Create a departure checklist covering accounts, credentials, tokens, keys, badges, and building passes.",
+        "Require managers or HR to notify the people who manage access whenever someone leaves or changes roles.",
+        "Review access for transferred staff and remove anything the new role does not need."
+      ],
+      "reviewed": false
+    },
+    "03.10.01": {
+      "question": "Does your organization keep an approved list of who may enter the facility where CUI systems reside, issue access credentials, and review that list?",
+      "whyItMatters": "Physical access can bypass many technical safeguards. A current, approved list makes clear who belongs in the facility and keeps former staff from holding on to access.",
+      "doneLooksLike": "You have developed, approved, and maintain a list of people authorized to access the facility where the system resides, and you issue credentials such as badges or ID cards. You review the list at the frequency you define and remove people when they no longer need access.",
+      "nextSteps": [
+        "Create a list of everyone authorized to enter areas where CUI systems reside, and have it approved.",
+        "Issue badges, cards, or other credentials to the people on the list.",
+        "Set a review frequency, and remove people who no longer need access."
+      ],
+      "reviewed": false
+    },
+    "03.10.02": {
+      "question": "Does your organization monitor physical access to the facility where CUI systems reside and review physical access logs to detect and respond to incidents?",
+      "whyItMatters": "Monitoring and log reviews reveal suspicious activity, such as entry outside normal hours or repeated visits to areas a person does not usually enter. Without them, a physical intrusion may go unnoticed.",
+      "doneLooksLike": "Physical access to the facility is monitored, for example with guards, cameras, or sensors, to detect and respond to physical security incidents. Physical access logs are reviewed at the frequency you define and when the events or potential indicators of events you define occur.",
+      "nextSteps": [
+        "Put monitoring in place at entrances and areas housing CUI systems, such as cameras, alarms, or staffed reception.",
+        "Set how often access logs are reviewed and which events trigger an extra review.",
+        "Define what reviewers look for, such as after-hours entry, and how they escalate concerns."
+      ],
+      "reviewed": false
+    },
+    "03.10.06": {
+      "question": "Has your organization decided which alternate work sites, such as employees' homes, may be used, and set security requirements for working at them?",
+      "whyItMatters": "Work done at home or other remote locations happens outside the protections of your office. Defined expectations help keep CUI protected wherever staff work.",
+      "doneLooksLike": "You have determined which alternate work sites employees may use, and the security requirements you define for those sites are documented and applied there. Requirements may differ by type of site, depending on the work done there.",
+      "nextSteps": [
+        "Decide which alternate work sites are allowed, such as private residences or other designated facilities.",
+        "Define the security requirements for each type of site, for example secure storage for CUI and screen privacy.",
+        "Communicate the requirements to remote staff and give them a way to report incidents."
+      ],
+      "reviewed": false
+    },
+    "03.10.07": {
+      "question": "Does your organization enforce access at facility entry and exit points, escort visitors, secure keys, and control access to printers and screens that show CUI?",
+      "whyItMatters": "Locks, badges, and escorts only work if they are enforced every time. Unattended printers and visible screens can also expose CUI to people who should not see it.",
+      "doneLooksLike": "Authorizations are verified before anyone enters the facility, and entry and exit are controlled with physical access control systems, devices, or guards. You maintain physical access audit logs for entry and exit points, escort visitors and control their activity, secure keys, combinations, and other access devices, and control physical access to output devices such as printers, copiers, and monitors.",
+      "nextSteps": [
+        "Verify authorization at every entry point before granting access.",
+        "Keep an access log, automated or manual, for entry and exit points.",
+        "Require escorts for visitors, and keep keys and combinations secured.",
+        "Place printers and copiers that output CUI in controlled areas, and use screen filters where screens can be seen by others."
+      ],
+      "reviewed": false
+    },
+    "03.10.08": {
+      "question": "Does your organization control physical access to the network cabling, wiring closets, and other transmission lines that carry data within your facilities?",
+      "whyItMatters": "Someone with access to a wiring closet or an open network jack can disrupt service, tap traffic, or connect an unauthorized device. Protecting cabling helps prevent tampering and eavesdropping.",
+      "doneLooksLike": "Physical access to system distribution and transmission lines within your facilities is controlled, for example with locked wiring closets, cabling protected in conduit or cable trays, and spare network jacks that are disconnected or locked.",
+      "nextSteps": [
+        "Locate the wiring closets, network cabinets, and cable runs that serve systems handling CUI.",
+        "Lock wiring closets and network cabinets, and limit who has keys.",
+        "Disconnect or lock unused network jacks."
+      ],
+      "reviewed": false
+    },
+    "03.11.01": {
+      "question": "Does your organization assess the risk of CUI being disclosed without authorization, including risks from suppliers, and update that assessment at a frequency you define?",
+      "whyItMatters": "A risk assessment shows where CUI is most exposed and helps you spend limited time and money on the safeguards that matter most. It also surfaces risks that come from vendors and service providers.",
+      "doneLooksLike": "You have a documented risk assessment, based on a defined system boundary, that considers threats, vulnerabilities, likelihood, and impact related to processing, storing, and transmitting CUI, including supply chain risks from suppliers, contractors, and service providers. The assessment is updated at the frequency you define.",
+      "nextSteps": [
+        "Define the system boundary: the people, devices, software, and services that handle CUI.",
+        "Identify threats, vulnerabilities, likelihood, and impact within that boundary, including risks from suppliers and service providers.",
+        "Document the results, and set how often the assessment will be updated."
+      ],
+      "reviewed": false
+    },
+    "03.11.02": {
+      "question": "Does your organization scan systems that handle CUI for vulnerabilities on a schedule it sets, fix findings within set timeframes, and keep scanning checks current?",
+      "whyItMatters": "Attackers routinely search for known, unpatched weaknesses. Regular scanning and timely fixes close those gaps before they can be used to reach CUI.",
+      "doneLooksLike": "The system is monitored and scanned for vulnerabilities at the frequency you define and when new vulnerabilities affecting it are identified, including devices that are often overlooked, such as networked printers and copiers. Vulnerabilities are remediated within the response times you define, and the vulnerabilities scanned for are updated at the frequency you define and when new ones are reported.",
+      "nextSteps": [
+        "Choose a vulnerability scanning tool, and include every system component, including printers and other networked devices.",
+        "Set scanning frequencies and remediation timeframes, for example by severity.",
+        "Keep the scanner's vulnerability checks updated.",
+        "Track each finding until it is fixed or a risk response is decided."
+      ],
+      "reviewed": false
+    },
+    "03.11.04": {
+      "question": "Does your organization decide on and carry out a response to the findings from security assessments, monitoring, and audits?",
+      "whyItMatters": "Findings only reduce risk when someone acts on them. Deciding a response for each finding keeps known weaknesses from being left open indefinitely.",
+      "doneLooksLike": "Each finding from security assessments, monitoring, and audits has a recorded decision on how it will be addressed, and that response is carried out. When the response is to mitigate the risk and the fix cannot be completed right away, the finding is entered in your plan of action and milestones.",
+      "nextSteps": [
+        "Collect findings from assessments, monitoring tools, and audits in one place.",
+        "Decide how to respond to each finding, and assign an owner.",
+        "Fix what you can now, and add remaining mitigations to your plan of action and milestones."
+      ],
+      "reviewed": false
+    },
+    "03.12.01": {
+      "question": "Does your organization assess, at a frequency it defines, whether the security requirements for systems handling CUI are implemented and working as intended?",
+      "whyItMatters": "Safeguards can be misconfigured, drift over time, or never get finished. Periodic assessments reveal weaknesses and give you the facts needed for risk decisions.",
+      "doneLooksLike": "At the frequency you define, the security requirements for the system and its environment of operation are assessed to determine whether they are implemented correctly, operating as intended, and producing the desired outcome. Results are documented in an assessment report and provided to the appropriate people.",
+      "nextSteps": [
+        "Set how often you will assess the security requirements.",
+        "Assess each requirement by examining documents, interviewing staff, and testing safeguards, using NIST's assessment procedures as a guide.",
+        "Document the results, and share them with the people responsible for risk decisions."
+      ],
+      "reviewed": false
+    },
+    "03.12.02": {
+      "question": "Does your organization keep a plan of action and milestones that lists planned fixes for security weaknesses and known vulnerabilities, and update it as findings arrive?",
+      "whyItMatters": "A plan of action and milestones (POAM) turns a list of gaps into dated, assigned work. Agencies may also use it when deciding whether to trust your systems with CUI.",
+      "doneLooksLike": "Your POAM documents the planned remediation actions for weaknesses or deficiencies found during security assessments and for reducing or eliminating known system vulnerabilities. It is updated based on findings from security assessments, audits or reviews, and continuous monitoring activities.",
+      "nextSteps": [
+        "Create a POAM listing each open weakness, the planned fix, an owner, and a target date.",
+        "Add findings from assessments, audits, and monitoring as they occur.",
+        "Review progress on open items, and close them when fixes are verified."
+      ],
+      "reviewed": false
+    },
+    "03.12.03": {
+      "question": "Has your organization developed, and put into practice, a strategy for ongoing monitoring and security assessment of the system that handles CUI?",
+      "whyItMatters": "Security changes between formal assessments as systems, staff, and threats change. Ongoing monitoring keeps your view of security current enough to support timely decisions.",
+      "doneLooksLike": "You have a documented system-level continuous monitoring strategy that includes ongoing monitoring and security assessments, with monitoring frequencies suited to each type of requirement. The strategy is being carried out, and its results inform your risk decisions.",
+      "nextSteps": [
+        "Identify what you will monitor, such as configurations, vulnerabilities, and account activity.",
+        "Set a monitoring frequency for each area, based on risk.",
+        "Assign owners, and record results so they feed your plan of action and milestones."
+      ],
+      "reviewed": false
+    },
+    "03.12.05": {
+      "question": "Does your organization approve and manage exchanges of CUI with other systems using written agreements that document security requirements and responsibilities?",
+      "whyItMatters": "Connecting to another system can introduce threats from an environment with different security rules. Written agreements make expectations and responsibilities clear on both sides.",
+      "doneLooksLike": "Each exchange of CUI between your system and other systems is approved and managed using the agreement types you select, such as interconnection security agreements, service-level agreements, or non-disclosure agreements. The agreements document interface characteristics, security requirements, and responsibilities for each system, and are reviewed and updated at the frequency you define.",
+      "nextSteps": [
+        "List every system, internal or external, that sends CUI to or receives CUI from yours.",
+        "Choose the agreement type for each exchange, and put the agreements in place.",
+        "Document interface details, security requirements, and responsibilities in each agreement.",
+        "Set a review frequency for the agreements."
+      ],
+      "reviewed": false
+    },
+    "03.13.01": {
+      "question": "Does your organization monitor and control traffic at the edges of the system that handles CUI and keep public-facing components separate from internal networks?",
+      "whyItMatters": "The network boundary is where outside traffic meets your systems. Controlling it and isolating public-facing services limits how far an attacker can get if one service is compromised.",
+      "doneLooksLike": "Communications are monitored and controlled at external managed interfaces, such as firewalls and gateways, and at key internal interfaces. Publicly accessible components sit in subnetworks that are physically or logically separated from internal networks, and connections to external systems go only through managed interfaces arranged according to your security architecture.",
+      "nextSteps": [
+        "Map the connections between your network, the internet, and other external systems.",
+        "Route all external connections through managed boundary devices, such as firewalls, and monitor their traffic.",
+        "Place public-facing servers in a separate subnetwork, often called a DMZ (demilitarized zone).",
+        "Document how boundary devices are arranged in your security architecture."
+      ],
+      "reviewed": false
+    },
+    "03.13.04": {
+      "question": "Do systems that handle CUI prevent information left in shared memory, storage, or other resources by one user or process from reaching the next?",
+      "whyItMatters": "When memory or storage is released and reassigned, leftover data from a previous user or process can be exposed to the next one. Preventing this keeps CUI from leaking between users who share a system.",
+      "doneLooksLike": "Shared system resources, such as memory, caches, and temporary storage, do not pass information, including encrypted forms of it, from prior users, roles, or processes to current ones. You can show how the operating systems, platforms, or services you use provide this protection.",
+      "nextSteps": [
+        "Identify where users or processes share resources, such as multi-user servers, virtual machines, or shared cloud services.",
+        "Review documentation from your platforms and providers to confirm they clear resources before reuse.",
+        "Keep the settings that provide this protection enabled when systems are configured or updated."
+      ],
+      "reviewed": false
+    },
+    "03.13.06": {
+      "question": "Do your network devices block all traffic to and from systems that handle CUI by default and allow only approved connections?",
+      "whyItMatters": "Allowing everything and blocking known-bad traffic leaves gaps. Denying by default means only connections you have deliberately approved can reach or leave your systems.",
+      "doneLooksLike": "Network rules at the system boundary and at identified points within the system deny inbound and outbound traffic by default. Each allowed connection is an approved exception that is essential to your operations.",
+      "nextSteps": [
+        "Review firewall rules for both inbound and outbound traffic.",
+        "Set a default rule that denies any traffic not explicitly allowed.",
+        "Document the reason for each allowed rule, and remove rules that are no longer needed."
+      ],
+      "reviewed": false
+    },
+    "03.13.08": {
+      "question": "Does your organization encrypt CUI when it is sent over networks and when it is stored on devices, servers, and databases?",
+      "whyItMatters": "Unencrypted traffic can be intercepted, and unencrypted storage can be read by anyone who gets the device or file. Encryption keeps CUI unreadable to people without the keys.",
+      "doneLooksLike": "Cryptographic mechanisms protect CUI in transit across internal and external networks, for example with TLS or IPsec, and at rest on laptops, desktops, servers, mobile devices, removable storage, and databases. This includes devices such as printers, copiers, and scanners that transmit CUI.",
+      "nextSteps": [
+        "Identify where CUI is transmitted and stored, including mobile devices and multifunction printers.",
+        "Turn on full-disk or storage encryption for devices and storage that hold CUI.",
+        "Require encrypted protocols for email, file transfer, remote access, and web traffic that carry CUI.",
+        "Confirm the encryption matches the types of cryptography you have specified under 03.13.11."
+      ],
+      "reviewed": false
+    },
+    "03.13.09": {
+      "question": "Do systems that handle CUI end network connections when a session finishes or after a period of inactivity your organization defines?",
+      "whyItMatters": "Idle connections left open can be hijacked or reused by someone else. Closing them shortens the window an attacker has to take over a session.",
+      "doneLooksLike": "Network connections associated with communications sessions are terminated at the end of each session or after the inactivity period you define, which may vary by type of network access. This applies to internal and external networks.",
+      "nextSteps": [
+        "Set inactivity periods, by type of network access if needed.",
+        "Configure remote access, firewalls, and applications to disconnect idle sessions after that period.",
+        "Test that connections close as expected."
+      ],
+      "reviewed": false
+    },
+    "03.13.10": {
+      "question": "Does your organization create, distribute, store, and retire cryptographic keys for systems that handle CUI according to key management requirements it has defined?",
+      "whyItMatters": "Encryption is only as strong as the protection of its keys. Keys that are lost, shared carelessly, or never changed can undo the protection encryption provides.",
+      "doneLooksLike": "You have defined key management requirements, and cryptographic keys in the system are established and managed according to them, using manual procedures, automated mechanisms supported by manual procedures, or both.",
+      "nextSteps": [
+        "List where your organization uses cryptographic keys, such as disk encryption, certificates, and backups.",
+        "Define key management requirements covering how keys are generated, distributed, stored, changed, and revoked.",
+        "Assign responsibility for key management, and keep recovery keys secured."
+      ],
+      "reviewed": false
+    },
+    "03.13.11": {
+      "question": "Has your organization specified the types of cryptography used to protect the confidentiality of CUI, and is that cryptography actually in use?",
+      "whyItMatters": "Weak or poorly implemented encryption can give a false sense of protection. NIST recommends FIPS-validated cryptography (cryptographic modules tested under a federal validation program) for protecting CUI.",
+      "doneLooksLike": "You have specified the types of cryptography used to protect the confidentiality of CUI, and the encryption in your devices, connections, and services matches that specification.",
+      "nextSteps": [
+        "Decide which types of cryptography you will use to protect CUI, taking NIST's recommendation of FIPS-validated cryptography into account.",
+        "Check whether the encryption in your devices, software, and services uses those types.",
+        "Replace or reconfigure products that do not."
+      ],
+      "reviewed": false
+    },
+    "03.13.12": {
+      "question": "Does your organization prevent cameras, microphones, and similar collaboration devices from being turned on remotely, and show people nearby when they are in use?",
+      "whyItMatters": "A camera or microphone activated remotely can capture CUI being discussed or displayed. A visible indicator lets people in the room know when a device is active.",
+      "doneLooksLike": "Remote activation of collaborative computing devices and applications, such as cameras, microphones, and whiteboards, is prohibited except for the exceptions you define. Devices give an explicit indication of use, such as a light or an on-screen notice, to people physically present.",
+      "nextSteps": [
+        "Identify cameras, microphones, and electronic whiteboards in areas where CUI is handled or discussed.",
+        "Disable remote activation features, apart from the exceptions you have defined.",
+        "Confirm each device shows when it is active, and use webcam covers or microphone switches where it does not."
+      ],
+      "reviewed": false
+    },
+    "03.13.13": {
+      "question": "Has your organization defined which mobile code, such as scripts that run in web browsers, is acceptable, and does it authorize, monitor, and control its use?",
+      "whyItMatters": "Mobile code runs on your devices without anyone installing it, often from websites or documents. Left uncontrolled, it can be used to run malicious actions on systems that handle CUI.",
+      "doneLooksLike": "You have defined acceptable mobile code and mobile code technologies, such as JavaScript or HTML5 content. The use of mobile code is authorized, monitored, and controlled on servers and user devices, for example by blocking unacceptable types or requiring code to be digitally signed by a trusted source.",
+      "nextSteps": [
+        "Decide which mobile code technologies you allow and which you block.",
+        "Configure browsers, document software, and endpoint protection to enforce those decisions, such as blocking unsigned scripts.",
+        "Monitor for blocked or unusual mobile code activity."
+      ],
+      "reviewed": false
+    },
+    "03.13.15": {
+      "question": "Do systems that handle CUI protect communication sessions so both sides can trust who they are talking to and that the session has not been tampered with?",
+      "whyItMatters": "Attackers can hijack sessions or position themselves between two parties to read or alter traffic, known as an adversary-in-the-middle attack. Session protections keep both ends confident in each other's identity throughout the session.",
+      "doneLooksLike": "Communications sessions are protected against adversary-in-the-middle attacks, session hijacking, and the insertion of false information, for example by using authenticated, encrypted protocols with valid certificates and protected session identifiers.",
+      "nextSteps": [
+        "Require authenticated, encrypted protocols for web applications, remote access, and other sessions involving CUI.",
+        "Use valid certificates, and configure systems to reject invalid ones.",
+        "Configure applications to protect session identifiers and invalidate them at logout."
+      ],
+      "reviewed": false
+    },
+    "03.14.01": {
+      "question": "Does your organization find, report, and fix flaws in systems that handle CUI, and install security updates within a time period it defines?",
+      "whyItMatters": "Many successful attacks use flaws that already have fixes available. Prompt patching closes those openings.",
+      "doneLooksLike": "System flaws are identified, reported to designated security staff, and corrected, including flaws found through assessments, monitoring, and incident response. Security-relevant software and firmware updates are installed within the time period you define after their release, which may vary with the severity of the flaw.",
+      "nextSteps": [
+        "Keep an inventory of software and firmware so you know which announced flaws affect you.",
+        "Set installation timeframes for security updates, for example shorter ones for critical flaws.",
+        "Enable automatic updates where practical, and test updates that need it.",
+        "Track patch status, and follow up on systems that fall behind."
+      ],
+      "reviewed": false
+    },
+    "03.14.02": {
+      "question": "Does your organization run up-to-date malicious code protection at system entry and exit points, scan regularly and in real time, and block or quarantine threats?",
+      "whyItMatters": "Malicious code arrives through email, websites, and removable media. Current protection that scans files as they arrive and acts on detections stops much of it before it spreads.",
+      "doneLooksLike": "Malicious code protection is in place at system entry and exit points, such as endpoints and email and web gateways, and is updated as new releases are available under your configuration management process. It scans the system at the frequency you define, scans files from external sources in real time as they are downloaded, opened, or executed, and blocks, quarantines, or otherwise mitigates malicious code it detects.",
+      "nextSteps": [
+        "Install endpoint protection on all systems, and enable protection for email and web traffic.",
+        "Configure automatic updates for the protection software and its detection data.",
+        "Set the frequency for full system scans, and turn on real-time scanning.",
+        "Configure detections to block or quarantine, and alert someone to review them."
+      ],
+      "reviewed": false
+    },
+    "03.14.03": {
+      "question": "Does your organization receive security alerts, advisories, and directives from outside sources, and issue its own internal alerts when needed?",
+      "whyItMatters": "New threats and vulnerabilities are announced constantly, and some directives call for prompt action. Staying informed lets you respond before attackers take advantage.",
+      "doneLooksLike": "You receive security alerts, advisories, and directives from external organizations on an ongoing basis, such as CISA, software vendors, or information sharing groups. When needed, you generate internal alerts, advisories, and directives and share them with the people who must act on them.",
+      "nextSteps": [
+        "Subscribe to alerts from government sources such as CISA and from the vendors of products you use.",
+        "Assign someone to review incoming alerts and decide which ones apply.",
+        "Set up a way to notify staff and administrators about alerts that require action."
+      ],
+      "reviewed": false
+    },
+    "03.14.06": {
+      "question": "Does your organization monitor systems that handle CUI for attacks, unauthorized connections, unauthorized use, and unusual inbound or outbound traffic?",
+      "whyItMatters": "Without monitoring, attacks can go unnoticed for weeks or months. Watching activity and traffic helps you detect intrusions, and data leaving your network, early enough to respond.",
+      "doneLooksLike": "You monitor the system to detect attacks, indicators of potential attacks, and unauthorized local, network, and remote connections, and you identify unauthorized use of the system. Inbound and outbound communications traffic is monitored for unusual or unauthorized activity, such as signs of malicious code or the unauthorized export of information.",
+      "nextSteps": [
+        "Decide what to monitor based on your monitoring objectives, such as logins, connections, and network traffic.",
+        "Deploy monitoring tools, such as intrusion detection, log monitoring, and network monitoring, at key points.",
+        "Assign someone to review alerts and investigate unusual activity."
+      ],
+      "reviewed": false
+    },
+    "03.14.08": {
+      "question": "Does your organization manage and retain CUI, including printouts and other output, according to applicable laws, regulations, policies, and operational requirements?",
+      "whyItMatters": "Keeping CUI longer than needed expands what could be exposed in a breach. CUI retained after a contract or agreement ends increases risk without adding value.",
+      "doneLooksLike": "You know which requirements apply to the CUI you hold, including NARA records guidance and any data retention requirements from the agencies you work with. CUI within the system and CUI output from the system are managed and retained in line with those requirements.",
+      "nextSteps": [
+        "Identify the retention requirements that apply to the CUI you hold, including those in your contracts or agreements.",
+        "Document how long each type of CUI and output is kept and how it is disposed of.",
+        "Review stored CUI when contracts or agreements end, and securely remove what you no longer need to keep."
+      ],
+      "reviewed": false
+    },
+    "03.15.01": {
+      "question": "Does your organization have documented policies and procedures for protecting CUI that are shared with staff and reviewed at a frequency you define?",
+      "whyItMatters": "Written policies and procedures make expectations consistent and repeatable, so protecting CUI does not depend on one person's memory. They are also among the first things an assessor asks to see.",
+      "doneLooksLike": "The policies and procedures needed to satisfy the CUI security requirements, addressing each family of requirements, are developed, documented, and disseminated to the relevant personnel or roles. They are reviewed and updated at the frequency you define.",
+      "nextSteps": [
+        "Write or gather policies covering each family of CUI security requirements, as one document or several.",
+        "Document procedures that describe how each policy is carried out and by whom.",
+        "Share the policies and procedures with the people who need them.",
+        "Set a review frequency, and record each review."
+      ],
+      "reviewed": false
+    },
+    "03.15.02": {
+      "question": "Does your organization have a system security plan that describes the system handling CUI and how each security requirement is met?",
+      "whyItMatters": "A system security plan is the central description of what you protect and how. Agencies and assessors rely on it, and it helps keep security decisions consistent as the system changes.",
+      "doneLooksLike": "Your plan defines the system's components, the information types it handles, threats of concern, its operating environment and connections to other systems, an overview of the security requirements, the safeguards in place or planned, the people in system roles, and other information needed to protect CUI. It is reviewed and updated at the frequency you define and protected from unauthorized disclosure.",
+      "nextSteps": [
+        "Define the system boundary, and list its components, information types, and connections to other systems.",
+        "Describe the safeguards in place or planned for each requirement, referencing existing policies and procedures.",
+        "Name the people responsible for each system role.",
+        "Restrict access to the plan, and set a review frequency."
+      ],
+      "reviewed": false
+    },
+    "03.15.03": {
+      "question": "Do people who need access to systems that handle CUI receive written rules of behavior and acknowledge them before they are given access?",
+      "whyItMatters": "Clear rules tell people what is expected when they use systems and handle CUI. A documented acknowledgment confirms each person has read the rules and agreed to follow them.",
+      "doneLooksLike": "You have established rules describing responsibilities and expected behavior for system use and protecting CUI, and you provide them to everyone who needs access. Each person gives a documented acknowledgment that they have read, understand, and agree to follow the rules before receiving access, and the rules are reviewed and updated at the frequency you define.",
+      "nextSteps": [
+        "Write rules of behavior covering acceptable system use, handling CUI, and reporting problems.",
+        "Consider separate rules for administrators and other privileged users.",
+        "Collect a signed or electronic acknowledgment from each person before granting access.",
+        "Set a review frequency for the rules, and tell users when they change."
+      ],
+      "reviewed": false
+    },
+    "03.16.01": {
+      "question": "Does your organization apply security engineering principles it has defined when developing or modifying systems and components that handle CUI?",
+      "whyItMatters": "Security designed in from the start is usually more effective and less costly than security added later. Principles such as layered protections help make systems more resilient to attack.",
+      "doneLooksLike": "You have identified the systems security engineering principles you apply, such as layered protections, threat modeling, and clearly defined security boundaries. You apply them when developing new systems and components and, as far as feasible, when modifying existing ones.",
+      "nextSteps": [
+        "Choose the security engineering principles you will apply, drawing on the examples in NIST guidance.",
+        "Build those principles into how you plan, design, and approve new systems and changes.",
+        "Record how the principles were applied in significant changes and new systems."
+      ],
+      "reviewed": false
+    },
+    "03.16.02": {
+      "question": "Does your organization replace system components once their vendor stops supporting them, and reduce the risk from any that cannot yet be replaced?",
+      "whyItMatters": "Unsupported software and hardware no longer receive security fixes, so new weaknesses stay open permanently. Attackers actively look for these systems.",
+      "doneLooksLike": "Components are replaced when support from the developer, vendor, or manufacturer is no longer available. For unsupported components that cannot be replaced, you provide risk mitigations, such as isolating them from public or uncontrolled networks, or alternative sources of support, such as in-house or contracted support.",
+      "nextSteps": [
+        "Inventory hardware, software, and firmware, and record each item's end-of-support date.",
+        "Plan and budget replacements before support ends.",
+        "Isolate any unsupported component you must keep, and arrange alternative support where possible."
+      ],
+      "reviewed": false
+    },
+    "03.16.03": {
+      "question": "Does your organization require cloud and other external service providers that handle CUI to meet defined security requirements, and monitor whether they do?",
+      "whyItMatters": "Using an outside provider does not transfer your responsibility for protecting CUI. Clear requirements, defined shared responsibilities, and ongoing oversight help ensure providers protect CUI as expected.",
+      "doneLooksLike": "Providers of external system services that process, store, or transmit CUI are required to comply with the security requirements you define, for example through contracts or service-level agreements. User roles and responsibilities for these services, including those shared with providers, are defined and documented, and you monitor provider compliance with your requirements on an ongoing basis.",
+      "nextSteps": [
+        "List the external services that process, store, or transmit CUI.",
+        "Define the security requirements each provider must meet, and include them in contracts or agreements.",
+        "Document who is responsible for each security task, including responsibilities shared with the provider.",
+        "Set up ongoing checks, such as reviewing provider security reports and attestations."
+      ],
+      "reviewed": false
+    },
+    "03.17.01": {
+      "question": "Does your organization have a plan for managing supply chain risks to its systems, components, and services, reviewed at a frequency you define?",
+      "whyItMatters": "Counterfeit parts, tampered products, and compromised suppliers can bring weaknesses into your systems before you ever use them. A plan gives you a consistent way to identify and respond to those risks.",
+      "doneLooksLike": "You have a supply chain risk management plan covering the system, its components, and services across their life cycle, from research, design, and manufacturing through acquisition, delivery, integration, operation, maintenance, and disposal. The plan is reviewed and updated at the frequency you define and protected from unauthorized disclosure.",
+      "nextSteps": [
+        "Identify the key suppliers and service providers your system depends on.",
+        "Document how you identify, assess, respond to, and monitor supply chain risks across the system's life cycle.",
+        "Restrict access to the plan, and set a review frequency."
+      ],
+      "reviewed": false
+    },
+    "03.17.02": {
+      "question": "Does your organization use purchasing strategies, contract terms, and procurement methods that help identify, protect against, and reduce supply chain risks?",
+      "whyItMatters": "How you buy affects what you receive. Buying from trusted sources and setting security terms in contracts reduces the chance of counterfeit, tampered, or poorly built products entering your systems.",
+      "doneLooksLike": "You have developed and use acquisition strategies, contract tools, and procurement methods to identify, protect against, and mitigate supply chain risks, for example buying through trusted or controlled distribution, requiring tamper-evident packaging, or including contract language that prohibits counterfeit components.",
+      "nextSteps": [
+        "Use the results of your supply chain risk assessment to choose purchasing approaches for important components.",
+        "Buy from authorized distributors or other trusted sources where possible.",
+        "Add contract language that addresses counterfeit components and supplier security practices.",
+        "Train purchasing staff on supply chain risks and the approaches you use."
+      ],
+      "reviewed": false
+    },
+    "03.17.03": {
+      "question": "Does your organization have a process for finding and addressing weaknesses in its supply chain, and enforce security requirements it defines to limit supply chain risk?",
+      "whyItMatters": "Weaknesses in suppliers' development, shipping, or security practices can be exploited to harm your organization. A defined process and enforced requirements help catch problems and limit their impact.",
+      "doneLooksLike": "You have an established process for identifying and addressing weaknesses or deficiencies in supply chain elements and processes, such as suppliers, integrators, development practices, and shipping and handling. The security requirements you define to protect against supply chain risks and limit the harm from supply chain events are enforced.",
+      "nextSteps": [
+        "Identify the supply chain elements and processes your systems depend on.",
+        "Set up a way to identify, record, and address weaknesses found in suppliers or their processes.",
+        "Define the security requirements suppliers and internal teams must meet, and check that they are followed."
+      ],
+      "reviewed": false
+    }
+  }
+}

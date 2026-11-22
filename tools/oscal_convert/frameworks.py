@@ -289,6 +289,25 @@ def _171_objective_label(label: str | None) -> str | None:
     return label[2:] if label.startswith("A.") else label
 
 
+def _171_objectives(req: dict) -> list[dict]:
+    """SP 800-171A objectives are flat sibling parts (one per determination statement).
+    'assessment-objective_DS-A.03.01.01.b.02' is labeled 'b[02]'."""
+    out = []
+    for part in parts(req, "assessment-objective"):
+        text = clean_text(part.get("prose"))
+        if not text:
+            continue
+        item: dict = {"text": text}
+        ident = part.get("id", "").rsplit("DS-A.", 1)[-1]
+        rid = _171_id(req["id"])
+        if ident.startswith(rid):
+            tail = ident[len(rid):].lstrip(".").split(".")
+            if tail and tail[0]:
+                item["label"] = tail[0] + (f"[{tail[1]}]" if len(tail) > 1 else "")
+        out.append(item)
+    return out
+
+
 def sp800171_source_controls(catalog: dict) -> dict[str, list[str]]:
     """{'03.01.01': ['AC-02', 'AC-02(03)', ...]} from the requirement reference links."""
     resources = resource_index(catalog)
@@ -329,7 +348,6 @@ def build_sp800171(catalog: dict, source: dict, content_version: str) -> dict:
                 }))
                 continue
             guidance = first_part(req, "guidance")
-            objective = first_part(req, "assessment-objective")
             reqs.append(prune({
                 "id": rid,
                 "displayId": rid,
@@ -339,8 +357,7 @@ def build_sp800171(catalog: dict, source: dict, content_version: str) -> dict:
                 "sortKey": prop(req, "sort-id"),
                 "statement": statement_items(first_part(req, "statement"), label_fn=_171_item_label),
                 "discussion": clean_text(guidance.get("prose")) if guidance else None,
-                "objectives": statement_items(objective, child_name="assessment-objective",
-                                              label_fn=_171_objective_label),
+                "objectives": _171_objectives(req),
                 "parameters": [convert_param(p) for p in req.get("params", []) or []],
                 "references": nist_references(req, resources),
                 "sourceUrl": CPRT_ELEMENT_URL.format(doc="SP_800_171_3_0_0", element=rid),

@@ -158,6 +158,9 @@ class BuilderTests(unittest.TestCase):
         self.assertEqual(st[1]["items"][0]["label"], "2.")
         self.assertEqual(frameworks.sp800171_source_controls(cat), {"03.01.01": ["AC-02", "AC-02(03)"]})
         self.assertEqual([r["title"] for r in fw["requirements"][0]["references"]], ["SP 800-46"])
+        self.assertEqual(fw["requirements"][0]["objectives"],
+                         [{"text": "types of system accounts allowed for use are defined.", "label": "a[01]"},
+                          {"text": "system accounts are created in accordance with policy.", "label": "b[01]"}])
         errors, _ = validate.validate_framework(fw)
         self.assertEqual(errors, [])
 

@@ -13,6 +13,7 @@ struct RequirementDetailView: View {
     var mode: Mode = .standard
 
     @Environment(\.modelContext) private var context
+    @Environment(ContentLibrary.self) private var library
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var showingReasonSheet = false
@@ -55,7 +56,8 @@ struct RequirementDetailView: View {
                         .accessibilityAddTraits(.updatesFrequently)
                 }
                 if let from = response?.appliedFromRequirementID, let fw = response?.appliedFromFrameworkID {
-                    Text("Answer applied from \(fw) \(from).")
+                    let source = library.framework(fw)
+                    Text("Answer applied from \(source?.document.shortName ?? fw) \(source?.requirement(from)?.displayId ?? from).")
                         .font(.dsFootnote)
                         .foregroundStyle(Color.dsTextSecondary)
                 }
@@ -130,6 +132,8 @@ struct RequirementDetailView: View {
             }
 
             EvidenceSection(assessment: assessment, ref: ref)
+
+            MappedRequirementsSection(assessment: assessment, framework: framework, requirement: r)
 
             if let editorial = r.editorial {
                 Section {

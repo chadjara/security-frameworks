@@ -4,174 +4,615 @@
  "title": "Framework content file (schema version 1)",
  "description": "One cybersecurity framework: metadata, a group hierarchy, and a flat list of requirements. See docs/SCHEMA.md.",
  "type": "object",
- "required": ["schemaVersion", "id", "shortName", "title", "publisher", "publicationId", "version", "contentVersion",
-              "source", "kinds", "groupLevels", "groups", "requirements"],
+ "required": [
+  "schemaVersion",
+  "id",
+  "shortName",
+  "title",
+  "publisher",
+  "publicationId",
+  "version",
+  "contentVersion",
+  "source",
+  "kinds",
+  "groupLevels",
+  "groups",
+  "requirements"
+ ],
  "additionalProperties": false,
  "properties": {
-  "schemaVersion": {"const": 1},
-  "id": {"$ref": "#/$defs/slug"},
-  "shortName": {"type": "string", "minLength": 1},
-  "title": {"type": "string", "minLength": 1},
-  "publisher": {"type": "string", "minLength": 1},
-  "publicationId": {"type": "string", "minLength": 1},
-  "version": {"type": "string", "minLength": 1},
-  "contentVersion": {"type": "string", "pattern": "^\\d{4}\\.\\d{1,2}\\.\\d+$"},
+  "schemaVersion": {
+   "const": 1
+  },
+  "id": {
+   "$ref": "#/$defs/slug"
+  },
+  "shortName": {
+   "type": "string",
+   "minLength": 1
+  },
+  "title": {
+   "type": "string",
+   "minLength": 1
+  },
+  "publisher": {
+   "type": "string",
+   "minLength": 1
+  },
+  "publicationId": {
+   "type": "string",
+   "minLength": 1
+  },
+  "version": {
+   "type": "string",
+   "minLength": 1
+  },
+  "contentVersion": {
+   "type": "string",
+   "pattern": "^\\d{4}\\.\\d{1,2}\\.\\d+$"
+  },
   "source": {
    "type": "object",
-   "required": ["oscalUrl", "sha256", "retrieved"],
+   "required": [
+    "oscalUrl",
+    "sha256",
+    "retrieved"
+   ],
    "properties": {
-    "oscalUrl": {"type": "string", "format": "uri"},
-    "oscalBrowseUrl": {"type": "string", "format": "uri"},
-    "oscalCommit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
-    "catalogTitle": {"type": "string"},
-    "catalogVersion": {"type": "string"},
-    "oscalVersion": {"type": "string"},
-    "lastModified": {"type": "string"},
-    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
-    "retrieved": {"type": "string"},
-    "publicationUrl": {"type": "string", "format": "uri"},
-    "baselinesPublicationUrl": {"type": "string", "format": "uri"},
-    "referenceToolUrl": {"type": "string", "format": "uri"},
-    "baselineProfiles": {"type": "object"}
+    "oscalUrl": {
+     "type": "string",
+     "format": "uri"
+    },
+    "oscalBrowseUrl": {
+     "type": "string",
+     "format": "uri"
+    },
+    "oscalCommit": {
+     "type": "string",
+     "pattern": "^[0-9a-f]{40}$"
+    },
+    "catalogTitle": {
+     "type": "string"
+    },
+    "catalogVersion": {
+     "type": "string"
+    },
+    "oscalVersion": {
+     "type": "string"
+    },
+    "lastModified": {
+     "type": "string"
+    },
+    "sha256": {
+     "type": "string",
+     "pattern": "^[0-9a-f]{64}$"
+    },
+    "retrieved": {
+     "type": "string"
+    },
+    "publicationUrl": {
+     "type": "string",
+     "format": "uri"
+    },
+    "baselinesPublicationUrl": {
+     "type": "string",
+     "format": "uri"
+    },
+    "referenceToolUrl": {
+     "type": "string",
+     "format": "uri"
+    },
+    "baselineProfiles": {
+     "type": "object"
+    }
    }
   },
   "summary": {
    "type": "object",
-   "required": ["plainDescription", "audience", "covers", "typicalEffort", "whenToChoose"],
+   "required": [
+    "plainDescription",
+    "audience",
+    "covers",
+    "typicalEffort",
+    "whenToChoose"
+   ],
    "additionalProperties": false,
    "properties": {
-    "plainDescription": {"type": "string", "minLength": 1},
-    "audience": {"type": "string", "minLength": 1},
-    "covers": {"type": "string", "minLength": 1},
-    "typicalEffort": {"type": "string", "minLength": 1},
-    "whenToChoose": {"type": "string", "minLength": 1}
+    "plainDescription": {
+     "type": "string",
+     "minLength": 1
+    },
+    "audience": {
+     "type": "string",
+     "minLength": 1
+    },
+    "covers": {
+     "type": "string",
+     "minLength": 1
+    },
+    "typicalEffort": {
+     "type": "string",
+     "minLength": 1
+    },
+    "whenToChoose": {
+     "type": "string",
+     "minLength": 1
+    }
    }
   },
-  "notices": {"type": "array", "items": {"$ref": "#/$defs/notice"}},
-  "kinds": {
-   "type": "array", "minItems": 1,
+  "notices": {
+   "type": "array",
    "items": {
-    "type": "object", "required": ["id", "singular", "plural"], "additionalProperties": false,
-    "properties": {"id": {"$ref": "#/$defs/slug"}, "singular": {"type": "string"}, "plural": {"type": "string"}}
+    "$ref": "#/$defs/notice"
+   }
+  },
+  "kinds": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "singular",
+     "plural"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "id": {
+      "$ref": "#/$defs/slug"
+     },
+     "singular": {
+      "type": "string"
+     },
+     "plural": {
+      "type": "string"
+     }
+    }
    }
   },
   "groupLevels": {
-   "type": "array", "minItems": 1,
+   "type": "array",
+   "minItems": 1,
    "items": {
-    "type": "object", "required": ["singular", "plural"], "additionalProperties": false,
-    "properties": {"singular": {"type": "string"}, "plural": {"type": "string"}}
+    "type": "object",
+    "required": [
+     "singular",
+     "plural"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "singular": {
+      "type": "string"
+     },
+     "plural": {
+      "type": "string"
+     }
+    }
    }
   },
   "baselines": {
    "type": "array",
    "items": {
-    "type": "object", "required": ["id", "title", "additive"], "additionalProperties": false,
+    "type": "object",
+    "required": [
+     "id",
+     "title",
+     "additive"
+    ],
+    "additionalProperties": false,
     "properties": {
-     "id": {"$ref": "#/$defs/slug"}, "title": {"type": "string"}, "additive": {"type": "boolean"},
-     "summary": {"type": "string"}
+     "id": {
+      "$ref": "#/$defs/slug"
+     },
+     "title": {
+      "type": "string"
+     },
+     "additive": {
+      "type": "boolean"
+     },
+     "summary": {
+      "type": "string"
+     }
     }
    }
   },
   "tiers": {
    "type": "array",
    "items": {
-    "type": "object", "required": ["id", "number", "title"],
-    "properties": {"id": {"type": "string"}, "number": {"type": "integer"}, "title": {"type": "string"}}
+    "type": "object",
+    "required": [
+     "id",
+     "number",
+     "title",
+     "governance",
+     "management"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "number": {
+      "type": "integer",
+      "minimum": 1
+     },
+     "title": {
+      "type": "string"
+     },
+     "governance": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "management": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     }
+    }
    }
   },
-  "groups": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/group"}},
-  "requirements": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/requirement"}},
-  "withdrawn": {"type": "array", "items": {"$ref": "#/$defs/withdrawn"}}
+  "groups": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "$ref": "#/$defs/group"
+   }
+  },
+  "requirements": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "$ref": "#/$defs/requirement"
+   }
+  },
+  "withdrawn": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/withdrawn"
+   }
+  },
+  "tiersSource": {
+   "type": "object",
+   "required": [
+    "url",
+    "pages",
+    "sha256"
+   ],
+   "properties": {
+    "url": {
+     "type": "string",
+     "format": "uri"
+    },
+    "pages": {
+     "type": "string"
+    },
+    "sha256": {
+     "type": "string"
+    },
+    "introduction": {
+     "type": "string"
+    }
+   }
+  }
  },
  "$defs": {
-  "slug": {"type": "string", "pattern": "^[a-z0-9][a-z0-9.-]*$"},
-  "elementId": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._()-]*$"},
+  "slug": {
+   "type": "string",
+   "pattern": "^[a-z0-9][a-z0-9.-]*$"
+  },
+  "elementId": {
+   "type": "string",
+   "pattern": "^[A-Za-z0-9][A-Za-z0-9._()-]*$"
+  },
   "notice": {
-   "type": "object", "required": ["id", "title", "body"], "additionalProperties": false,
-   "properties": {"id": {"type": "string"}, "title": {"type": "string"}, "body": {"type": "string"}}
+   "type": "object",
+   "required": [
+    "id",
+    "title",
+    "body"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "title": {
+     "type": "string"
+    },
+    "body": {
+     "type": "string"
+    }
+   }
   },
   "group": {
-   "type": "object", "required": ["id", "displayId", "title"], "additionalProperties": false,
+   "type": "object",
+   "required": [
+    "id",
+    "displayId",
+    "title"
+   ],
+   "additionalProperties": false,
    "properties": {
-    "id": {"$ref": "#/$defs/elementId"},
-    "displayId": {"type": "string"},
-    "title": {"type": "string", "minLength": 1},
-    "description": {"type": "string"},
-    "groups": {"type": "array", "items": {"$ref": "#/$defs/group"}},
-    "requirementIds": {"type": "array", "items": {"$ref": "#/$defs/elementId"}}
+    "id": {
+     "$ref": "#/$defs/elementId"
+    },
+    "displayId": {
+     "type": "string"
+    },
+    "title": {
+     "type": "string",
+     "minLength": 1
+    },
+    "description": {
+     "type": "string"
+    },
+    "groups": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/group"
+     }
+    },
+    "requirementIds": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/elementId"
+     }
+    }
    }
   },
   "item": {
-   "type": "object", "additionalProperties": false,
+   "type": "object",
+   "additionalProperties": false,
    "properties": {
-    "label": {"type": "string"},
-    "text": {"type": "string"},
-    "items": {"type": "array", "items": {"$ref": "#/$defs/item"}}
+    "label": {
+     "type": "string"
+    },
+    "text": {
+     "type": "string"
+    },
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/item"
+     }
+    }
    }
   },
   "parameter": {
-   "type": "object", "required": ["id"], "additionalProperties": false,
+   "type": "object",
+   "required": [
+    "id"
+   ],
+   "additionalProperties": false,
    "properties": {
-    "id": {"type": "string"},
-    "displayLabel": {"type": "string"},
-    "label": {"type": "string"},
-    "usage": {"type": "string"},
-    "guidance": {"type": "string"},
-    "choices": {"type": "array", "items": {"type": "string"}},
-    "howMany": {"enum": ["one", "one-or-more"]},
-    "aggregates": {"type": "array", "items": {"type": "string"}},
-    "altId": {"type": "string"}
+    "id": {
+     "type": "string"
+    },
+    "displayLabel": {
+     "type": "string"
+    },
+    "label": {
+     "type": "string"
+    },
+    "usage": {
+     "type": "string"
+    },
+    "guidance": {
+     "type": "string"
+    },
+    "choices": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "howMany": {
+     "enum": [
+      "one",
+      "one-or-more"
+     ]
+    },
+    "aggregates": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "altId": {
+     "type": "string"
+    }
    }
   },
   "reference": {
-   "type": "object", "required": ["title"], "additionalProperties": false,
-   "properties": {"title": {"type": "string"}, "url": {"type": "string", "format": "uri"}}
-  },
-  "editorial": {
-   "type": "object", "required": ["question", "whyItMatters", "doneLooksLike", "nextSteps", "reviewed"],
+   "type": "object",
+   "required": [
+    "title"
+   ],
    "additionalProperties": false,
    "properties": {
-    "question": {"type": "string", "minLength": 1},
-    "whyItMatters": {"type": "string", "minLength": 1},
-    "doneLooksLike": {"type": "string", "minLength": 1},
-    "nextSteps": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
-    "reviewed": {"type": "boolean"}
+    "title": {
+     "type": "string"
+    },
+    "url": {
+     "type": "string",
+     "format": "uri"
+    }
+   }
+  },
+  "editorial": {
+   "type": "object",
+   "required": [
+    "question",
+    "whyItMatters",
+    "doneLooksLike",
+    "nextSteps",
+    "reviewed"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "question": {
+     "type": "string",
+     "minLength": 1
+    },
+    "whyItMatters": {
+     "type": "string",
+     "minLength": 1
+    },
+    "doneLooksLike": {
+     "type": "string",
+     "minLength": 1
+    },
+    "nextSteps": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "string",
+      "minLength": 1
+     }
+    },
+    "reviewed": {
+     "type": "boolean"
+    }
    }
   },
   "requirement": {
    "type": "object",
-   "required": ["id", "displayId", "kind", "title", "groupId", "sortKey", "statement", "sourceUrl"],
+   "required": [
+    "id",
+    "displayId",
+    "kind",
+    "title",
+    "groupId",
+    "sortKey",
+    "statement",
+    "sourceUrl"
+   ],
    "additionalProperties": false,
    "properties": {
-    "id": {"$ref": "#/$defs/elementId"},
-    "displayId": {"type": "string", "minLength": 1},
-    "kind": {"$ref": "#/$defs/slug"},
-    "title": {"type": "string", "minLength": 1},
-    "groupId": {"$ref": "#/$defs/elementId"},
-    "parentId": {"$ref": "#/$defs/elementId"},
-    "sortKey": {"type": "string", "minLength": 1},
-    "statement": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/item"}},
-    "discussion": {"type": "string"},
-    "examples": {"type": "array", "items": {"$ref": "#/$defs/item"}},
-    "objectives": {"type": "array", "items": {"$ref": "#/$defs/item"}},
-    "parameters": {"type": "array", "items": {"$ref": "#/$defs/parameter"}},
-    "baselines": {"type": "array", "items": {"$ref": "#/$defs/slug"}},
-    "implementationLevels": {"type": "array", "items": {"type": "string"}},
-    "related": {"type": "array", "items": {"$ref": "#/$defs/elementId"}},
-    "references": {"type": "array", "items": {"$ref": "#/$defs/reference"}},
-    "sourceUrl": {"type": "string", "format": "uri", "pattern": "^https://csrc\\.nist\\.gov/"},
-    "editorial": {"$ref": "#/$defs/editorial"}
+    "id": {
+     "$ref": "#/$defs/elementId"
+    },
+    "displayId": {
+     "type": "string",
+     "minLength": 1
+    },
+    "kind": {
+     "$ref": "#/$defs/slug"
+    },
+    "title": {
+     "type": "string",
+     "minLength": 1
+    },
+    "groupId": {
+     "$ref": "#/$defs/elementId"
+    },
+    "parentId": {
+     "$ref": "#/$defs/elementId"
+    },
+    "sortKey": {
+     "type": "string",
+     "minLength": 1
+    },
+    "statement": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "$ref": "#/$defs/item"
+     }
+    },
+    "discussion": {
+     "type": "string"
+    },
+    "examples": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/item"
+     }
+    },
+    "objectives": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/item"
+     }
+    },
+    "parameters": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/parameter"
+     }
+    },
+    "baselines": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/slug"
+     }
+    },
+    "implementationLevels": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "related": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/elementId"
+     }
+    },
+    "references": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/reference"
+     }
+    },
+    "sourceUrl": {
+     "type": "string",
+     "format": "uri",
+     "pattern": "^https://csrc\\.nist\\.gov/"
+    },
+    "editorial": {
+     "$ref": "#/$defs/editorial"
+    }
    }
   },
   "withdrawn": {
-   "type": "object", "required": ["id", "displayId"], "additionalProperties": false,
+   "type": "object",
+   "required": [
+    "id",
+    "displayId"
+   ],
+   "additionalProperties": false,
    "properties": {
-    "id": {"$ref": "#/$defs/elementId"},
-    "displayId": {"type": "string"},
-    "title": {"type": "string"},
-    "incorporatedInto": {"type": "array", "items": {"type": "string"}},
-    "movedTo": {"type": "array", "items": {"type": "string"}},
-    "addressedBy": {"type": "array", "items": {"type": "string"}}
+    "id": {
+     "$ref": "#/$defs/elementId"
+    },
+    "displayId": {
+     "type": "string"
+    },
+    "title": {
+     "type": "string"
+    },
+    "incorporatedInto": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "movedTo": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "addressedBy": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
    }
   }
  }

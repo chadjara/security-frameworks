@@ -123,6 +123,10 @@ def validate_framework(fw: dict) -> tuple[list[str], list[str]]:
                 if not ed.get(k):
                     errors.append(f"{fid}: {rid} editorial.{k} is empty")
 
+    tiers = fw.get("tiers", [])
+    if tiers and [t["number"] for t in tiers] != list(range(1, len(tiers) + 1)):
+        errors.append(f"{fid}: tiers must be numbered 1..{len(tiers)} in order")
+
     sort_keys = [r.get("sortKey") for r in reqs]
     if sort_keys != sorted(sort_keys):
         errors.append(f"{fid}: requirements are not in sortKey order")

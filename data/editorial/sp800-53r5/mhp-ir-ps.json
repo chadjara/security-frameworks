@@ -1,0 +1,775 @@
+{
+  "requirements": {
+    "ir-2.1": {
+      "question": "Does your incident response training include simulated events, such as mock incidents or scenario drills, so people practice the actions they would take in a real crisis?",
+      "whyItMatters": "Knowing a procedure on paper is different from carrying it out under pressure. Practicing with realistic scenarios helps people remember their own role and respond quickly when a real incident happens.",
+      "doneLooksLike": "Your incident response training incorporates simulated events, such as a staged phishing compromise or a mock ransomware outbreak, that require participants to carry out the response your incident response plan expects of them. Participants can describe their individual responsibilities and the specific actions they would take.",
+      "nextSteps": [
+        "Pick two or three realistic incident scenarios drawn from your incident response plan.",
+        "Build each scenario into training so participants make decisions and take actions rather than only listen.",
+        "Note where people were unsure of their role and update the training or plan to address it."
+      ],
+      "reviewed": false
+    },
+    "ir-2.2": {
+      "question": "Does your organization use automated tools to provide a realistic incident response training environment, such as a simulation platform or practice lab?",
+      "whyItMatters": "Automated training environments can recreate realistic systems, alerts, and attack activity that are hard to stage by hand. They let responders practice more scenarios and test how well the team holds up under load without touching production systems.",
+      "doneLooksLike": "You have identified the automated mechanisms you use for incident response training, such as a simulation platform, a cyber range, or a lab that generates realistic alerts and system behavior, and responders train in that environment.",
+      "nextSteps": [
+        "Decide which automated tools will provide your incident response training environment.",
+        "Set up scenarios in that environment that reflect the systems and threats you actually face.",
+        "Schedule responders to train in the environment and record the results."
+      ],
+      "reviewed": false
+    },
+    "ir-2.3": {
+      "question": "Does your incident response training teach people how to recognize and respond to a breach of personal information, and how to report one through your process?",
+      "whyItMatters": "A breach of personally identifiable information (information that can identify a person) can harm the people affected and may carry legal notice duties. Staff who know what a breach looks like and where to report it, even when only suspected, give your organization time to respond properly.",
+      "doneLooksLike": "Your incident response training covers how to identify a breach involving personally identifiable information in any form, including paper, spoken, and electronic, and how to respond to it. It also explains your organization's process for reporting breaches and stresses that both confirmed and suspected breaches must be reported.",
+      "nextSteps": [
+        "Add a breach module to incident response training that explains what counts as a breach, with examples for paper, spoken, and electronic information.",
+        "Explain the reporting process step by step, including who to contact and how quickly.",
+        "Include a tabletop exercise that simulates a breach."
+      ],
+      "reviewed": false
+    },
+    "ir-3": {
+      "question": "Does your organization test how well its incident response capability works, using the types of tests and at the frequency you have defined?",
+      "whyItMatters": "An incident response plan that has never been tested often fails at the first real use, because contact details are stale, steps are unclear, or tools do not work as expected. Testing finds these weaknesses while the stakes are low.",
+      "doneLooksLike": "You have defined how often the incident response capability for the system is tested and which tests are used, such as checklists, walk-throughs, tabletop exercises, or simulations. Tests are carried out on that schedule and the results are recorded, along with weaknesses found and how they were addressed.",
+      "nextSteps": [
+        "Decide which types of incident response tests you will use and how often you will run them.",
+        "Run a first test, such as a tabletop exercise built around a likely incident.",
+        "Record what worked, what did not, and the changes you will make, and track those changes to completion."
+      ],
+      "reviewed": false
+    },
+    "ir-3.2": {
+      "question": "When you test incident response, do you coordinate with the people responsible for related plans, such as business continuity, disaster recovery, and crisis communications?",
+      "whyItMatters": "A serious incident often triggers several plans at once. Testing them in isolation can hide conflicts, such as two plans claiming the same people or assuming different recovery orders.",
+      "doneLooksLike": "Incident response testing is planned and carried out in coordination with the people or groups responsible for related plans, such as business continuity, disaster recovery, continuity of operations, contingency, crisis communications, critical infrastructure, and occupant emergency plans.",
+      "nextSteps": [
+        "List the plans related to incident response and who owns each one.",
+        "Invite those owners to help plan and take part in your next incident response test.",
+        "Note any conflicts or gaps between plans that the test reveals and assign someone to resolve each."
+      ],
+      "reviewed": false
+    },
+    "ir-4.1": {
+      "question": "Does your organization use automated tools, such as an incident management system, to support how incidents are handled?",
+      "whyItMatters": "Handling incidents with email threads and memory can lose evidence, miss steps, or duplicate work. Automated tools help collect data, track actions, and support analysis consistently.",
+      "doneLooksLike": "You have identified the automated mechanisms that support your incident handling process, such as an online incident management system or tools for collecting live response data, capturing network traffic, and performing forensic analysis, and responders use them during incidents.",
+      "nextSteps": [
+        "Decide which incident handling steps would benefit most from automation, such as tracking, evidence collection, or analysis.",
+        "Select and set up tools for those steps.",
+        "Update your incident handling procedures to say when and how the tools are used."
+      ],
+      "reviewed": false
+    },
+    "ir-4.4": {
+      "question": "Does your organization bring together information from separate incidents and responses to build an organization-wide picture of what is happening?",
+      "whyItMatters": "Some attacks only become visible when reports from different teams, systems, or locations are put side by side. Looking at incidents one at a time can miss a coordinated or recurring threat.",
+      "doneLooksLike": "Incident information and individual incident responses are correlated across the organization, for example by reviewing incidents together, comparing indicators, and linking related reports, so that leadership and responders have an organization-wide view of incident awareness and response.",
+      "nextSteps": [
+        "Collect incident records from all teams and locations in one place or a shared format.",
+        "Review incidents together at a regular interval to look for common causes, indicators, or targets.",
+        "Share the resulting organization-wide picture with the people who make response decisions."
+      ],
+      "reviewed": false
+    },
+    "ir-4.11": {
+      "question": "Does your organization maintain an integrated incident response team that can be sent to any location you identify within the time period you set?",
+      "whyItMatters": "Serious incidents need people with several skills, such as forensics, malware analysis, and system engineering, working together quickly. A standing, integrated team responds faster and connects new incidents with what it learned from past ones.",
+      "doneLooksLike": "An integrated incident response team is established and maintained, made up of the expertise you need, such as forensic and malicious code analysts, tool developers, security and privacy engineers, and operations staff. The team can deploy to any location your organization identifies within the time period you define, and that ability has been confirmed, for example through exercises.",
+      "nextSteps": [
+        "Define the roles and skills your integrated incident response team needs and name the people who fill them.",
+        "Set the time period within which the team must be able to deploy, and identify the locations it must cover.",
+        "Arrange travel, access, and equipment so the team can deploy, and test it in an exercise."
+      ],
+      "reviewed": false
+    },
+    "ir-5.1": {
+      "question": "Does your organization use automated tools to track incidents and to collect and analyze incident information?",
+      "whyItMatters": "Manual tracking makes it hard to see trends, measure response times, or spot related incidents. Automated tracking and analysis keep records complete and make patterns easier to find.",
+      "doneLooksLike": "You have defined the automated mechanisms used to track incidents, collect incident information, and analyze it, such as an incident database or tracking system and network monitoring devices, and all three activities are carried out with them.",
+      "nextSteps": [
+        "Choose an incident tracking system that records each incident from report to closure.",
+        "Connect monitoring sources so incident information is collected automatically where practical.",
+        "Use the collected data to review trends and recurring issues at a regular interval."
+      ],
+      "reviewed": false
+    },
+    "ir-6.1": {
+      "question": "Does your organization use automated mechanisms, such as an incident reporting form, ticketing tool, or automated alerts, to report incidents?",
+      "whyItMatters": "Automated reporting helps incident reports reach the right people quickly and in a consistent format. It reduces delays caused by people not knowing who to tell or what details to include.",
+      "doneLooksLike": "You have defined the automated mechanisms used to report incidents, such as email to a monitored address, a web form that updates automatically, or automated incident response tools, and incidents are reported to the recipients specified in your incident reporting requirements through them.",
+      "nextSteps": [
+        "Decide which automated mechanisms will be used to report incidents.",
+        "Set them up so reports reach the people and organizations who must receive them.",
+        "Tell staff how to use the reporting mechanism and confirm it works with a test report."
+      ],
+      "reviewed": false
+    },
+    "ir-6.3": {
+      "question": "When an incident involves a product or service you obtained from a supplier, does your organization share relevant incident information with that provider and others in the supply chain?",
+      "whyItMatters": "A compromised product or service often affects other customers too, and the provider may be the only party able to find and fix the root cause. Sharing information helps stop the problem from spreading and improves the product.",
+      "doneLooksLike": "For incidents related to a system or component you obtained externally, incident information is provided to the product or service provider and to other organizations involved in the supply chain or supply chain governance. You decide what information is appropriate to share in each case.",
+      "nextSteps": [
+        "Add a step to your incident handling procedure to identify whether a supplier's product or service was involved.",
+        "Keep current security contact details for your key suppliers.",
+        "Define what incident information may be shared with suppliers and who approves sharing it."
+      ],
+      "reviewed": false
+    },
+    "ir-7.1": {
+      "question": "Does your organization use automated mechanisms, such as a help portal or automatic notices, to make incident response information and support more available to users?",
+      "whyItMatters": "People are more likely to report problems and follow the right steps when help is quick to find. Automated access to guidance and support shortens the time between noticing an issue and acting on it.",
+      "doneLooksLike": "You have defined the automated mechanisms used to increase the availability of incident response information and support, such as a website users can search for guidance, or notices that are sent to users about current response capabilities, and users can reach them when needed.",
+      "nextSteps": [
+        "Decide how users will find incident response help, such as an internal web page or service desk portal.",
+        "Publish clear guidance there on how to report incidents and get assistance.",
+        "Consider sending targeted notices to users when a current threat or response step affects them."
+      ],
+      "reviewed": false
+    },
+    "ir-8.1": {
+      "question": "Does your incident response plan cover breaches of personal information, including deciding on notifications, assessing harm to the people affected, and identifying privacy requirements that apply?",
+      "whyItMatters": "Breaches of personally identifiable information can cause real harm to individuals and may trigger legal duties to notify them, partners, or regulators. Planning these decisions in advance avoids rushed or inconsistent choices during an incident.",
+      "doneLooksLike": "Your incident response plan includes, for breaches involving personally identifiable information, a process to decide whether individuals or other organizations, including oversight organizations, need to be notified; an assessment process to determine the extent of harm, embarrassment, inconvenience, or unfairness to affected individuals and ways to reduce that harm; and identification of the privacy requirements that apply.",
+      "nextSteps": [
+        "Add a breach section to your incident response plan.",
+        "Describe how you will assess harm to affected individuals and the options for reducing it.",
+        "List the laws, regulations, and policies that set notice and other privacy requirements for your organization, with help from legal counsel."
+      ],
+      "reviewed": false
+    },
+    "ma-2.2": {
+      "question": "Does your organization use automated tools to schedule, carry out, and record maintenance, repair, and replacement work, and keep complete, current records of all of it?",
+      "whyItMatters": "Maintenance tracked by hand is often missed or recorded inconsistently. Automated tools produce timely, accurate records that show what was requested, what is under way, and what was done.",
+      "doneLooksLike": "You have defined the automated mechanisms used to schedule, conduct, and document maintenance, repair, and replacement actions for the system. They produce up-to-date, accurate, and complete records of every maintenance, repair, and replacement action that has been requested, scheduled, is in process, or has been completed.",
+      "nextSteps": [
+        "Choose a maintenance tracking or ticketing system that covers the system's components.",
+        "Route all maintenance, repair, and replacement requests through it, from request to completion.",
+        "Review records periodically to confirm they are complete and current."
+      ],
+      "reviewed": false
+    },
+    "ma-3": {
+      "question": "Does your organization approve, control, and monitor the tools used to maintain its systems, and review the list of approved tools at a frequency you define?",
+      "whyItMatters": "Diagnostic software, test equipment, and tools brought in by technicians can carry malicious code or capture data. Controlling which tools are used, and retiring outdated ones, reduces that risk.",
+      "doneLooksLike": "Use of system maintenance tools, such as diagnostic software, test equipment, and network analyzers, whether pre-installed, brought in on media, cloud-based, or downloaded, is approved, controlled, and monitored. Previously approved tools are reviewed at the frequency you set, and approval is withdrawn for tools that are outdated, unsupported, or no longer used.",
+      "nextSteps": [
+        "List the maintenance tools used on your systems, including those that outside technicians bring.",
+        "Decide who approves maintenance tools and how approval is recorded.",
+        "Set a review frequency and remove tools that are no longer needed or supported."
+      ],
+      "reviewed": false
+    },
+    "ma-3.1": {
+      "question": "Does your organization inspect the maintenance tools technicians use for improper or unauthorized modifications before they are used?",
+      "whyItMatters": "A tampered maintenance tool can install malicious code or capture information while appearing to perform a routine repair. Inspection helps catch tools that have been altered.",
+      "doneLooksLike": "Maintenance tools used by maintenance personnel, including those brought into the facility or downloaded from a vendor's website, are inspected for improper or unauthorized modifications. If a tool is found to be modified or to contain malicious code, the event is handled through your incident handling process.",
+      "nextSteps": [
+        "Add a tool inspection step before maintenance work begins.",
+        "Define what the inspection covers, such as checking hardware for signs of tampering and verifying downloaded software against the vendor's published checksums.",
+        "Treat any modified tool as a security incident."
+      ],
+      "reviewed": false
+    },
+    "ma-3.2": {
+      "question": "Does your organization check media holding diagnostic and test programs for malicious code before that media is used on your systems?",
+      "whyItMatters": "USB drives and discs carrying diagnostic software can introduce malicious code directly into a system. Scanning them first blocks a common path for infection.",
+      "doneLooksLike": "Media containing diagnostic and test programs are checked for malicious code before they are used in the system. If malicious code is found, the event is handled through your incident handling process.",
+      "nextSteps": [
+        "Require that all diagnostic and test media be scanned before use.",
+        "Provide a scanning station or tool for technicians to use.",
+        "Record the scan and route any detection to your incident response process."
+      ],
+      "reviewed": false
+    },
+    "ma-3.3": {
+      "question": "Does your organization prevent maintenance equipment holding your information from leaving the facility unless the information is removed or someone you designate approves it?",
+      "whyItMatters": "Diagnostic equipment can keep copies of data it touched. If it leaves the building unchecked, your information can leave with it.",
+      "doneLooksLike": "Removal of maintenance equipment containing organizational information is prevented by at least one of these: verifying the equipment holds no organizational information, sanitizing or destroying it, keeping it within the facility, or obtaining an exemption from the personnel or roles you designate that explicitly authorizes its removal.",
+      "nextSteps": [
+        "Designate the people or roles who may authorize removal of maintenance equipment.",
+        "Add a check before technicians leave to confirm equipment holds none of your information or has been sanitized.",
+        "Keep equipment on site when neither check nor authorization is possible."
+      ],
+      "reviewed": false
+    },
+    "ma-4.3": {
+      "question": "For remote maintenance, is the work done from a system as well protected as yours, or is the component removed, sanitized, and inspected before and after service?",
+      "whyItMatters": "Remote maintenance connects your system to someone else's equipment. If that equipment is poorly protected, it can become a route for an attacker or malicious code into your system.",
+      "doneLooksLike": "Either nonlocal (remote) maintenance and diagnostic services are performed from a system with security capabilities at least as comprehensive as those of the system being serviced, or the component is removed from the system before service, sanitized of organizational information, and after service inspected and sanitized for potentially malicious software before being reconnected.",
+      "nextSteps": [
+        "Ask remote maintenance providers to describe the security protections on the systems they connect from.",
+        "Compare those protections with your own and decide whether they are comparable.",
+        "Where they are not, remove and sanitize the component before service and inspect it before reconnecting."
+      ],
+      "reviewed": false
+    },
+    "ma-5.1": {
+      "question": "When maintenance personnel lack the needed clearances or are not U.S. citizens, does your organization escort them, sanitize or disconnect storage, and use alternate controls when needed?",
+      "whyItMatters": "Maintenance work can expose sensitive or classified information on screen or in storage. These procedures prevent people without the required access from seeing or retrieving it.",
+      "doneLooksLike": "Your procedures for maintenance personnel who lack the needed access authorizations or clearances, or are not U.S. citizens, require that they be escorted and supervised by fully cleared, authorized, and technically qualified staff. Before their work starts, volatile storage in the system is sanitized and nonvolatile storage media are removed or physically disconnected and secured. Where a component cannot be sanitized, removed, or disconnected, the alternate controls you define are developed and used.",
+      "nextSteps": [
+        "Write a procedure for maintenance by personnel without the needed access, covering escorts and storage handling.",
+        "Identify cleared, qualified staff who can escort and supervise.",
+        "Define alternate controls for components that cannot be sanitized, removed, or disconnected."
+      ],
+      "reviewed": false
+    },
+    "ma-6": {
+      "question": "Can your organization get maintenance support or spare parts for the system components you identify within the time period you set after they fail?",
+      "whyItMatters": "When a critical component fails, waiting days or weeks for parts or a technician can halt operations. Arranging support in advance limits downtime.",
+      "doneLooksLike": "You have identified the system components whose failure would raise risk to your operations and the time period within which support or parts must be obtained. Arrangements such as support contracts or on-hand spares are in place so maintenance support or spare parts can be obtained within that period.",
+      "nextSteps": [
+        "List the components whose failure would significantly affect your operations.",
+        "Set the maximum time to obtain support or parts for each.",
+        "Put support contracts in place or keep spares on hand to meet those times."
+      ],
+      "reviewed": false
+    },
+    "mp-3": {
+      "question": "Does your organization label system media to show how the information on it may be distributed and handled, with exemptions only for media kept in controlled areas?",
+      "whyItMatters": "Unlabeled drives and printouts are often mishandled because no one can tell what they contain. Clear markings tell people at a glance who may see the media and how to treat it.",
+      "doneLooksLike": "System media, digital and non-digital, are marked to show the distribution limitations, handling caveats, and any applicable security markings for the information they hold. Media types you exempt from marking stay within the controlled areas you define.",
+      "nextSteps": [
+        "Define the markings to use for each category of information you handle.",
+        "Label existing removable media and printed material that holds non-public information.",
+        "Decide which media types, if any, are exempt from marking and the controlled areas they must stay within."
+      ],
+      "reviewed": false
+    },
+    "mp-4": {
+      "question": "Does your organization physically control and securely store the types of media you define within controlled areas, until the media are destroyed or sanitized?",
+      "whyItMatters": "Backup drives, flash drives, and paper records left in open areas can be lost or taken. Secure storage and accountability keep the information on them protected for as long as the media exist.",
+      "doneLooksLike": "The types of digital and non-digital media you define are physically controlled, for example through inventories and check-out and return procedures, and securely stored within the controlled areas you define, such as a locked cabinet or media library. These media remain protected until they are destroyed or sanitized using approved equipment, techniques, and procedures.",
+      "nextSteps": [
+        "Identify the types of digital and paper media that need controlled storage and where they will be kept.",
+        "Store them in locked cabinets, rooms, or a controlled media library.",
+        "Keep an inventory and a check-out and return record for stored media."
+      ],
+      "reviewed": false
+    },
+    "mp-5": {
+      "question": "When media leave your controlled areas, does your organization protect them in transit, keep track of them, record the transport, and limit who can carry them?",
+      "whyItMatters": "Media are most exposed in transit, when they can be lost, stolen, or tampered with. Protection, tracking, and authorized handlers reduce that risk and show where things went wrong if media go missing.",
+      "doneLooksLike": "The types of media you define are protected and controlled during transport outside controlled areas using the controls you define, such as encryption or locked containers. Accountability for the media is maintained throughout transport, transport activities are documented, and the personnel authorized to transport media are identified and are the only ones allowed to do so.",
+      "nextSteps": [
+        "Define which media types need protection in transit and the controls to use, such as encryption and locked cases.",
+        "Name the staff or couriers authorized to transport media.",
+        "Keep a log of each shipment or transfer, including who released, carried, and received the media."
+      ],
+      "reviewed": false
+    },
+    "mp-6.1": {
+      "question": "Does your organization review, approve, track, document, and verify media sanitization and disposal actions?",
+      "whyItMatters": "Without oversight and records, media can be wiped too early, wiped incompletely, or thrown away without wiping. A documented, verified process shows that information was actually removed.",
+      "doneLooksLike": "Media sanitization and disposal actions are reviewed, approved, tracked, documented, and verified. Records show who reviewed and approved each action, the media type, the files stored on it, the sanitization method, the date and time, who performed and who verified the sanitization, and the disposal action taken, and sanitization is verified as effective before disposal.",
+      "nextSteps": [
+        "Require approval before media are sanitized, checking against your records retention rules.",
+        "Create a sanitization log that captures the details listed above.",
+        "Verify each sanitization, for example by sample checks, before media are disposed of."
+      ],
+      "reviewed": false
+    },
+    "mp-6.2": {
+      "question": "Does your organization test its sanitization equipment and procedures at a frequency you define to confirm they actually remove information as intended?",
+      "whyItMatters": "Degaussers wear out, shredders change, and wiping software can be misconfigured. Without testing, you may believe media are clean when information can still be recovered.",
+      "doneLooksLike": "Sanitization equipment and sanitization procedures are each tested at the frequency you set to confirm the intended sanitization is being achieved. Testing may be done by qualified and authorized external parties, and results are recorded.",
+      "nextSteps": [
+        "List the sanitization equipment and procedures you rely on.",
+        "Set a testing frequency for each.",
+        "Test by attempting to recover data from sanitized samples, or use a qualified external party, and record the results."
+      ],
+      "reviewed": false
+    },
+    "mp-6.3": {
+      "question": "Does your organization sanitize portable storage devices, without destroying them, before connecting them to the system in the circumstances you define?",
+      "whyItMatters": "New or untracked USB drives and external disks can arrive carrying malicious code. Wiping them before first use gives more assurance than scanning alone.",
+      "doneLooksLike": "Nondestructive sanitization techniques are applied to portable storage devices, such as external drives, flash drives, memory cards, and optical discs, before they are connected to the system in the circumstances you define, for example when devices are newly purchased or when you cannot confirm their chain of custody.",
+      "nextSteps": [
+        "Define the circumstances that require portable storage devices to be sanitized before use.",
+        "Choose a nondestructive sanitization method and tool.",
+        "Set up a process so devices are sanitized before anyone connects them to the system."
+      ],
+      "reviewed": false
+    },
+    "pe-3.1": {
+      "question": "Beyond building access, does your organization enforce separate physical access authorizations for the system itself in the spaces you define, such as server rooms?",
+      "whyItMatters": "Many people may be allowed into a building, but far fewer need to be near servers and network equipment. An extra layer of control where system components are concentrated reduces the chance of tampering or theft.",
+      "doneLooksLike": "In the physical spaces you define, such as server rooms or wiring closets, physical access authorizations to the system are enforced in addition to the physical access controls for the facility, so only people authorized for the system can reach it.",
+      "nextSteps": [
+        "Identify the spaces where system components are concentrated.",
+        "Add a separate lock, badge reader, or other control at those spaces.",
+        "Limit authorization to people who need access to the system and review that list regularly."
+      ],
+      "reviewed": false
+    },
+    "pe-4": {
+      "question": "Does your organization control physical access to the network and communication cabling you identify, such as wiring closets and cable runs, using controls you define?",
+      "whyItMatters": "Exposed cabling and open network jacks can be damaged, disconnected, or tapped to eavesdrop on unencrypted traffic. Controlling access to them protects both availability and confidentiality.",
+      "doneLooksLike": "Physical access to the system distribution and transmission lines you define within your facilities is controlled using the security controls you define, such as locked wiring closets, disconnected or locked spare jacks, cabling in conduit or cable trays, and wiretapping sensors.",
+      "nextSteps": [
+        "Identify the cabling and network connection points that need protection.",
+        "Lock wiring closets and disable or lock unused network jacks.",
+        "Route exposed cables through conduit or trays where practical."
+      ],
+      "reviewed": false
+    },
+    "pe-5": {
+      "question": "Does your organization control physical access to output from the devices you identify, such as printers and monitors, so unauthorized people cannot obtain it?",
+      "whyItMatters": "Printouts left on a shared printer or a screen visible from a hallway can expose information without anyone touching a system. Controlling output devices closes that gap.",
+      "doneLooksLike": "Physical access to output from the devices you define, such as printers, copiers, scanners, fax machines, monitors, and audio devices, is controlled to prevent unauthorized individuals from obtaining it. Methods include placing devices in secured or monitored areas, using screen filters, and using headphones.",
+      "nextSteps": [
+        "List the output devices that may produce sensitive information.",
+        "Move them to secured or monitored areas, or enable features such as release-on-badge printing.",
+        "Add screen privacy filters or reposition monitors where screens are visible to the public."
+      ],
+      "reviewed": false
+    },
+    "pe-6.1": {
+      "question": "Does your organization monitor physical access to the facility where the system resides using intrusion alarms and surveillance equipment such as video cameras?",
+      "whyItMatters": "Locks and guards can be bypassed. Alarms alert people when someone tries to get in without authorization, and cameras record what happened.",
+      "doneLooksLike": "Physical access to the facility where the system resides is monitored with physical intrusion alarms, such as motion, door contact, or glass-break sensors, and with surveillance equipment, such as video cameras at strategic locations. Alarms trigger a response when other physical protections are bypassed.",
+      "nextSteps": [
+        "Identify the entry points and areas that need intrusion alarms and cameras.",
+        "Install or verify alarm sensors and cameras at those locations.",
+        "Define who responds to alarms and how camera footage is reviewed and retained."
+      ],
+      "reviewed": false
+    },
+    "pe-6.4": {
+      "question": "Beyond monitoring the building, does your organization monitor physical access to the system itself in the spaces you define, such as server rooms and media storage areas?",
+      "whyItMatters": "Building-level monitoring may not show who entered the room where servers or media are kept. Monitoring those spaces directly helps detect and investigate tampering with the system.",
+      "doneLooksLike": "In the physical spaces you define, such as server rooms, media storage areas, and communications centers, physical access to the system is monitored in addition to facility-level monitoring, and this monitoring can be coordinated with your system intrusion detection and monitoring.",
+      "nextSteps": [
+        "Identify the spaces where system components are concentrated.",
+        "Add access logging, cameras, or alarms at those spaces.",
+        "Review that monitoring together with system security alerts."
+      ],
+      "reviewed": false
+    },
+    "pe-8.1": {
+      "question": "Does your organization use automated tools, such as an electronic visitor management system, to maintain and review visitor access records?",
+      "whyItMatters": "Paper sign-in sheets are hard to search and rarely reviewed. Automated records make it practical to check who visited and whether visitor access is still appropriate.",
+      "doneLooksLike": "Visitor access records are maintained and reviewed using the automated mechanisms you define, such as an electronic visitor management system or database that authorized staff can access for regular reviews.",
+      "nextSteps": [
+        "Choose an electronic system for recording visitor access.",
+        "Restrict who can view and change visitor records.",
+        "Schedule regular reviews of the records using the system's search and reporting features."
+      ],
+      "reviewed": false
+    },
+    "pe-8.3": {
+      "question": "Does your organization limit the personal information collected in visitor access records to the elements your privacy risk assessment identified as needed?",
+      "whyItMatters": "Visitor logs often collect more personal details than needed, and every extra detail adds privacy risk if the records are exposed. Limiting the content reduces that risk.",
+      "doneLooksLike": "Personally identifiable information in visitor access records is limited to the elements you define based on your privacy risk assessment, and visitor forms and systems collect only those elements.",
+      "nextSteps": [
+        "Review what your visitor logs currently collect.",
+        "Use your privacy risk assessment to decide which elements are needed.",
+        "Remove the other fields from forms and systems."
+      ],
+      "reviewed": false
+    },
+    "pe-9": {
+      "question": "Does your organization protect the power equipment and power cabling for the system from damage and destruction?",
+      "whyItMatters": "Damaged power cables or equipment can take systems offline or cause hardware failures. Protecting power infrastructure supports system availability.",
+      "doneLooksLike": "Power equipment for the system, such as uninterruptible power supplies and generators, and power cabling, inside and outside your facilities, are protected from damage and destruction with protections appropriate to each location.",
+      "nextSteps": [
+        "Identify the power equipment and cabling that supply the system, inside and outside the building.",
+        "Protect them from physical damage, for example with enclosures, conduit, or restricted areas.",
+        "Inspect power equipment and cabling periodically for damage."
+      ],
+      "reviewed": false
+    },
+    "pe-10": {
+      "question": "Can your organization shut off power to the systems or components you identify in an emergency, with accessible shutoff switches protected from accidental or unauthorized use?",
+      "whyItMatters": "In a fire, flood, or electrical fault, cutting power quickly can protect people and equipment. Shutoff switches must be reachable by the right people and protected from misuse.",
+      "doneLooksLike": "You can shut off power to the system or system components you define in emergency situations. Emergency shutoff switches or devices are placed in the locations you define so authorized personnel can reach them, and the shutoff capability is protected from unauthorized activation, for example with covers or restricted access.",
+      "nextSteps": [
+        "Identify which systems or components need emergency power shutoff, such as those in server rooms.",
+        "Place shutoff switches where authorized staff can reach them quickly.",
+        "Protect switches from accidental or unauthorized activation and train staff on when to use them."
+      ],
+      "reviewed": false
+    },
+    "pe-11": {
+      "question": "Does your organization provide an uninterruptible power supply so the system can shut down in an orderly way or switch to long-term backup power if main power fails?",
+      "whyItMatters": "A sudden power loss can corrupt data and damage equipment. An uninterruptible power supply (UPS, a battery-backed power unit) gives enough time to shut down safely or start a generator.",
+      "doneLooksLike": "An uninterruptible power supply is provided for the system that supports the outcome your organization selected when primary power is lost: either an orderly shutdown of the system or a transition to long-term alternate power. The UPS capacity is sufficient for that outcome.",
+      "nextSteps": [
+        "Decide whether the UPS must support an orderly shutdown or a transition to long-term alternate power.",
+        "Install UPS units sized for that purpose on the system's critical components.",
+        "Test the UPS and replace batteries as the manufacturer recommends."
+      ],
+      "reviewed": false
+    },
+    "pe-11.1": {
+      "question": "Beyond a battery backup, does your organization have an alternate power supply that can keep minimum required operations running during an extended power outage?",
+      "whyItMatters": "A UPS lasts minutes, not hours. An alternate power supply such as a generator or second utility feed keeps essential functions running through a long outage.",
+      "doneLooksLike": "An alternate power supply is provided for the system, such as a generator or secondary commercial power supply, that is activated manually or automatically as your organization selected and can maintain the minimally required operational capability during an extended loss of primary power.",
+      "nextSteps": [
+        "Define the minimum operations that must keep running during an extended outage.",
+        "Provide an alternate power supply sized for them and decide whether it activates manually or automatically.",
+        "Test the alternate power supply under load at regular intervals."
+      ],
+      "reviewed": false
+    },
+    "pe-13.1": {
+      "question": "Does your organization use fire detection systems that activate automatically and notify the people and emergency responders you designate when a fire occurs?",
+      "whyItMatters": "A fire that goes unnoticed, especially after hours, can destroy systems and data. Automatic detection and notification speed up the response.",
+      "doneLooksLike": "Fire detection systems that activate automatically are in place, and in the event of a fire they automatically notify the personnel or roles and emergency responders you define. Notification mechanisms are designed so the fire does not disable them, for example with an independent power source.",
+      "nextSteps": [
+        "Confirm that fire detectors cover the areas that house the system.",
+        "Define the people, roles, and emergency responders who must be notified automatically.",
+        "Test detection and notification together at regular intervals."
+      ],
+      "reviewed": false
+    },
+    "pe-13.2": {
+      "question": "Does your organization use fire suppression systems that activate automatically and notify the people and responders you designate, especially where the facility is not always staffed?",
+      "whyItMatters": "In unstaffed facilities, no one may be there to fight a fire. Automatic suppression limits damage, and automatic notification brings help quickly.",
+      "doneLooksLike": "Fire suppression systems that activate automatically and notify the personnel or roles and emergency responders you define are in place. Where the facility is not staffed continuously, an automatic fire suppression capability is used.",
+      "nextSteps": [
+        "Confirm that areas housing the system have fire suppression suited to the equipment.",
+        "Set up automatic notification to designated people and emergency responders.",
+        "Make sure facilities that are not staffed around the clock have automatic suppression."
+      ],
+      "reviewed": false
+    },
+    "pe-15.1": {
+      "question": "Does your organization use automated mechanisms, such as water sensors and alarms, to detect water near the system and alert the people you designate?",
+      "whyItMatters": "Leaks from pipes, cooling units, or roofs can damage equipment before anyone notices. Automated detection gives early warning.",
+      "doneLooksLike": "The presence of water near the system can be detected automatically, and the personnel or roles you define are alerted using the automated mechanisms you define, such as water detection sensors, alarms, and notification systems.",
+      "nextSteps": [
+        "Identify where water could reach system components, such as under raised floors or near cooling equipment.",
+        "Install water sensors in those locations.",
+        "Configure alerts to reach the designated people, and test them."
+      ],
+      "reviewed": false
+    },
+    "pe-17": {
+      "question": "Does your organization define the alternate work sites staff may use, such as home offices, apply and assess security controls there, and give staff a way to report incidents?",
+      "whyItMatters": "Work done away from the main office often has weaker physical and network protection. Defining allowed sites and controls keeps protections consistent wherever people work.",
+      "doneLooksLike": "You have determined and documented the alternate work sites employees may use and the controls required at them. Those controls are used, their effectiveness is assessed, and employees at alternate sites have a way to communicate with security and privacy personnel if an incident occurs.",
+      "nextSteps": [
+        "Document which alternate work sites are allowed, such as employee homes or other company facilities.",
+        "Define the required controls for each type of site, such as a secured home network and a lockable storage space.",
+        "Assess those controls periodically, for example through checklists or attestations.",
+        "Tell remote staff how to reach security and privacy personnel to report incidents."
+      ],
+      "reviewed": false
+    },
+    "pe-18": {
+      "question": "Does your organization position system components within the facility to reduce damage from the physical and environmental hazards you identify and to limit opportunities for unauthorized access?",
+      "whyItMatters": "Equipment placed near windows, in basements prone to flooding, or next to public areas faces greater risk of damage, theft, or eavesdropping. Thoughtful placement reduces both.",
+      "doneLooksLike": "System components are positioned within the facility to minimize potential damage from the physical and environmental hazards you define, such as flooding, fire, or electrical interference, and to minimize the opportunity for unauthorized access, considering where unauthorized people might come close to systems.",
+      "nextSteps": [
+        "List the physical and environmental hazards relevant to your facility.",
+        "Review where system components are located against those hazards and against public or unsecured areas.",
+        "Relocate or add protection for components at higher risk."
+      ],
+      "reviewed": false
+    },
+    "pl-8": {
+      "question": "Has your organization developed security and privacy architectures for the system that explain how information is protected, how they fit the enterprise architecture, and what they depend on?",
+      "whyItMatters": "An architecture shows how protections fit together, rather than as a collection of separate tools. Without one, gaps and conflicting designs are hard to spot, and changes can undo protections.",
+      "doneLooksLike": "Security and privacy architectures for the system describe the requirements and approach for protecting confidentiality, integrity, and availability, and for processing personally identifiable information to minimize privacy risk; how they integrate with and support the enterprise architecture; and assumptions about and dependencies on external systems and services. They are reviewed and updated at the frequency you set to reflect enterprise architecture changes, and planned changes are reflected in security and privacy plans, the concept of operations, criticality analysis, procedures, and procurements.",
+      "nextSteps": [
+        "Document the system's security and privacy architecture, including protection approaches and external dependencies.",
+        "Show how it aligns with your enterprise architecture.",
+        "Set a review frequency and update related plans and procurements when architecture changes are planned."
+      ],
+      "reviewed": false
+    },
+    "pl-9": {
+      "question": "Does your organization centrally manage the controls and related processes you select, rather than leaving each system to handle them separately?",
+      "whyItMatters": "Managing selected controls centrally, such as patching or monitoring, promotes consistency, avoids duplicated effort, and makes it easier to see whether those controls are working.",
+      "doneLooksLike": "You have defined the controls and related processes to be centrally managed, and they are planned, implemented, assessed, authorized, and monitored at the organization level. Where only part of a control can be centrally managed, it is treated as a hybrid control with the system-level portion identified.",
+      "nextSteps": [
+        "Identify controls that would benefit from central management, such as account management, patching, or security monitoring.",
+        "Assign an owner responsible for each centrally managed control.",
+        "Document which parts are managed centrally and which remain the responsibility of each system."
+      ],
+      "reviewed": false
+    },
+    "pm-3": {
+      "question": "Does your organization include the resources its security and privacy programs need in budget and investment planning, and make those resources available as planned?",
+      "whyItMatters": "Security and privacy work that is not budgeted tends to be delayed or skipped. Planning for it in investment requests helps the money and people actually be available.",
+      "doneLooksLike": "The resources needed for the information security and privacy programs are included in capital planning and investment requests, and exceptions are documented. Required documentation for these requests is prepared in line with applicable laws, regulations, and policies, and the planned security and privacy resources are made available for spending.",
+      "nextSteps": [
+        "Identify the resources your security and privacy programs need for the next planning cycle.",
+        "Include them in budget and investment requests and record any exceptions.",
+        "Track actual spending against what was planned."
+      ],
+      "reviewed": false
+    },
+    "pm-4": {
+      "question": "Does your organization have a process for developing, maintaining, and reporting plans of action and milestones that track how security, privacy, and supply chain risks will be addressed?",
+      "whyItMatters": "Known weaknesses that are not tracked with owners and dates tend to stay unresolved. A plan of action and milestones (a list of planned fixes with deadlines) keeps remediation visible and prioritized.",
+      "doneLooksLike": "A process ensures that plans of action and milestones for the security, privacy, and supply chain risk management programs and related systems are developed and maintained, document the remedial actions needed to respond to risk, and are reported in line with established reporting requirements. The plans are reviewed for consistency with your risk management strategy and organization-wide priorities for risk response.",
+      "nextSteps": [
+        "Create a plan of action and milestones format that records each weakness, planned action, owner, and due date.",
+        "Feed findings from assessments and monitoring into it.",
+        "Review it regularly against your risk management strategy and priorities, and report status as required."
+      ],
+      "reviewed": false
+    },
+    "pm-5.1": {
+      "question": "Does your organization maintain an inventory of all systems, applications, and projects that process personal information, and update it at a frequency you define?",
+      "whyItMatters": "You cannot protect personally identifiable information or give accurate privacy notices if you do not know where it is processed. An inventory shows where it flows and helps limit processing to what is needed.",
+      "doneLooksLike": "An inventory of all systems, applications, and projects that process personally identifiable information is established and maintained, and updated at the frequency you set.",
+      "nextSteps": [
+        "Survey teams to identify every system, application, and project that processes personal information.",
+        "Record each in a central inventory with an owner.",
+        "Set an update frequency and add a step to project and system intake to capture new entries."
+      ],
+      "reviewed": false
+    },
+    "pm-6": {
+      "question": "Does your organization develop, monitor, and report on measures that show how well its security and privacy programs are performing?",
+      "whyItMatters": "Without measures, it is hard to tell whether security and privacy efforts are working or where to invest. Outcome-based metrics give leadership a clear view of program effectiveness.",
+      "doneLooksLike": "Information security and privacy measures of performance are developed, monitored, and their results reported. The measures focus on outcomes, such as the effectiveness or efficiency of the programs and their controls, and can be aligned with your organizational risk tolerance.",
+      "nextSteps": [
+        "Choose a small set of meaningful security and privacy measures, such as time to fix critical vulnerabilities or time to respond to privacy requests.",
+        "Collect data for each measure on a regular schedule.",
+        "Report results to leadership and use them to guide decisions."
+      ],
+      "reviewed": false
+    },
+    "pm-7": {
+      "question": "Does your organization develop and maintain an enterprise architecture that takes security, privacy, and the resulting risks into account?",
+      "whyItMatters": "An enterprise architecture describes how your systems and processes fit together. Building security and privacy into it means they are considered from the start of every system, not added later.",
+      "doneLooksLike": "An enterprise architecture is developed and maintained with consideration for information security, privacy, and the resulting risk to operations, assets, individuals, and other organizations. It includes organization-wide security and privacy architectures that system-level architectures align with.",
+      "nextSteps": [
+        "Document your enterprise architecture, covering major systems, data flows, and business processes.",
+        "Add security and privacy requirements and the associated risks to it.",
+        "Update it as systems and processes change, and use it to guide system-level architectures."
+      ],
+      "reviewed": false
+    },
+    "pm-8": {
+      "question": "Does your organization address security and privacy issues when developing, documenting, and updating its critical infrastructure and key resources protection plan?",
+      "whyItMatters": "Critical infrastructure protection plans set priorities for protecting essential assets. If security and privacy issues are left out, key risks to those assets may be overlooked.",
+      "doneLooksLike": "Information security and privacy issues are addressed in the development, documentation, and updating of your critical infrastructure and key resources protection plan, in line with applicable laws, regulations, and guidance.",
+      "nextSteps": [
+        "Determine whether your organization needs a critical infrastructure and key resources protection plan under applicable requirements.",
+        "Involve security and privacy staff in developing and updating it.",
+        "Document the security and privacy issues the plan addresses."
+      ],
+      "reviewed": false
+    },
+    "pm-9": {
+      "question": "Does your organization have a comprehensive strategy for managing security and privacy risk that it applies consistently and reviews at a frequency you define?",
+      "whyItMatters": "Without a shared strategy, different teams make risk decisions in different ways. A common strategy sets how much risk is acceptable and how risk is assessed, reduced, and monitored.",
+      "doneLooksLike": "A comprehensive strategy is developed to manage security risk from operating and using organizational systems and privacy risk to individuals from processing personally identifiable information. It is implemented consistently across the organization and reviewed and updated at the frequency you set or when organizational changes require it.",
+      "nextSteps": [
+        "Write a risk management strategy that states your risk tolerance and how risks are assessed, addressed, and monitored.",
+        "Communicate it to everyone who makes risk decisions.",
+        "Set a review frequency and update it when the organization changes."
+      ],
+      "reviewed": false
+    },
+    "pm-10": {
+      "question": "Does your organization manage the security and privacy state of its systems through authorization processes, with named people in risk roles and integration with organization-wide risk management?",
+      "whyItMatters": "Authorization gives a named official responsibility for deciding whether a system's risk is acceptable. Without it, systems may run with unknown or unaccepted risk.",
+      "doneLooksLike": "The security and privacy state of systems and their environments is managed through authorization processes. Individuals are designated for specific risk management roles, such as authorizing officials and the risk executive function, and the authorization processes are integrated into an organization-wide risk management program.",
+      "nextSteps": [
+        "Define your authorization process for systems, including who approves operation.",
+        "Designate authorizing officials and other risk management roles.",
+        "Connect authorization decisions to your organization-wide risk management and continuous monitoring."
+      ],
+      "reviewed": false
+    },
+    "pm-11": {
+      "question": "Has your organization defined its mission and business processes with security and privacy in mind, determined the resulting protection needs, and reviewed those processes at a frequency you define?",
+      "whyItMatters": "Protection needs start from what the business does and what information it relies on. Defining processes with security and privacy in mind tells you which information needs protection and how personal information may be used.",
+      "doneLooksLike": "Mission and business processes are defined with consideration for security, privacy, and the resulting risk. The information protection needs and personally identifiable information processing needs arising from those processes are determined, and the processes are reviewed and revised at the frequency you set.",
+      "nextSteps": [
+        "Document your core mission and business processes and the information each relies on.",
+        "Determine the protection needs and personal information processing needs for each.",
+        "Set a review frequency and revise the processes when the business changes."
+      ],
+      "reviewed": false
+    },
+    "pm-13": {
+      "question": "Does your organization have a program to develop and improve the skills of the people who carry out security and privacy work?",
+      "whyItMatters": "Security and privacy roles require specific skills that need to keep pace with changing threats and requirements. A workforce program helps you fill these roles with qualified people and keep them current.",
+      "doneLooksLike": "A security workforce development and improvement program and a privacy workforce development and improvement program are established. They can include defining the knowledge and skills needed for security and privacy roles, role-based training, standards for measuring qualifications, and career paths.",
+      "nextSteps": [
+        "Identify the security and privacy roles in your organization and the skills each needs.",
+        "Provide role-based training and development for people in those roles.",
+        "Set qualification standards for hiring and advancement in those roles."
+      ],
+      "reviewed": false
+    },
+    "pm-14": {
+      "question": "Does your organization have a process to make sure plans for security and privacy testing, training, and monitoring are developed, kept current, and carried out?",
+      "whyItMatters": "Testing, training, and monitoring plans often exist on paper but lapse in practice. A coordinating process keeps them active and aligned with the organization's risk priorities.",
+      "doneLooksLike": "A process ensures that organizational plans for security and privacy testing, training, and monitoring of systems are developed, maintained, and continue to be carried out. Testing, training, and monitoring plans are reviewed for consistency with your risk management strategy and organization-wide priorities for risk response.",
+      "nextSteps": [
+        "Collect your security and privacy testing, training, and monitoring plans in one place.",
+        "Assign an owner to track whether each plan is being carried out.",
+        "Review the plans periodically against your risk management strategy and priorities."
+      ],
+      "reviewed": false
+    },
+    "pm-17": {
+      "question": "Does your organization have policy and procedures that make sure controlled unclassified information (CUI) on external systems is protected as required, and review them at a frequency you define?",
+      "whyItMatters": "Controlled unclassified information (sensitive government information that requires protection but is not classified) often ends up on contractor or partner systems. Clear policy and procedures help ensure those systems protect it as required.",
+      "doneLooksLike": "Policy and procedures are established to ensure that requirements for protecting CUI processed, stored, or transmitted on external systems are implemented in line with applicable laws, regulations, and standards, including through contracting processes. The policy and procedures are reviewed and updated at the frequency you set.",
+      "nextSteps": [
+        "Identify where CUI is shared with or handled on external systems.",
+        "Write policy and procedures that set protection requirements for those systems, including contract language.",
+        "Set a review frequency for the policy and procedures."
+      ],
+      "reviewed": false
+    },
+    "pm-18": {
+      "question": "Does your organization have an approved, organization-wide privacy program plan that describes the program's structure, resources, roles, controls, and goals, and is it kept up to date?",
+      "whyItMatters": "A privacy program plan explains who is responsible for privacy, what requirements apply, and how they are met. Without one, privacy efforts can be inconsistent and accountability unclear.",
+      "doneLooksLike": "An organization-wide privacy program plan is developed and disseminated. It describes the program's structure and resources, the requirements and the program management and common controls in place or planned, the role of the senior privacy official and other privacy roles, management commitment, how the program meets its privacy obligations, and its strategic goals, and coordination among the groups responsible for privacy. It is approved by a senior official accountable for privacy risk and updated at the frequency you set and for changes in privacy laws and policy, organizational changes, and problems found in implementation or assessments.",
+      "nextSteps": [
+        "Draft a privacy program plan covering structure, resources, roles, requirements, controls, and goals.",
+        "Have it approved by a senior official accountable for privacy risk and share it across the organization.",
+        "Set an update frequency and revise it when laws, the organization, or assessment results change."
+      ],
+      "reviewed": false
+    },
+    "pm-19": {
+      "question": "Has your organization appointed a senior privacy official with the authority, accountability, and resources to manage privacy requirements and risks across the organization?",
+      "whyItMatters": "Privacy work needs a clear leader who can make decisions and coordinate across departments. Without one, privacy requirements may be missed or handled inconsistently.",
+      "doneLooksLike": "A senior official for privacy, sometimes called a chief privacy officer, is appointed with the authority, mission, accountability, and resources to coordinate, develop, and implement applicable privacy requirements and to manage privacy risks through the organization-wide privacy program.",
+      "nextSteps": [
+        "Appoint a senior official responsible for privacy and document the appointment.",
+        "Define the official's authority and responsibilities.",
+        "Provide the budget and staff the role needs."
+      ],
+      "reviewed": false
+    },
+    "pm-20": {
+      "question": "Does your organization maintain a central privacy webpage on its main public website that explains its privacy practices and lets the public contact its privacy office?",
+      "whyItMatters": "A single, public place for privacy information builds trust and makes it straightforward for people to learn how their information is handled and to raise questions.",
+      "doneLooksLike": "A central resource webpage on your principal public website serves as the main source of information about your privacy program. It gives the public access to information about your privacy activities and a way to communicate with your senior privacy official, makes your privacy practices and reports publicly available, and provides public email addresses or phone numbers for feedback and questions.",
+      "nextSteps": [
+        "Create a privacy page on your main public website.",
+        "Publish your privacy practices and any privacy reports there.",
+        "List a public email address or phone number for privacy questions and route them to the privacy office."
+      ],
+      "reviewed": false
+    },
+    "pm-20.1": {
+      "question": "Does your organization post clear, plain-language privacy policies on all its public websites, mobile apps, and digital services, and update them with a date when practices change?",
+      "whyItMatters": "People need understandable information to decide whether and how to interact with you. Outdated or confusing privacy policies undermine trust and may mislead users.",
+      "doneLooksLike": "Privacy policies are developed and posted on all external-facing websites, mobile applications, and other digital services. They are written in plain language and organized so they are straightforward to understand and navigate, give the public the information needed to decide whether and how to interact with you, are updated whenever practices substantively change, and show the date of the most recent change.",
+      "nextSteps": [
+        "List every public website, mobile app, and digital service you operate.",
+        "Post a plain-language privacy policy on each, linked from major entry points and from pages that collect personal information.",
+        "Update policies whenever practices change and include a last-updated date."
+      ],
+      "reviewed": false
+    },
+    "pm-21": {
+      "question": "Does your organization keep an accurate record of when, why, and to whom it discloses personal information, retain it for the required period, and share it with individuals on request?",
+      "whyItMatters": "A record of disclosures lets people learn who received their information, lets you notify recipients of corrections, and provides an audit trail of how information was shared.",
+      "doneLooksLike": "An accurate accounting of disclosures of personally identifiable information is developed and maintained, recording the date, nature, and purpose of each disclosure and the name and address or other contact information of the recipient. It is kept for as long as the information is maintained or five years after the disclosure, whichever is longer, and made available to the individual the information relates to on request.",
+      "nextSteps": [
+        "Set up a log or system to record each disclosure of personal information with the required details.",
+        "Apply the retention period of the longer of the life of the information or five years after disclosure.",
+        "Define how individuals can request their accounting and who responds, with input from legal counsel on any exceptions."
+      ],
+      "reviewed": false
+    },
+    "pm-22": {
+      "question": "Does your organization have policies and procedures for keeping personal information accurate and current, correcting or deleting it, notifying others of changes, and handling appeals?",
+      "whyItMatters": "Inaccurate or outdated personal information can lead to wrong decisions about people, such as denied services. Clear processes help keep information correct and give individuals a fair way to fix errors.",
+      "doneLooksLike": "Organization-wide policies and procedures are developed and documented for reviewing the accuracy, relevance, timeliness, and completeness of personally identifiable information across its life cycle; correcting or deleting inaccurate or outdated information; notifying individuals or other appropriate entities of corrections or deletions; and handling appeals of adverse decisions on correction or deletion requests.",
+      "nextSteps": [
+        "Write procedures for reviewing personal information for accuracy, relevance, timeliness, and completeness.",
+        "Define how individuals request corrections or deletions and how you notify them and other recipients of the outcome.",
+        "Create an appeal process for denied requests, including reasons for the decision and a way to request review."
+      ],
+      "reviewed": false
+    },
+    "pm-24": {
+      "question": "If your organization runs or joins computer matching programs that compare records about individuals, has it established a Data Integrity Board to review them?",
+      "whyItMatters": "Matching programs combine records from different systems to make decisions about individuals, such as eligibility for benefits. Board review helps ensure these programs are justified and protect the people involved.",
+      "doneLooksLike": "A Data Integrity Board of senior officials is established. It reviews proposals to conduct or participate in matching programs and conducts an annual review of all matching programs in which the organization has participated.",
+      "nextSteps": [
+        "Determine whether your organization conducts or participates in matching programs, with input from legal counsel.",
+        "If so, establish a Data Integrity Board, including your senior privacy official.",
+        "Schedule proposal reviews and the annual review of all matching programs."
+      ],
+      "reviewed": false
+    },
+    "pm-25": {
+      "question": "Does your organization limit and authorize the use of personal information in internal testing, training, and research, under policies and procedures you review at a frequency you define?",
+      "whyItMatters": "Copies of real personal information in test systems, training materials, or research datasets are often less protected than production data. Minimizing that use reduces the risk of exposure or misuse.",
+      "doneLooksLike": "Policies and procedures addressing the use of personally identifiable information for internal testing, training, and research are developed, documented, and implemented. The amount of such information used is limited or minimized, its use is authorized when it is required, and the policies and procedures are reviewed and updated at the frequency you set.",
+      "nextSteps": [
+        "Write policies and procedures for using personal information in testing, training, and research.",
+        "Use made-up or de-identified data in place of real personal information wherever possible.",
+        "Require approval when real personal information is needed, and set a review frequency for the policies."
+      ],
+      "reviewed": false
+    },
+    "pm-26": {
+      "question": "Does your organization have an accessible process for receiving, tracking, acknowledging, and responding to complaints and questions about its security and privacy practices within time periods you set?",
+      "whyItMatters": "Complaints and questions can reveal problems with how information is handled. A clear, tracked process makes sure people are heard and issues are addressed.",
+      "doneLooksLike": "A process for receiving and responding to complaints, concerns, or questions about your security and privacy practices is implemented. It includes mechanisms that are convenient and readily accessible to the public, such as a phone line, email, or web form; all information needed to file a complaint; tracking so every complaint is reviewed and addressed within the time period you define; and acknowledgment of receipt and a response within the time periods you define.",
+      "nextSteps": [
+        "Provide a public channel for complaints and questions, such as a web form or email address, with clear instructions.",
+        "Set time periods for acknowledging, reviewing, addressing, and responding to complaints.",
+        "Track each complaint to closure against those time periods."
+      ],
+      "reviewed": false
+    },
+    "pm-27": {
+      "question": "Does your organization produce the privacy reports you define, share them with designated oversight bodies and officials, and review them at a frequency you define?",
+      "whyItMatters": "Privacy reports show oversight bodies and leadership how the organization is meeting its privacy obligations and where gaps exist. Regular reporting supports accountability and improvement.",
+      "doneLooksLike": "The privacy reports you define are developed and disseminated to the oversight bodies you define to demonstrate accountability for statutory, regulatory, and policy privacy mandates, and to the officials you define and other personnel who monitor whether the privacy program meets its requirements. The reports are reviewed and updated at the frequency you set.",
+      "nextSteps": [
+        "Identify the privacy reports your organization must or should produce, with input from legal counsel.",
+        "Define the oversight bodies and officials who receive each report.",
+        "Set a schedule for preparing, reviewing, and updating the reports."
+      ],
+      "reviewed": false
+    },
+    "pm-28": {
+      "question": "Has your organization documented the assumptions, constraints, priorities, trade-offs, and risk tolerance that shape its risk decisions, shared them, and reviewed them at a frequency you define?",
+      "whyItMatters": "Risk decisions depend on how much risk the organization is willing to accept and what limits it faces. Writing these down keeps decisions consistent and makes trade-offs explicit.",
+      "doneLooksLike": "The assumptions and constraints affecting risk assessments, risk responses, and risk monitoring are identified and documented, along with the priorities and trade-offs considered in managing risk and the organizational risk tolerance. The results are distributed to the personnel you define and reviewed and updated at the frequency you set.",
+      "nextSteps": [
+        "Hold a session with leadership and system and business owners to identify assumptions, constraints, priorities, trade-offs, and risk tolerance.",
+        "Document the results and share them with the people you designate.",
+        "Set a review frequency and use the results to inform your risk management strategy."
+      ],
+      "reviewed": false
+    },
+    "pm-31": {
+      "question": "Does your organization have an organization-wide continuous monitoring strategy with defined metrics and frequencies, analysis of results, response actions, and regular status reporting?",
+      "whyItMatters": "Security and privacy conditions change constantly. Organization-wide continuous monitoring gives leaders current information to make timely risk decisions instead of relying on old assessments.",
+      "doneLooksLike": "An organization-wide continuous monitoring strategy is developed and continuous monitoring programs are implemented. They establish the metrics you define, the monitoring frequencies and control assessment frequencies you define, ongoing monitoring of those metrics, correlation and analysis of assessment and monitoring information, response actions based on that analysis, and reporting of the security and privacy status of systems to the personnel or roles you define at the frequency you set.",
+      "nextSteps": [
+        "Define the organization-wide metrics to monitor and how often to monitor and assess controls.",
+        "Bring assessment and monitoring results together for analysis.",
+        "Assign owners for response actions and set a reporting schedule for leadership."
+      ],
+      "reviewed": false
+    },
+    "ps-4.2": {
+      "question": "Does your organization use automated mechanisms to notify the right people when someone leaves, disable that person's system access, or both, as you have chosen?",
+      "whyItMatters": "Manual notifications can be missed or delayed, leaving former staff with working access. Automation makes termination actions faster and more reliable.",
+      "doneLooksLike": "The automated mechanisms you define are used to carry out the termination actions your organization selected: notifying the personnel or roles you designate of individual terminations, disabling access to system resources, or both.",
+      "nextSteps": [
+        "Decide whether automation will notify designated people, disable access, or both.",
+        "Connect your HR or personnel system to notification tools or account management so termination triggers the action.",
+        "Test the automation with a sample termination and confirm access is removed."
+      ],
+      "reviewed": false
+    }
+  }
+}

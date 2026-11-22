@@ -112,6 +112,59 @@ struct AssessmentService {
         assessment.touch()
     }
 
+    // MARK: Cross-framework reuse
+
+    struct ApplyOptions: Equatable {
+        var status = true
+        var ownerAndDate = true
+        var notes = true
+        var evidence = true
+    }
+
+    /// Applies an answer to requirements mapped to it by NIST. The user confirms the targets first,
+    /// because mappings are not always one-to-one. Existing owner, date, and notes are not overwritten:
+    /// notes are appended with attribution, and evidence is linked (shared), not copied.
+    func apply(from source: RequirementRef, sourceLabel: String, to targets: [RequirementRef],
+               options: ApplyOptions, in assessment: Assessment) {
+        guard let from = assessment.response(for: source) else { return }
+        for target in targets where target != source {
+            let to = ensureResponse(assessment, target)
+            if options.status {
+                if from.status == .notApplicable {
+                    to.notApplicableReason = from.notApplicableReason
+                }
+                to.status = from.status
+            }
+            if options.ownerAndDate {
+                if to.owner.isEmpty { to.owner = from.owner }
+                if to.targetDate == nil { to.targetDate = from.targetDate }
+            }
+            let notes = from.notes.trimmingCharacters(in: .whitespacesAndNewlines)
+            if options.notes, !notes.isEmpty, !to.notes.contains(notes) {
+                to.notes = to.notes.isEmpty ? notes : "\(to.notes)\n\nFrom \(sourceLabel): \(notes)"
+            }
+            if options.evidence {
+                for item in from.evidence where !to.evidence.contains(where: { $0.id == item.id }) {
+                    to.evidence.append(item)
+                }
+            }
+            to.appliedFromFrameworkID = source.frameworkID
+            to.appliedFromRequirementID = source.requirementID
+            to.updatedAt = Date()
+        }
+        assessment.touch()
+    }
+
+    // MARK: CSF profile
+
+    func setInTargetProfile(_ included: Bool, for ref: RequirementRef, in assessment: Assessment) {
+        update(ref, in: assessment) { $0.inTargetProfile = included }
+    }
+
+    func setPriority(_ priority: ProfilePriority?, for ref: RequirementRef, in assessment: Assessment) {
+        update(ref, in: assessment) { $0.priority = priority }
+    }
+
     // MARK: Parameters
 
     func setParameter(_ parameterID: String, frameworkID: String, value: String, in assessment: Assessment) {

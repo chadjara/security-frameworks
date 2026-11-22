@@ -75,6 +75,7 @@ def build_all(root: pathlib.Path) -> tuple[dict[str, dict], list[str], list[str]
     fw_171 = build_sp800171(c171, src_meta("sp800-171r3-catalog"), content_version)
     for fw in (fw_csf, fw_53, fw_171):
         fw["source"]["oscalCommit"] = sources["csf-2.0-catalog"]["oscalCommit"]
+    add_csf_tiers(fw_csf, root)
 
     errors: list[str] = []
     warnings: list[str] = []
@@ -110,6 +111,21 @@ def build_all(root: pathlib.Path) -> tuple[dict[str, dict], list[str], list[str]
         outputs[f"mappings/{m['id']}.mapping.json"] = m
     outputs["index.json"] = build_index(frameworks, maps, content_version)
     return outputs, errors, warnings
+
+
+def add_csf_tiers(fw: dict, root: pathlib.Path) -> None:
+    """CSF 2.0 Tiers, transcribed from CSWP 29 Appendix B (not in OSCAL). See data/sources/manual/."""
+    path = root / "data" / "sources" / "manual" / "csf-2.0-tiers.json"
+    if not path.exists():
+        return
+    doc = load_json(path)
+    fw["tiers"] = [
+        {"id": f"tier-{t['number']}", "number": t["number"], "title": t["title"],
+         "governance": t["governance"], "management": t["management"]}
+        for t in doc["tiers"]
+    ]
+    fw["tiersSource"] = {"url": doc["sourceUrl"], "pages": doc["pages"], "sha256": doc["pdfSha256"],
+                         "introduction": doc["introduction"]}
 
 
 def framework_counts(fw: dict) -> dict:

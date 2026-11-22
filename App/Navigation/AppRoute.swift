@@ -9,6 +9,9 @@ enum AppRoute: Hashable {
     case groupPreview(frameworkID: String, groupID: String)
     case assessment(UUID)
     case settings(SettingsPage)
+    case overview
+    case nextSteps
+    case csfProfile(frameworkID: String)
 }
 
 enum SettingsPage: String, Hashable, CaseIterable {
@@ -24,6 +27,8 @@ enum SettingsPage: String, Hashable, CaseIterable {
 
 /// Sidebar sections on iPad.
 enum SidebarItem: Hashable {
+    case overview
+    case nextSteps
     case framework(String)
     case explorer
     case assessments
@@ -43,6 +48,9 @@ enum UITestRoute: Equatable {
     case newAssessment
     case assessments
     case settings
+    case overview
+    case nextSteps
+    case profile(String)
 
     static var current: UITestRoute? {
         #if DEBUG
@@ -59,6 +67,9 @@ enum UITestRoute: Equatable {
         case "newAssessment": return .newAssessment
         case "assessments": return .assessments
         case "settings": return .settings
+        case "overview": return .overview
+        case "nextSteps": return .nextSteps
+        case "profile" where parts.count > 1: return .profile(parts[1])
         default: return nil
         }
         #else

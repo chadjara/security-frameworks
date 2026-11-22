@@ -4,13 +4,15 @@ import SwiftUI
 
 /// iPhone and narrow windows: tabs with a navigation stack each.
 struct CompactRootView: View {
-    enum Tab: Hashable { case assessment, explore, settings }
+    enum Tab: Hashable { case overview, assessment, nextSteps, explore, settings }
 
     let assessment: Assessment?
     @Binding var showingNewAssessment: Bool
     let selectAssessment: (Assessment) -> Void
 
-    @State private var tab: Tab = .assessment
+    @State private var tab: Tab = .overview
+    @State private var overviewPath: [AppRoute] = []
+    @State private var nextStepsPath: [AppRoute] = []
     @State private var assessmentPath: [AppRoute] = []
     @State private var explorePath: [AppRoute] = []
     @State private var settingsPath: [AppRoute] = []
@@ -18,13 +20,39 @@ struct CompactRootView: View {
 
     var body: some View {
         TabView(selection: $tab) {
+            NavigationStack(path: $overviewPath) {
+                Group {
+                    if let assessment {
+                        OverviewView(assessment: assessment, selection: nil)
+                    } else {
+                        NoAssessmentView(showingNewAssessment: $showingNewAssessment)
+                    }
+                }
+                .navigationDestination(for: AppRoute.self) { RouteDestination(route: $0, assessment: assessment) }
+            }
+            .tabItem { Label("Overview", systemImage: "chart.bar.xaxis") }
+            .tag(Tab.overview)
+
             NavigationStack(path: $assessmentPath) {
                 AssessmentHomeView(assessment: assessment, showingNewAssessment: $showingNewAssessment,
                                    selectAssessment: selectAssessment)
                     .navigationDestination(for: AppRoute.self) { RouteDestination(route: $0, assessment: assessment) }
             }
-            .tabItem { Label("Assessment", systemImage: "checklist") }
+            .tabItem { Label("Frameworks", systemImage: "checklist") }
             .tag(Tab.assessment)
+
+            NavigationStack(path: $nextStepsPath) {
+                Group {
+                    if let assessment {
+                        NextStepsView(assessment: assessment, selection: nil)
+                    } else {
+                        NoAssessmentView(showingNewAssessment: $showingNewAssessment)
+                    }
+                }
+                .navigationDestination(for: AppRoute.self) { RouteDestination(route: $0, assessment: assessment) }
+            }
+            .tabItem { Label("Next Steps", systemImage: "list.number") }
+            .tag(Tab.nextSteps)
 
             NavigationStack(path: $explorePath) {
                 FrameworkExplorerView(assessment: assessment, selection: nil)
@@ -40,7 +68,11 @@ struct CompactRootView: View {
             .tabItem { Label("Settings", systemImage: "gearshape") }
             .tag(Tab.settings)
         }
-        .onChange(of: assessment?.id) { _, _ in assessmentPath = [] }
+        .onChange(of: assessment?.id) { _, _ in
+            assessmentPath = []
+            overviewPath = []
+            nextStepsPath = []
+        }
         .onAppear(perform: applyRoute)
     }
 
@@ -49,13 +81,19 @@ struct CompactRootView: View {
         guard !didApplyRoute else { return }
         didApplyRoute = true
         switch UITestRoute.current {
-        case .list(let fw), .questionnaire(let fw): assessmentPath = [.requirements(frameworkID: fw)]
+        case .list(let fw), .questionnaire(let fw): tab = .assessment; assessmentPath = [.requirements(frameworkID: fw)]
         case .detail(let fw, let req):
+            tab = .assessment
             assessmentPath = [.requirements(frameworkID: fw), .requirement(frameworkID: fw, requirementID: req)]
+        case .home: tab = .assessment
+        case .overview: tab = .overview
+        case .nextSteps: tab = .nextSteps
+        case .profile(let fw): tab = .assessment; assessmentPath = [.requirements(frameworkID: fw), .csfProfile(frameworkID: fw)]
         case .explorer: tab = .explore
         case .preview(let fw): tab = .explore; explorePath = [.frameworkPreview(frameworkID: fw)]
         case .scope(let fw): tab = .explore; explorePath = [.frameworkPreview(frameworkID: fw), .frameworkSettings(frameworkID: fw)]
         case .assessments:
+            tab = .assessment
             if let assessment { assessmentPath = [.assessment(assessment.id)] }
         case .settings: tab = .settings
         default: break

@@ -1,0 +1,667 @@
+{
+  "requirements": {
+    "ac-2.1": {
+      "question": "Does your organization use automated tools to help create, change, disable, and remove system accounts, and to alert account managers about account changes?",
+      "whyItMatters": "Manual account management depends on someone remembering every step, and missed steps leave stale access behind. Automation applies changes consistently and gives account managers timely notice when something changes.",
+      "doneLooksLike": "You have chosen the automated mechanisms that support management of system accounts, and they are in use. Typical uses include creating, enabling, modifying, disabling, and removing accounts, notifying account managers of account changes or of people who leave or transfer, and flagging atypical account use, with notices sent by system alert, email, phone, or text message.",
+      "nextSteps": [
+        "Identify which account tasks are still done by hand, such as disabling accounts when someone leaves.",
+        "Choose the automated mechanisms you will use, such as a central directory or identity management service connected to your HR records.",
+        "Configure automatic notifications to account managers when accounts are created, changed, disabled, or removed.",
+        "Document the mechanisms you selected and which systems they cover."
+      ],
+      "reviewed": false
+    },
+    "ac-2.2": {
+      "question": "Do your systems automatically remove or disable temporary and emergency accounts once the time period you have set for them runs out?",
+      "whyItMatters": "Temporary and emergency accounts are created in a hurry and often forgotten, leaving working access behind. Automatic expiry closes them on schedule rather than whenever an administrator remembers.",
+      "doneLooksLike": "You have decided whether temporary and emergency accounts are removed or disabled, and the time period after which this happens. Your systems carry out that action automatically, without depending on manual cleanup.",
+      "nextSteps": [
+        "Find the temporary and emergency accounts that exist today and who created them.",
+        "Decide whether these accounts are removed or disabled, and set the time period for each type.",
+        "Configure an automatic expiration when each temporary or emergency account is created.",
+        "Check periodically that expired accounts were actually removed or disabled."
+      ],
+      "reviewed": false
+    },
+    "ac-2.3": {
+      "question": "Does your organization disable accounts within a set time when they expire, lose their owner, violate policy, or sit inactive beyond the period you define?",
+      "whyItMatters": "Accounts that no longer serve a legitimate purpose can still be used by an attacker or a former user. Disabling them promptly reduces the number of ways into your systems and keeps access tied to current needs.",
+      "doneLooksLike": "Accounts are disabled within the time period you define when they have expired, are no longer associated with a user or individual, are in violation of organizational policy, or have been inactive for the period you define. You can show records or reports demonstrating that each of these conditions is detected and acted on.",
+      "nextSteps": [
+        "Set the time period for disabling accounts and the inactivity period that triggers it.",
+        "Configure your directory or systems to disable expired and inactive accounts automatically where possible.",
+        "Run a regular report of accounts with no current owner or with policy violations, and disable them within your time period."
+      ],
+      "reviewed": false
+    },
+    "ac-2.4": {
+      "question": "Do your systems automatically record an audit entry whenever an account is created, modified, enabled, disabled, or removed?",
+      "whyItMatters": "Attackers who gain a foothold often create or re-enable accounts so they can return later. An automatic record of every account change lets you spot unauthorized changes and reconstruct what happened.",
+      "doneLooksLike": "Account creation, modification, enabling, disabling, and removal each generate an audit record automatically. These records are part of the events you log and are reviewed along with your other audit records.",
+      "nextSteps": [
+        "Confirm that account management events are turned on in the audit settings of your directory, operating systems, and key applications.",
+        "Test by creating, changing, disabling, and removing a test account, and check that each action appears in the logs.",
+        "Include account changes in your regular log review."
+      ],
+      "reviewed": false
+    },
+    "ac-2.5": {
+      "question": "Does your organization require users to log out, rather than walk away, when they expect to be inactive beyond the time or situation you define?",
+      "whyItMatters": "A session left open on an unattended device can be used by anyone who sits down at it. A clear rule on when to log out shortens that window, especially at the end of a workday or before a long absence.",
+      "doneLooksLike": "You have defined the expected period of inactivity, or described the situations, such as the end of the workday, when users must log out, and users are required to do so, for example through your rules of behavior. This is a user action; automatic device locks and session timeouts are separate safeguards and do not replace it.",
+      "nextSteps": [
+        "Decide when users must log out, such as at the end of each workday or before an absence longer than a period you set.",
+        "Add the rule to your rules of behavior or acceptable use policy.",
+        "Remind users in awareness training and spot-check for unattended, logged-in workstations."
+      ],
+      "reviewed": false
+    },
+    "ac-2.11": {
+      "question": "Does your organization enforce conditions on when or how specific system accounts can be used, such as allowed days, times of day, or durations?",
+      "whyItMatters": "Limiting when an account can be used narrows the opportunities for misuse and makes out-of-pattern activity stand out. It also supports least privilege and makes account monitoring more effective.",
+      "doneLooksLike": "You have identified which system accounts have usage conditions and what those circumstances or conditions are, and your systems enforce them, for example by blocking logons outside allowed hours. Use that falls outside the conditions can generate an alert for review.",
+      "nextSteps": [
+        "Identify accounts that should only be used under certain conditions, such as administrator, vendor, or service accounts.",
+        "Define the conditions for each, such as days of the week, hours, or a maximum duration.",
+        "Configure logon restrictions in your directory or applications to enforce them, and alert on attempts outside the limits."
+      ],
+      "reviewed": false
+    },
+    "ac-2.12": {
+      "question": "Does your organization watch system accounts for unusual usage, such as logons at odd hours or from unexpected locations, and report it to designated people?",
+      "whyItMatters": "Stolen credentials often look like normal logons except for when or where they are used. Spotting atypical use can reveal an attack in progress or an insider misusing access.",
+      "doneLooksLike": "You have defined what counts as atypical account usage, system accounts are monitored for it, and instances are reported to the personnel or roles you define. Because this monitoring collects information about people's behavior, you also assess and document its privacy risks, for example in a privacy impact assessment.",
+      "nextSteps": [
+        "Define atypical usage for your environment, such as logons outside business hours, from new countries, or from several places at once.",
+        "Turn on alerts for those patterns in your identity provider or log monitoring tool.",
+        "Name who receives the reports and how quickly they should act.",
+        "Review the privacy implications of the monitoring and document your decisions."
+      ],
+      "reviewed": false
+    },
+    "ac-2.13": {
+      "question": "Can your organization disable a person's accounts within a set time after discovering that they pose a significant security or privacy risk?",
+      "whyItMatters": "When there is reliable evidence that someone intends to cause harm with their access, or that an adversary is acting through them, every hour of continued access adds risk. A planned, fast response limits the damage.",
+      "doneLooksLike": "You have defined the significant risks that trigger this action and the time period for disabling accounts once one is discovered, and accounts are disabled within that period. System administrators, legal staff, human resources, and the leaders who authorize your systems coordinate closely on these decisions.",
+      "nextSteps": [
+        "Define the risk indicators that trigger urgent account disabling, working with HR and legal advisors.",
+        "Set the time period for disabling accounts once such a risk is discovered.",
+        "Write a short procedure listing who decides, who disables accounts across all systems, and how the actions are recorded."
+      ],
+      "reviewed": false
+    },
+    "ac-3.14": {
+      "question": "Does your organization give people a way to access the personal information it holds about them, covering the elements you have defined?",
+      "whyItMatters": "People have a stake in information about them. Letting them see it helps them understand how it is used and catch inaccuracies, and it builds trust in how you handle their data.",
+      "doneLooksLike": "You provide the mechanisms you have chosen, such as a request form or an online account page, through which individuals can access the elements of their personally identifiable information that you have defined. Your privacy lead and legal counsel have helped decide the mechanisms and any limits, such as records exempt from disclosure or a required level of identity verification.",
+      "nextSteps": [
+        "Identify the personal information you hold about individuals and which elements they should be able to see.",
+        "Set up an access mechanism, such as a request form or self-service page, with appropriate identity verification.",
+        "Consult your privacy lead and legal counsel on any exemptions or limits, and publish how to make a request."
+      ],
+      "reviewed": false
+    },
+    "ac-4": {
+      "question": "Does your organization control where information is allowed to travel within its systems and to connected systems, using defined flow control policies?",
+      "whyItMatters": "Controlling who can access data does not stop it from moving to the wrong place once accessed. Flow controls keep sensitive information from leaving through unapproved paths and block traffic that should not come in.",
+      "doneLooksLike": "You have defined information flow control policies, and your systems enforce approved authorizations for flows within the system and between connected systems. Enforcement typically happens in firewalls, gateways, proxies, or filters using rules based on the information or its path, such as blocking outside traffic that claims to be internal or preventing sensitive data from being sent unprotected to the internet.",
+      "nextSteps": [
+        "Map the main paths information takes within your systems and to outside systems and partners.",
+        "Write flow control rules stating which flows are allowed and which are blocked.",
+        "Configure firewalls, proxies, and gateway filters to enforce those rules, including for network control traffic such as DNS, and review them periodically."
+      ],
+      "reviewed": false
+    },
+    "ac-4.4": {
+      "question": "Does your organization stop encrypted traffic from slipping past its content filters, for example by decrypting it, blocking it, or ending the session?",
+      "whyItMatters": "Attackers and malicious software can hide data inside encryption or unusual encoding so filters cannot read it. Without a rule for encrypted flows, your inspection controls can be bypassed.",
+      "doneLooksLike": "You have identified the flow control mechanisms, such as content checks and security policy filters, that encrypted information must not bypass, and you prevent bypass using the methods you have chosen: decrypting the information for inspection, blocking it, terminating sessions that try to pass it, or another procedure you define. Encoded data your filters cannot recognize is treated the same way.",
+      "nextSteps": [
+        "Identify which filters and inspection points need visibility into traffic.",
+        "Choose how to handle encrypted traffic at each point: decrypt and inspect, block, terminate the session, or another method you define.",
+        "Configure your gateways accordingly, and test with encrypted and encoded traffic to confirm it cannot pass uninspected."
+      ],
+      "reviewed": false
+    },
+    "ac-5": {
+      "question": "Has your organization identified duties that should be split between different people, and set up system access so no one person controls a sensitive process end to end?",
+      "whyItMatters": "When one person can both carry out a sensitive action and approve or conceal it, mistakes and fraud can go unnoticed. Splitting duties means misuse would require collusion, which is harder to arrange and more likely to be caught.",
+      "doneLooksLike": "You have identified and documented the duties that need to be separated, such as dividing business and support functions among different people and making sure those who administer access controls do not also administer audit functions. System access authorizations are defined to support that separation.",
+      "nextSteps": [
+        "List sensitive processes, such as making payments, granting access, and reviewing logs, and who performs each step.",
+        "Document which duties must be held by different people.",
+        "Adjust roles and permissions so that one account cannot perform conflicting duties."
+      ],
+      "reviewed": false
+    },
+    "ac-6": {
+      "question": "Does your organization give people and system processes only the access they need to do their assigned tasks, and nothing more?",
+      "whyItMatters": "Every extra permission is something an attacker can use if an account is compromised, or something a user can misuse by mistake. Least privilege limits how far a single compromised account or error can reach.",
+      "doneLooksLike": "Users, and processes acting on their behalf, are granted only the authorized access necessary for their assigned tasks. Least privilege also applies to system processes, and you create separate roles or accounts where needed to keep privileges no higher than necessary.",
+      "nextSteps": [
+        "Review the permissions of each role and remove access not needed for current tasks.",
+        "Run applications and services with the lowest privileges that let them work.",
+        "Create separate roles or accounts where one role currently holds more access than its tasks require."
+      ],
+      "reviewed": false
+    },
+    "ac-6.1": {
+      "question": "Has your organization decided which individuals and roles may access security functions and security-relevant information, and limited that access to them?",
+      "whyItMatters": "Security settings, firewall rules, encryption keys, and access lists control everyone else's access. If the wrong person can change them, every other safeguard can be undone.",
+      "doneLooksLike": "You have defined the security functions in hardware, software, and firmware, such as creating accounts, setting permissions, configuring audit settings, and setting intrusion detection parameters, and the security-relevant information, such as firewall rules, security service configurations, cryptographic keys, and access control lists. Access to each is explicitly authorized only for the individuals and roles you define.",
+      "nextSteps": [
+        "List the security functions and security-relevant information in your environment, including device firmware and network equipment settings.",
+        "Decide which roles may access each, such as system or security administrators.",
+        "Restrict access in your systems to those roles and remove it from everyone else."
+      ],
+      "reviewed": false
+    },
+    "ac-6.2": {
+      "question": "Do people with administrator or other security access use a separate, non-privileged account for everyday work like email and web browsing?",
+      "whyItMatters": "Reading email or browsing while logged in as an administrator means a single malicious link or attachment can run with full control of the system. Using a standard account for routine work limits what that mistake can do.",
+      "doneLooksLike": "Users whose accounts or roles have access to the security functions or security-relevant information you have defined use non-privileged accounts or roles when doing nonsecurity tasks. They switch to privileged accounts or roles only when performing security functions.",
+      "nextSteps": [
+        "Identify everyone who holds privileged access.",
+        "Give each of them a separate standard account, or a role they can switch out of, for daily work.",
+        "Block or discourage email and web browsing from privileged accounts where your systems allow it."
+      ],
+      "reviewed": false
+    },
+    "ac-6.3": {
+      "question": "Does your organization allow privileged commands over a network only for compelling operational needs, and document why in the system security plan?",
+      "whyItMatters": "Running administrator commands remotely means an attacker who steals credentials can use that same power from anywhere. Limiting network use to justified cases, and writing down why, reduces that exposure.",
+      "doneLooksLike": "You have defined which privileged commands are covered and what compelling operational needs justify network access to them. Network access to those commands is authorized only for those needs, and the rationale is documented in the security plan for the system.",
+      "nextSteps": [
+        "List the privileged commands that can be run over the network on your systems.",
+        "Decide which operational needs justify network use and restrict the rest to local access.",
+        "Record the rationale in the system security plan and review it when needs change."
+      ],
+      "reviewed": false
+    },
+    "ac-6.5": {
+      "question": "Are privileged accounts, such as administrator and super user accounts, restricted to the specific personnel or roles your organization has designated?",
+      "whyItMatters": "Administrator accounts can change any setting and reach any data. Restricting them to designated people keeps day-to-day users away from privileged functions and keeps privileged activity traceable to a small group.",
+      "doneLooksLike": "Privileged accounts on the system, including local and domain administrator accounts, are held only by the personnel or roles you define. Day-to-day users do not have administrator rights on workstations or servers unless they are in those roles.",
+      "nextSteps": [
+        "List every account with administrator or super user rights, including local administrator accounts on workstations.",
+        "Define which roles may hold privileged accounts.",
+        "Remove privileged rights from anyone outside those roles."
+      ],
+      "reviewed": false
+    },
+    "ac-6.7": {
+      "question": "Does your organization periodically review the privileges assigned to defined roles and remove or reassign any that are no longer needed?",
+      "whyItMatters": "Privileges tend to accumulate as people change jobs and projects, while threats and systems change too. Regular review confirms each privilege is still justified and removes those that are not.",
+      "doneLooksLike": "At the frequency you define, the privileges assigned to the roles and classes of users you define are reviewed to validate that they are still needed. Privileges are reassigned or removed when necessary to reflect current mission and business needs.",
+      "nextSteps": [
+        "Decide which roles and user classes are in scope and how often to review them.",
+        "Send each manager or system owner a list of their team's privileges to confirm or reject.",
+        "Remove or adjust privileges that cannot be justified, and keep a record of each review."
+      ],
+      "reviewed": false
+    },
+    "ac-6.9": {
+      "question": "Do your systems log every time someone runs a privileged function, such as changing security settings or managing accounts?",
+      "whyItMatters": "Privileged functions are the most powerful actions on a system, and their misuse, whether by an insider or an attacker using a stolen account, can do serious harm. Logging them provides a way to detect and investigate that misuse.",
+      "doneLooksLike": "The execution of privileged functions is logged on your systems, including actions such as changing security configurations, creating accounts, and administering encryption keys. These logs are available for analysis.",
+      "nextSteps": [
+        "Identify the privileged functions on each system, such as administrative commands and security setting changes.",
+        "Enable logging of those actions in your operating systems, cloud consoles, and applications.",
+        "Confirm the logs capture who ran each function and when, and include them in log review."
+      ],
+      "reviewed": false
+    },
+    "ac-6.10": {
+      "question": "Do your systems prevent users without privileged authorization from carrying out privileged functions, such as disabling security tools or creating accounts?",
+      "whyItMatters": "If ordinary users can turn off malware protection or change security settings, a single phishing click can disable your defenses. Blocking privileged functions for non-privileged users keeps those safeguards in place.",
+      "doneLooksLike": "Non-privileged users are technically prevented from executing privileged functions, including disabling, circumventing, or altering security or privacy controls, establishing accounts, performing system integrity checks, and administering cryptographic keys. Attempts by standard users are blocked by your access controls.",
+      "nextSteps": [
+        "Confirm that standard user accounts cannot install software, change security settings, or stop protective tools.",
+        "Test with a standard account by attempting a privileged action and verifying it is blocked.",
+        "Lock down settings for malware protection and intrusion detection so only administrators can change them."
+      ],
+      "reviewed": false
+    },
+    "ac-10": {
+      "question": "Does your organization limit how many sessions an account or type of account can have open at the same time, to a number you define?",
+      "whyItMatters": "An account logged in from several places at once can be a sign that its credentials are shared or stolen. Capping concurrent sessions, especially for administrators and sensitive applications, reduces that risk.",
+      "doneLooksLike": "You have defined which accounts or account types have a limit and the maximum number of concurrent sessions for each, and your systems enforce that limit. Limits may apply globally, by account type, by individual account, or a combination.",
+      "nextSteps": [
+        "Decide which accounts need a concurrent session limit, starting with administrators and sensitive applications.",
+        "Set the maximum number of sessions for each.",
+        "Configure the limit in your identity provider, operating systems, or applications, and test it."
+      ],
+      "reviewed": false
+    },
+    "ac-11": {
+      "question": "Do your devices lock after a period of inactivity, or do users lock them before stepping away, with a logon required to unlock?",
+      "whyItMatters": "An unlocked, unattended screen gives anyone nearby access to whatever the user can reach. A device lock protects short absences without requiring a full logout.",
+      "doneLooksLike": "Further access is prevented by the method you have chosen: an automatic device lock after the inactivity period you define, a requirement that users lock devices before leaving them unattended, or both. The lock stays in place until the user identifies and authenticates again, and it does not replace logging out where your organization requires that.",
+      "nextSteps": [
+        "Set the inactivity period and decide whether users must also lock devices manually.",
+        "Configure automatic screen lock on computers, phones, and tablets through central settings where possible.",
+        "Remind users to lock their screens when they step away."
+      ],
+      "reviewed": false
+    },
+    "ac-11.1": {
+      "question": "When a device locks, does the lock screen hide what was on the display behind a pattern, image, clock, or blank screen?",
+      "whyItMatters": "A lock that leaves sensitive content visible protects the session but not the information. Hiding the screen keeps passersby from reading what the user was working on.",
+      "doneLooksLike": "When the device lock activates, information previously on screen is concealed with a publicly viewable image, such as a pattern, photograph, solid color, clock, battery indicator, or blank screen. The lock screen itself does not display sensitive information.",
+      "nextSteps": [
+        "Check the lock screen on each device type to confirm no work content remains visible.",
+        "Configure lock screens to show a neutral image and to hide message and notification previews.",
+        "Apply the setting centrally where your device management allows."
+      ],
+      "reviewed": false
+    },
+    "ac-12": {
+      "question": "Do your systems automatically end a user's session when the conditions or trigger events you define occur, such as a period of inactivity?",
+      "whyItMatters": "Sessions left open indefinitely can be hijacked or used by someone else. Ending them automatically under defined conditions closes that opening without relying on users.",
+      "doneLooksLike": "You have defined the conditions or trigger events that end a user session, which can include periods of inactivity, responses to certain types of incidents, or time-of-day restrictions. When they occur, the user's logical session is terminated automatically, ending its associated processes.",
+      "nextSteps": [
+        "Decide the conditions that should end sessions on each system, such as inactivity limits or time-of-day limits.",
+        "Configure session timeouts in your applications, remote access tools, and cloud services.",
+        "Confirm you can force sessions to end as part of responding to an incident."
+      ],
+      "reviewed": false
+    },
+    "ac-17.1": {
+      "question": "Does your organization use automated tools to monitor and control remote access, such as VPN or remote desktop connections, across its devices?",
+      "whyItMatters": "Remote access is a common target because it is reachable from the internet. Automated monitoring and control help you detect attacks and enforce your remote access rules on every connection.",
+      "doneLooksLike": "Automated mechanisms monitor remote access methods, for example by logging and analyzing remote connection activity across servers, laptops, workstations, phones, and tablets. Automated mechanisms also control remote access, such as allowing only approved methods and blocking connections that do not meet your rules.",
+      "nextSteps": [
+        "Inventory the remote access methods in use, including VPN, remote desktop, and remote support tools.",
+        "Route remote connections through a central service that logs activity and enforces your policy.",
+        "Set alerts for unusual remote access and review them regularly."
+      ],
+      "reviewed": false
+    },
+    "ac-17.2": {
+      "question": "Are all remote access sessions to your systems encrypted to protect them from being read or altered in transit?",
+      "whyItMatters": "Remote sessions often cross public networks such as home internet and public Wi-Fi. Encryption keeps passwords and data from being read or changed along the way.",
+      "doneLooksLike": "Cryptographic mechanisms, such as a virtual private network (VPN) or Transport Layer Security (a standard protocol that encrypts internet traffic), protect both the confidentiality and the integrity of every remote access session.",
+      "nextSteps": [
+        "List every way people connect remotely and confirm each uses strong encryption.",
+        "Disable remote access methods that send data unencrypted.",
+        "Keep encryption settings current by retiring outdated protocols."
+      ],
+      "reviewed": false
+    },
+    "ac-17.3": {
+      "question": "Do all remote connections to your systems pass through authorized network access control points that your organization manages?",
+      "whyItMatters": "Every separate path into your network is another place to defend and monitor. Funneling remote access through a few managed entry points reduces the attack surface and keeps oversight in one place.",
+      "doneLooksLike": "Remote access is routed through authorized network access control points that your organization manages, such as a central VPN gateway or remote access service. There are no unmanaged direct paths, such as remote desktop exposed directly to the internet.",
+      "nextSteps": [
+        "Identify all remote entry points, including any directly exposed remote desktop or administrative ports.",
+        "Close unauthorized entry points and route remote access through your managed gateway.",
+        "Periodically scan for new, unapproved remote access paths."
+      ],
+      "reviewed": false
+    },
+    "ac-17.4": {
+      "question": "Does your organization allow privileged commands and access to security information over remote connections only for defined needs, in a way that leaves reviewable evidence?",
+      "whyItMatters": "Remote administrative access is a valuable target for attackers. Restricting it to defined needs, and making sure every remote privileged action can be reviewed afterward, reduces exposure and supports investigation.",
+      "doneLooksLike": "Executing privileged commands and accessing security-relevant information over remote access are authorized only for the needs you define and only in a format that provides assessable evidence, such as logged or recorded sessions. The rationale for this remote access is documented in the security plan for the system.",
+      "nextSteps": [
+        "Define the needs that justify remote privileged access.",
+        "Require that remote administrative sessions be logged or recorded so they can be reviewed.",
+        "Document the rationale in the system security plan and remove remote privileged access that lacks a defined need."
+      ],
+      "reviewed": false
+    },
+    "ac-18.1": {
+      "question": "Is wireless access to your systems protected with encryption and with authentication of users, devices, or both?",
+      "whyItMatters": "Wireless signals travel beyond your walls, where anyone nearby can try to connect or listen in. Strong authentication and encryption keep unauthorized people off the network and protect traffic from interception.",
+      "doneLooksLike": "Wireless access to the system requires authentication of users, devices, or both, as you have chosen, and wireless traffic is encrypted. Your wireless configuration shows both protections in place.",
+      "nextSteps": [
+        "Review your wireless network settings and confirm current, strong encryption is in use.",
+        "Decide whether to authenticate users, devices, or both, and configure individual credentials or device certificates accordingly.",
+        "Replace wireless access points that cannot support the required authentication and encryption."
+      ],
+      "reviewed": false
+    },
+    "ac-18.3": {
+      "question": "Does your organization turn off built-in wireless capabilities on devices before issuing or deploying them, when those capabilities are not intended for use?",
+      "whyItMatters": "Built-in wireless features that nobody uses can still be found and exploited, and can create unnoticed paths into your network. Turning them off removes a vulnerability that offers you nothing in return.",
+      "doneLooksLike": "Before system components are issued or deployed, embedded wireless networking capabilities that are not intended for use, such as Wi-Fi or Bluetooth on servers, printers, or other equipment, are disabled.",
+      "nextSteps": [
+        "Add a step to your device setup process to check for embedded wireless features.",
+        "Disable wireless capabilities that are not needed, in firmware or configuration settings.",
+        "Check equipment already deployed for wireless features that were left on."
+      ],
+      "reviewed": false
+    },
+    "ac-18.4": {
+      "question": "Has your organization identified and explicitly authorized the specific users who are allowed to configure wireless networking on their own?",
+      "whyItMatters": "If anyone can change wireless settings, they can create unprotected access points or weaken encryption without anyone knowing. Limiting this to authorized users keeps wireless configuration under control.",
+      "doneLooksLike": "The users allowed to independently configure wireless networking capabilities are identified and explicitly authorized, and your access controls prevent others from changing wireless settings.",
+      "nextSteps": [
+        "List who can currently change wireless settings on access points, laptops, and mobile devices.",
+        "Decide and document who is authorized to do so.",
+        "Restrict wireless configuration rights on devices and network equipment to those users."
+      ],
+      "reviewed": false
+    },
+    "ac-18.5": {
+      "question": "Has your organization chosen antennas and adjusted transmission power so wireless signals are less likely to reach beyond areas it controls?",
+      "whyItMatters": "Wireless signals that spill into parking lots, neighboring offices, or the street give outsiders a chance to attack or intercept your network. Shaping coverage to your space reduces that opportunity.",
+      "doneLooksLike": "Radio antennas for wireless access points are selected, and transmission power levels are calibrated, to reduce the probability that signals can be received outside organization-controlled boundaries. Wireless surveys of your coverage can inform these adjustments.",
+      "nextSteps": [
+        "Walk the perimeter of your space with a phone or survey tool to see where your wireless signal reaches.",
+        "Lower transmission power or reposition access points where coverage extends beyond your boundaries.",
+        "Consider directional antennas for access points near exterior walls."
+      ],
+      "reviewed": false
+    },
+    "ac-19.5": {
+      "question": "Does your organization use full-device or container-based encryption to protect information on the mobile devices it has designated?",
+      "whyItMatters": "Phones and tablets are often lost or stolen. Encryption keeps the information on them unreadable and protected from tampering by whoever ends up with the device.",
+      "doneLooksLike": "You have chosen full-device encryption or container-based encryption, which protects selected data such as specific apps, files, or records, and applied it to the mobile devices you have defined to protect the confidentiality and integrity of their information.",
+      "nextSteps": [
+        "Decide which mobile devices are in scope and whether to use full-device or container-based encryption.",
+        "Enforce encryption through your mobile device management settings.",
+        "Check device status reports regularly and follow up on devices that are not encrypted."
+      ],
+      "reviewed": false
+    },
+    "ac-20.1": {
+      "question": "Before staff use an outside system to reach your systems or handle your information, do you verify its controls or hold an approved agreement?",
+      "whyItMatters": "An outside system you do not manage, such as a contractor's laptop or a partner's service, can bring malware or weak protections into contact with your data. Checking it first gives you assurance that it will not harm your systems.",
+      "doneLooksLike": "Authorized individuals may use an external system to access your system or to process, store, or transmit your information only after you have verified that the controls your security and privacy policies and plans require are in place on it, or after you have retained an approved connection or processing agreement with the organization hosting it. Verification can come from independent assessments, attestations, or other means suited to the confidence you need.",
+      "nextSteps": [
+        "List the external systems people use to access your systems or handle your information, such as personal devices, contractor equipment, and partner services.",
+        "Define the controls an external system must have and how you will verify them.",
+        "Obtain and keep approved connection or processing agreements with organizations hosting external systems, as the alternative to direct verification."
+      ],
+      "reviewed": false
+    },
+    "ac-20.2": {
+      "question": "Does your organization restrict how staff may use its portable storage devices, such as USB drives, when connecting them to outside systems?",
+      "whyItMatters": "A company USB drive plugged into a home or hotel computer can pick up malware or leave copies of your data behind. Clear restrictions reduce both risks.",
+      "doneLooksLike": "You have defined restrictions on the use of organization-controlled portable storage devices on external systems, covering how and under what conditions they may be used, and those restrictions apply to everyone authorized to use the devices.",
+      "nextSteps": [
+        "Decide whether and when your portable storage devices may be connected to systems you do not control.",
+        "Write the restrictions into your acceptable use rules and explain them to staff.",
+        "Use technical measures, such as encrypted drives, to support the restrictions where possible."
+      ],
+      "reviewed": false
+    },
+    "ac-21": {
+      "question": "Can your staff check whether a sharing partner is authorized to receive restricted information before sharing it, with automated help where you define?",
+      "whyItMatters": "Restricted information, such as proprietary data or personal information, often reaches the wrong party through a well-meaning share. Giving people a way to check a partner's authorization prevents disclosures that break agreements or legal obligations.",
+      "doneLooksLike": "For the information-sharing circumstances you define, authorized users can determine whether the access authorizations assigned to a sharing partner match the information's access and use restrictions, such as a nondisclosure agreement. The automated mechanisms you define, such as data labels or sharing controls, help users make sharing and collaboration decisions.",
+      "nextSteps": [
+        "Identify the kinds of restricted information you share and the circumstances in which you share them.",
+        "Keep a record of each partner's authorizations, such as signed nondisclosure agreements, where staff can check it.",
+        "Configure labels or sharing controls in your collaboration tools to warn or block when a share does not match the restrictions."
+      ],
+      "reviewed": false
+    },
+    "at-2.3": {
+      "question": "Does your awareness training teach people to recognize and report social engineering, such as phishing and impersonation, and attempts to gather information about your organization?",
+      "whyItMatters": "Many breaches start with a person being tricked into revealing information or taking an action. Attackers also piece together details from social media and public sources to make those tricks convincing.",
+      "doneLooksLike": "Your literacy training covers recognizing potential and actual social engineering, such as phishing, pretexting, impersonation, baiting, thread-jacking, and tailgating, and social mining, meaning attempts to gather information about your organization for future attacks. It also explains how to report both through your established channels.",
+      "nextSteps": [
+        "Add training content with realistic examples of phishing, phone pretexting, impersonation, and tailgating.",
+        "Explain how attackers use social media and public information to research your organization.",
+        "Give staff a clear, quick way to report suspected social engineering, and cover it in the training."
+      ],
+      "reviewed": false
+    },
+    "at-3.5": {
+      "question": "Do the personnel or roles you designate receive initial and refresher training on operating your controls for processing personal information and for transparency?",
+      "whyItMatters": "People who handle personal information need to know what you are permitted to do with it and what you have told individuals. Training reduces the chance of using personal information for purposes you lack authority for or have not disclosed.",
+      "doneLooksLike": "The personnel or roles you define receive initial training, and refresher training at the frequency you define, on employing and operating your personal information processing and transparency controls. This includes your authority to process personal information, the purposes of processing, and the documents that set those terms, such as privacy notices, privacy impact assessments, and information sharing agreements.",
+      "nextSteps": [
+        "Identify the roles that process personal information or manage privacy notices.",
+        "Build training covering your authority and purposes for processing and the notices and agreements that apply.",
+        "Deliver it at onboarding and at the refresher frequency you set, and track completion."
+      ],
+      "reviewed": false
+    },
+    "au-3.1": {
+      "question": "Do your audit records include the additional details your organization has decided it needs beyond the basic who, what, when, and where?",
+      "whyItMatters": "Basic log entries may not show enough to explain an event, such as which access rule was applied or which person used a shared account. Adding the right details, and no more, makes logs more useful without adding clutter or privacy risk.",
+      "doneLooksLike": "Your systems generate audit records containing the additional information you have defined, such as the access control or flow control rules invoked or the individual identities of group account users. The added content is ideally limited to what your audit needs require, so logs stay readable and privacy risk stays low.",
+      "nextSteps": [
+        "Ask the people who investigate incidents and review logs what information is missing from your current records.",
+        "Define the additional fields to capture, and configure your systems to include them.",
+        "Check that the added fields do not include personal information you do not need."
+      ],
+      "reviewed": false
+    },
+    "au-3.3": {
+      "question": "Do your audit records contain only the personal information elements that your privacy risk assessment identified as needed?",
+      "whyItMatters": "Logs are copied, retained, and shared widely, so any personal information in them spreads too. Keeping only the elements you need reduces privacy risk without weakening the logs' value.",
+      "doneLooksLike": "Your privacy risk assessment identifies the elements of personally identifiable information that audit records may contain, and audit records are limited to those elements. Other personal information is not captured in logs.",
+      "nextSteps": [
+        "Review sample audit records for personal information, such as names, email addresses, or account details beyond what is needed.",
+        "Use your privacy risk assessment to decide which elements are needed in logs.",
+        "Reconfigure logging to drop or mask the rest."
+      ],
+      "reviewed": false
+    },
+    "au-5.1": {
+      "question": "Do designated people receive a warning when audit log storage reaches a set percentage of its maximum capacity, so they can act before logging fails?",
+      "whyItMatters": "When log storage fills up, systems may stop recording events or overwrite older records, leaving gaps in exactly the evidence you may need. An early warning gives time to add space or archive records.",
+      "doneLooksLike": "When allocated audit log storage reaches the percentage of maximum capacity you define, a warning reaches the personnel, roles, or locations you define within the time period you define. This covers each log repository, since repositories on different components can have different capacities.",
+      "nextSteps": [
+        "List every place audit logs are stored and its capacity.",
+        "Set the capacity threshold, who is warned, and how quickly.",
+        "Configure storage alerts on each repository and test one."
+      ],
+      "reviewed": false
+    },
+    "au-5.2": {
+      "question": "Do designated people get a real-time alert when the audit logging failures your organization has defined occur?",
+      "whyItMatters": "An attacker may try to stop logging to hide their activity, and logging can also fail on its own. Alerts within seconds let you respond before a large gap in your records develops.",
+      "doneLooksLike": "You have defined the audit logging failure events that require real-time alerts, the personnel, roles, or locations to alert, and the real-time period. When those failures occur, alerts are provided within that period.",
+      "nextSteps": [
+        "Decide which logging failures need immediate alerts, such as a logging service stopping or logs no longer arriving from a key system.",
+        "Configure real-time alerts to the people or teams you designate.",
+        "Test by stopping logging on a test system and confirming the alert arrives promptly."
+      ],
+      "reviewed": false
+    },
+    "au-6.1": {
+      "question": "Does your organization use automated tools to tie audit record review, analysis, and reporting together into one integrated process?",
+      "whyItMatters": "Reviewing logs in separate places by hand is slow and misses connections. Integrating review, analysis, and reporting with automation supports faster response and feeds activities such as incident response and continuous monitoring.",
+      "doneLooksLike": "Audit record review, analysis, and reporting processes are integrated using the automated mechanisms you have defined, such as a central log management platform that collects records, flags events, and produces reports for incident response, continuous monitoring, and investigations.",
+      "nextSteps": [
+        "Pick the automated mechanism you will use to bring log review, analysis, and reporting together.",
+        "Connect your key systems' logs to it.",
+        "Link its alerts and reports to your incident response and monitoring processes."
+      ],
+      "reviewed": false
+    },
+    "au-6.3": {
+      "question": "Does your organization analyze and correlate audit records from different repositories to understand activity across the whole organization?",
+      "whyItMatters": "An attack often leaves small traces across many systems that look harmless on their own. Correlating records from different sources reveals the pattern and gives a picture of activity across the organization.",
+      "doneLooksLike": "Audit records from different repositories, such as servers, network devices, cloud services, and applications, are analyzed together and correlated, giving organization-wide situational awareness.",
+      "nextSteps": [
+        "Identify where your audit records are kept today.",
+        "Bring them into a central location or tool that can search across sources.",
+        "Set up correlation rules that link related events, such as repeated failed logons followed by a success from a new location."
+      ],
+      "reviewed": false
+    },
+    "au-6.5": {
+      "question": "Does your organization combine analysis of audit records with other data, such as vulnerability scans, performance data, or system monitoring, to spot unusual activity?",
+      "whyItMatters": "Logs viewed alone can miss what other data makes obvious, such as an attack against a system you know is vulnerable or a slowdown caused by misuse. Combining sources improves your ability to identify inappropriate or unusual activity.",
+      "doneLooksLike": "Analysis of audit records is integrated with analysis of the sources you have selected: vulnerability scanning information, performance data, system monitoring information, or other data you define. This does not require new scanning or monitoring, only that results you already collect are analyzed together with audit records.",
+      "nextSteps": [
+        "Choose which additional data sources to analyze with your audit records.",
+        "Feed those sources into the same analysis tool or process as your logs.",
+        "Create checks that compare them, such as matching attack alerts against known vulnerabilities or resource spikes against log activity."
+      ],
+      "reviewed": false
+    },
+    "au-6.6": {
+      "question": "Does your organization compare system audit records with physical access records, such as badge entries, to help identify suspicious activity?",
+      "whyItMatters": "Combining system and physical records can expose activity that neither shows alone, such as a logon at an office workstation by someone who was not in the building at the time.",
+      "doneLooksLike": "Information from audit records is correlated with information from physical access monitoring, such as badge readers or visitor logs, to strengthen your ability to identify suspicious, inappropriate, unusual, or malevolent activity.",
+      "nextSteps": [
+        "Identify the physical access records you have, such as door badge logs or visitor sign-ins.",
+        "Make them available alongside system logs for analysis, with synchronized timestamps.",
+        "Add checks or investigation steps that compare the two, such as on-site logons by people who did not badge in."
+      ],
+      "reviewed": false
+    },
+    "au-7": {
+      "question": "Can your organization filter, summarize, and report on audit records on demand to support reviews and investigations, without changing the original records?",
+      "whyItMatters": "Raw logs are too large to read line by line. Reduction and reporting tools make them usable during an investigation, and preserving the originals keeps the evidence trustworthy.",
+      "doneLooksLike": "You have provided and implemented an audit record reduction and report generation capability that supports on-demand review, analysis, and reporting and after-the-fact incident investigations. The capability does not alter the original content or time ordering of audit records.",
+      "nextSteps": [
+        "Choose a log tool that can filter, summarize, and produce reports from your audit records.",
+        "Confirm it works on copies or read-only views so the original records and their order stay unchanged.",
+        "Practice running a report for a sample investigation, such as all activity by one account over a week."
+      ],
+      "reviewed": false
+    },
+    "au-7.1": {
+      "question": "Can your log tools process, sort, and search audit records for events of interest using the record fields your organization has defined?",
+      "whyItMatters": "During an incident, you need to find relevant events quickly, such as everything one account did or everything from one network address. Searchable fields make that possible in minutes rather than days.",
+      "doneLooksLike": "You have provided and implemented the capability to process, sort, and search audit records based on the fields you define, which may include the individuals involved, event types, locations, dates and times, network addresses, resources or information accessed, and whether the event succeeded or failed.",
+      "nextSteps": [
+        "Define the fields you need to search on.",
+        "Confirm your log tool parses those fields consistently across sources.",
+        "Test searches and sorts on each field with real records."
+      ],
+      "reviewed": false
+    },
+    "au-9.2": {
+      "question": "Does your organization store audit records, at the frequency you define, on a physically separate system or component from the one being audited?",
+      "whyItMatters": "If logs live only on the system that is attacked, the attacker can erase or alter them. Keeping copies on a separate physical system preserves the evidence even when the original is compromised.",
+      "doneLooksLike": "At the frequency you define, audit records are stored in a repository that is part of a physically different system or component than the one being audited. This applies both to the records as first collected and to backups and long-term storage of audit records.",
+      "nextSteps": [
+        "Set up a separate log server or service that does not share hardware with the systems it collects from.",
+        "Configure systems to send audit records to it at the frequency you define.",
+        "Make sure backups and archives of audit records are also kept apart from the audited systems."
+      ],
+      "reviewed": false
+    },
+    "au-9.3": {
+      "question": "Does your organization use cryptography, such as digital signatures or hashes, to protect audit information and audit tools from undetected changes?",
+      "whyItMatters": "Logs are only trustworthy evidence if you can show they have not been altered. Cryptographic integrity checks make tampering with records or audit tools detectable.",
+      "doneLooksLike": "Cryptographic mechanisms, such as signed hashes (a digital fingerprint signed with a private key and checked with a public key), protect the integrity of both audit information and audit tools, so you can verify that neither has been changed.",
+      "nextSteps": [
+        "Enable integrity protection features, such as signed or hashed logs, in your log management tool.",
+        "Protect the integrity of audit tools themselves, for example with signed software and file integrity checks.",
+        "Periodically verify signatures or hashes to confirm logs are intact."
+      ],
+      "reviewed": false
+    },
+    "au-9.4": {
+      "question": "Is the ability to manage audit logging limited to a specific subset of privileged users or roles that your organization has defined?",
+      "whyItMatters": "Administrators who are also subjects of auditing could turn off logging or edit records to hide their own actions. Separating audit privileges from other administrative rights protects the reliability of your logs.",
+      "doneLooksLike": "Access to manage audit logging functionality, such as changing log settings, stopping logging, or deleting records, is authorized only for the subset of privileged users or roles you define. Other administrators do not hold these audit-related privileges.",
+      "nextSteps": [
+        "Identify who can currently change audit settings or delete logs.",
+        "Define the small group or role that should manage audit logging.",
+        "Remove audit management rights from everyone else, including general administrators where possible."
+      ],
+      "reviewed": false
+    },
+    "au-10": {
+      "question": "Can your organization produce reliable evidence that a specific person, or a process acting for them, performed the actions you have defined?",
+      "whyItMatters": "Some actions, such as approving payments, signing contracts, or sending official messages, must not be deniable later. Strong evidence of who acted protects your organization in disputes and investigations.",
+      "doneLooksLike": "For the actions you define, such as creating information, sending or receiving messages, or approving requests, your systems provide irrefutable evidence that a particular individual or process performed them, using techniques such as digital signatures and digital message receipts.",
+      "nextSteps": [
+        "Identify the actions where you need proof of who acted, such as approvals, contract signatures, or official messages.",
+        "Use digital signatures or signed receipts for those actions.",
+        "Make sure each person uses individual credentials so actions cannot be attributed to a shared account."
+      ],
+      "reviewed": false
+    },
+    "au-12.1": {
+      "question": "Does your organization combine audit records from defined system components into one system-wide audit trail with timestamps aligned within a set tolerance?",
+      "whyItMatters": "Investigating an incident means reconstructing the order of events across many devices. If clocks disagree or records sit in separate places, the timeline becomes unreliable.",
+      "doneLooksLike": "Audit records from the system components you define are compiled into a system-wide audit trail, either logical or physical. Timestamps across those records can be reliably related to one another, so events can be put in order within the level of tolerance you define.",
+      "nextSteps": [
+        "List the system components whose logs belong in the system-wide trail.",
+        "Synchronize their clocks to a common, authoritative time source.",
+        "Collect their logs centrally and confirm that event order across components stays within your tolerance."
+      ],
+      "reviewed": false
+    },
+    "au-12.3": {
+      "question": "Can designated people change what is logged on defined system components, based on selectable event criteria, within the time thresholds you set?",
+      "whyItMatters": "During a threat, you may need more detailed logging right away, and at other times less to conserve resources. Letting authorized people adjust logging quickly keeps it matched to the situation.",
+      "doneLooksLike": "You have provided and implemented the capability for the individuals or roles you define to change the logging performed on the system components you define, based on the selectable event criteria you define, within the time thresholds you set.",
+      "nextSteps": [
+        "Define who may change logging, on which components, and how quickly changes must take effect.",
+        "Set up central logging configuration so authorized people can raise or lower logging for selected events.",
+        "Practice increasing logging on a key system and confirm the change takes effect within your threshold."
+      ],
+      "reviewed": false
+    },
+    "ca-2.1": {
+      "question": "Does your organization use independent assessors, free from conflicts of interest with the system, to carry out its control assessments?",
+      "whyItMatters": "People who build or run a system can overlook its weaknesses or have an interest in a positive result. Impartial assessors produce results that leaders can rely on for risk decisions.",
+      "doneLooksLike": "Control assessments are conducted by independent assessors or teams, from elsewhere in your organization or contracted from outside, who have no actual or perceived conflict of interest with the system, for example they do not assess their own work or advocate for its owners. The official who authorizes the system decides the level of independence needed based on risk, and where your organization is too small for full independence, an independent team of experts carefully reviews the assessment results.",
+      "nextSteps": [
+        "Decide the level of independence needed for your assessments, based on the risk of the system.",
+        "Choose assessors outside the system's development, operation, and management, either from another part of your organization or an outside firm.",
+        "If that is not possible, have independent experts review the assessment results for completeness and accuracy."
+      ],
+      "reviewed": false
+    },
+    "ca-2.2": {
+      "question": "Do your control assessments include specialized assessments, such as vulnerability scanning or insider threat testing, at a frequency you set, announced or unannounced?",
+      "whyItMatters": "Standard reviews check whether controls exist; specialized assessments test how they hold up under realistic pressure. They exercise your people and tools and show where improvement matters most.",
+      "doneLooksLike": "As part of control assessments, you conduct the specialized assessments you have selected, such as in-depth monitoring, security instrumentation, automated security test cases, vulnerability scanning, malicious user testing, insider threat assessment, performance and load testing, or data leakage assessment, at the frequency you define and on an announced or unannounced basis as you have chosen. The authorizing official approves the assessment methods, and vulnerabilities found can feed into your remediation process.",
+      "nextSteps": [
+        "Choose which specialized assessments fit your risks and systems.",
+        "Set the frequency, decide whether each will be announced or unannounced, and get approval for the methods.",
+        "Track findings from these assessments through your vulnerability remediation process."
+      ],
+      "reviewed": false
+    },
+    "ca-3.6": {
+      "question": "Before accepting data from an interconnected system, do your systems verify that the sending person or system is authorized to transfer it?",
+      "whyItMatters": "If a system accepts any data sent to it, an unauthorized person or a compromised connected system can push in false or malicious information. Checking authorization first blocks transfers that should not happen.",
+      "doneLooksLike": "Your protected systems verify, through independent means, that individuals or systems transferring data between interconnecting systems have the required authorizations, such as write permissions or privileges, before accepting the data. This also covers network control traffic and services, such as routing updates, DNS, and authenticated email relays.",
+      "nextSteps": [
+        "Identify the connections through which other systems send data into yours.",
+        "Require authentication and authorization checks for each, such as authenticated transfers or verified write permissions.",
+        "Configure routing, DNS, and email relay services to accept updates or messages only from authenticated sources."
+      ],
+      "reviewed": false
+    },
+    "ca-7.1": {
+      "question": "Does your organization use independent assessors or assessment teams to monitor the controls in its system on an ongoing basis?",
+      "whyItMatters": "Ongoing monitoring done only by the people running a system can drift toward confirming what they expect. Independent assessors bring impartiality, so monitoring results give a truer picture of how well controls work.",
+      "doneLooksLike": "Independent assessors or assessment teams monitor the system's controls on an ongoing basis, at the level of independence your continuous monitoring strategy calls for. They are free from conflicts of interest, for example they do not assess their own work or advocate for the organization they serve.",
+      "nextSteps": [
+        "Set the level of assessor independence in your continuous monitoring strategy.",
+        "Assign ongoing monitoring tasks to people outside the system's operation, or contract an independent provider.",
+        "Check periodically that your assessors remain free of conflicts of interest with the system."
+      ],
+      "reviewed": false
+    },
+    "ca-8": {
+      "question": "Does your organization conduct penetration testing, at a frequency it defines, on the systems or components it has chosen?",
+      "whyItMatters": "Automated scans list possible weaknesses, while penetration testing shows which ones an attacker could actually exploit and how far they could get. This gives a realistic view of how well your systems resist attack.",
+      "doneLooksLike": "Penetration testing is conducted at the frequency you define on the systems or components you define, by testers with demonstrable skills and experience. All parties agree on rules of engagement before testing begins, including how any protected information exposed during testing will be handled.",
+      "nextSteps": [
+        "Decide which systems or components to test and how often.",
+        "Engage qualified testers, internal or external, and agree on written rules of engagement covering scope and the handling of sensitive data.",
+        "Track findings to resolution and retest fixed issues."
+      ],
+      "reviewed": false
+    },
+    "ca-8.1": {
+      "question": "Does your organization use an independent agent or team, with no stake in the system, to perform its penetration testing?",
+      "whyItMatters": "Testers who helped build or run a system may share its blind spots or have a reason to understate findings. Independent testers give an impartial view of how the system would hold up against a real attacker.",
+      "doneLooksLike": "Penetration testing on the system or its components is performed by an independent agent or team that is free from actual or perceived conflicts of interest with the development, operation, or management of the systems being tested.",
+      "nextSteps": [
+        "Confirm that your penetration testers are not involved in building, running, or managing the systems they test.",
+        "If using internal staff, choose people from outside the system's chain of responsibility.",
+        "Document how the testers' independence was confirmed."
+      ],
+      "reviewed": false
+    }
+  }
+}

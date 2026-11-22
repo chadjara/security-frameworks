@@ -39,7 +39,29 @@ enum UITestSeed {
         if let url = URL(string: "https://intranet.example.org/policies/privacy") {
             service.addLink(title: "Privacy policy", url: url, to: ref, in: a)
         }
+        // CSF Target Profile, priorities, tiers, and an overdue item for the dashboards.
+        let day: TimeInterval = 86_400
+        for id in ["PR.AA-05", "PR.DS-02", "DE.CM-01"] {
+            service.setPriority(.high, for: RequirementRef(frameworkID: csf, requirementID: id), in: a)
+        }
+        service.setPriority(.medium, for: RequirementRef(frameworkID: csf, requirementID: "RS.MA-01"), in: a)
+        service.setInTargetProfile(false, for: RequirementRef(frameworkID: csf, requirementID: "GV.SC-10"), in: a)
+        service.update(RequirementRef(frameworkID: csf, requirementID: "ID.AM-02"), in: a) {
+            $0.targetDate = Date().addingTimeInterval(-10 * day)
+            $0.owner = "IT contractor"
+        }
+        a.csfCurrentTier = 2
+        a.csfTargetTier = 3
+        for id in ["ac-1", "ac-2", "at-1", "at-2", "ia-2", "ia-2.1", "cp-9"] {
+            service.setStatus(.implemented, for: RequirementRef(frameworkID: "sp800-53r5", requirementID: id), in: a)
+        }
+        for id in ["au-2", "cm-2", "ra-5"] {
+            service.setStatus(.inProgress, for: RequirementRef(frameworkID: "sp800-53r5", requirementID: id), in: a)
+        }
         service.setStatus(.implemented, for: RequirementRef(frameworkID: "sp800-171r3", requirementID: "03.01.01"), in: a)
+        service.update(RequirementRef(frameworkID: "sp800-171r3", requirementID: "03.01.01"), in: a) {
+            $0.notes = "Accounts are requested through the help desk and reviewed each quarter."
+        }
         service.setParameter("A.03.01.01.ODP.01", frameworkID: "sp800-171r3", value: "90 days", in: a)
         return a
     }

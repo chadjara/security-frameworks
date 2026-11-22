@@ -41,6 +41,15 @@ struct RegularRootView: View {
                     .padding(.vertical, DS.Space.xxs)
             }
 
+            if assessment != nil {
+                Section {
+                    Label("Overview", systemImage: "chart.bar.xaxis").tag(SidebarItem.overview)
+                        .accessibilityIdentifier("sidebar.overview")
+                    Label("Next Steps", systemImage: "list.number").tag(SidebarItem.nextSteps)
+                        .accessibilityIdentifier("sidebar.nextSteps")
+                }
+            }
+
             if let assessment {
                 Section {
                     let enabled = library.entries.filter { assessment.isEnabled($0.id) }
@@ -95,6 +104,10 @@ struct RegularRootView: View {
                     EmptyStateView(title: "Framework unavailable", message: "This framework is not installed.",
                                    systemImage: "questionmark.folder")
                 }
+            case .overview:
+                OverviewView(assessment: assessment, selection: $detail)
+            case .nextSteps:
+                NextStepsView(assessment: assessment, selection: $detail)
             case .explorer:
                 FrameworkExplorerView(assessment: assessment, selection: $detail)
             case .assessments:
@@ -127,7 +140,7 @@ struct RegularRootView: View {
                 .id(detail)
         } else {
             switch sidebar {
-            case .framework:
+            case .framework, .overview, .nextSteps:
                 EmptyStateView(title: "Select a requirement",
                                message: "Choose a requirement to record its status, owner, notes, and evidence.",
                                systemImage: "checklist")
@@ -146,7 +159,7 @@ struct RegularRootView: View {
 
     private var defaultSidebar: SidebarItem? {
         guard let assessment else { return nil }
-        return assessment.enabledFrameworkIDs.first.map(SidebarItem.framework) ?? .explorer
+        return assessment.enabledFrameworkIDs.isEmpty ? .explorer : .overview
     }
 
     private func applyInitialSelection() {
@@ -167,6 +180,11 @@ struct RegularRootView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { detail = .frameworkSettings(frameworkID: fw) }
         case .assessments: sidebar = .assessments
         case .settings: sidebar = .settings
+        case .overview: sidebar = .overview
+        case .nextSteps: sidebar = .nextSteps
+        case .profile(let fw):
+            sidebar = .framework(fw)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { detail = .csfProfile(frameworkID: fw) }
         default: break
         }
         #endif
@@ -208,6 +226,14 @@ struct RouteDestination: View {
             } else { missing }
         case .settings(let page):
             SettingsPageView(page: page)
+        case .overview:
+            if let assessment { OverviewView(assessment: assessment, selection: nil) } else { missing }
+        case .nextSteps:
+            if let assessment { NextStepsView(assessment: assessment, selection: nil) } else { missing }
+        case .csfProfile(let id):
+            if let assessment, let fw = library.framework(id) {
+                CSFProfileView(assessment: assessment, framework: fw)
+            } else { missing }
         }
     }
 

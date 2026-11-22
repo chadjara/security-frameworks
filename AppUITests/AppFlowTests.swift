@@ -60,12 +60,8 @@ final class AppFlowTests: XCTestCase {
         capture("new-assessment")
         element(app, "saveAssessment").tap()
 
-        // The new assessment opens with CSF 2.0 turned on.
-        if device == "iphone" {
-            XCTAssertTrue(element(app, "home.csf-2.0").waitForExistence(timeout: 10))
-        } else {
-            XCTAssertTrue(element(app, "screen.requirements").waitForExistence(timeout: 10))
-        }
+        // The new assessment opens on its overview, with CSF 2.0 turned on.
+        XCTAssertTrue(element(app, "screen.overview").waitForExistence(timeout: 10))
     }
 
     @MainActor
@@ -151,5 +147,51 @@ final class AppFlowTests: XCTestCase {
         let detail = element(large, "screen.requirementDetail")
         XCTAssertTrue(detail.waitForExistence(timeout: 20))
         capture("detail-ax3", pages: 2, scroll: detail)
+    }
+
+    // MARK: Phase 3
+
+    @MainActor
+    func testOverviewAndNextSteps() throws {
+        let app = launch(route: "overview")
+        let overview = element(app, "screen.overview")
+        XCTAssertTrue(overview.waitForExistence(timeout: 20))
+        capture("overview", pages: 4, scroll: overview)
+        app.terminate()
+
+        let dark = launch(route: "overview", scheme: "dark")
+        XCTAssertTrue(element(dark, "screen.overview").waitForExistence(timeout: 20))
+        capture("overview-dark")
+        dark.terminate()
+
+        let steps = launch(route: "nextSteps")
+        XCTAssertTrue(element(steps, "screen.nextSteps").waitForExistence(timeout: 20))
+        capture("next-steps")
+    }
+
+    @MainActor
+    func testProfileAndTiers() throws {
+        let app = launch(route: "profile:csf-2.0")
+        let profile = element(app, "screen.csfProfile")
+        XCTAssertTrue(profile.waitForExistence(timeout: 20))
+        capture("profile-summary", pages: 2, scroll: profile)
+        app.buttons["Target Profile"].firstMatch.tap()
+        capture("profile-target")
+        app.buttons["Tiers"].firstMatch.tap()
+        capture("profile-tiers", pages: 2, scroll: profile)
+    }
+
+    @MainActor
+    func testRelatedRequirementsAndApply() throws {
+        let app = launch(route: "detail:sp800-171r3:03.01.01")
+        let detail = element(app, "screen.requirementDetail")
+        XCTAssertTrue(detail.waitForExistence(timeout: 20))
+        let apply = element(app, "applyToMapped")
+        for _ in 0..<8 where !apply.isHittable { detail.swipeUp(velocity: .slow) }
+        XCTAssertTrue(apply.exists, "Related requirements should offer to apply the answer")
+        capture("related-requirements")
+        apply.tap()
+        XCTAssertTrue(app.navigationBars["Apply Answer"].waitForExistence(timeout: 5))
+        capture("apply-to-mapped")
     }
 }

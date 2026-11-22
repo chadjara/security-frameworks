@@ -18,13 +18,16 @@ public struct FrameworkDocument: Sendable, Hashable, Codable, Identifiable {
     public let kinds: [RequirementKind]
     public let groupLevels: [GroupLevel]
     public let baselines: [Baseline]
+    /// CSF 2.0 Tiers (empty for other frameworks).
+    public let tiers: [Tier]
+    public let tiersSource: TiersSource?
     public let groups: [RequirementGroup]
     public let requirements: [Requirement]
     public let withdrawn: [WithdrawnRequirement]
 
     enum CodingKeys: String, CodingKey {
         case schemaVersion, id, shortName, title, publisher, publicationId, version, contentVersion, source
-        case summary, notices, kinds, groupLevels, baselines, groups, requirements, withdrawn
+        case summary, notices, kinds, groupLevels, baselines, tiers, tiersSource, groups, requirements, withdrawn
     }
 
     public init(from decoder: any Decoder) throws {
@@ -46,6 +49,8 @@ public struct FrameworkDocument: Sendable, Hashable, Codable, Identifiable {
         kinds = try c.decode([RequirementKind].self, forKey: .kinds)
         groupLevels = try c.decode([GroupLevel].self, forKey: .groupLevels)
         baselines = try c.decodeIfPresent([Baseline].self, forKey: .baselines) ?? []
+        tiers = try c.decodeIfPresent([Tier].self, forKey: .tiers) ?? []
+        tiersSource = try c.decodeIfPresent(TiersSource.self, forKey: .tiersSource)
         groups = try c.decode([RequirementGroup].self, forKey: .groups)
         requirements = try c.decode([Requirement].self, forKey: .requirements)
         withdrawn = try c.decodeIfPresent([WithdrawnRequirement].self, forKey: .withdrawn) ?? []
@@ -98,6 +103,22 @@ public struct Baseline: Sendable, Hashable, Codable, Identifiable {
     /// `true` when the baseline is layered on top of another one (the SP 800-53B Privacy baseline).
     public let additive: Bool
     public let summary: String?
+}
+
+/// A CSF Tier: the rigor of cybersecurity risk governance and management practices (NIST text).
+public struct Tier: Sendable, Hashable, Codable, Identifiable {
+    public let id: String
+    public let number: Int
+    public let title: String
+    public let governance: [String]
+    public let management: [String]
+}
+
+public struct TiersSource: Sendable, Hashable, Codable {
+    public let url: String
+    public let pages: String
+    public let sha256: String
+    public let introduction: String?
 }
 
 public struct RequirementGroup: Sendable, Hashable, Codable, Identifiable {

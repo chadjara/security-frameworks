@@ -256,6 +256,21 @@ struct RequirementListView: View {
             }
             .accessibilityIdentifier("filterMenu")
         }
+        if !framework.document.tiers.isEmpty {
+            ToolbarItem(placement: .secondaryAction) {
+                if let selection {
+                    Button {
+                        selection.wrappedValue = .csfProfile(frameworkID: framework.id)
+                    } label: {
+                        Label("Profiles and Tiers", systemImage: "scope")
+                    }
+                } else {
+                    NavigationLink(value: AppRoute.csfProfile(frameworkID: framework.id)) {
+                        Label("Profiles and Tiers", systemImage: "scope")
+                    }
+                }
+            }
+        }
         if framework.hasBaselines {
             ToolbarItem(placement: .secondaryAction) {
                 if let selection {

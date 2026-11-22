@@ -1,0 +1,691 @@
+{
+  "requirements": {
+    "cm-2.2": {
+      "question": "Does your organization use automated tools to keep its baseline configuration records current, complete, accurate, and available?",
+      "whyItMatters": "Baselines maintained by hand drift out of date as systems change, and an outdated baseline cannot reliably reveal unauthorized changes. Automated tools can track operating system versions, installed software, and patch levels as they change.",
+      "doneLooksLike": "The automated mechanisms you have chosen, such as configuration management, inventory, or network management tools, keep the baseline configuration current, complete, and accurate, and keep it available to the people who need it. If you combine inventory and baseline work, automated inventory maintenance can serve the same purpose.",
+      "nextSteps": [
+        "Choose an automated tool that records operating system versions, installed software, and patch levels across your components.",
+        "Connect the tool's output to your documented baseline so differences are visible.",
+        "Check periodically that every component type is covered, including mobile devices and network equipment."
+      ],
+      "reviewed": false
+    },
+    "cm-2.3": {
+      "question": "Does your organization keep a set number of earlier baseline configuration versions so it can roll a system back if a change goes wrong?",
+      "whyItMatters": "Changes sometimes break systems or introduce weaknesses. Keeping earlier versions lets you return to a known, working state quickly instead of rebuilding from memory.",
+      "doneLooksLike": "You retain the number of previous baseline configuration versions you have defined, covering hardware, software, firmware, configuration files, configuration records, and related documentation, and those versions can be used to roll back.",
+      "nextSteps": [
+        "Decide how many previous baseline versions to keep.",
+        "Store baseline versions in a system that keeps history, such as a version-controlled repository.",
+        "Test a rollback to a previous version to confirm the stored records are usable."
+      ],
+      "reviewed": false
+    },
+    "cm-2.7": {
+      "question": "When staff travel to places your organization considers high risk, do they take specially configured devices, and are those devices checked before reuse when they return?",
+      "whyItMatters": "Devices taken to high-risk locations may be inspected, tampered with, or compromised while out of your control. Limiting what they carry and examining them on return reduces the chance that a compromised device rejoins your network.",
+      "doneLooksLike": "You have identified the locations you consider significant risk. People traveling there are issued the systems or components you define, set up with the configurations you define, such as limited applications and stricter settings. When they return, the controls you define are applied, for example inspecting for physical tampering and wiping and reimaging the device.",
+      "nextSteps": [
+        "Define which travel destinations your organization treats as high risk.",
+        "Prepare travel devices with minimal data, limited applications, and stricter settings for those trips.",
+        "Write a return procedure, such as tamper inspection and reimaging, and apply it before the device reconnects to your network."
+      ],
+      "reviewed": false
+    },
+    "cm-3": {
+      "question": "Does your organization decide which system changes need formal approval, review those changes for security and privacy impact, and keep records of what was approved and done?",
+      "whyItMatters": "Unreviewed changes are a frequent cause of outages and new security gaps. A consistent change process means someone weighs the risk before a change goes in, and you can trace what changed when problems appear.",
+      "doneLooksLike": "You have documented which types of changes are configuration-controlled. Proposed changes are reviewed and approved or disapproved with explicit consideration of security and privacy impact analyses, decisions are documented, approved changes are implemented, and change records are kept for the period you define. Change activities are monitored and reviewed, and the group or role you designate, such as a change review board, oversees the process and meets at the frequency or under the conditions you define.",
+      "nextSteps": [
+        "List the types of changes that require approval, such as new software, configuration settings, and network changes.",
+        "Designate who reviews and approves changes, and set when they meet.",
+        "Use a change request form or ticket that records the security and privacy impact, the decision, and the implementation.",
+        "Set a retention period for change records, and review completed changes periodically."
+      ],
+      "reviewed": false
+    },
+    "cm-3.1": {
+      "question": "Does your organization use automated tools to record proposed changes, route them for approval, block unapproved changes, and announce when approved changes are complete?",
+      "whyItMatters": "Manual change tracking depends on people remembering each step. Automation makes the approval path consistent, flags requests that stall, and stops changes from going in before they are approved.",
+      "doneLooksLike": "The automated mechanisms you define document proposed changes, notify the approval authorities you define and request approval, highlight proposals not approved or disapproved within the time period you set, prevent changes until designated approvals are received, document all changes, and notify the personnel you define when approved changes are completed.",
+      "nextSteps": [
+        "Choose a ticketing or change management tool that supports approval workflows.",
+        "Configure it to notify approvers, flag requests that exceed your approval time period, and notify the people you define when changes are complete.",
+        "Connect deployment and administrative tools so changes cannot proceed without a recorded approval."
+      ],
+      "reviewed": false
+    },
+    "cm-3.2": {
+      "question": "Does your organization test, validate, and document system changes before treating them as finished?",
+      "whyItMatters": "Untested changes can break systems or quietly weaken protections. Testing first catches problems while they are still inexpensive to fix.",
+      "doneLooksLike": "Changes to hardware, software, firmware, and configuration settings are tested, validated, and documented before implementation is finalized. Testing is arranged so it does not disrupt operations, for example during planned outages or on replicated systems, and compensating controls are used when testing on operational systems is not possible.",
+      "nextSteps": [
+        "Add testing and validation steps to your change process, with results recorded in the change record.",
+        "Schedule tests that affect live systems during planned maintenance windows.",
+        "Document compensating measures for changes that cannot be fully tested beforehand."
+      ],
+      "reviewed": false
+    },
+    "cm-3.4": {
+      "question": "Are the security and privacy representatives your organization designates required members of the group that reviews and approves system changes?",
+      "whyItMatters": "Changes can have side effects on security or personal information that others may not notice. Including security and privacy representatives catches those issues before changes are made.",
+      "doneLooksLike": "The security representatives and privacy representatives you designate are required members of the configuration change control group or function you have established, as reflected in its charter or membership records.",
+      "nextSteps": [
+        "Name the security and privacy roles that must take part in change reviews.",
+        "Update the change group's charter or membership list to include them.",
+        "Check meeting records or approvals to confirm they are taking part."
+      ],
+      "reviewed": false
+    },
+    "cm-3.6": {
+      "question": "Are the cryptographic mechanisms behind the safeguards your organization specifies, such as certificates, keys, and encryption settings, managed through configuration management?",
+      "whyItMatters": "Encryption and certificates can fail quietly when keys expire, settings change, or outdated algorithms stay in use. Managing them through your configuration process keeps them tracked and avoids lapses such as an expired certificate taking down a service.",
+      "doneLooksLike": "The cryptographic mechanisms that provide the controls you define are under configuration management, with processes for tracking and changing them, including addressing certificate expiration.",
+      "nextSteps": [
+        "Identify the controls that rely on cryptography and the mechanisms behind them, such as certificates and encryption settings.",
+        "Add those mechanisms to your inventory and baseline, and route changes to them through change control.",
+        "Track certificate expiration dates, and assign someone to renew certificates ahead of time."
+      ],
+      "reviewed": false
+    },
+    "cm-4.1": {
+      "question": "Does your organization analyze changes in a test environment kept separate from live systems, looking for security and privacy problems, before deploying them?",
+      "whyItMatters": "Testing on live systems can disrupt operations or expose real data. A separate environment lets you find flaws, incompatibilities, or malicious code before they reach production.",
+      "doneLooksLike": "Changes are analyzed in a physically or logically separate test environment before implementation in the operational environment. The analysis looks for security and privacy impacts from flaws, weaknesses, incompatibility, and intentional malice, and the separation keeps test activity from affecting operations and keeps operational information from flowing into the test environment.",
+      "nextSteps": [
+        "Set up a test environment that is isolated from your production systems and data.",
+        "Route changes through the test environment before deployment.",
+        "Include checks for security and privacy issues, not only functionality, and record results in the change record."
+      ],
+      "reviewed": false
+    },
+    "cm-4.2": {
+      "question": "After a system change, does your organization check that the affected security and privacy safeguards are still in place and working as intended?",
+      "whyItMatters": "A change can quietly disable logging, loosen access rules, or break encryption. Checking the affected safeguards afterward confirms that the change did not weaken your protections.",
+      "doneLooksLike": "After changes, the impacted controls are verified to be implemented correctly, operating as intended, and producing the desired outcome for both the security and privacy requirements of the system.",
+      "nextSteps": [
+        "As part of each change request, list the safeguards the change could affect.",
+        "After implementation, check each one, for example by confirming logging still records events and access rules still apply.",
+        "Record the verification results in the change record, and fix any issues found."
+      ],
+      "reviewed": false
+    },
+    "cm-5.1": {
+      "question": "Does your organization use automated mechanisms to restrict who can make system changes, and automatically log each time those restrictions are enforced?",
+      "whyItMatters": "Automated enforcement keeps changes limited to authorized people. Logging that enforcement gives you the record needed to investigate if an unauthorized change is later discovered.",
+      "doneLooksLike": "Access restrictions for change are enforced using the automated mechanisms you define, such as role-based permissions in administrative and deployment tools, and audit records of enforcement actions are generated automatically.",
+      "nextSteps": [
+        "Configure administrative and deployment tools so only authorized roles can make changes.",
+        "Turn on logging of allowed and denied change attempts.",
+        "Review these logs as part of your change monitoring."
+      ],
+      "reviewed": false
+    },
+    "cm-6.1": {
+      "question": "Does your organization use automated tools to manage, apply, and verify configuration settings on the system components it specifies?",
+      "whyItMatters": "Setting configurations by hand across many devices leads to gaps and drift. Automated tools apply settings consistently and show which devices no longer match.",
+      "doneLooksLike": "Configuration settings for the system components you define are managed, applied, and verified using the automated mechanisms you define, such as hardening or configuration management tools.",
+      "nextSteps": [
+        "Decide which components will have their settings managed automatically.",
+        "Use a configuration management or device management tool to push your approved settings.",
+        "Run regular automated checks that report devices whose settings no longer match."
+      ],
+      "reviewed": false
+    },
+    "cm-6.2": {
+      "question": "When the configuration settings your organization specifies are changed without authorization, does it respond with actions it has defined in advance?",
+      "whyItMatters": "An unauthorized change may signal an attacker or a mistake that opens a gap. A predefined response, such as alerting staff or restoring the approved setting, limits how long the gap stays open.",
+      "doneLooksLike": "You have defined which configuration settings are covered and what actions to take when they change without authorization, such as alerting designated personnel, restoring the approved settings, or, in extreme cases, halting affected processing. Those actions are taken when unauthorized changes occur.",
+      "nextSteps": [
+        "Identify the settings where unauthorized changes would matter most.",
+        "Define the response for each, such as alerting, automatic restoration, or halting processing.",
+        "Configure monitoring to detect changes to those settings and trigger the response."
+      ],
+      "reviewed": false
+    },
+    "cm-7.1": {
+      "question": "Does your organization periodically review its systems for unnecessary or insecure functions, ports, protocols, software, and services, and disable or remove what it finds?",
+      "whyItMatters": "Systems collect unneeded services and software over time, and some protocols become insecure. Regular reviews catch these before attackers can use them.",
+      "doneLooksLike": "The system is reviewed at the frequency you define to identify unnecessary or nonsecure functions, ports, protocols, software, and services, and those you have deemed unnecessary or nonsecure are disabled or removed.",
+      "nextSteps": [
+        "Set a review frequency.",
+        "Scan systems for open ports, running services, and installed software, and compare the results with what is approved.",
+        "Disable or remove items that are not needed or are insecure, and record the decisions."
+      ],
+      "reviewed": false
+    },
+    "cm-7.2": {
+      "question": "Does your organization technically prevent programs from running when its policies, rules of behavior, or software license terms do not permit them?",
+      "whyItMatters": "Unapproved or unlicensed programs can carry malware and create legal exposure. Blocking them technically, rather than relying on policy alone, keeps them from running.",
+      "doneLooksLike": "Program execution is prevented in line with the policies, rules of behavior, access agreements, or software usage terms you have selected. Examples include disabling auto-run features, restricting which roles can approve program execution, permitting or prohibiting specific programs, and limiting how many copies of a program run at once.",
+      "nextSteps": [
+        "Document which software use is restricted by your policies and license terms.",
+        "Disable auto-run features for removable media and downloaded files.",
+        "Use endpoint controls to block prohibited programs and enforce license limits."
+      ],
+      "reviewed": false
+    },
+    "cm-7.5": {
+      "question": "Does your organization allow only approved software to run on its systems, block everything else, and review the approved list on a schedule?",
+      "whyItMatters": "Blocking all software except what you have approved stops most malware and unauthorized tools from running, including new ones that other defenses do not yet recognize.",
+      "doneLooksLike": "You have identified the software programs authorized to run, a deny-all, permit-by-exception policy (often called application allowlisting) allows only those programs to execute, and the authorized list is reviewed and updated at the frequency you define.",
+      "nextSteps": [
+        "Inventory the software your staff need, and build an approved list.",
+        "Turn on application allowlisting in your endpoint or operating system controls, starting in a monitoring-only mode to find gaps.",
+        "Set a review frequency for the approved list, and define how staff request additions."
+      ],
+      "reviewed": false
+    },
+    "cm-8.1": {
+      "question": "Does your organization update its system component inventory as part of every component installation, removal, and system update?",
+      "whyItMatters": "Inventories updated only during periodic reviews quickly fall behind. Recording changes as they happen keeps the inventory accurate when you need it, such as during an incident.",
+      "doneLooksLike": "The system component inventory is updated as part of component installations, component removals, and system updates involving hardware, software, and firmware.",
+      "nextSteps": [
+        "Add an inventory update step to your installation, removal, and update procedures.",
+        "Make the inventory update part of the change record so it is not skipped.",
+        "Spot-check the inventory against systems after changes to confirm it was updated."
+      ],
+      "reviewed": false
+    },
+    "cm-8.2": {
+      "question": "Does your organization use automated tools to keep its system component inventory current, complete, accurate, and available?",
+      "whyItMatters": "Manual inventories miss devices and fall out of date. Automated discovery finds components as they appear and keeps records reliable.",
+      "doneLooksLike": "The automated mechanisms you define keep the component inventory current, complete, accurate, and available. Components that are hard to see automatically, such as virtual machines that are powered off, are tracked as fully as is reasonable.",
+      "nextSteps": [
+        "Use an automated discovery or asset management tool to collect hardware and software inventory.",
+        "Reconcile its findings with your recorded inventory, and investigate differences.",
+        "Document how you track components the tool cannot see."
+      ],
+      "reviewed": false
+    },
+    "cm-8.3": {
+      "question": "Does your organization use automated tools to detect unauthorized hardware, software, and firmware on its systems, and respond in a defined way when it finds them?",
+      "whyItMatters": "An unknown device or program may be a rogue device, malware, or an unapproved tool. Detecting it automatically and responding promptly limits what it can do.",
+      "doneLooksLike": "The automated mechanisms you define detect unauthorized hardware, software, and firmware at the frequency you define. When unauthorized components are found, you take the actions you have selected: disabling their network access, isolating them, notifying the personnel or roles you define, or a combination.",
+      "nextSteps": [
+        "Deploy network and endpoint scanning that compares what it finds against your authorized inventory, and set its frequency.",
+        "Configure the response, such as blocking network access, quarantining the component, or alerting designated staff.",
+        "Plan how you will detect devices that cannot run monitoring software, such as sensors and other connected devices."
+      ],
+      "reviewed": false
+    },
+    "cm-8.4": {
+      "question": "Does your system component inventory identify who is responsible for administering each component, by name, position, or role?",
+      "whyItMatters": "When a component is involved in a breach, needs replacing, or must be moved, you need to know at once who is responsible for it. Recording that in the inventory makes contact quick.",
+      "doneLooksLike": "The component inventory identifies the individuals responsible and accountable for administering each component, using the method you have selected: name, position, role, or a combination.",
+      "nextSteps": [
+        "Decide whether to record administrators by name, position, role, or a combination.",
+        "Add a responsible administrator field to every inventory entry.",
+        "Update the field when staff change roles or leave."
+      ],
+      "reviewed": false
+    },
+    "cm-9": {
+      "question": "Does your organization have a documented, approved configuration management plan for the system that sets out roles, processes, and which items are under configuration control?",
+      "whyItMatters": "Without a plan, configuration work depends on individual habits and gaps appear. A plan sets out who does what and which components are tracked, so changes, baselines, and inventories are handled consistently.",
+      "doneLooksLike": "A configuration management plan is developed, documented, and implemented. It addresses roles, responsibilities, processes, and procedures; establishes how configuration items are identified throughout the system's life cycle and how their configuration is managed; defines the configuration items and places them under configuration management; is reviewed and approved by the personnel or roles you define; and is protected from unauthorized disclosure and modification.",
+      "nextSteps": [
+        "Draft a plan covering roles, change processes, baselines, and inventory maintenance.",
+        "List the configuration items the plan covers, such as hardware, software, firmware, and documentation.",
+        "Have the designated personnel or roles review and approve the plan.",
+        "Store the plan with access restrictions so only authorized people can view or edit it."
+      ],
+      "reviewed": false
+    },
+    "cm-12": {
+      "question": "Does your organization document where the information it specifies is processed and stored, which system components hold it, and who has access to them?",
+      "whyItMatters": "You cannot protect information if you do not know where it is. Knowing where sensitive information lives guides where you apply safeguards and helps you respond quickly to an incident.",
+      "doneLooksLike": "For the information you define, you have documented where it is located, the specific components that process and store it, and the users who have access to those systems and components. Changes to where the information is processed and stored are documented.",
+      "nextSteps": [
+        "Decide which information to track, such as customer records or personal information.",
+        "Map the systems, servers, and cloud services where it is processed and stored, and who has access to each.",
+        "Update the documentation whenever the information moves to a new system or location."
+      ],
+      "reviewed": false
+    },
+    "cm-12.1": {
+      "question": "Does your organization use automated tools to find the types of information it specifies on its system components, to confirm that the right protections are in place?",
+      "whyItMatters": "Sensitive information often ends up in unexpected places, such as shared folders, spreadsheets, or old servers. Automated discovery finds it so you can confirm it is protected.",
+      "doneLooksLike": "Automated tools identify the information types you define on the system components you define, and the results are used to confirm that controls protecting organizational information and individual privacy are in place.",
+      "nextSteps": [
+        "Select a data discovery tool that can search for the information types you care about.",
+        "Run it on the components you have defined, starting with shared folders and cloud storage.",
+        "Act on findings by moving, removing, or protecting information found where it does not belong."
+      ],
+      "reviewed": false
+    },
+    "cp-2.1": {
+      "question": "When developing its contingency plan, does your organization coordinate with the people responsible for related plans, such as business continuity, disaster recovery, and incident response?",
+      "whyItMatters": "Plans written in isolation can conflict, for example by assigning the same people or resources to different tasks during the same event. Coordination keeps them consistent when they are needed together.",
+      "doneLooksLike": "Contingency plan development is coordinated with the parts of your organization responsible for related plans, such as business continuity, disaster recovery, continuity of operations, crisis communications, incident and breach response, insider threat, and occupant emergency plans.",
+      "nextSteps": [
+        "List the related plans in your organization and who owns each.",
+        "Share contingency plan drafts with those owners, and resolve conflicts.",
+        "Keep a record of the coordination, such as review comments or meeting notes, with the plan."
+      ],
+      "reviewed": false
+    },
+    "cp-2.2": {
+      "question": "Has your organization planned for enough computing, telecommunications, and environmental support capacity to keep operating during a contingency?",
+      "whyItMatters": "During a disruption, you may run on fewer servers, slower connections, or limited power and cooling. Planning capacity ahead of time keeps essential functions running, even in a degraded state.",
+      "doneLooksLike": "Capacity planning is conducted so that the necessary capacity exists during contingency operations for information processing, telecommunications, and environmental support, such as power and cooling, taking expected degraded operations into account.",
+      "nextSteps": [
+        "Identify the minimum processing, network, and environmental capacity your essential functions need.",
+        "Compare those needs with what backup or alternate resources would provide.",
+        "Address shortfalls, and record capacity assumptions in the contingency plan."
+      ],
+      "reviewed": false
+    },
+    "cp-2.3": {
+      "question": "Does your contingency plan set out how your organization will resume its mission and business functions within a defined time after the plan is activated?",
+      "whyItMatters": "Every hour offline has a cost. A planned resumption time sets expectations and drives the backup and recovery choices needed to meet it.",
+      "doneLooksLike": "The contingency plan provides for resuming all or essential mission and business functions, as you have selected, within the time period you define after contingency plan activation, with functions prioritized for resumption.",
+      "nextSteps": [
+        "Decide whether the plan covers all functions or only essential ones.",
+        "Set a target resumption time, informed by a business impact analysis.",
+        "Document the resumption order and steps, and confirm your recovery resources can meet the target."
+      ],
+      "reviewed": false
+    },
+    "cp-2.5": {
+      "question": "Does your contingency plan keep all or essential mission and business functions running with little or no interruption until the primary site is fully restored?",
+      "whyItMatters": "Some functions cannot tolerate downtime. Planning for continuous operation, rather than resumption after an outage, protects the work that cannot stop.",
+      "doneLooksLike": "The contingency plan provides for continuing all or essential mission and business functions, as you have selected, with minimal or no loss of operational continuity, and for sustaining that continuity until full system restoration at primary processing or storage sites.",
+      "nextSteps": [
+        "Identify which functions must continue without interruption.",
+        "Plan how they will continue, such as failover to redundant systems or an alternate site.",
+        "Document how continuity will be sustained until the primary site is fully restored."
+      ],
+      "reviewed": false
+    },
+    "cp-2.8": {
+      "question": "Has your organization identified which system assets, including components, services, procedures, and people, are critical to supporting its mission and business functions?",
+      "whyItMatters": "Knowing which assets are critical lets you focus extra protection and recovery resources where a loss would hurt most.",
+      "doneLooksLike": "Critical system assets supporting all or essential mission and business functions, as you have selected, are identified. They include technical aspects, such as components, services, products, and mechanisms, and operational aspects, such as manual procedures and the people who carry them out.",
+      "nextSteps": [
+        "List your essential functions and the systems, services, procedures, and people each depends on.",
+        "Mark which of these are critical, and record them in the contingency plan.",
+        "Consider additional safeguards for critical assets, including those supported by outside service providers."
+      ],
+      "reviewed": false
+    },
+    "cp-3.1": {
+      "question": "Does your contingency training include simulated events, such as a ransomware attack or a facility outage, so staff can practice responding?",
+      "whyItMatters": "People respond better in a crisis when they have practiced. Simulations reveal confusion and gaps in a low-stakes setting.",
+      "doneLooksLike": "Contingency training incorporates simulated events, such as cyberattacks that disable websites, ransomware that encrypts data, natural disasters that damage facilities, or hardware and software failures, to help personnel respond effectively in crisis situations.",
+      "nextSteps": [
+        "Choose realistic scenarios relevant to your organization.",
+        "Run them as part of contingency training, for example as tabletop discussions or hands-on drills.",
+        "Capture lessons learned, and update training and procedures."
+      ],
+      "reviewed": false
+    },
+    "cp-4.1": {
+      "question": "Does your organization coordinate contingency plan testing with the people responsible for related plans, such as disaster recovery and incident response?",
+      "whyItMatters": "Testing plans separately can miss problems that only appear when teams work together. Coordinated testing shows whether the plans fit together in a real event.",
+      "doneLooksLike": "Contingency plan testing is coordinated with the parts of your organization responsible for related plans, where those exist. You are not required to create new teams solely for this purpose.",
+      "nextSteps": [
+        "Identify the owners of related plans.",
+        "Invite them to help plan and take part in contingency tests.",
+        "Share results so each plan owner can update their plan."
+      ],
+      "reviewed": false
+    },
+    "cp-4.2": {
+      "question": "Does your organization test its contingency plan at the alternate processing site, so staff know the facility and its ability to support operations is confirmed?",
+      "whyItMatters": "An alternate site can look adequate on paper but differ from your primary site in equipment, space, or connectivity. Testing there reveals gaps before you depend on it.",
+      "doneLooksLike": "The contingency plan is tested at the alternate processing site to familiarize contingency personnel with the facility and its available resources, and to evaluate the site's ability to support contingency operations.",
+      "nextSteps": [
+        "Schedule a test at the alternate site with the staff who would work there, or exercise failover if the site is a cloud service.",
+        "Walk through recovery steps using the site's actual equipment and connections.",
+        "Record gaps, and update the contingency plan or site arrangements."
+      ],
+      "reviewed": false
+    },
+    "cp-6": {
+      "question": "Does your organization have an alternate storage site for backups, with agreements to store and retrieve them, and protections equal to those at the primary site?",
+      "whyItMatters": "Backups kept in the same place as your systems can be lost in the same fire, flood, or attack. A separate storage site with the same protections keeps backups available and secure.",
+      "doneLooksLike": "An alternate storage site is established, with agreements that permit storage and retrieval of system backup information, and it provides controls equivalent to those at the primary site. Agreements cover matters such as environmental conditions, access rules, physical protection, and delivery and retrieval of backup media.",
+      "nextSteps": [
+        "Choose an alternate storage location, such as a separate facility or a cloud storage service in another region.",
+        "Put agreements in place that cover storage, retrieval, and access.",
+        "Confirm the site's security protections match those at your primary site."
+      ],
+      "reviewed": false
+    },
+    "cp-6.1": {
+      "question": "Is your alternate storage site far enough from your primary storage site that the same disaster or threat is unlikely to affect both?",
+      "whyItMatters": "A backup site in the same building or flood zone could be lost in the same event. Adequate separation keeps at least one copy available.",
+      "doneLooksLike": "The alternate storage site you have identified is sufficiently separated from the primary storage site to reduce susceptibility to the same threats, judged against the threats in your risk assessment, such as natural disasters and structural failures.",
+      "nextSteps": [
+        "Review the threats in your risk assessment that could affect both sites, such as regional weather or power outages.",
+        "Decide what degree of separation is sufficient for those threats.",
+        "Relocate the alternate storage site if it does not meet that separation."
+      ],
+      "reviewed": false
+    },
+    "cp-6.2": {
+      "question": "Is your alternate storage site set up to meet your recovery time objective (how fast you must recover) and recovery point objective (how much data you can lose)?",
+      "whyItMatters": "A backup is useful only if you can restore from it fast enough and it is recent enough. Configuring the storage site around your objectives makes those targets achievable.",
+      "doneLooksLike": "The alternate storage site, including its facilities and supporting systems, is configured to facilitate recovery operations in line with your recovery time and recovery point objectives.",
+      "nextSteps": [
+        "Confirm your recovery time and recovery point objectives are documented in the contingency plan.",
+        "Check that backup frequency and retrieval speed from the alternate site can meet them.",
+        "Adjust storage arrangements where they fall short, and confirm the result through testing."
+      ],
+      "reviewed": false
+    },
+    "cp-6.3": {
+      "question": "Has your organization identified what could block access to its alternate storage site during a widespread disaster, and planned how to work around it?",
+      "whyItMatters": "A regional disaster can close roads, cut networks, or affect the alternate site itself. Planning ahead means you can still reach your backups.",
+      "doneLooksLike": "Potential problems accessing the alternate storage site during an area-wide disruption or disaster are identified, and explicit mitigation actions are outlined, such as duplicating backups at another site or planning physical retrieval if electronic access is lost.",
+      "nextSteps": [
+        "List scenarios that could block access to the alternate storage site, such as network outages or travel restrictions.",
+        "Define a mitigation for each, such as a second storage location or physical retrieval.",
+        "Record these in the contingency plan."
+      ],
+      "reviewed": false
+    },
+    "cp-7": {
+      "question": "Does your organization have an alternate processing site, with agreements, equipment, and protections in place, to resume essential operations within a defined time if the primary site fails?",
+      "whyItMatters": "If your main site or service fails, you need somewhere else to run essential systems. Arrangements made ahead of time work far faster than ones made during a crisis.",
+      "doneLooksLike": "An alternate processing site, such as a second facility or a cloud service, is established with agreements that permit transfer and resumption of the system operations you define for essential functions within the time period you define. The equipment and supplies needed to transfer and resume operations are at the site, or contracts are in place for delivery within that time, and the site provides controls equivalent to those at the primary site.",
+      "nextSteps": [
+        "Decide which operations must move and how quickly.",
+        "Select an alternate processing option, and put agreements in place.",
+        "Arrange equipment and supplies at the site, or contracts for timely delivery.",
+        "Confirm the alternate site's security protections match those at your primary site."
+      ],
+      "reviewed": false
+    },
+    "cp-7.1": {
+      "question": "Is your alternate processing site far enough from your primary processing site that the same disaster or threat is unlikely to disable both?",
+      "whyItMatters": "If both sites share the same power grid, flood zone, or building, one event could take out both. Separation keeps processing available.",
+      "doneLooksLike": "The alternate processing site you have identified is sufficiently separated from the primary processing site to reduce susceptibility to the same threats, judged against the threats identified in your risk assessment.",
+      "nextSteps": [
+        "Identify threats that could affect both sites, such as regional disasters or shared infrastructure.",
+        "Decide what degree of separation is sufficient.",
+        "If you use a cloud provider, choose a region distinct from your primary processing location."
+      ],
+      "reviewed": false
+    },
+    "cp-7.2": {
+      "question": "Has your organization identified what could prevent it from using its alternate processing site during a widespread disaster, and planned how to address it?",
+      "whyItMatters": "In a regional event, staff may be unable to travel or networks may be down, making an alternate site unusable when it is needed. Planning ahead keeps the site reachable.",
+      "doneLooksLike": "Potential problems accessing alternate processing sites during an area-wide disruption or disaster are identified, and explicit mitigation actions are outlined.",
+      "nextSteps": [
+        "List what could block staff or network access to the alternate processing site.",
+        "Define mitigations, such as remote access arrangements or a secondary site.",
+        "Document them in the contingency plan, and test them where practical."
+      ],
+      "reviewed": false
+    },
+    "cp-7.3": {
+      "question": "Do your alternate processing site agreements include priority-of-service terms that reflect your availability needs, including your recovery time objectives?",
+      "whyItMatters": "In a regional disaster, many customers may compete for the same provider's resources. Priority terms help you get service quickly enough to meet your recovery goals.",
+      "doneLooksLike": "Alternate processing site agreements contain priority-of-service provisions consistent with your availability requirements, including recovery time objectives.",
+      "nextSteps": [
+        "Review current agreements with alternate processing providers.",
+        "Negotiate priority-of-service terms aligned with your recovery time objectives.",
+        "Record the agreed terms in the contingency plan."
+      ],
+      "reviewed": false
+    },
+    "cp-7.4": {
+      "question": "Is your alternate processing site prepared, with matching configuration settings, supplies, and logistics, to serve as your operational site for essential functions?",
+      "whyItMatters": "An alternate site that still needs setting up when disaster strikes will delay recovery. Preparing it ahead means you can switch over when needed.",
+      "doneLooksLike": "The alternate processing site is prepared to serve as the operational site supporting essential mission and business functions, with system configuration settings consistent with those at the primary site and essential supplies and logistics in place.",
+      "nextSteps": [
+        "Apply your primary site's configuration settings to systems at the alternate site, and keep them in sync.",
+        "Stock essential supplies, and plan logistics such as staff access and transport.",
+        "Verify readiness periodically through testing."
+      ],
+      "reviewed": false
+    },
+    "cp-8": {
+      "question": "Does your organization have alternate telecommunications services, with agreements in place, to resume essential operations within a defined time if primary data or voice services fail?",
+      "whyItMatters": "Losing internet or phone service can stop operations even when systems are running. Alternate services keep essential functions connected.",
+      "doneLooksLike": "Alternate telecommunications services for data and voice, with the necessary agreements, are established to permit resumption of the system operations you define for essential functions within the time period you define when primary telecommunications are unavailable at the primary or alternate processing or storage sites.",
+      "nextSteps": [
+        "Identify the communications services your essential functions depend on at each site.",
+        "Arrange alternate services, such as a second internet provider, cellular backup, or satellite.",
+        "Put agreements in place, and confirm they support your resumption time."
+      ],
+      "reviewed": false
+    },
+    "cp-8.1": {
+      "question": "Do your primary and alternate telecommunications agreements include priority-of-service terms that match your availability needs and recovery time objectives?",
+      "whyItMatters": "During widespread outages, providers restore service in priority order. Priority terms help you get reconnected in time to meet your recovery objectives.",
+      "doneLooksLike": "Primary and alternate telecommunications service agreements contain priority-of-service provisions consistent with your availability requirements, including recovery time objectives. If services used for national security emergency preparedness come from a common carrier, you have requested Telecommunications Service Priority, a federally sponsored program that gives enrolled users preference when lines are added or restored.",
+      "nextSteps": [
+        "Review your telecommunications agreements for priority-of-service terms, and negotiate them where missing.",
+        "Align those terms with your recovery time objectives.",
+        "Determine whether any services support national security emergency preparedness, and if so, request Telecommunications Service Priority through a federal sponsor."
+      ],
+      "reviewed": false
+    },
+    "cp-8.2": {
+      "question": "Are your alternate telecommunications services arranged so they do not share a single point of failure, such as the same physical line, with your primary services?",
+      "whyItMatters": "Two services that run over the same cable or building entry point can fail together. Avoiding shared points of failure keeps the backup working when the primary goes down.",
+      "doneLooksLike": "Alternate telecommunications services are obtained that reduce the likelihood of sharing a single point of failure with primary services, informed by information from providers about the physical paths their services use.",
+      "nextSteps": [
+        "Ask providers how their services physically reach your sites.",
+        "Identify shared lines, conduits, or equipment between primary and alternate services.",
+        "Choose alternate services that use different paths, such as a wireless or satellite link."
+      ],
+      "reviewed": false
+    },
+    "cp-8.3": {
+      "question": "Does your organization get alternate telecommunications services from providers separated enough from the primary provider that the same threat is unlikely to affect both?",
+      "whyItMatters": "Providers that share infrastructure or a region can be affected by the same disaster, attack, or error. Separation reduces the chance of losing both at once.",
+      "doneLooksLike": "Alternate telecommunications services are obtained from providers separated from primary providers to reduce susceptibility to the same threats, for example by minimizing shared infrastructure and achieving geographic separation. A single provider may be used if it can deliver alternate services that meet the separation needs in your risk assessment.",
+      "nextSteps": [
+        "Review your risk assessment for threats that could affect telecommunications.",
+        "Compare primary and alternate providers for shared infrastructure and geography.",
+        "Change alternate providers or service arrangements where separation is insufficient."
+      ],
+      "reviewed": false
+    },
+    "cp-8.4": {
+      "question": "Does your organization require its telecommunications providers to have contingency plans, review those plans, and obtain evidence that providers test and train on them?",
+      "whyItMatters": "Your continuity depends partly on your providers' ability to recover. Reviewing their plans and evidence of testing shows whether they can support you through a disruption.",
+      "doneLooksLike": "Primary and alternate telecommunications providers are required to have contingency plans, those plans are reviewed to confirm they meet your contingency requirements, and evidence of provider contingency testing and training is obtained at the frequencies you define. Where a provider's full plan is proprietary, a summary may be sufficient.",
+      "nextSteps": [
+        "Add a contingency plan requirement to provider agreements.",
+        "Request and review provider plans or summaries against your requirements.",
+        "Set a frequency for collecting evidence of provider testing and training, and track it."
+      ],
+      "reviewed": false
+    },
+    "cp-9.1": {
+      "question": "Does your organization test its backups at a frequency it defines to confirm the storage media are reliable and the information is intact?",
+      "whyItMatters": "Backups can fail silently through damaged media, incomplete jobs, or corruption. Testing reveals problems before you need to restore in an emergency.",
+      "doneLooksLike": "Backup information is tested at the frequency you define to verify media reliability and information integrity, for example by retrieving a sample of backup files and comparing them with the originals.",
+      "nextSteps": [
+        "Set a backup testing frequency.",
+        "Retrieve sample files from backups, including off-site copies, and compare them with the originals.",
+        "Record results, and investigate any failures."
+      ],
+      "reviewed": false
+    },
+    "cp-9.2": {
+      "question": "As part of contingency plan testing, does your organization restore selected system functions from a sample of backup information to confirm they work?",
+      "whyItMatters": "Being able to read a backup file is not the same as getting a working system back. Restoring real functions from backups during tests shows that recovery will work.",
+      "doneLooksLike": "Contingency plan testing includes using a sample of backup information to restore selected system functions and confirming that those functions operate as intended. You choose the sample size based on the level of assurance you need.",
+      "nextSteps": [
+        "Select system functions to restore during your next contingency test.",
+        "Restore them from backup data, and confirm they operate correctly.",
+        "Record the results, and fix gaps in backup or restoration procedures."
+      ],
+      "reviewed": false
+    },
+    "cp-9.3": {
+      "question": "Does your organization store backup copies of critical system software and security-related information in a separate facility or fire-rated container away from the operational system?",
+      "whyItMatters": "If critical software and security records are stored next to the systems they support, one fire or other disaster could destroy both. Separate storage keeps you able to rebuild.",
+      "doneLooksLike": "Backup copies of the critical system software and other security-related information you define, such as operating systems, key management systems, and component inventories, are stored in a separate facility or in a fire-rated container that is not collocated with the operational system.",
+      "nextSteps": [
+        "Define which critical software and security-related information must be stored separately.",
+        "Arrange storage in a separate facility, an alternate storage site, or a fire-rated container away from the operational system.",
+        "Confirm the stored copies are kept current."
+      ],
+      "reviewed": false
+    },
+    "cp-9.5": {
+      "question": "Does your organization move backup information to its alternate storage site on a schedule and at a transfer rate that support its recovery objectives?",
+      "whyItMatters": "Backups that stay on-site until a disaster can be lost with it. Moving them to the alternate site often enough and fast enough keeps an off-site copy recent enough to meet your recovery goals.",
+      "doneLooksLike": "System backup information is transferred to the alternate storage site, electronically or by shipping storage media, within the time period and at the transfer rate you define, consistent with your recovery time and recovery point objectives.",
+      "nextSteps": [
+        "Set the transfer time period and rate based on your recovery objectives.",
+        "Automate electronic transfer where possible, or schedule regular shipment of media.",
+        "Monitor transfers to confirm they complete on schedule."
+      ],
+      "reviewed": false
+    },
+    "cp-9.8": {
+      "question": "Does your organization use encryption and related cryptographic protections to keep the backup information it specifies from being read or altered without authorization?",
+      "whyItMatters": "Backups hold copies of your sensitive information and are often stored off-site or with a provider. Cryptographic protection keeps them unreadable to unauthorized people and guards against undetected tampering.",
+      "doneLooksLike": "Cryptographic mechanisms prevent unauthorized disclosure and modification of the backup information you define, at both primary and alternate storage locations, with strength appropriate to the sensitivity of the information. You have considered how the related encryption keys will be managed.",
+      "nextSteps": [
+        "Identify which backup information must be cryptographically protected.",
+        "Turn on encryption and integrity protection in your backup tools for both on-site and off-site copies.",
+        "Store encryption keys separately from the backups, and confirm you can restore using them."
+      ],
+      "reviewed": false
+    },
+    "cp-10.2": {
+      "question": "For transaction-based systems, such as databases, does your organization have transaction recovery in place so data returns to a consistent state after a failure?",
+      "whyItMatters": "A failure in the middle of transactions can leave data inconsistent, such as an order recorded without its payment. Transaction recovery undoes or completes partial work so records stay reliable.",
+      "doneLooksLike": "Transaction recovery is implemented for transaction-based systems, such as database management and transaction processing systems, using mechanisms such as transaction rollback and transaction journaling (a running log of changes that can be replayed or undone).",
+      "nextSteps": [
+        "Identify your transaction-based systems.",
+        "Confirm journaling and rollback features are enabled and configured.",
+        "Test recovery from a simulated failure during contingency testing."
+      ],
+      "reviewed": false
+    },
+    "cp-10.4": {
+      "question": "Can your organization restore system components within defined time periods from protected, change-controlled images or configurations that represent a known working state?",
+      "whyItMatters": "Rebuilding systems from scratch is slow and error-prone. Restoring from trusted, controlled images gets components back quickly and in a known good state.",
+      "doneLooksLike": "You can restore system components within the restoration time periods you define, using configuration-controlled and integrity-protected information, such as standard images, that represents a known, operational state. Reimaging is one common way to do this.",
+      "nextSteps": [
+        "Set restoration time periods for your key components.",
+        "Maintain standard images or configuration files under change control, protected against tampering.",
+        "Test reimaging or restoration to confirm you can meet the time periods."
+      ],
+      "reviewed": false
+    },
+    "ia-2.5": {
+      "question": "When shared accounts or shared credentials are used, does your organization require each person to sign in individually before gaining access to them?",
+      "whyItMatters": "Shared accounts make it hard to know who did what. Requiring individual sign-in first ties each use of a shared account to a specific person.",
+      "doneLooksLike": "Where shared accounts or authenticators are used, each user is individually authenticated before being granted access to the shared accounts or resources.",
+      "nextSteps": [
+        "Identify the shared accounts and shared credentials in use.",
+        "Require individual sign-in before access, for example through a privileged access tool or by having users sign in as themselves before switching to the shared account.",
+        "Remove shared accounts that are no longer needed."
+      ],
+      "reviewed": false
+    },
+    "ia-3": {
+      "question": "Does your organization uniquely identify and authenticate the devices it specifies before letting them make local, remote, or network connections?",
+      "whyItMatters": "Unknown devices on your network can be used to steal data or launch attacks. Requiring devices to prove their identity keeps unauthorized equipment from connecting.",
+      "doneLooksLike": "The devices or types of devices you define, which may include devices your organization does not own, are uniquely identified and authenticated before establishing the types of connection you have selected: local, remote, network, or a combination. Authentication strength reflects the system's security category and business needs.",
+      "nextSteps": [
+        "Decide which devices or types of devices must authenticate, and for which kinds of connection.",
+        "Use network access control or certificate-based device authentication to enforce it.",
+        "Maintain a record of authorized devices, and review connection attempts from unknown ones."
+      ],
+      "reviewed": false
+    },
+    "ia-4.4": {
+      "question": "Do your user identifiers show each person's status using characteristics your organization chooses, such as contractor, foreign national, or non-organizational user?",
+      "whyItMatters": "Knowing whether someone is an employee, a contractor, or an outside user helps staff decide what information to share and with whom.",
+      "doneLooksLike": "Individual identifiers are managed so that each person is uniquely identified with the status characteristics you define, such as contractor, foreign national, or non-organizational user.",
+      "nextSteps": [
+        "Decide which status characteristics to show.",
+        "Add the status to usernames, display names, or email addresses in a consistent way.",
+        "Update the identifier when a person's status changes."
+      ],
+      "reviewed": false
+    },
+    "ia-5.2": {
+      "question": "When people or devices sign in with certificates or other public key-based methods, does your organization protect private keys, link identities to the right accounts, and fully validate certificates?",
+      "whyItMatters": "Certificate-based sign-in is strong only if private keys stay under control and certificates are checked properly. Skipping validation could let a revoked or untrusted certificate grant access.",
+      "doneLooksLike": "For public key-based authentication, authorized access to the corresponding private key is enforced, and each authenticated identity is mapped to the account of the individual or group. When public key infrastructure (PKI, the system for issuing and managing certificates) is used, certificates are validated by building and verifying a certification path to an accepted trust anchor, including checking certificate status, and a local cache of revocation data supports validation.",
+      "nextSteps": [
+        "Protect private keys, for example with smart cards, hardware tokens, or PIN-protected key stores.",
+        "Configure systems to map each certificate to the correct user or group account.",
+        "Turn on full certificate path validation and revocation checking.",
+        "Set up local caching of revocation information so validation still works when the network is unavailable."
+      ],
+      "reviewed": false
+    },
+    "ia-5.6": {
+      "question": "Does your organization protect passwords, keys, tokens, and other authenticators in proportion to the sensitivity of the information they unlock?",
+      "whyItMatters": "Credentials that unlock sensitive information need stronger protection, because losing one exposes everything it grants access to.",
+      "doneLooksLike": "Authenticators are protected commensurate with the security category of the information they give access to. Where a system holds information of several security categories without reliable separation, authenticators are protected at the level of the highest category.",
+      "nextSteps": [
+        "Identify the most sensitive information each type of authenticator can unlock.",
+        "Apply matching protection, such as encrypted storage, hardware tokens, or tighter handling rules for high-sensitivity access.",
+        "Review authenticator protection when the information a system holds becomes more sensitive."
+      ],
+      "reviewed": false
+    },
+    "ia-12": {
+      "question": "Before giving people accounts, does your organization confirm their identity to the required assurance level by collecting and checking evidence that they are who they claim to be?",
+      "whyItMatters": "If someone can register under a false name, your other access controls end up protecting the wrong person. Identity proofing makes sure accounts go to real, correctly identified people.",
+      "doneLooksLike": "Users who need accounts for logical access are identity proofed at the identity assurance level required by applicable standards and guidelines, such as NIST SP 800-63A. Each identity is resolved to a unique individual, and identity evidence is collected, validated, and verified.",
+      "nextSteps": [
+        "Determine the identity assurance level each system requires, using NIST digital identity guidelines.",
+        "Define what identity evidence you collect and how you validate and verify it.",
+        "Confirm each identity maps to one unique person before an account is created.",
+        "Consult privacy and legal advisors on rules that apply to collecting identity evidence."
+      ],
+      "reviewed": false
+    },
+    "ia-12.2": {
+      "question": "Does your organization require people to present evidence of their identity, such as identity documents, to the person or office responsible for registering users?",
+      "whyItMatters": "Requiring evidence makes it much harder for someone to set up an account under a false or borrowed identity.",
+      "doneLooksLike": "Evidence of individual identification, such as documents or a combination of documents and biometrics, is presented to the registration authority. The forms of evidence you accept match the risks of the system, role, and privileges involved.",
+      "nextSteps": [
+        "Designate the registration authority that receives identity evidence.",
+        "Define the acceptable forms of evidence for each type of account, based on risk.",
+        "Record that evidence was presented before accounts are issued."
+      ],
+      "reviewed": false
+    },
+    "ia-12.3": {
+      "question": "Does your organization check that presented identity evidence is genuine and belongs to the person presenting it, using validation and verification methods it defines?",
+      "whyItMatters": "A forged or borrowed document can pass a quick glance. Validating the evidence and verifying the person matches it makes sure accounts go to the right person.",
+      "doneLooksLike": "Presented identity evidence is validated, confirming it is genuine and its details are correct and current, and verified, confirming it links to the actual person presenting it. The methods used are the ones you define, matched to the risks of the account.",
+      "nextSteps": [
+        "Define how you will check that evidence is genuine, such as examining security features or confirming details with the issuing source.",
+        "Define how you will confirm the person matches the evidence, such as comparing a photo.",
+        "Document the methods, and train registration staff to apply them."
+      ],
+      "reviewed": false
+    },
+    "ia-12.4": {
+      "question": "Does your organization require identity evidence to be validated and verified in person, before a designated registration authority?",
+      "whyItMatters": "Face-to-face proofing requires the person to appear with physical documents, which makes fraudulent registration much harder.",
+      "doneLooksLike": "Validation and verification of identity evidence are conducted in person before a designated registration authority, with the individual physically present and presenting physical identity documents.",
+      "nextSteps": [
+        "Designate the registration authorities who will conduct in-person proofing.",
+        "Write a procedure for in-person sessions, including which documents are checked and how results are recorded.",
+        "Arrange in-person options for staff at other locations."
+      ],
+      "reviewed": false
+    },
+    "ia-12.5": {
+      "question": "Does your organization confirm a new user's address of record by sending a registration code or notice of proofing through a separate, out-of-band channel?",
+      "whyItMatters": "Sending confirmation through a different channel, to an address taken from your records rather than one the applicant supplies, makes it harder for an impostor to complete registration.",
+      "doneLooksLike": "A registration code or notice of proofing, as you have selected, is delivered through an out-of-band channel (a communication path separate from the registration itself) to verify the user's physical or digital address of record. The address comes from records rather than from the user's own claim.",
+      "nextSteps": [
+        "Choose whether to send a registration code or a notice of proofing.",
+        "Obtain the delivery address, such as a mailing address, email address, or phone number, from existing records.",
+        "Send it through a channel separate from the registration session, and track that delivery occurred."
+      ],
+      "reviewed": false
+    }
+  }
+}

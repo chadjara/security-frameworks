@@ -82,6 +82,20 @@ final class Assessment {
 
     func status(for ref: RequirementRef) -> RequirementStatus { response(for: ref)?.status ?? .notStarted }
 
+    /// Facts for every answered requirement in one framework, keyed by requirement ID.
+    func factsMap(frameworkID: String) -> [String: ResponseFacts] {
+        var out: [String: ResponseFacts] = [:]
+        for r in responses where r.frameworkID == frameworkID { out[r.requirementID] = r.facts }
+        return out
+    }
+
+    /// Facts for every answered requirement across frameworks.
+    func allFacts() -> [RequirementRef: ResponseFacts] {
+        var out: [RequirementRef: ResponseFacts] = [:]
+        for r in responses { out[r.ref] = r.facts }
+        return out
+    }
+
     // MARK: Parameter values
 
     /// Organization-defined parameter values for a framework, keyed by parameter ID. They are stored per
@@ -135,6 +149,21 @@ final class RequirementResponse {
     }
 
     var ref: RequirementRef { RequirementRef(frameworkID: frameworkID, requirementID: requirementID) }
+
+    /// CSF Target Profile membership (stored as "excluded" when left out; included by default).
+    var inTargetProfile: Bool {
+        get { targetStatusRaw != "excluded" }
+        set { targetStatusRaw = newValue ? nil : "excluded" }
+    }
+
+    var priority: ProfilePriority? {
+        get { priorityRaw.flatMap(ProfilePriority.init(rawValue:)) }
+        set { priorityRaw = newValue?.rawValue }
+    }
+
+    var facts: ResponseFacts {
+        ResponseFacts(status: status, targetDate: targetDate, inTargetProfile: inTargetProfile, priority: priority)
+    }
 
     var sortedEvidence: [EvidenceItem] { evidence.sorted { $0.createdAt < $1.createdAt } }
 }

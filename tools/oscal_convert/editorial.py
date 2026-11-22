@@ -38,11 +38,22 @@ EMOJI_RE = re.compile(
 
 
 def load_overlay(directory: pathlib.Path, framework_id: str) -> dict[str, Any]:
+    """Load data/editorial/<id>.json plus any batch files in data/editorial/<id>/*.json.
+
+    Batch files hold only {"requirements": {...}} and keep large overlays reviewable in pieces.
+    """
     path = directory / f"{framework_id}.json"
-    if not path.exists():
-        return {"frameworkId": framework_id, "requirements": {}}
-    data = load_json(path)
+    data = load_json(path) if path.exists() else {"frameworkId": framework_id}
     data.setdefault("requirements", {})
+    duplicates: list[str] = []
+    batch_dir = directory / framework_id
+    if batch_dir.is_dir():
+        for batch in sorted(batch_dir.glob("*.json")):
+            for rid, entry in load_json(batch).get("requirements", {}).items():
+                if rid in data["requirements"]:
+                    duplicates.append(f"{rid} ({batch.name})")
+                data["requirements"][rid] = entry
+    data["_duplicates"] = duplicates
     return data
 
 
@@ -77,6 +88,8 @@ def lint_overlay(overlay: dict, framework: dict) -> list[str]:
             if not n.get(f):
                 errors.append(f"editorial/{fid}: notice missing {f}")
         errors += lint_text(f"editorial/{fid}: notice {n.get('id')}", n.get("body", ""))
+    for dup in overlay.get("_duplicates", []):
+        errors.append(f"editorial/{fid}: {dup} is defined more than once")
     known = {r["id"] for r in framework["requirements"]}
     for rid, entry in overlay.get("requirements", {}).items():
         if rid not in known:

@@ -44,6 +44,11 @@ class TextTests(unittest.TestCase):
         s = "see [](#/cprt/framework/version/SP_800_171_3_0_0/home?element=03.01.02) for details"
         self.assertEqual(common.clean_text(s), "see 03.01.02 for details")
 
+    def test_empty_link_followed_by_id_is_not_doubled(self):
+        base = "[](#/cprt/framework/version/SP_800_171_3_0_0/home?element=03.01.02)"
+        self.assertEqual(common.clean_text(f"addressed in {base}03.01.02."), "addressed in 03.01.02.")
+        self.assertEqual(common.clean_text(f"addressed by {base} 03.01.02."), "addressed by 03.01.02.")
+
     def test_whitespace_and_paragraphs(self):
         self.assertEqual(common.clean_text("  one\ntwo   three\n\n  four "), "one two three\n\nfour")
 

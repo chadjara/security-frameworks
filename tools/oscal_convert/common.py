@@ -30,12 +30,18 @@ def clean_text(s: str | None) -> str | None:
         return None
     s = INSERT_RE.sub(lambda m: "{{param:%s}}" % m.group(1), s)
 
+    source = s
+
     def link(m: re.Match) -> str:
         text, href = m.group(1).strip(), m.group(2).strip()
         if text:
             return text
         el = re.search(r"element=([^&]+)$", href)
-        return el.group(1) if el else href.lstrip("#")
+        ident = el.group(1) if el else href.lstrip("#")
+        # NIST often writes "[](#…element=03.01.02)03.01.02": the ID already follows the empty link.
+        if source[m.end():].lstrip().startswith(ident):
+            return ""
+        return ident
 
     s = MD_LINK_RE.sub(link, s)
     s = MD_EMPHASIS_RE.sub(r"\1", s)

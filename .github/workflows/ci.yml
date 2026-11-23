@@ -54,6 +54,17 @@ jobs:
       - name: Generate Xcode project
         run: xcodegen generate
 
+      - name: Release build compiles (unsigned, device)
+        run: |
+          set -o pipefail
+          xcodebuild build \
+            -project FrameworkApp.xcodeproj -scheme FrameworkApp \
+            -configuration Release \
+            -destination "generic/platform=iOS" \
+            -derivedDataPath build/ReleaseDerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            -quiet
+
       - name: Pick simulators
         id: sims
         run: python3 .github/scripts/pick_simulators.py >> "$GITHUB_OUTPUT"

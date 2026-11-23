@@ -35,8 +35,11 @@ targets:
           - "Resources/Content/**"
           - "Info.plist"
           - "FrameworkApp.entitlements"
+          - "Resources/PrivacyInfo.xcprivacy"
       - path: App/Resources/Content
         type: folder
+        buildPhase: resources
+      - path: App/Resources/PrivacyInfo.xcprivacy
         buildPhase: resources
     dependencies:
       - package: FrameworkKit

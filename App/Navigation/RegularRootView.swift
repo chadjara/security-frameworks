@@ -106,6 +106,7 @@ struct RegularRootView: View {
                 }
             case .overview:
                 OverviewView(assessment: assessment, selection: $detail)
+                    .navigationSplitViewColumnWidth(min: 380, ideal: 480, max: 620)
             case .nextSteps:
                 NextStepsView(assessment: assessment, selection: $detail)
             case .explorer:

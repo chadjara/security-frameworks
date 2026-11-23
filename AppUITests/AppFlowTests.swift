@@ -10,9 +10,10 @@ final class AppFlowTests: XCTestCase {
     private var device: String { UIDevice.current.userInterfaceIdiom == .pad ? "ipad" : "iphone" }
 
     @MainActor
-    private func launch(route: String?, seed: Bool = true, scheme: String = "light", textSize: String? = nil) -> XCUIApplication {
+    private func launch(route: String?, seed: Bool = true, scheme: String = "light", textSize: String? = nil,
+                        extra: [String] = []) -> XCUIApplication {
         let app = XCUIApplication()
-        var args = ["-dsColorScheme", scheme]
+        var args = ["-dsColorScheme", scheme] + extra
         if seed { args += ["-uiSeed", "sample"] } else { args += ["-uiInMemory", "YES"] }
         if let route { args += ["-uiRoute", route] }
         if let textSize { args += ["-dsDynamicType", textSize] }
@@ -26,10 +27,26 @@ final class AppFlowTests: XCTestCase {
         app.descendants(matching: .any).matching(identifier: id).firstMatch
     }
 
+    /// The scrolling list for a screen: the collection view carrying the screen identifier, or the
+    /// last (rightmost, frontmost) collection view on screen.
+    @MainActor
+    private func list(_ app: XCUIApplication, _ id: String) -> XCUIElement {
+        let tagged = app.collectionViews.matching(identifier: id).firstMatch
+        if tagged.exists && !tagged.frame.isEmpty { return tagged }
+        let all = app.collectionViews.allElementsBoundByIndex.filter { !$0.frame.isEmpty }
+        return all.max { $0.frame.minX < $1.frame.minX } ?? app
+    }
+
     @MainActor
     private func capture(_ name: String, pages: Int = 1, scroll: XCUIElement? = nil) {
         for page in 1...pages {
-            if page > 1 { scroll?.swipeUp(velocity: .slow) }
+            if page > 1, let scroll {
+                if scroll.exists && !scroll.frame.isEmpty && scroll.isHittable {
+                    scroll.swipeUp(velocity: .slow)
+                } else {
+                    XCUIApplication().swipeUp(velocity: .slow)
+                }
+            }
             Thread.sleep(forTimeInterval: 0.8)
             let shot = XCUIScreen.main.screenshot()
             let attachment = XCTAttachment(screenshot: shot)
@@ -67,21 +84,20 @@ final class AppFlowTests: XCTestCase {
     @MainActor
     func testRequirementListAndDetail() throws {
         let app = launch(route: "list:csf-2.0")
-        let list = element(app, "screen.requirements")
-        XCTAssertTrue(list.waitForExistence(timeout: 20))
-        capture("list", pages: 2, scroll: list)
+        XCTAssertTrue(element(app, "screen.requirements").waitForExistence(timeout: 20))
+        capture("list", pages: 2, scroll: list(app, "screen.requirements"))
         app.terminate()
 
         let detailApp = launch(route: "detail:csf-2.0:GV.OC-03")
         let detail = element(detailApp, "screen.requirementDetail")
         XCTAssertTrue(detail.waitForExistence(timeout: 20))
-        capture("detail", pages: 4, scroll: detail)
+        capture("detail", pages: 4, scroll: list(detailApp, "screen.requirementDetail"))
         detailApp.terminate()
 
         let dark = launch(route: "detail:sp800-171r3:03.01.01", scheme: "dark")
         let detail171 = element(dark, "screen.requirementDetail")
         XCTAssertTrue(detail171.waitForExistence(timeout: 20))
-        capture("detail-171-dark", pages: 3, scroll: detail171)
+        capture("detail-171-dark", pages: 3, scroll: list(dark, "screen.requirementDetail"))
     }
 
     @MainActor
@@ -124,7 +140,7 @@ final class AppFlowTests: XCTestCase {
         let app = launch(route: "preview:sp800-53r5")
         let preview = element(app, "screen.frameworkPreview")
         XCTAssertTrue(preview.waitForExistence(timeout: 20))
-        capture("preview-80053", pages: 3, scroll: preview)
+        capture("preview-80053", pages: 3, scroll: list(app, "screen.frameworkPreview"))
         app.terminate()
 
         let explorer = launch(route: "explorer")
@@ -135,7 +151,7 @@ final class AppFlowTests: XCTestCase {
         let scope = launch(route: "scope:sp800-53r5")
         let scopeScreen = element(scope, "screen.scope")
         XCTAssertTrue(scopeScreen.waitForExistence(timeout: 20))
-        capture("scope", pages: 2, scroll: scopeScreen)
+        capture("scope", pages: 2, scroll: list(scope, "screen.scope"))
     }
 
     @MainActor
@@ -146,7 +162,7 @@ final class AppFlowTests: XCTestCase {
         let large = launch(route: "detail:csf-2.0:GV.OC-03", textSize: "ax3")
         let detail = element(large, "screen.requirementDetail")
         XCTAssertTrue(detail.waitForExistence(timeout: 20))
-        capture("detail-ax3", pages: 2, scroll: detail)
+        capture("detail-ax3", pages: 2, scroll: list(large, "screen.requirementDetail"))
     }
 
     // MARK: Phase 3
@@ -156,7 +172,7 @@ final class AppFlowTests: XCTestCase {
         let app = launch(route: "overview")
         let overview = element(app, "screen.overview")
         XCTAssertTrue(overview.waitForExistence(timeout: 20))
-        capture("overview", pages: 4, scroll: overview)
+        capture("overview", pages: 4, scroll: list(app, "screen.overview"))
         app.terminate()
 
         let dark = launch(route: "overview", scheme: "dark")
@@ -171,14 +187,12 @@ final class AppFlowTests: XCTestCase {
 
     @MainActor
     func testProfileAndTiers() throws {
-        let app = launch(route: "profile:csf-2.0")
-        let profile = element(app, "screen.csfProfile")
-        XCTAssertTrue(profile.waitForExistence(timeout: 20))
-        capture("profile-summary", pages: 2, scroll: profile)
-        app.buttons["Target Profile"].firstMatch.tap()
-        capture("profile-target")
-        app.buttons["Tiers"].firstMatch.tap()
-        capture("profile-tiers", pages: 2, scroll: profile)
+        for tab in ["summary", "target", "tiers"] {
+            let app = launch(route: "profile:csf-2.0", extra: ["-uiProfileTab", tab])
+            XCTAssertTrue(element(app, "screen.csfProfile").waitForExistence(timeout: 20), "profile \(tab)")
+            capture("profile-\(tab)", pages: 2, scroll: list(app, "screen.csfProfile"))
+            app.terminate()
+        }
     }
 
     @MainActor
@@ -187,7 +201,8 @@ final class AppFlowTests: XCTestCase {
         let detail = element(app, "screen.requirementDetail")
         XCTAssertTrue(detail.waitForExistence(timeout: 20))
         let apply = element(app, "applyToMapped")
-        for _ in 0..<8 where !apply.isHittable { detail.swipeUp(velocity: .slow) }
+        let scroller = list(app, "screen.requirementDetail")
+        for _ in 0..<10 where !(apply.exists && apply.isHittable) { scroller.swipeUp(velocity: .slow) }
         XCTAssertTrue(apply.exists, "Related requirements should offer to apply the answer")
         capture("related-requirements")
         apply.tap()

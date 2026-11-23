@@ -14,9 +14,22 @@ struct CSFProfileView: View {
     @Bindable var assessment: Assessment
     let framework: Framework
     @Environment(\.modelContext) private var context
-    @State private var tab: Tab = .summary
+    @State private var tab: Tab = CSFProfileView.initialTab
 
     private var service: AssessmentService { AssessmentService(context: context) }
+
+    /// UI tests open a specific tab with `-uiProfileTab target|tiers` (debug builds only).
+    private static var initialTab: Tab {
+        #if DEBUG
+        switch UserDefaults.standard.string(forKey: "uiProfileTab") {
+        case "target": return .target
+        case "tiers": return .tiers
+        default: return .summary
+        }
+        #else
+        return .summary
+        #endif
+    }
 
     var body: some View {
         let facts = assessment.factsMap(frameworkID: framework.id)

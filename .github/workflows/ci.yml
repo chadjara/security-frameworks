@@ -27,8 +27,8 @@ jobs:
         run: pip install "jsonschema==4.23.0"
       - name: Converter unit tests
         run: python -m unittest discover -s tools/oscal_convert/tests -v
-      - name: Generated content is current
-        run: python tools/oscal_convert/convert.py --check
+      - name: Generated content is current and editorial coverage is complete
+        run: python tools/oscal_convert/convert.py --check --require-editorial
 
   apple:
     name: Build and test (iOS)

@@ -41487,7 +41487,19 @@
    "implementationLevels": [
     "organization"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-01"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-01",
+   "editorial": {
+    "question": "Does your organization have a documented policy and procedures for processing personal information and being open about that processing, owned by a named official and reviewed on a set schedule?",
+    "whyItMatters": "This policy sets the ground rules for how your organization collects, uses, shares, and explains its handling of personal information. Without it, privacy decisions are made inconsistently and are hard to defend.",
+    "doneLooksLike": "You have a written personally identifiable information (information that can identify a specific person) processing and transparency policy, at the organization, business process, or system level you choose, that covers purpose, scope, roles, responsibilities, management commitment, coordination across teams, and compliance, is consistent with applicable laws and regulations, and is backed by procedures that put it into practice. Both are distributed to the people or roles you designate and managed by an official you name. You review and update each at the frequency you set and after the events you define, such as an audit finding, a breach, or a change in law.",
+    "nextSteps": [
+     "Name the official responsible for the policy and procedures.",
+     "Write the policy covering purpose, scope, roles, responsibilities, management commitment, coordination, and compliance, with input from both security and privacy staff.",
+     "Write procedures for carrying out privacy notices, consent, and limits on processing, and share both documents with the people you designate.",
+     "Set a review frequency and the events that trigger an update."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "pt-2",
@@ -41568,7 +41580,19 @@
      "url": "https://doi.org/10.6028/NIST.IR.8112"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-02",
+   "editorial": {
+    "question": "Has your organization determined and documented the legal or policy authority that allows it to process personal information, and does it limit processing to what that authority permits?",
+    "whyItMatters": "Collecting or using personal information without a clear basis can break the law and erode trust. Knowing your authority sets the outer limit on what you may do with the data.",
+    "doneLooksLike": "You have determined the authority that permits each type of personal information processing you define, consulting your privacy official and legal counsel where needed, and documented it in places such as privacy notices, contracts, or information sharing agreements. Processing is restricted to what is authorized, supported by measures such as staff training and monitoring or auditing of how the information is used.",
+    "nextSteps": [
+     "List the personal information you process and what you do with it, from collection to disposal.",
+     "Identify and document the law, regulation, contract, or policy that authorizes each activity, consulting legal counsel where the answer is unclear.",
+     "Train staff on which processing is authorized.",
+     "Monitor or audit use of personal information to catch processing outside that authority."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "pt-2.1",
@@ -41789,7 +41813,19 @@
      "url": "https://doi.org/10.6028/NIST.IR.8112"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-03",
+   "editorial": {
+    "question": "Has your organization documented why it processes personal information, described those purposes in its public privacy notices, and kept its processing within them?",
+    "whyItMatters": "A stated purpose lets people understand how their information will be used and gives your staff a clear line not to cross. Watching for changes keeps new uses from drifting beyond what people were told.",
+    "doneLooksLike": "The purposes you define for processing personal information are identified, documented, and described in both your public privacy notices and your internal policies. Processing is limited to what is compatible with those purposes, changes in processing are monitored, and the mechanisms you define, such as obtaining consent or revising privacy policies, are used so that any change follows the requirements you set.",
+    "nextSteps": [
+     "Write down each purpose for which you collect and use personal information.",
+     "Make sure your public privacy notice and internal policies describe those purposes.",
+     "Set up a review, with privacy or legal input, for any proposed new use of personal information.",
+     "Decide what happens when a new use is not compatible with the original purpose, such as seeking consent or updating your notice."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "pt-3.1",
@@ -41930,7 +41966,19 @@
      "url": "https://doi.org/10.6028/NIST.SP.800-63-3"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-04"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-04",
+   "editorial": {
+    "question": "Does your organization give people a way to consent to the processing of their personal information before it is collected, in a form that helps them make an informed choice?",
+    "whyItMatters": "Consent gives people a say in how their information is used. It only means something if they understand what they are agreeing to before you collect anything.",
+    "doneLooksLike": "The consent tools or mechanisms you define, such as opt-in checkboxes, signed forms, or electronic consent screens, are in place and used before personal information is collected. They are written in plain language without technical jargon and give individuals enough information to understand the processing and the privacy risks they are accepting.",
+    "nextSteps": [
+     "Identify where you collect personal information and whether consent is required or appropriate there.",
+     "Choose the consent method for each collection point, such as opt-in or opt-out, and capture consent before collection.",
+     "Rewrite consent wording in plain language that explains what will happen to the information.",
+     "Consider giving people a way to withdraw consent later, and keep a record of their choices."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "pt-4.1",
@@ -42153,7 +42201,19 @@
     "sc-42",
     "si-18"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-05"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-05",
+   "editorial": {
+    "question": "Does your organization give people a plain-language privacy notice, when they first interact with you and afterward, that explains the authority for and purposes of processing their information?",
+    "whyItMatters": "People cannot make informed choices about information they do not know you are collecting. A clear notice sets expectations and reduces surprises that damage trust.",
+    "doneLooksLike": "A privacy notice is available to individuals when they first interact with your organization and again at the frequency you define. It is clear, written in plain language, identifies the authority that allows the processing and the purposes for which personal information is processed, and includes the other information you have decided it must contain.",
+    "nextSteps": [
+     "Draft or update a privacy notice that states the authority for and purposes of your processing.",
+     "Decide what additional information the notice must include, such as the choices people have and who information is shared with, using legal advice and your privacy risk assessments.",
+     "Present the notice at first contact, such as on sign-up forms and your website, and set how often it is provided again.",
+     "Ask someone outside the privacy team to read it and confirm it is clear."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "pt-5.1",
@@ -42219,7 +42279,18 @@
    "related": [
     "pt-6"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-05(02)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-05(02)",
+   "editorial": {
+    "question": "When your organization collects information that will be kept in a Privacy Act system of records, does the form include a Privacy Act statement or come with a separate one people can keep?",
+    "whyItMatters": "Under the Privacy Act, a federal agency asking people for information must tell them why it is requested, whether answering is mandatory, and how it will be used, so they can decide whether to respond. This applies whether the collection is on paper, online, in an app, or by phone.",
+    "doneLooksLike": "Every form or channel that collects information destined for a Privacy Act system of records includes a Privacy Act statement, or individuals receive one on a separate form they can keep. Each statement gives the authority for the request, whether providing the information is mandatory or voluntary, the principal purposes, the published routine uses, the effects of not providing it, and a citation and link to the relevant system of records notice.",
+    "nextSteps": [
+     "Identify every collection channel, including paper, web, app, and phone, that feeds a Privacy Act system of records.",
+     "Draft Privacy Act statements with your privacy official and legal counsel covering authority, purposes, routine uses, and the effects of not responding.",
+     "Add the statement to each form, web page, or app screen, or provide a separate copy individuals can keep."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "pt-6",
@@ -42284,7 +42355,19 @@
     "pt-3",
     "pt-5"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-06"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-06",
+   "editorial": {
+    "question": "For systems whose records fall under the Privacy Act, does your organization draft, submit for review, publish, and maintain accurate system of records notices?",
+    "whyItMatters": "A system of records notice is the public's formal description of what records a federal agency keeps about people, why, and who may receive them. Missing or outdated notices leave the public uninformed and the agency out of step with the Privacy Act.",
+    "doneLooksLike": "System of records notices are drafted in line with guidance from OMB (the Office of Management and Budget), and new or significantly modified notices are sent to OMB and the appropriate congressional committees for advance review. Notices are published in the Federal Register and kept accurate, current, and scoped according to policy.",
+    "nextSteps": [
+     "Identify systems from which records are retrieved by a person's name or another personal identifier.",
+     "Draft or update a system of records notice for each, following OMB guidance.",
+     "Submit new or significantly changed notices for advance review, then publish them in the Federal Register.",
+     "Review notices whenever the system or its uses change so they stay accurate and properly scoped."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "pt-6.1",
@@ -42320,7 +42403,19 @@
    "implementationLevels": [
     "organization"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-06(01)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-06(01)",
+   "editorial": {
+    "question": "Does your organization review the routine uses published in its system of records notices at a set frequency to confirm they are accurate and still compatible with the original purpose?",
+    "whyItMatters": "A routine use allows a federal agency to disclose records outside the agency without the person's written consent. Regular review keeps those disclosures limited to what is accurate and compatible with why the information was collected.",
+    "doneLooksLike": "At the frequency you define, every routine use published in each system of records notice is reviewed for continued accuracy and for compatibility with the purpose for which the information was originally collected. Each review is recorded so you can show when it happened and what it concluded.",
+    "nextSteps": [
+     "Set the frequency for reviewing routine uses.",
+     "List the routine uses in each notice, including the categories of recipients and the purpose of each use.",
+     "Check each routine use against current practice and the original collection purpose, with privacy and legal input.",
+     "Revise the notice through the normal publication process when a routine use is inaccurate or no longer compatible."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "pt-6.2",
@@ -42365,7 +42460,18 @@
    "implementationLevels": [
     "organization"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-06(02)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-06(02)",
+   "editorial": {
+    "question": "Does your organization review the Privacy Act exemptions claimed for each system of records at a set frequency to confirm they remain appropriate, are issued as regulations, and are described accurately?",
+    "whyItMatters": "An exemption sets aside certain Privacy Act requirements for a system of records. Periodic review keeps exemptions limited to cases where they are still lawful and necessary.",
+    "doneLooksLike": "At the frequency you define, each Privacy Act exemption claimed for a system of records is reviewed to confirm that it remains appropriate and necessary under the law, that it has been promulgated as a regulation, and that it is accurately described in the system of records notice.",
+    "nextSteps": [
+     "List the exemptions claimed for each system of records and the regulation that establishes each one.",
+     "Set the review frequency and assign the review to your privacy official working with legal counsel.",
+     "Confirm each exemption is still necessary and matches the notice, and start rulemaking or notice updates where it does not."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "pt-7",
@@ -42406,7 +42512,19 @@
     "pt-3",
     "ra-3"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-07"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-07",
+   "editorial": {
+    "question": "Has your organization identified categories of personal information that need extra care, and does it apply the processing conditions it has defined for them?",
+    "whyItMatters": "Some kinds of personal information deserve stronger protection than others, because of legal requirements or the harm misuse could cause. Defined conditions make sure that extra care is applied consistently.",
+    "doneLooksLike": "You have identified the specific categories of personal information that require special handling, based on applicable laws, regulations, and policies and on your privacy risk assessments, and the processing conditions you define for each category are applied in practice.",
+    "nextSteps": [
+     "Identify categories of personal information that laws, policies, or your risk assessments treat as particularly sensitive.",
+     "Define the processing conditions for each category, with privacy and legal input.",
+     "Build those conditions into systems, procedures, and staff guidance.",
+     "Revisit the categories when laws or your processing change."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "pt-7.1",
@@ -42481,7 +42599,19 @@
    "related": [
     "ia-4"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-07(01)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-07(01)",
+   "editorial": {
+    "question": "Does your organization avoid unnecessary use of Social Security numbers, explore alternative identifiers, and tell people why a number is requested and whether providing it is required?",
+    "whyItMatters": "Social Security numbers are a prime target for identity theft, and federal law and policy set specific rules for collecting them. Using fewer of them reduces the damage a breach can cause.",
+    "doneLooksLike": "Where systems process Social Security numbers, unnecessary collection, maintenance, and use have been eliminated, and alternatives to using them as personal identifiers have been explored. No one is denied a right, benefit, or privilege provided by law for refusing to disclose their number, and anyone asked for it is told whether disclosure is mandatory or voluntary, the statutory or other authority for the request, and how the number will be used.",
+    "nextSteps": [
+     "Find every form, system, and process that collects or stores Social Security numbers.",
+     "Stop collection where it is not needed, and evaluate alternative identifiers for the rest.",
+     "Add a disclosure to each remaining request stating whether providing the number is mandatory or voluntary, the authority, and its uses.",
+     "Check that no process denies a legally provided right or benefit to people who decline."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "pt-7.2",
@@ -42508,7 +42638,18 @@
    "implementationLevels": [
     "organization"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-07(02)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-07(02)",
+   "editorial": {
+    "question": "Does your organization prohibit processing information about how people exercise their First Amendment rights unless authorized by statute, by the individual, or within an authorized law enforcement activity?",
+    "whyItMatters": "Keeping records of people's speech, religion, press activity, assembly, or petitions to the government can discourage them from exercising those freedoms. The Privacy Act limits agencies' ability to process this kind of information.",
+    "doneLooksLike": "Processing of information that describes how any individual exercises First Amendment rights is prohibited, except where expressly authorized by statute or by the individual, or where the information is pertinent to and within the scope of an authorized law enforcement activity. Staff know the rule and consult the privacy official and legal counsel before relying on an exception.",
+    "nextSteps": [
+     "Adopt a written rule prohibiting this processing that states the three exceptions.",
+     "Review systems and data collections for information about religious, political, or other First Amendment activities.",
+     "Remove information that no exception covers, and route questions to your privacy official and legal counsel."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "pt-8",
@@ -42594,7 +42735,19 @@
    "related": [
     "pm-24"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-08"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=PT-08",
+   "editorial": {
+    "question": "When your organization runs a computer matching program, does it get Data Integrity Board approval, sign a matching agreement, publish notice, verify results, and let people contest findings?",
+    "whyItMatters": "Matching programs compare records across systems to decide eligibility for federal benefits or to recover payments and debts, and errors can lead to wrongful denials or collections. These Privacy Act steps add oversight and give people a chance to correct mistakes before action is taken.",
+    "doneLooksLike": "For each matching program, the Data Integrity Board has approved it, a computer matching agreement has been developed and entered into, and a matching notice has been published in the Federal Register. Information produced by the match is independently verified before adverse action where required, and individuals receive notice and an opportunity to contest the findings before any adverse action is taken.",
+    "nextSteps": [
+     "Identify any computerized record comparisons that qualify as matching programs.",
+     "Obtain Data Integrity Board approval and put a computer matching agreement in place before matching begins.",
+     "Publish the matching notice in the Federal Register.",
+     "Set up procedures to verify results and notify individuals, with time to contest, before taking adverse action."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ra-1",
@@ -43727,7 +43880,18 @@
     "au-13",
     "sc-26"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=RA-05(04)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=RA-05(04)",
+   "editorial": {
+    "question": "Does your organization find out what information about its systems outsiders could gather without breaking in, and take the corrective actions it has defined when something is exposed?",
+    "whyItMatters": "Attackers often start by collecting what a system reveals on its own, such as software versions, or what turns up in web searches. Reducing that exposure makes your systems harder to target.",
+    "doneLooksLike": "You determine what information about the system is discoverable, such as what the system itself exposes or what extensive web searches reveal, and take the corrective actions you define when exposure is confirmed, such as notifying the right people, removing the information, or changing the system so the information is less useful to an attacker. Decoys deliberately set up to be found are outside the scope of this check.",
+    "nextSteps": [
+     "Search for publicly available information about your systems, such as exposed services, version banners, and documents or posts found through web searches.",
+     "Define corrective actions, such as notifying system owners, removing information, or reconfiguring systems.",
+     "Track each exposed item until it has been addressed."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ra-5.5",
@@ -43771,7 +43935,18 @@
    "implementationLevels": [
     "organization"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=RA-05(05)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=RA-05(05)",
+   "editorial": {
+    "question": "Does your organization authorize privileged (administrator-level) access for the vulnerability scanning activities and system components it defines, so scans can examine systems more thoroughly?",
+    "whyItMatters": "A scan without privileged access sees only what an outsider sees and can miss many weaknesses. Authorized privileged access allows a deeper check while keeping intrusive scans of sensitive components under control.",
+    "doneLooksLike": "Privileged access authorization is in place for the vulnerability scanning activities and system components you define, such as credentialed scans of servers that hold sensitive information. Scanning accounts with that access are formally authorized and used only for the defined scanning activities.",
+    "nextSteps": [
+     "Decide which components and scanning activities need privileged access.",
+     "Create dedicated scanning accounts with the needed privileges and approve them through your access authorization process.",
+     "Protect the scanning credentials and review how the accounts are used."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ra-5.6",
@@ -44129,7 +44304,19 @@
     "ra-3",
     "ra-7"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=RA-08"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=RA-08",
+   "editorial": {
+    "question": "Does your organization conduct a privacy impact assessment before developing or buying technology that processes personal information, or before starting a new collection of it?",
+    "whyItMatters": "A privacy impact assessment examines how personal information will be handled and what could go wrong while there is still time to change the design. Fixing privacy problems after launch is harder and more costly.",
+    "doneLooksLike": "A privacy impact assessment, both an analysis and a formal document, is completed before you develop or procure information technology that processes personal information. One is also completed before you start a new collection of personal information that will be processed using information technology and that allows contact with specific individuals, where identical questions or reporting requirements are put to ten or more people other than federal agencies, instrumentalities, or employees. Assessments are updated when changes alter the privacy risks.",
+    "nextSteps": [
+     "Add a privacy impact assessment step to your technology purchasing and project approval processes.",
+     "Create a template covering what information is collected, why, how it is used and shared, the privacy risks, and how they are reduced.",
+     "Involve program managers, system owners, technical and security staff, and legal counsel in each assessment.",
+     "Update the assessment when the technology or your practices change."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ra-9",
@@ -44191,7 +44378,19 @@
      "url": "https://doi.org/10.6028/NIST.IR.8179"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=RA-09"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=RA-09",
+   "editorial": {
+    "question": "Does your organization perform a criticality analysis to identify its most critical system components and functions, at the development decision points it defines?",
+    "whyItMatters": "Not every component needs the same level of protection. Knowing which ones would hurt your mission most if they failed lets you focus protection, redundancy, and supply chain scrutiny where it counts.",
+    "doneLooksLike": "A criticality analysis is performed for the systems, components, or services you define at the system development life cycle decision points you define, such as when a design is developed, modified, or upgraded. It traces the missions a system supports to the functions and the hardware, software, and firmware components that carry them out, including dependencies on outside services, and identifies the critical components and functions.",
+    "nextSteps": [
+     "Choose which systems, components, or services need criticality analysis and at which life cycle decision points.",
+     "Map the mission or business functions each system supports down to the components that implement them.",
+     "Rate each component by the impact its failure would have on your mission, and record the critical ones.",
+     "Use the results to guide design changes, such as added redundancy, and protection priorities."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "ra-10",
@@ -45194,7 +45393,18 @@
    "implementationLevels": [
     "organization"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-04(01)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-04(01)",
+   "editorial": {
+    "question": "Do your acquisition contracts require developers to describe the functional properties of the security and privacy controls in the system, component, or service you are buying?",
+    "whyItMatters": "Without a description of what each control does, you cannot tell whether it meets your needs or how to configure and test it.",
+    "doneLooksLike": "Contracts or requirements documents require the developer to describe the functional properties of the controls to be implemented, meaning the security and privacy capabilities, functions, or mechanisms visible at the controls' interfaces rather than their internal workings, and you receive and keep those descriptions.",
+    "nextSteps": [
+     "Add contract language requiring a description of the functional properties of security and privacy controls.",
+     "Specify that the description covers what the controls do at their interfaces, not internal design details.",
+     "Check delivered descriptions against your security and privacy requirements."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sa-4.2",
@@ -45251,7 +45461,18 @@
    "implementationLevels": [
     "organization"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-04(02)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-04(02)",
+   "editorial": {
+    "question": "Do your acquisition contracts require developers to supply design and implementation information for controls, such as interface descriptions, design documents, or source code, at a level of detail you set?",
+    "whyItMatters": "Design information lets you, or an assessor, understand how controls actually work and analyze them for weaknesses. The detail you need depends on how much you must trust the system.",
+    "doneLooksLike": "Contracts require the developer to provide design and implementation information for the controls covering the items you select, such as security-relevant external interfaces, high-level design, low-level design, source code or hardware schematics, or other information you define, at the level of detail you specify.",
+    "nextSteps": [
+     "Decide which types of design and implementation information you need for each acquisition, based on its importance.",
+     "Set the level of detail required and write it into the contract.",
+     "Review deliveries for completeness against the contract."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sa-4.3",
@@ -45409,7 +45630,18 @@
    "implementationLevels": [
     "organization"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-04(05)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-04(05)",
+   "editorial": {
+    "question": "Do you require developers to deliver systems, components, or services with your defined security configurations already in place, and to keep them as the default for reinstalls and upgrades?",
+    "whyItMatters": "Products shipped with loose settings, such as default passwords or unneeded services turned on, are common targets. Requiring secure settings from delivery onward avoids fixing the same problems after every reinstall or upgrade.",
+    "doneLooksLike": "Contracts require the developer to deliver the system, component, or service with the security configurations you define already implemented, such as limits on functions, ports, protocols, and services and changed default passwords. Those configurations are the default for any later reinstallation or upgrade.",
+    "nextSteps": [
+     "Define the security configurations you require, such as disabled unneeded services and changed default passwords.",
+     "Write those configurations into acquisition contracts as delivery requirements, including for reinstalls and upgrades.",
+     "Verify the configurations on delivery and after each reinstall or upgrade."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sa-4.6",
@@ -45559,7 +45791,18 @@
     "cm-7",
     "sa-9"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-04(09)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-04(09)",
+   "editorial": {
+    "question": "Do you require developers to identify the functions, ports, protocols, and services their system, component, or service is intended to use in your organization?",
+    "whyItMatters": "Knowing early which network ports, protocols, and services a product needs lets you avoid risky ones and plan firewall rules before deployment, instead of retrofitting controls later.",
+    "doneLooksLike": "Contracts or requirements documents require the developer to identify the functions, ports, protocols, and services intended for organizational use, ideally during requirements definition and design, and you use that information to shape design and configuration decisions.",
+    "nextSteps": [
+     "Add contract language requiring a list of the functions, ports, protocols, and services the product uses.",
+     "Review the list early in the acquisition and challenge any that seem unnecessary or high risk.",
+     "Use the list to plan firewall rules and configuration baselines."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sa-4.10",
@@ -47344,7 +47587,18 @@
     "sc-42",
     "si-12"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-08(33)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-08(33)",
+   "editorial": {
+    "question": "Does your organization apply the privacy principle of minimization, processing and keeping only the personal information needed for an authorized purpose, through processes it has defined?",
+    "whyItMatters": "Personal information you never collect, or no longer keep, cannot be breached or misused. Minimization reduces privacy risk and the cost of protecting data.",
+    "doneLooksLike": "The processes you define put minimization into practice: personal information is processed only when it is directly relevant and necessary to accomplish an authorized purpose, and it is kept only as long as that purpose requires, consistent with applicable laws and policies.",
+    "nextSteps": [
+     "Review each collection of personal information and remove fields that are not needed for an authorized purpose.",
+     "Set retention periods tied to each purpose, and delete information when they end.",
+     "Add a minimization check to design reviews for new systems and changes."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sa-9",
@@ -47562,7 +47816,18 @@
     "cm-6",
     "cm-7"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-09(02)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-09(02)",
+   "editorial": {
+    "question": "Do you require providers of the external services you specify to identify the functions, ports, protocols, and other services needed to use their service?",
+    "whyItMatters": "When you know exactly what an outside or cloud service needs, you can make informed decisions about restricting functions or blocking ports without breaking the service.",
+    "doneLooksLike": "For the external system services you define, agreements or onboarding requirements require the provider to identify the functions, ports, protocols, and other services required to use the service, and you keep that information for use when configuring and reviewing your boundary protections.",
+    "nextSteps": [
+     "List the external services this requirement applies to.",
+     "Require, in contracts or onboarding, documentation of the functions, ports, protocols, and services each one needs.",
+     "Use that information when setting firewall rules and deciding whether to restrict functions."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sa-9.3",
@@ -47975,7 +48240,19 @@
      "url": "https://doi.org/10.6028/NIST.SP.800-160v1"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-10"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-10",
+   "editorial": {
+    "question": "Do you require developers to manage configuration and control changes to what they build for you, implementing only changes you approve and tracking security flaws to resolution?",
+    "whyItMatters": "Uncontrolled changes during development can introduce flaws or malicious code that no one notices. Developer configuration management gives you confidence that what you receive is what was approved.",
+    "doneLooksLike": "Contracts require the developer to perform configuration management during the life cycle phases you select, such as design, development, implementation, operation, or disposal, and to document, manage, and control the integrity of changes to the configuration items you define. The developer implements only changes you approve, documents those changes and their potential security and privacy impacts, tracks security flaws and their resolution, and reports findings to the personnel you designate.",
+    "nextSteps": [
+     "Decide which life cycle phases and configuration items, such as source code, designs, and test materials, must be under developer configuration management.",
+     "Write these requirements, including your approval of changes, into contracts.",
+     "Require reports on changes, their security and privacy impacts, and flaw tracking, and name who receives them.",
+     "Review developer change records during acceptance and at milestones."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sa-10.1",
@@ -48360,7 +48637,19 @@
      "url": "https://doi.org/10.6028/NIST.SP.800-160v1"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-11"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-11",
+   "editorial": {
+    "question": "Do you require developers to test and evaluate security and privacy controls throughout development, produce evidence of the results, and correct the flaws they find?",
+    "whyItMatters": "Flaws are cheaper and safer to fix before a system goes live. Requiring evidence of testing lets you see that controls work as intended rather than taking it on trust.",
+    "doneLooksLike": "Contracts require the developer, at all post-design stages of development, to develop and implement a plan for ongoing security and privacy control assessments and to perform the testing types you select (unit, integration, system, or regression) at the frequency, depth, and coverage you define. The developer produces evidence that the plan was carried out along with the test results, follows a verifiable flaw remediation process, and corrects flaws identified during testing.",
+    "nextSteps": [
+     "Write developer testing requirements into contracts, including test types, frequency, depth, and coverage.",
+     "Require a security and privacy assessment plan from the developer.",
+     "Ask for test results and evidence that the plan was followed at agreed milestones.",
+     "Confirm that identified flaws were tracked and corrected before accepting delivery."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sa-11.1",
@@ -49046,7 +49335,19 @@
      "url": "https://doi.org/10.6028/NIST.IR.8179"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-15"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-15",
+   "editorial": {
+    "question": "Do you require developers to follow a documented development process that addresses security and privacy, and do you review their process, standards, and tools at a set frequency?",
+    "whyItMatters": "A secure product depends on a disciplined process and trustworthy tools. Knowing how a developer builds software, and with what, helps you judge supply chain risk and catch weaknesses in the process itself.",
+    "doneLooksLike": "Developers are required to follow a documented development process that explicitly addresses security and privacy requirements, identifies the standards and tools used, records specific tool options and configurations, and documents, manages, and protects the integrity of changes to the process and tools. At the frequency you define, the process, standards, tools, tool options, and tool configurations are reviewed to determine whether they can satisfy the security and privacy requirements you define.",
+    "nextSteps": [
+     "Require developers, in contracts, to provide their documented development process, including standards, tools, and tool configurations.",
+     "Confirm the process explicitly addresses your security and privacy requirements.",
+     "Require that changes to the process or tools are controlled and documented.",
+     "Set the review frequency and review the process and tools against your requirements."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sa-15.1",
@@ -49228,7 +49529,18 @@
    "related": [
     "ra-9"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-15(03)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-15(03)",
+   "editorial": {
+    "question": "Do you require developers to perform a criticality analysis of their system, component, or service at the decision points and level of rigor you define?",
+    "whyItMatters": "Developers know their product's design far better than you can from the outside, especially for commercial products. Their criticality analysis feeds your own and helps you protect the parts that matter most.",
+    "doneLooksLike": "Contracts require the developer to perform a criticality analysis at the system development life cycle decision points you define and at the breadth and depth you specify, and the results serve as input to your organization's own criticality analysis.",
+    "nextSteps": [
+     "Define the decision points and the breadth and depth required for developer criticality analysis.",
+     "Add those requirements to contracts for the relevant systems, components, or services.",
+     "Use the developer's results in your own criticality and supply chain risk analysis."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sa-15.5",
@@ -49590,7 +49902,18 @@
     "sa-4",
     "sa-5"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-16"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-16",
+   "editorial": {
+    "question": "Do you require developers to provide the training you define on correctly using and operating the security and privacy functions of what they deliver?",
+    "whyItMatters": "Security features that staff do not understand are often misconfigured or switched off. Developer training helps your people use the controls as intended.",
+    "doneLooksLike": "Contracts or agreements with external and in-house developers require the training you define, such as online, classroom, or hands-on sessions, or materials for your own in-house training, on the correct use and operation of the implemented security and privacy functions, controls, and mechanisms, and the training reaches the staff who need it.",
+    "nextSteps": [
+     "Identify the security and privacy functions your staff must know how to operate.",
+     "Define the type and content of training needed for each and include it in contracts.",
+     "Track who has completed the training, and request materials for future in-house use."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sa-17",
@@ -49681,7 +50004,18 @@
      "url": "https://doi.org/10.6028/NIST.SP.800-160v1"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-17"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-17",
+   "editorial": {
+    "question": "Do you require developers to produce a security and privacy architecture and design specification that fits your organization's architecture and shows how protections work together?",
+    "whyItMatters": "Controls added separately can leave gaps between them. A clear architecture shows that protections were designed to work together and fit your environment.",
+    "doneLooksLike": "Developers are required to produce a design specification and security and privacy architecture that is consistent with your organization's security and privacy architecture within its enterprise architecture. It accurately and completely describes the required security and privacy functionality and how controls are allocated among physical and logical components, and it explains how individual security and privacy functions, mechanisms, and services work together to provide a unified approach to protection.",
+    "nextSteps": [
+     "Share your organization's security and privacy architecture with developers as a reference.",
+     "Require in contracts a design specification and architecture covering required functionality and the allocation of controls.",
+     "Review delivered designs for consistency with your architecture and for gaps between controls."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sa-17.1",
@@ -50287,7 +50621,18 @@
     "sa-4",
     "sr-6"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-21"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SA-21",
+   "editorial": {
+    "question": "Do you require developers of the systems, components, or services you specify to hold appropriate access authorizations and meet any additional screening criteria you define?",
+    "whyItMatters": "Developers can introduce flaws or hidden access paths that are very hard to find later. Screening them gives you a level of trust in developers that matches the trust you place in the people who use the system.",
+    "doneLooksLike": "For the systems, components, or services you define, the developer is required to hold access authorizations appropriate to the official government duties you define and to meet the additional personnel screening criteria you set, such as background checks, clearances, citizenship, or nationality. The developer provides a list of the individuals authorized to perform development so you can confirm the requirements are met.",
+    "nextSteps": [
+     "Identify which systems, components, or services require developer screening.",
+     "Define the required access authorizations and screening criteria and write them into contracts.",
+     "Obtain a list of authorized development personnel and verify their screening status."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sa-22",
@@ -50951,7 +51296,18 @@
     "sc-32",
     "sc-39"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-02"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-02",
+   "editorial": {
+    "question": "Does your organization separate system management functions, such as administrative consoles, from the functions and interfaces that ordinary users work with?",
+    "whyItMatters": "If administrative tools sit alongside user features, a compromised user account or web page can become a path to full control. Separation keeps privileged functions behind an extra barrier.",
+    "doneLooksLike": "User functionality, including user interface services, is physically or logically separated from system management functionality, for example by using different computers, operating system instances, network addresses, virtualization, or separate domains with additional access controls. Web administrative interfaces use authentication separate from that used for other system resources.",
+    "nextSteps": [
+     "Identify the administrative interfaces for your servers, databases, network devices, and applications.",
+     "Move them onto separate systems, network segments, or addresses from user-facing services.",
+     "Require separate authentication and additional access controls for administrative interfaces."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-2.1",
@@ -51045,7 +51401,18 @@
     "sc-39",
     "si-16"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-03"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-03",
+   "editorial": {
+    "question": "Does your organization isolate the parts of its systems that enforce security, such as access control and audit functions, from other functions so they cannot be tampered with?",
+    "whyItMatters": "If ordinary software can reach and change the code that enforces security, one flaw anywhere can switch protections off. Isolation protects the integrity of the mechanisms you rely on.",
+    "doneLooksLike": "Security functions are isolated from nonsecurity functions by an isolation boundary, using means such as partitions, domains, protected processor modes, file system protections, and memory address space protections. Access to security functions is restricted through access controls and least privilege, and any nonsecurity code inside the boundary is limited to necessary exceptions.",
+    "nextSteps": [
+     "Identify the components that perform security functions, such as authentication, access control, and logging.",
+     "Use operating system and platform features, such as separate processes, protected memory, and restricted file permissions, to keep them apart from other code.",
+     "Limit which people and processes can modify security functions."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-3.1",
@@ -51223,7 +51590,18 @@
     "ac-4",
     "sa-8"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-04"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-04",
+   "editorial": {
+    "question": "Does your organization prevent information left in shared system resources, such as memory or storage, from being exposed to the next user or process?",
+    "whyItMatters": "When memory, disk space, or other resources are released and reused, leftover data from the previous user can leak to the next one. Clearing resources prevents this quiet form of exposure.",
+    "doneLooksLike": "Unauthorized and unintended information transfer through shared system resources is prevented, so that information produced by prior users or roles, or by processes acting for them, including encrypted data, is not available to current users or processes after the resources are released and reassigned.",
+    "nextSteps": [
+     "Identify shared resources in your systems, such as memory, temporary storage, and virtual machine disks.",
+     "Use operating system, platform, and application settings that clear resources before reuse.",
+     "Confirm that your cloud and virtualization providers clear released resources before reassigning them."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-4.2",
@@ -51672,7 +52050,18 @@
    "implementationLevels": [
     "system"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-07(03)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-07(03)",
+   "editorial": {
+    "question": "Does your organization keep the number of external network connections to its systems limited, so each one can be monitored?",
+    "whyItMatters": "Every connection to the outside world is a door that needs watching. Fewer doors are easier to monitor and control, especially during technology transitions when old and new connections may run side by side.",
+    "doneLooksLike": "External network connections to the system are limited in number and known to you, which makes inbound and outbound traffic easier to monitor, including during transitions such as moving between network protocol versions that can temporarily add access points.",
+    "nextSteps": [
+     "Inventory all external connections, including internet links, remote access, partner links, and backup circuits.",
+     "Remove or consolidate connections that are not needed.",
+     "Route the remaining connections through managed interfaces where traffic is monitored."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-7.4",
@@ -51792,7 +52181,19 @@
     "sc-21",
     "sc-22"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-07(04)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-07(04)",
+   "editorial": {
+    "question": "For each external telecommunications service, does your organization use a managed interface with a traffic flow policy, protect transmitted data, and control routing and other control traffic?",
+    "whyItMatters": "Connections from carriers and network providers carry both your data and the control traffic, such as routing and domain name updates, that steers it. Weak controls here can expose data or let traffic be redirected.",
+    "doneLooksLike": "Each external telecommunication service has a managed interface with its own traffic flow policy, and the confidentiality and integrity of information crossing it are protected. Exceptions are documented with a business need and duration, reviewed at the frequency you define, and removed when no longer justified. Unauthorized control plane traffic (such as routing, domain name system, and management protocol traffic) is prevented from being exchanged with external networks and filtered when it arrives from them, and you publish information that lets remote networks detect unauthorized control plane traffic coming from yours.",
+    "nextSteps": [
+     "List each external telecommunications service and the interface it connects through.",
+     "Write a traffic flow policy for each interface, and document exceptions with a business need and duration.",
+     "Set a review frequency for exceptions and remove those no longer needed.",
+     "Filter unauthorized routing and other control traffic, and publish routing authorization information, for example through resource public key infrastructure, so other networks can validate your routes."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-7.5",
@@ -51844,7 +52245,19 @@
    "implementationLevels": [
     "system"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-07(05)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-07(05)",
+   "editorial": {
+    "question": "Does your network deny all traffic by default and allow only traffic you have explicitly approved, at managed interfaces or for the systems you specify?",
+    "whyItMatters": "An allow-by-default network lets through anything no one thought to block. Deny by default means only essential, approved connections work, which sharply reduces what an attacker can use.",
+    "doneLooksLike": "Inbound and outbound network communications traffic is denied by default and allowed only by exception at managed interfaces, for the systems you define, or both, as you select. Each allowed connection is essential and approved, including connections to external systems.",
+    "nextSteps": [
+     "Review firewall rules at each managed interface for broad allow rules.",
+     "Set the default rule to deny for both inbound and outbound traffic.",
+     "Add specific allow rules only for approved business needs.",
+     "Review allowed exceptions regularly and remove those no longer needed."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-7.7",
@@ -51881,7 +52294,19 @@
    "implementationLevels": [
     "system"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-07(07)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-07(07)",
+   "editorial": {
+    "question": "Does your organization prevent remote devices from split tunneling, connecting to your network and an outside network at the same time, unless your defined safeguards are in place?",
+    "whyItMatters": "A remote device connected to both your network and an uncontrolled network at once can act as a bridge for attackers or for data leaving your organization.",
+    "doneLooksLike": "Split tunneling is prevented for remote devices connecting to organizational systems, for example by disabling the setting and preventing users from changing it, or by detecting split tunneling and refusing the connection. Where split tunneling is allowed, it is securely provisioned using the safeguards you define, such as a VPN (virtual private network) locked to approved destinations without user control.",
+    "nextSteps": [
+     "Review your remote access software settings for split tunneling.",
+     "Disable split tunneling and lock the setting so users cannot change it.",
+     "Where split tunneling is needed, define the safeguards and restrict it to approved destinations.",
+     "Configure remote access to detect and refuse devices using unapproved split tunnels."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-7.8",
@@ -51928,7 +52353,19 @@
    "related": [
     "ac-3"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-07(08)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-07(08)",
+   "editorial": {
+    "question": "Does your organization route the internal traffic it specifies to outside networks through authenticated proxy servers at its managed interfaces?",
+    "whyItMatters": "A proxy server stands between your users and outside networks, letting you log connections, block known bad sites, and limit direct connections from inside your network.",
+    "doneLooksLike": "The internal communications traffic you define, such as web browsing, that is bound for the external networks you define passes through authenticated proxy servers at managed interfaces. Users or devices authenticate to the proxy, which can log sessions and block specific addresses, domains, or websites.",
+    "nextSteps": [
+     "Decide which traffic, such as web browsing, and which external networks must go through a proxy.",
+     "Deploy an authenticated proxy at your managed interfaces and configure clients to use it.",
+     "Configure firewall rules so that covered traffic can leave only through the proxy.",
+     "Check that the proxy setup does not break VPNs or create interception risks."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-7.9",
@@ -52303,7 +52740,18 @@
     "cp-12",
     "sc-24"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-07(18)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-07(18)",
+   "editorial": {
+    "question": "If a firewall or other boundary protection device fails, does your system stay in a secure state rather than letting traffic pass unchecked?",
+    "whyItMatters": "A boundary device that fails open, passing all traffic when it breaks, removes your protection at the worst moment. Failing secure keeps your security properties in place until the device is restored.",
+    "doneLooksLike": "Mechanisms prevent systems from entering unsecure states when a boundary protection device at a managed interface fails, so that a failure neither lets outside information into the protected network nor permits unauthorized release of information.",
+    "nextSteps": [
+     "Check how each firewall, router, and gateway behaves on failure, and configure it to block traffic rather than pass it.",
+     "Consider redundant devices for critical connections so a failure does not force a choice between security and availability.",
+     "Test failure scenarios during planned maintenance."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-7.19",
@@ -52421,7 +52869,18 @@
    "related": [
     "ca-9"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-07(21)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-07(21)",
+   "editorial": {
+    "question": "Does your organization use boundary protections, such as firewalls or separate network segments, to isolate the system components that support the missions or business functions it specifies?",
+    "whyItMatters": "Isolating key components limits how far an attack or error can spread, and lets you apply stronger protection where it matters most.",
+    "doneLooksLike": "Boundary protection mechanisms, such as routers, gateways, firewalls, separate subnetworks, virtualization, or encryption with distinct keys, isolate the system components you define that support the missions or business functions you define, and information flows between those components are controlled.",
+    "nextSteps": [
+     "Identify the components that support your most important functions.",
+     "Place them on separate network segments or virtual environments with firewall rules between segments.",
+     "Allow only the information flows those components need."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-7.22",
@@ -52559,7 +53018,19 @@
     "pt-2",
     "si-15"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-07(24)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-07(24)",
+   "editorial": {
+    "question": "For systems that process personal information, does your organization apply processing rules to it, monitor that processing at system boundaries, and document and review exceptions?",
+    "whyItMatters": "Personal information can leak or be used improperly as it moves between systems. Rules that are enforced and watched at boundaries keep processing within your privacy requirements.",
+    "doneLooksLike": "The processing rules you define are applied to personal information data elements. Permitted processing is monitored at the system's external interfaces and at key internal boundaries, each processing exception is documented, and exceptions are reviewed and removed when no longer supported.",
+    "nextSteps": [
+     "Define processing rules for personal information data elements, such as which systems may receive them and in what form.",
+     "Set up monitoring at external interfaces and key internal boundaries to see how personal information flows.",
+     "Document each exception to the rules.",
+     "Review exceptions on a schedule and remove those no longer supported."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-7.25",
@@ -52838,7 +53309,19 @@
      "url": "https://doi.org/10.6028/NIST.IR.8023"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-08"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-08",
+   "editorial": {
+    "question": "Does your organization protect the confidentiality, integrity, or both, as it chooses, of information while it travels over internal and external networks?",
+    "whyItMatters": "Information traveling over a network can be intercepted or altered along the way. Protecting it in transit keeps sensitive data private and trustworthy.",
+    "doneLooksLike": "The confidentiality, integrity, or both of transmitted information, as you select, are protected on internal and external networks and on all components that transmit information, such as servers, laptops, mobile devices, and printers, using physical protections or encryption. Where commercial transmission services cannot provide the assurances you need, compensating controls are in place.",
+    "nextSteps": [
+     "Identify where sensitive information travels, including internal networks, internet links, and wireless.",
+     "Turn on encrypted protocols for web, email, file transfer, and remote access.",
+     "Disable unencrypted protocols where alternatives exist.",
+     "Check what protection your telecommunications providers offer, and add your own encryption where it falls short."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-8.1",
@@ -52882,7 +53365,19 @@
     "sc-12",
     "sc-13"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-08(01)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-08(01)",
+   "editorial": {
+    "question": "Does your organization use cryptography to prevent disclosure of information, detect changes to it, or both, while it is in transit?",
+    "whyItMatters": "Encryption is the most practical way to protect information crossing networks you do not control. Cryptographic integrity checks reveal whether data was changed along the way.",
+    "doneLooksLike": "Cryptographic mechanisms, such as TLS (transport layer security) or IPsec, are implemented to prevent unauthorized disclosure, detect changes, or both, as you select, for information during transmission, using integrity mechanisms such as message authentication codes or digital signatures where detecting changes is required.",
+    "nextSteps": [
+     "Require TLS or another approved encryption protocol for all connections carrying sensitive information.",
+     "Configure systems to reject weak or outdated protocols and ciphers.",
+     "Use message authentication codes or digital signatures where you need to detect tampering.",
+     "Test external-facing services to confirm encryption is enforced."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-8.2",
@@ -53080,7 +53575,18 @@
     "ac-17",
     "sc-23"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-10"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-10",
+   "editorial": {
+    "question": "Does your organization end network connections when a communications session finishes or after a period of inactivity it defines?",
+    "whyItMatters": "Idle connections left open can be hijacked or misused by someone else. Ending them shortens that window.",
+    "doneLooksLike": "Network connections associated with a communications session are terminated at the end of the session or after the inactivity period you define, which may differ by type of network access, including releasing the related operating system and application network resources.",
+    "nextSteps": [
+     "Set inactivity time-out periods for remote access, administrative sessions, and other network connections.",
+     "Configure VPNs, remote desktop services, and applications to disconnect at the end of a session or after the time-out.",
+     "Test that sessions close as configured."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-11",
@@ -53326,7 +53832,18 @@
     "organization",
     "system"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-12(01)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-12(01)",
+   "editorial": {
+    "question": "If users lose their encryption keys or forget their passphrases, can your organization still recover the encrypted information?",
+    "whyItMatters": "Encryption protects data, but a lost key can lock you out of your own information permanently. Planning for key loss keeps encrypted data available.",
+    "doneLooksLike": "Information remains available when users lose cryptographic keys or forget passphrases, for example because keys or recovery keys are escrowed (held in safekeeping) under organizational control.",
+    "nextSteps": [
+     "Identify where users encrypt data, such as laptops, files, and email.",
+     "Set up key escrow or recovery keys for each, stored securely with restricted access.",
+     "Test recovery periodically so you know it works."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-12.2",
@@ -53956,7 +54473,18 @@
      "url": "https://doi.org/10.6028/NIST.SP.800-63-3"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-17"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-17",
+   "editorial": {
+    "question": "Does your organization issue public key certificates under a defined certificate policy or obtain them from an approved provider, and allow only approved trust anchors in its certificate stores?",
+    "whyItMatters": "Certificates prove that a website, server, or person is who they claim to be. An unapproved root certificate in a trust store can let whoever controls it impersonate trusted systems.",
+    "doneLooksLike": "Public key certificates are issued under the certificate policy you define or obtained from an approved service provider, and the trust stores or certificate stores you manage contain only approved trust anchors (the root certificates from authorities you have chosen to trust).",
+    "nextSteps": [
+     "Document the certificate policy you follow or the approved certificate providers you use.",
+     "Inventory the certificates in use and where each came from.",
+     "Review the trusted root certificates on systems and devices you manage, and remove any that are not approved."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-18",
@@ -54036,7 +54564,18 @@
      "url": "https://doi.org/10.6028/NIST.SP.800-28ver2"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-18"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-18",
+   "editorial": {
+    "question": "Has your organization defined which mobile code, such as scripts in web pages, documents, or email, is acceptable, and does it authorize, monitor, and control its use?",
+    "whyItMatters": "Code delivered through websites, documents, and email can run on your devices without a separate installation step, which makes it a common way to deliver malware.",
+    "doneLooksLike": "You have defined acceptable and unacceptable mobile code and mobile code technologies, and the use of mobile code within the system is authorized, monitored, and controlled, for example by blocking unacceptable types and requiring code to be digitally signed by a trusted source.",
+    "nextSteps": [
+     "Decide which mobile code technologies, such as specific browser scripting, are acceptable for your business and which are not.",
+     "Configure browsers, email, and office software to block unacceptable mobile code, such as unsigned code embedded in documents.",
+     "Monitor for blocked or unexpected mobile code and review exceptions."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-18.1",
@@ -54525,7 +55064,18 @@
      "url": "https://doi.org/10.6028/NIST.SP.800-113"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-23"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-23",
+   "editorial": {
+    "question": "Does your organization protect communications sessions against hijacking, impersonation, and the insertion of false information?",
+    "whyItMatters": "Attackers who take over or sit in the middle of a session can act as a legitimate user or feed in false data without needing a password. Session protection keeps both ends confident about who they are talking to.",
+    "doneLooksLike": "The authenticity of communications sessions is protected, giving both ends ongoing confidence in each other's identity and in the validity of transmitted information, with defenses against man-in-the-middle attacks (where an attacker secretly relays or alters traffic), session hijacking, and insertion of false information.",
+    "nextSteps": [
+     "Use protocols that authenticate both ends of a session, such as TLS with certificate validation.",
+     "Configure applications to generate unpredictable session identifiers and invalidate them at logout.",
+     "Test web applications for session hijacking weaknesses."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-23.1",
@@ -54688,7 +55238,18 @@
     "sc-22",
     "si-13"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-24"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-24",
+   "editorial": {
+    "question": "When the system failures you have identified occur, do the affected components fail to a known state you define while preserving the state information you specify?",
+    "whyItMatters": "A system that fails unpredictably can expose data, corrupt information, or even cause physical harm. Failing to a known state keeps it safe and makes recovery faster.",
+    "doneLooksLike": "For the types of failures on system components you define, the components fail to the known system state you define and preserve the system state information you define, which supports restart and a return to normal operation with less disruption.",
+    "nextSteps": [
+     "Identify likely failures for critical components, such as power loss, software crashes, or hardware faults.",
+     "Define the known state each component should fail to and the state information to preserve.",
+     "Configure components accordingly and test their failure behavior."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-25",
@@ -54906,7 +55467,18 @@
      "url": "https://doi.org/10.6028/NIST.SP.800-124r1"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-28"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-28",
+   "editorial": {
+    "question": "Does your organization protect the confidentiality, integrity, or both of the stored information it specifies, such as databases, file shares, and configuration files?",
+    "whyItMatters": "Stolen laptops, copied backups, and attackers inside a network all target stored data. Protecting information at rest limits the damage when a device or storage system is compromised.",
+    "doneLooksLike": "The confidentiality, integrity, or both, as you select, of the information at rest you define are protected, covering both user information and system information such as firewall rule sets and authentication data. Mechanisms may include encryption and write-once storage or, where these are not enough, secure offline storage and frequent scanning for malicious code.",
+    "nextSteps": [
+     "Identify the stored information that needs protection, including system configurations and authentication data.",
+     "Turn on encryption for laptops, servers, databases, and backups that hold it.",
+     "Restrict access to stored data, and use write-once or versioned storage where integrity is critical."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-28.1",
@@ -54960,7 +55532,19 @@
     "sc-12",
     "sc-13"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-28(01)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SC-28(01)",
+   "editorial": {
+    "question": "Does your organization use encryption to prevent unauthorized disclosure and modification of the information it specifies, stored on the components or media it specifies?",
+    "whyItMatters": "Access controls stop working once a disk is removed or a backup is copied. Encryption keeps stored information unreadable and changes detectable without the right key.",
+    "doneLooksLike": "Cryptographic mechanisms protect the information you define, at rest on the system components or media you define, against both unauthorized disclosure and unauthorized modification, whether by encrypting whole devices or media or specific files, records, or fields, with strength appropriate to the information's sensitivity.",
+    "nextSteps": [
+     "List the information and the devices or media where encryption at rest is required.",
+     "Enable full-disk encryption on laptops and removable media, and database or file encryption on servers and cloud storage.",
+     "Use encryption that also detects changes, such as authenticated encryption, where modification is a concern.",
+     "Protect and manage the encryption keys separately from the data."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sc-28.2",
@@ -57757,7 +58341,18 @@
     "ca-7",
     "si-4"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-02(02)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-02(02)",
+   "editorial": {
+    "question": "Does your organization use automated tools, at a frequency it defines, to check whether system components have the applicable security software and firmware updates installed?",
+    "whyItMatters": "Manual patch tracking misses machines, especially as systems grow. Automated checks show which components are still exposed to known flaws.",
+    "doneLooksLike": "The automated mechanisms you define, such as patch management or vulnerability scanning tools, determine at the frequency you define whether system components have the applicable security-relevant software and firmware updates installed, and their reports identify components with missing updates.",
+    "nextSteps": [
+     "Choose a tool that reports update status across your devices, servers, and network equipment.",
+     "Set how often it checks.",
+     "Review its reports and act on components that are missing updates."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-2.3",
@@ -58729,7 +59324,19 @@
     "pm-23",
     "pm-25"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-04(02)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-04(02)",
+   "editorial": {
+    "question": "Does your organization use automated tools to analyze security events in near real time, rather than relying only on manual log review?",
+    "whyItMatters": "Systems generate far more events than people can read. Automated analysis can spot attacks while they are happening instead of days later.",
+    "doneLooksLike": "Automated tools and mechanisms, such as host-based or network-based monitoring tools or a security information and event management system (a tool that collects and correlates logs from many sources), support near real-time analysis of events. Privacy risks from linking records across systems are assessed in your privacy impact assessment.",
+    "nextSteps": [
+     "Send logs from servers, endpoints, firewalls, and cloud services to a central analysis tool.",
+     "Configure detections that analyze events as they arrive.",
+     "Assign someone to respond to what the tool finds.",
+     "Assess the privacy risks of the tool's data collection and linking."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-4.3",
@@ -58860,7 +59467,18 @@
    "implementationLevels": [
     "system"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-04(04)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-04(04)",
+   "editorial": {
+    "question": "Has your organization defined what unusual or unauthorized network traffic looks like, and does it monitor inbound and outbound traffic for it at a frequency it sets?",
+    "whyItMatters": "Malware contacting outside servers, data being sent out, and attackers moving between systems all show up in network traffic. Watching traffic in both directions catches activity that perimeter blocking alone misses.",
+    "doneLooksLike": "Criteria for unusual or unauthorized activities or conditions are defined for both inbound and outbound communications traffic, and both directions are monitored at the frequency you define for the activities or conditions you define, such as signs of malicious code, misuse of credentials, signaling to external systems, or unauthorized export of information.",
+    "nextSteps": [
+     "Define what counts as unusual or unauthorized traffic, such as connections to known malicious addresses or large unexpected outbound transfers.",
+     "Deploy monitoring that covers inbound and outbound traffic, including traffic between internal systems.",
+     "Set the monitoring frequency and route findings to someone who investigates."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-4.5",
@@ -58909,7 +59527,19 @@
     "au-5",
     "pe-6"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-04(05)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-04(05)",
+   "editorial": {
+    "question": "Does your system alert the people or roles you designate when the indicators of compromise you have defined occur?",
+    "whyItMatters": "An indicator of compromise is only useful if someone sees it quickly. Automatic alerts bring in the right people while there is still time to contain an attack.",
+    "doneLooksLike": "The compromise indicators you define, drawn from sources such as audit records, malicious code protection, intrusion detection or prevention, and firewalls, generate alerts to the personnel or roles you define through channels such as email, text message, or phone.",
+    "nextSteps": [
+     "Define the indicators that should trigger an alert, such as malware detections or repeated failed administrator logins.",
+     "Configure your security tools to send alerts for those indicators.",
+     "Name who receives alerts and keep the contact list current.",
+     "Test alerts periodically to confirm they arrive."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-4.7",
@@ -59035,7 +59665,18 @@
    "implementationLevels": [
     "organization"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-04(10)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-04(10)",
+   "editorial": {
+    "question": "Has your organization made provisions so that the encrypted traffic it specifies can be seen by the monitoring tools it specifies?",
+    "whyItMatters": "Attackers increasingly hide malware and stolen data inside encrypted connections. Without visibility, monitoring tools cannot see what is passing through.",
+    "doneLooksLike": "Provisions are in place, such as inspection at defined points or monitoring on endpoints, so that the encrypted communications traffic you define is visible to the monitoring tools and mechanisms you define. You have decided whether this covers internal traffic, traffic to external destinations, or a subset, balancing confidentiality and monitoring needs.",
+    "nextSteps": [
+     "Decide which encrypted traffic must be visible to monitoring, weighing confidentiality and privacy.",
+     "Choose a method, such as inspection at a gateway or monitoring on endpoints where traffic is already decrypted.",
+     "Document the traffic that is excluded from inspection and why."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-4.11",
@@ -59125,7 +59766,18 @@
     "organization",
     "system"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-04(12)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-04(12)",
+   "editorial": {
+    "question": "Does your organization use automated mechanisms to alert designated people when the inappropriate or unusual activities it defines, with security or privacy implications, are identified?",
+    "whyItMatters": "Some warning signs come from outside the system itself, such as reports of suspicious behavior or insider threat concerns. Automated alerts make sure those reports reach the people who can act on them.",
+    "doneLooksLike": "The automated mechanisms you define alert the personnel or roles you define when the activities you define occur, such as suspicious activity reports or reports of potential insider threats, that indicate inappropriate or unusual activities with security or privacy implications.",
+    "nextSteps": [
+     "Define the organization-generated reports and activities that should trigger alerts.",
+     "Set up an automated way to route them, such as a ticketing workflow or alert distribution list.",
+     "Name the recipients, including security and privacy roles."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-4.13",
@@ -59235,7 +59887,19 @@
     "ac-18",
     "ia-3"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-04(14)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-04(14)",
+   "editorial": {
+    "question": "Does your organization use a wireless intrusion detection system to find rogue wireless devices and detect attacks or compromises over wireless?",
+    "whyItMatters": "Wireless signals reach beyond your walls, and an unauthorized access point connected to your network can bypass your firewall entirely.",
+    "doneLooksLike": "A wireless intrusion detection system identifies rogue wireless devices and detects attack attempts and potential compromises or breaches of the system. Scans for unauthorized wireless access points cover areas containing your systems and areas outside your facilities.",
+    "nextSteps": [
+     "Deploy wireless intrusion detection through your wireless network equipment or dedicated sensors.",
+     "Keep a list of authorized access points and devices so rogue ones can be recognized.",
+     "Scan inside and around your facilities for unauthorized access points.",
+     "Investigate and remove rogue devices when found."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-4.15",
@@ -59439,7 +60103,18 @@
    "related": [
     "ac-18"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-04(20)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-04(20)",
+   "editorial": {
+    "question": "Does your organization apply the additional monitoring it has defined to privileged users, such as administrators, beyond what it applies to ordinary users?",
+    "whyItMatters": "Administrators can do far more damage than regular users, whether through mistakes, misuse, or a stolen account. Extra monitoring helps you spot problems early.",
+    "doneLooksLike": "The additional monitoring of privileged users you define, such as detailed logging of administrative commands or alerts when privileged accounts are used outside normal hours, is in place and its results are reviewed.",
+    "nextSteps": [
+     "Identify all privileged accounts.",
+     "Define the extra monitoring, such as recording administrative sessions or alerting on privilege changes.",
+     "Route monitoring results to people who can investigate and act on them."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-4.21",
@@ -59548,7 +60223,19 @@
    "related": [
     "cm-7"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-04(22)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-04(22)",
+   "editorial": {
+    "question": "Does your organization detect network services that have not gone through its approval process, and audit or alert someone when it finds one?",
+    "whyItMatters": "Unapproved services may be unreliable, misconfigured, or malicious stand-ins for legitimate ones. Detecting them closes gaps no one knew existed.",
+    "doneLooksLike": "Network services not authorized or approved through the processes you define are detected, and detection triggers auditing, an alert to the personnel or roles you define, or both, as you select.",
+    "nextSteps": [
+     "Maintain an inventory of approved network services.",
+     "Scan the network regularly for services that are not on the list.",
+     "Configure detections to log findings and alert the people you name.",
+     "Remove or formally approve each unauthorized service found."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-4.23",
@@ -59827,7 +60514,18 @@
    "implementationLevels": [
     "organization"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-05(01)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-05(01)",
+   "editorial": {
+    "question": "Does your organization use the automated mechanisms it defines to broadcast security alerts and advisories throughout the organization?",
+    "whyItMatters": "Security advisories lose their value if they sit in one person's inbox. Automated distribution gets warnings to everyone who needs to act.",
+    "doneLooksLike": "Security alert and advisory information is broadcast throughout the organization using the automated mechanisms you define, such as mailing lists, messaging channels, or a notification system, reaching the people responsible for risk decisions at the governance, business process, and system levels.",
+    "nextSteps": [
+     "Subscribe to security advisories relevant to your technology.",
+     "Set up an automated distribution channel, such as a mailing list or messaging channel.",
+     "Make sure system owners, managers, and IT staff are included."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-6",
@@ -59984,7 +60682,19 @@
     "cm-6",
     "si-7"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-06"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-06",
+   "editorial": {
+    "question": "Does your organization verify that its defined security and privacy functions work correctly, alert designated people to failed tests, and take a defined action when anomalies are found?",
+    "whyItMatters": "A security feature that has quietly stopped working gives a false sense of protection. Regular verification catches failures before attackers do.",
+    "doneLooksLike": "The security and privacy functions you define are verified to operate correctly at the times you select, such as during startup, restart, or shutdown, on command by a user with appropriate privilege, or at a frequency you set. The personnel or roles you define are alerted to failed security and privacy verification tests, and when anomalies are discovered the system shuts down, restarts, or takes the alternative actions you define, as you select.",
+    "nextSteps": [
+     "List the security and privacy functions to verify, such as encryption, access control, and logging.",
+     "Decide when verification runs, and automate the checks where possible.",
+     "Send alerts for failed tests to the people you designate.",
+     "Define the response to anomalies, such as shutdown, restart, or another action."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-6.2",
@@ -60230,7 +60940,18 @@
      "url": "https://doi.org/10.6028/NIST.SP.800-147"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-07"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-07",
+   "editorial": {
+    "question": "Does your organization use integrity verification tools to detect unauthorized changes to the software, firmware, and information it specifies, and respond in ways it has defined?",
+    "whyItMatters": "Attackers often modify system files, firmware, or data to hide or to keep their access. Integrity checks reveal those changes, whether they come from malice or error.",
+    "doneLooksLike": "Integrity verification tools, such as cryptographic hashes or file integrity monitoring, detect unauthorized changes to the software, firmware, and information you define, and the actions you define are taken when unauthorized changes to each are detected.",
+    "nextSteps": [
+     "Identify the critical software, firmware, and information to protect, such as operating system files, boot firmware, and key data.",
+     "Deploy file integrity monitoring or similar tools that compare against known-good values.",
+     "Define what happens when a change is detected, such as investigation, restoration, or isolation."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-7.1",
@@ -60394,7 +61115,18 @@
    "implementationLevels": [
     "system"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-07(01)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-07(01)",
+   "editorial": {
+    "question": "Does your organization run integrity checks on the software, firmware, and information it specifies at startup, at defined events, or at a set frequency?",
+    "whyItMatters": "Integrity tools only help if they actually run. Scheduled and event-triggered checks catch tampering soon after it happens.",
+    "doneLooksLike": "Integrity checks of the software, firmware, and information you define run at the times you select for each: at startup, at the transitional states or security-relevant events you define, such as a restart or the installation of new software, at a frequency you define, or a combination.",
+    "nextSteps": [
+     "Decide when each type of integrity check runs.",
+     "Configure integrity tools and secure boot features to run checks at those times.",
+     "Review the results of each check."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-7.2",
@@ -60430,7 +61162,18 @@
    "implementationLevels": [
     "system"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-07(02)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-07(02)",
+   "editorial": {
+    "question": "Do your integrity verification tools automatically notify the people or roles you designate when they find discrepancies?",
+    "whyItMatters": "An integrity violation that no one hears about cannot be acted on. Automatic notification starts the response quickly.",
+    "doneLooksLike": "Automated tools notify the personnel or roles you define, such as system owners, administrators, or security staff, when integrity verification finds discrepancies.",
+    "nextSteps": [
+     "Configure your integrity tools to send notifications when they find discrepancies.",
+     "Name the recipients and keep the list current.",
+     "Test notifications to confirm they arrive."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-7.3",
@@ -60506,7 +61249,18 @@
    "implementationLevels": [
     "system"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-07(05)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-07(05)",
+   "editorial": {
+    "question": "Does your system automatically shut down, restart, or apply the controls you define when it discovers integrity violations?",
+    "whyItMatters": "Some integrity violations, such as changes to critical security files, call for immediate action that cannot wait for a person to respond.",
+    "doneLooksLike": "When integrity violations are discovered, the system automatically shuts down, restarts, or implements the controls you define, such as reversing the change or triggering audit alerts, as you select. Responses may differ by type of information, such as firmware, software, or user data.",
+    "nextSteps": [
+     "Decide the automatic response for each type of integrity violation.",
+     "Configure systems and tools to carry out those responses.",
+     "Test the responses so they do not cause unexpected outages."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-7.6",
@@ -60587,7 +61341,18 @@
     "ir-5",
     "si-4"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-07(07)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-07(07)",
+   "editorial": {
+    "question": "Does your organization feed detections of the unauthorized changes it specifies into its incident response process?",
+    "whyItMatters": "Detected changes that are not handled as incidents can be quietly reversed without anyone understanding the cause. Integration makes sure they are investigated, corrected, and recorded.",
+    "doneLooksLike": "Detection of the unauthorized changes you define, such as changes to established configuration settings or unauthorized elevation of privileges, is incorporated into your incident response capability, so these events are tracked, monitored, corrected, and kept as historical records.",
+    "nextSteps": [
+     "Define the unauthorized changes that must go to incident response.",
+     "Connect integrity and configuration monitoring tools to your incident tracking process.",
+     "Keep records of these events so patterns can be analyzed over time."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-7.8",
@@ -60813,7 +61578,18 @@
     "sc-12",
     "sc-13"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-07(15)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-07(15)",
+   "editorial": {
+    "question": "Does your organization use cryptographic checks, such as digital signatures, to confirm that the software or firmware components it specifies are authentic before installing them?",
+    "whyItMatters": "Tampered or counterfeit software can carry malware from the start. Verifying a digital signature confirms the code came from the expected source and was not altered.",
+    "doneLooksLike": "Cryptographic mechanisms authenticate the software or firmware components you define before installation, for example by verifying that they are digitally signed with certificates your organization recognizes and approves, and the related keys and certificates are managed.",
+    "nextSteps": [
+     "Identify the software and firmware that must be verified before installation.",
+     "Configure systems to require valid digital signatures from approved publishers.",
+     "Block installation of unsigned or invalidly signed code."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-7.16",
@@ -60955,7 +61731,18 @@
      "url": "https://doi.org/10.6028/NIST.SP.800-177r1"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-08"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-08",
+   "editorial": {
+    "question": "Does your organization use spam protection at system entry and exit points to detect and act on unsolicited messages, and keep that protection updated?",
+    "whyItMatters": "Spam is a common carrier for phishing and malware. Filtering where messages enter and leave reduces the attacks that reach users and stops your systems from passing spam on.",
+    "doneLooksLike": "Spam protection mechanisms at system entry and exit points, such as email servers, web proxies, workstations, and mobile devices, detect and act on unsolicited messages in both directions. They are updated when new releases are available, in line with your configuration management policy and procedures.",
+    "nextSteps": [
+     "Turn on spam filtering for incoming and outgoing email.",
+     "Extend protection to other entry and exit points, such as web traffic and mobile devices, where available.",
+     "Include spam filter updates in your configuration management process."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-8.2",
@@ -60992,7 +61779,18 @@
    "implementationLevels": [
     "system"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-08(02)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-08(02)",
+   "editorial": {
+    "question": "Does your organization automatically update its spam protection mechanisms at a frequency it defines?",
+    "whyItMatters": "Spam techniques change constantly. Automatic updates keep filters current without depending on someone remembering to apply them.",
+    "doneLooksLike": "Spam protection mechanisms receive updates automatically at the frequency you define, bringing in current signatures and protection capabilities.",
+    "nextSteps": [
+     "Turn on automatic updates in your spam protection tools.",
+     "Set the update frequency.",
+     "Check periodically that updates are being applied."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-8.3",
@@ -61052,7 +61850,19 @@
    "implementationLevels": [
     "system"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-10"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-10",
+   "editorial": {
+    "question": "Do your systems check the validity of the information inputs you specify, such as format, length, and allowed values, before processing them?",
+    "whyItMatters": "Many attacks, such as injection and cross-site scripting, work by sending input a system was not built to handle. Validating input stops malformed or malicious data before it causes harm.",
+    "doneLooksLike": "The information inputs you define are checked for valid syntax and meaning, such as character set, length, numeric range, and acceptable values, and inputs are screened before being passed to interpreters so content is not treated as commands.",
+    "nextSteps": [
+     "Identify the inputs to validate, such as web forms, application programming interfaces, and file uploads.",
+     "Define valid formats and values for each input, and reject anything that does not match.",
+     "Use parameterized queries and proper encoding so input cannot be interpreted as commands.",
+     "Test applications with invalid and malicious input."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-10.1",
@@ -61339,7 +62149,18 @@
     "si-2",
     "si-15"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-11"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-11",
+   "editorial": {
+    "question": "Do your systems give error messages that help fix problems without revealing exploitable details, and show those messages only to the people or roles you designate?",
+    "whyItMatters": "Detailed error messages can hand attackers clues such as software versions, database structure, or personal information. Careful error handling helps users without helping attackers.",
+    "doneLooksLike": "Error messages provide the information needed for corrective action without revealing exploitable information, such as stack traces, implementation details, passwords mistakenly typed as usernames, or account numbers, and they are revealed only to the personnel or roles you define.",
+    "nextSteps": [
+     "Review application and system error messages for sensitive details.",
+     "Make user-facing messages generic, and send detailed errors to protected logs.",
+     "Restrict who can view detailed error information."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-12",
@@ -61464,7 +62285,18 @@
    "related": [
     "pm-25"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-12(01)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-12(01)",
+   "editorial": {
+    "question": "Does your organization limit the personal information it processes, throughout the information life cycle, to the specific data elements it has defined?",
+    "whyItMatters": "Every extra piece of personal information you handle adds privacy risk and protection cost. Limiting data to defined elements keeps risk in proportion to need.",
+    "doneLooksLike": "Personal information processed throughout the information life cycle, from creation and collection through use, sharing, storage, and disposal, is limited to the elements you define, informed by risk assessments and applicable laws, regulations, and policies.",
+    "nextSteps": [
+     "Define the personal information elements each system or process needs.",
+     "Remove collection fields and stored data beyond those elements.",
+     "Review new projects and changes against the defined elements."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-12.2",
@@ -61534,7 +62366,18 @@
     "pm-25",
     "si-19"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-12(02)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-12(02)",
+   "editorial": {
+    "question": "Does your organization use defined techniques, such as de-identification or synthetic data, to minimize the personal information used for research, testing, or training?",
+    "whyItMatters": "Test systems, training materials, and research datasets often have weaker protection than live systems. Using real personal information there increases the chance of exposure.",
+    "doneLooksLike": "The techniques you define, such as de-identification (removing details that identify people) or synthetic (realistic but artificial) data, are used to minimize personal information in research, in testing, and in training.",
+    "nextSteps": [
+     "Find where real personal information is used for research, testing, or training.",
+     "Choose a technique for each use, such as de-identified or synthetic data.",
+     "Replace real data with minimized data, and restrict access to any that must remain."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-12.3",
@@ -61599,7 +62442,19 @@
    "implementationLevels": [
     "organization"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-12(03)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-12(03)",
+   "editorial": {
+    "question": "Does your organization use the techniques it has defined to dispose of, destroy, or erase information once its retention period ends?",
+    "whyItMatters": "Information kept beyond its useful life is a liability that can still be breached or misused. Defined disposal methods make sure it is truly gone, including copies and archives.",
+    "doneLooksLike": "When the retention period ends, information is disposed of, destroyed, or erased using the techniques you define, covering originals, copies, archived records, and system logs that may contain personal information.",
+    "nextSteps": [
+     "Confirm the retention period for each type of information.",
+     "Define disposal techniques for each storage type, such as secure deletion, shredding, or media destruction.",
+     "Include copies, backups, archives, and logs in disposal.",
+     "Schedule regular disposal so expired information is not overlooked."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-13",
@@ -62126,7 +62981,18 @@
     "sc-3",
     "si-7"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-16"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-16",
+   "editorial": {
+    "question": "Has your organization implemented the controls it defines, such as data execution prevention, to protect system memory from unauthorized code execution?",
+    "whyItMatters": "Some attacks run malicious code from areas of memory meant only for data. Memory protections block or frustrate these techniques.",
+    "doneLooksLike": "The memory protection controls you define, such as data execution prevention (hardware- or software-enforced) and address space layout randomization (placing code and data at unpredictable memory locations), are implemented to protect system memory from unauthorized code execution.",
+    "nextSteps": [
+     "Confirm that operating system memory protections are enabled on all systems.",
+     "Prefer hardware-enforced protection where available.",
+     "Check that no applications have been exempted from these protections without a documented reason."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-17",
@@ -62283,7 +63149,19 @@
      "url": "https://doi.org/10.6028/NIST.IR.8112"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-18"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-18",
+   "editorial": {
+    "question": "Does your organization check personal information for accuracy, relevance, timeliness, and completeness at a set frequency, and correct or delete what is inaccurate or outdated?",
+    "whyItMatters": "Wrong or stale personal information can lead to bad decisions about people, such as denied services or misdirected communications.",
+    "doneLooksLike": "At the frequency you define, personal information is checked across its life cycle for accuracy, relevance, timeliness, and completeness, and inaccurate or outdated information is corrected or deleted. Changes are tracked so you can tell what was changed and how if an error is found.",
+    "nextSteps": [
+     "Set how often personal information is checked.",
+     "Validate information as it is entered, for example with address verification.",
+     "Review records for outdated or incorrect information, and correct or delete it.",
+     "Track changes to records so errors can be traced."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-18.1",
@@ -62404,7 +63282,18 @@
     "organization",
     "system"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-18(04)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-18(04)",
+   "editorial": {
+    "question": "Does your organization correct or delete personal information when individuals or their designated representatives ask it to?",
+    "whyItMatters": "People are often the first to know their information is wrong. Acting on their requests keeps errors from leading to inappropriate decisions or denied services.",
+    "doneLooksLike": "Requests from individuals or their designated representatives to correct or delete their personal information are received and acted on, with decisions based on the scope of the request, the changes sought, their impact, and applicable laws and policies, and with privacy and legal input where needed.",
+    "nextSteps": [
+     "Publish how individuals can request correction or deletion.",
+     "Set up a process to verify, evaluate, and act on requests.",
+     "Consult your privacy official or legal counsel on difficult cases."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-18.5",
@@ -62505,7 +63394,18 @@
      "url": "https://csrc.nist.gov/publications/detail/sp/800-188/draft"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-19"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SI-19",
+   "editorial": {
+    "question": "Does your organization remove the personal information elements it defines from datasets, and evaluate how well its de-identification works at a set frequency?",
+    "whyItMatters": "Removed identifiers cannot be disclosed or misused if a dataset is shared or breached. Because new data and analysis techniques can re-identify people, de-identification needs checking over time.",
+    "doneLooksLike": "The elements you define are removed from datasets by trained individuals when they are not needed for the dataset's purpose, and the effectiveness of de-identification, including the risk of re-identification, is evaluated at the frequency you define.",
+    "nextSteps": [
+     "Identify datasets that contain personal information not needed for their purpose.",
+     "Define the elements to remove, and have trained staff carry out the de-identification.",
+     "Set an evaluation frequency and reassess re-identification risk as new data and techniques emerge."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "si-19.1",
@@ -64211,7 +65111,19 @@
      "url": "https://doi.org/10.6028/NIST.IR.8272"
     }
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SR-06"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SR-06",
+   "editorial": {
+    "question": "Does your organization assess and review the supply chain risks of its suppliers and contractors, and of what they provide, at a frequency it defines?",
+    "whyItMatters": "A supplier's weak security, hidden ownership, or poor quality control can become your problem. Regular reviews help you spot risks before they reach your systems.",
+    "doneLooksLike": "At the frequency you define, you assess and review the supply chain risks associated with suppliers or contractors and the systems, components, or services they provide, considering their security and supply chain risk management processes, foreign ownership, control, or influence, their ability to assess their own suppliers, and documented and publicly available information.",
+    "nextSteps": [
+     "List key suppliers and contractors and what each provides.",
+     "Set a review frequency, which may vary with each supplier's importance.",
+     "Review each supplier's security practices, ownership, and oversight of their own suppliers, using documentation and public information.",
+     "Record the results and act on significant risks."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sr-6.1",
@@ -64424,7 +65336,19 @@
     "sr-10",
     "sr-11"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SR-09"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SR-09",
+   "editorial": {
+    "question": "Does your organization have a tamper protection program for its system, system components, or system services?",
+    "whyItMatters": "Tampering, substitution, or reverse engineering can introduce malicious functions or expose weaknesses. A tamper protection program helps prevent and detect these threats during distribution and use.",
+    "doneLooksLike": "A tamper protection program is in place that combines strong identification of components with tamper resistance, tamper detection, or both, protecting the system, components, or services against threats such as reverse engineering, modification, and substitution during distribution and while in use.",
+    "nextSteps": [
+     "Identify the components most at risk of tampering, such as network devices and critical hardware.",
+     "Use tamper-evident packaging or seals and inspect items on receipt.",
+     "Verify component identity, such as serial numbers, against supplier records.",
+     "Assign responsibility for the program."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sr-9.1",
@@ -64454,7 +65378,18 @@
    "related": [
     "sa-3"
    ],
-   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SR-09(01)"
+   "sourceUrl": "https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_53_5_2_0/home?element=SR-09(01)",
+   "editorial": {
+    "question": "Does your organization use anti-tamper technologies, tools, and techniques throughout the system development life cycle, from design through disposal?",
+    "whyItMatters": "Tampering can happen at any stage, from manufacturing to maintenance. Protection across the whole life cycle closes gaps an attacker could use.",
+    "doneLooksLike": "Anti-tamper technologies, tools, and techniques are employed throughout the life cycle, including research and development, design, manufacturing, acquisition, delivery, integration, operations and maintenance, and disposal, using a combination of hardware and software techniques such as obfuscation, self-checking, and customization that makes substitution easier to detect.",
+    "nextSteps": [
+     "Map which anti-tamper measures apply at each life cycle stage.",
+     "Require suppliers and developers to use anti-tamper techniques during development and delivery.",
+     "Continue tamper checks during operations, maintenance, and disposal."
+    ],
+    "reviewed": false
+   }
   },
   {
    "id": "sr-10",

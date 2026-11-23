@@ -174,11 +174,16 @@ struct ApplyToMappedSheet: View {
                     Toggle("Status", isOn: $options.status)
                     Toggle("Owner and target date (where empty)", isOn: $options.ownerAndDate)
                     Toggle("Notes (added, with attribution)", isOn: $options.notes)
-                    Toggle("Evidence (\(sourceResponse?.evidence.count ?? 0) shared items)", isOn: $options.evidence)
+                    let evidenceCount = sourceResponse?.evidence.count ?? 0
+                    if evidenceCount > 0 {
+                        Toggle("Evidence (\(evidenceCount) item\(evidenceCount == 1 ? "" : "s"), shared)", isOn: $options.evidence)
+                    }
                 } header: {
                     SectionHeader("What to apply")
                 } footer: {
-                    Text("Evidence is shared, not copied: the same files and notes appear on each requirement.").font(.dsFootnote)
+                    if (sourceResponse?.evidence.count ?? 0) > 0 {
+                        Text("Evidence is shared, not copied: the same files and notes appear on each requirement.").font(.dsFootnote)
+                    }
                 }
 
                 Section {

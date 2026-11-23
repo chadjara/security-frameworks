@@ -143,6 +143,10 @@ struct StatusLegend: View {
     var body: some View {
         ViewThatFits(in: .horizontal) {
             HStack(spacing: DS.Space.m) { items }
+            Grid(alignment: .leading, horizontalSpacing: DS.Space.l, verticalSpacing: DS.Space.xxs) {
+                GridRow { item(.implemented); item(.inProgress) }
+                GridRow { item(.notStarted); item(.notApplicable) }
+            }
             VStack(alignment: .leading, spacing: DS.Space.xxs) { items }
         }
         .font(.dsFootnote.monospacedDigit())
@@ -150,11 +154,13 @@ struct StatusLegend: View {
 
     @ViewBuilder
     private var items: some View {
-        ForEach(RequirementStatus.chartOrder) { s in
-            HStack(spacing: DS.Space.xxs) {
-                Image(systemName: s.symbolName).foregroundStyle(s.chartColor)
-                Text("\(progress.count(s)) \(s.title.lowercased())").foregroundStyle(Color.dsTextSecondary)
-            }
+        ForEach(RequirementStatus.chartOrder) { s in item(s) }
+    }
+
+    private func item(_ s: RequirementStatus) -> some View {
+        HStack(spacing: DS.Space.xxs) {
+            Image(systemName: s.symbolName).foregroundStyle(s == .notStarted ? Color.dsNotStarted : s.color)
+            Text("\(progress.count(s)) \(s.title.lowercased())").foregroundStyle(Color.dsTextSecondary)
         }
     }
 }
@@ -171,6 +177,16 @@ extension RequirementStatus {
     }
 }
 
+/// 0, 25, 50, 75, 100% gridlines with labels.
+func percentAxis() -> some AxisContent {
+    AxisMarks(values: [0, 25, 50, 75, 100]) { value in
+        AxisGridLine()
+        AxisValueLabel {
+            Text("\(value.as(Int.self) ?? 0)%").font(.dsCaption)
+        }
+    }
+}
+
 /// Implemented share per CSF Function or control family.
 struct GroupProgressChart: View {
     let framework: Framework
@@ -183,8 +199,10 @@ struct GroupProgressChart: View {
                 .foregroundStyle(Color.dsTextPrimary)
             Chart(groups) { item in
                 BarMark(x: .value("Implemented", item.progress.fractionImplemented * 100),
-                        y: .value(framework.document.groupLevels.first?.singular ?? "Group", item.group.displayId))
+                        y: .value(framework.document.groupLevels.first?.singular ?? "Group", item.group.displayId),
+                        height: .fixed(12))
                     .foregroundStyle(item.progress.isComplete ? Color.dsImplemented : Color.dsAccent)
+                    .cornerRadius(5)
                     .annotation(position: .trailing, spacing: DS.Space.xxs) {
                         Text("\(item.progress.implemented)/\(item.progress.applicable)")
                             .font(.dsCaption.monospacedDigit())
@@ -194,18 +212,14 @@ struct GroupProgressChart: View {
                     .accessibilityValue("\(item.progress.implemented) of \(item.progress.applicable) implemented")
             }
             .chartXScale(domain: 0...100)
-            .chartXAxis {
-                AxisMarks(values: [0, 50, 100]) { value in
-                    AxisGridLine()
-                    AxisValueLabel { Text("\(value.as(Int.self) ?? 0)%").font(.dsCaption) }
-                }
-            }
+            .chartXAxis { percentAxis() }
             .chartYAxis {
-                AxisMarks { _ in
-                    AxisValueLabel().font(.dsRequirementIDSmall)
+                AxisMarks(position: .leading) { _ in
+                    AxisValueLabel(horizontalSpacing: DS.Space.xs).font(.dsRequirementIDSmall)
                 }
             }
-            .frame(height: CGFloat(max(groups.count, 1)) * 26 + 30)
+            .chartPlotStyle { $0.padding(.trailing, 44) }
+            .frame(height: CGFloat(max(groups.count, 1)) * 28 + 32)
         }
         .padding(.vertical, DS.Space.xs)
     }
@@ -220,18 +234,34 @@ struct ProfileChart: View {
             Text("Current vs Target").font(.dsSubheadline.weight(.semibold)).foregroundStyle(Color.dsTextPrimary)
             Chart {
                 ForEach(summaries) { s in
-                    BarMark(x: .value("Outcomes", s.targeted), y: .value("Function", s.groupID))
+                    BarMark(x: .value("Outcomes", s.targeted), y: .value("Function", s.groupID), height: .fixed(10))
                         .foregroundStyle(by: .value("Profile", "Target"))
                         .position(by: .value("Profile", "Target"))
-                    BarMark(x: .value("Outcomes", s.achieved), y: .value("Function", s.groupID))
+                        .cornerRadius(5)
+                        .accessibilityLabel("\(s.title) target")
+                        .accessibilityValue("\(s.targeted) outcomes")
+                    BarMark(x: .value("Outcomes", s.achieved), y: .value("Function", s.groupID), height: .fixed(10))
                         .foregroundStyle(by: .value("Profile", "Current"))
                         .position(by: .value("Profile", "Current"))
+                        .cornerRadius(5)
+                        .accessibilityLabel("\(s.title) current")
+                        .accessibilityValue("\(s.achieved) outcomes")
                 }
             }
             .chartForegroundStyleScale(["Target": Color.dsAccent.opacity(0.3), "Current": Color.dsAccent])
             .chartLegend(position: .top, alignment: .leading)
-            .chartYAxis { AxisMarks { _ in AxisValueLabel().font(.dsRequirementIDSmall) } }
-            .frame(height: CGFloat(summaries.count) * 34 + 50)
+            .chartYAxis {
+                AxisMarks(position: .leading) { _ in
+                    AxisValueLabel(horizontalSpacing: DS.Space.xs).font(.dsRequirementIDSmall)
+                }
+            }
+            .chartXAxis {
+                AxisMarks { value in
+                    AxisGridLine()
+                    AxisValueLabel().font(.dsCaption)
+                }
+            }
+            .frame(height: CGFloat(summaries.count) * 36 + 56)
             .accessibilityElement(children: .contain)
             Text("Current counts targeted outcomes that are implemented. Set the Target Profile in Profiles and Tiers.")
                 .font(.dsFootnote)
@@ -252,8 +282,9 @@ struct BaselineCoverageChart: View {
             Text("Baseline coverage").font(.dsSubheadline.weight(.semibold)).foregroundStyle(Color.dsTextPrimary)
             Chart(rows, id: \.baseline.id) { row in
                 BarMark(x: .value("Implemented", row.progress.fractionImplemented * 100),
-                        y: .value("Baseline", row.baseline.title))
+                        y: .value("Baseline", row.baseline.title), height: .fixed(12))
                     .foregroundStyle(isSelected(row.baseline) ? Color.dsAccent : Color.dsAccent.opacity(0.35))
+                    .cornerRadius(5)
                     .annotation(position: .trailing, spacing: DS.Space.xxs) {
                         Text("\(row.progress.implemented)/\(row.progress.applicable)")
                             .font(.dsCaption.monospacedDigit())
@@ -262,13 +293,14 @@ struct BaselineCoverageChart: View {
                     .accessibilityValue("\(row.progress.implemented) of \(row.progress.applicable) implemented")
             }
             .chartXScale(domain: 0...100)
-            .chartXAxis {
-                AxisMarks(values: [0, 50, 100]) { value in
-                    AxisGridLine()
-                    AxisValueLabel { Text("\(value.as(Int.self) ?? 0)%").font(.dsCaption) }
+            .chartXAxis { percentAxis() }
+            .chartYAxis {
+                AxisMarks(position: .leading) { _ in
+                    AxisValueLabel(horizontalSpacing: DS.Space.xs).font(.dsCaption)
                 }
             }
-            .frame(height: CGFloat(rows.count) * 30 + 30)
+            .chartPlotStyle { $0.padding(.trailing, 52) }
+            .frame(height: CGFloat(rows.count) * 30 + 32)
             Text("Shows progress against every SP 800-53B baseline, whichever one this assessment uses. Darker bars are in scope.")
                 .font(.dsFootnote)
                 .foregroundStyle(Color.dsTextSecondary)

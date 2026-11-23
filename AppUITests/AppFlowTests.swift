@@ -31,10 +31,10 @@ final class AppFlowTests: XCTestCase {
     /// last (rightmost, frontmost) collection view on screen.
     @MainActor
     private func list(_ app: XCUIApplication, _ id: String) -> XCUIElement {
+        // Keep queries cheap: enumerating every collection view times out on large lists.
         let tagged = app.collectionViews.matching(identifier: id).firstMatch
-        if tagged.exists && !tagged.frame.isEmpty { return tagged }
-        let all = app.collectionViews.allElementsBoundByIndex.filter { !$0.frame.isEmpty }
-        return all.max { $0.frame.minX < $1.frame.minX } ?? app
+        if tagged.waitForExistence(timeout: 2) && !tagged.frame.isEmpty { return tagged }
+        return app
     }
 
     @MainActor

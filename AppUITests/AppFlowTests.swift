@@ -73,6 +73,7 @@ final class AppFlowTests: XCTestCase {
         element(app, "createFirstAssessment").tap()
         let name = element(app, "assessmentName")
         XCTAssertTrue(name.waitForExistence(timeout: 5))
+        name.tap()
         name.typeText("Annual Review")
         capture("new-assessment")
         element(app, "saveAssessment").tap()

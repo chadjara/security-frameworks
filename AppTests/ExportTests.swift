@@ -60,7 +60,8 @@ struct ExportTests {
         let evidence = try #require(restored.response(for: ref)?.evidence)
         #expect(evidence.count == 2)
         let file = try #require(evidence.first { $0.kind == .file })
-        let url = try #require(EvidenceFileStore.url(forStoredFile: try #require(file.storedFileName), assessmentID: restored.id))
+        let storedName = try #require(file.storedFileName)
+        let url = try #require(EvidenceFileStore.url(forStoredFile: storedName, assessmentID: restored.id))
         #expect(try Data(contentsOf: url) == Data("evidence-bytes".utf8))
     }
 

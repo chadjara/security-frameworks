@@ -75,9 +75,9 @@ jobs:
           MARKETING=$(grep -E '^\s*MARKETING_VERSION:' project.yml | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
           echo "MARKETING_VERSION=$MARKETING" >> "$GITHUB_ENV"
 
-      # Sign for distribution from the start. Apple-managed (cloud) distribution certificates need no
-      # private key on the runner; development certificates would, and each fresh runner lacks one.
-      - name: Archive (Release, automatic distribution signing)
+      # Archive without signing. The export step below signs everything for distribution with an
+      # Apple-managed (cloud) certificate, which needs no private key on this temporary runner.
+      - name: Archive (Release, unsigned)
         run: |
           set -o pipefail
           xcodebuild archive \
@@ -86,13 +86,9 @@ jobs:
             -configuration Release \
             -destination "generic/platform=iOS" \
             -archivePath "$RUNNER_TEMP/FrameworkApp.xcarchive" \
-            -allowProvisioningUpdates \
-            -authenticationKeyPath "$ASC_KEY_PATH" \
-            -authenticationKeyID "$ASC_KEY_ID" \
-            -authenticationKeyIssuerID "$ASC_ISSUER_ID" \
             DEVELOPMENT_TEAM="$APPLE_TEAM_ID" \
-            CODE_SIGN_STYLE=Automatic \
-            CODE_SIGN_IDENTITY="Apple Distribution" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
             CURRENT_PROJECT_VERSION="$BUILD_NUMBER" \
             -quiet
 

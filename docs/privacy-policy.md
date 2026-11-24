@@ -47,7 +47,7 @@ own privacy policies.
 
 If you export a report, a spreadsheet file, or a backup, or share an evidence file, you choose where
 it goes, for example Files, AirDrop, or email. After you export it, that copy is under your control
-and is handled by whichever app or service you send it to. Backup files are encrypted with a
+and is handled by whichever app or service you send it to. Backup files the app creates are encrypted with a
 password you choose.
 
 ## App lock

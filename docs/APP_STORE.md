@@ -12,7 +12,7 @@ Values to enter in App Store Connect for this app. Shipping builds to TestFlight
 | Marketing URL (optional) | Version page | `https://cjaratech.com/securityframeworks` |
 | Privacy Policy URL for testers | TestFlight → Test Information | `https://cjaratech.com/securityframeworks/privacypolicy` |
 
-The privacy policy text, written to match what the app does, is in [privacy-policy.md](privacy-policy.md).
+The privacy policy text, written to match what the app does, is in [privacy-policy.md](privacy-policy.md) (plain-text copy: [privacy-policy.txt](privacy-policy.txt)).
 Publish it at the privacy policy URL before inviting external testers or submitting for review. The
 same URLs are linked inside the app from Settings and About (`App/Support/AppLinks.swift`).
 

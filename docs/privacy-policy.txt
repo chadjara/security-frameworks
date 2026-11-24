@@ -1,0 +1,72 @@
+PRIVACY POLICY
+
+FrameworkApp
+Effective November 24, 2026
+
+
+SUMMARY
+
+FrameworkApp does not collect, store, or share your information. Everything you enter stays on your device. There are no accounts, no servers, no analytics, no advertising, and no tracking. We cannot see your assessments.
+
+
+INFORMATION THE APP KEEPS ON YOUR DEVICE
+
+To help you assess your organization against cybersecurity frameworks, the app stores what you enter:
+
+- assessment names, organization names, and notes
+- the status, owner, target date, and notes for each requirement
+- values you set for organization-defined parameters
+- evidence you add: text notes, links, photos, and files
+
+This information is stored only in the app's private storage on your device. It is protected by iOS Data Protection at its highest level ("complete protection"), so it cannot be read while your device is locked. By default, the app also excludes this information from iCloud and computer backups of your device. You can change this in Settings, Data and Privacy.
+
+
+WHAT THE APP DOES NOT DO
+
+- It does not connect to the internet. All framework content is built into the app.
+- It does not use analytics, crash reporting, advertising, or other third-party services.
+- It does not track you across apps or websites.
+- It does not sell, rent, or share any information, because none is collected.
+
+
+CAMERA AND PHOTOS
+
+The app uses the camera only when you choose Take Photo to add evidence, and iOS asks your permission first. When you add a photo from your library, iOS shows a picker and gives the app only the photos you select. Photos you add are stored with your evidence on your device.
+
+
+LINKS AND OTHER WEBSITES
+
+Some screens link to outside pages, such as NIST's publications or this website. Links you add as evidence also open outside the app. These pages open in your web browser and are governed by their own privacy policies.
+
+
+EXPORTS AND BACKUPS
+
+If you export a report, a spreadsheet file, or a backup, or share an evidence file, you choose where it goes, for example Files, AirDrop, or email. After you export it, that copy is under your control and is handled by whichever app or service you send it to. Backup files the app creates are encrypted with a password you choose.
+
+
+APP LOCK
+
+If you turn on app lock, iOS handles Face ID, Touch ID, or your device passcode. The app learns only whether authentication succeeded. It never receives your biometric information.
+
+
+DELETING YOUR INFORMATION
+
+Deleting an assessment removes its answers, notes, and evidence from your device. Deleting the app removes everything it stored. Because nothing is sent to us, we cannot recover deleted information.
+
+
+CHILDREN
+
+The app is intended for organizations and is not directed to children. It does not collect personal information from anyone, including children.
+
+
+CHANGES TO THIS POLICY
+
+If this policy changes, the updated version will be posted on this page with a new effective date.
+
+
+CONTACT
+
+Questions about this policy: https://cjaratech.com/securityframeworks
+
+
+FrameworkApp is independent and is not affiliated with or endorsed by the National Institute of Standards and Technology (NIST).

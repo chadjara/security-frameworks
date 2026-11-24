@@ -81,14 +81,70 @@ struct ExportTests {
         let a = try sampleAssessment()
         let store = try #require(FrameworkStore.bundled())
         let csf = try await store.framework("csf-2.0")
-        let rows = ReportBuilder(assessment: a, frameworks: [csf]).csvRows()
+        var all = ExportOptions()
+        all.requirements = .all
+        let builder = ReportBuilder(assessment: a, frameworks: [csf], options: all)
+        let rows = builder.csvRows()
         #expect(rows.count == csf.requirements.count)
-        #expect(rows.allSatisfy { $0.count == ReportBuilder.csvHeader.count })
+        #expect(rows.allSatisfy { $0.count == builder.csvHeader.count })
         let gv = try #require(rows.first { $0[1] == "GV.OC-01" })
         #expect(gv[7] == "Implemented")
         #expect(gv[9] == "IT")
-        let text = String(decoding: CSV.data(header: ReportBuilder.csvHeader, rows: rows).dropFirst(3), as: UTF8.self)
+        let text = String(decoding: CSV.data(header: builder.csvHeader, rows: rows).dropFirst(3), as: UTF8.self)
         #expect(text.contains("\"Mission statement, reviewed \"\"yearly\"\"\""))
+    }
+
+    @Test("Leaving out notes and owners removes them from the spreadsheet, data file, and report")
+    func exportOptionsLeaveOutFields() async throws {
+        let a = try sampleAssessment()
+        let store = try #require(FrameworkStore.bundled())
+        let csf = try await store.framework("csf-2.0")
+        var options = ExportOptions()
+        options.notes = false
+        options.ownership = false
+        let builder = ReportBuilder(assessment: a, frameworks: [csf], options: options)
+        #expect(!builder.csvHeader.contains("Notes"))
+        #expect(!builder.csvHeader.contains("Owner"))
+        let csvText = String(decoding: builder.csvData(), as: UTF8.self)
+        #expect(!csvText.contains("Mission statement"))
+        #expect(!csvText.contains("Checked"), "Note evidence text follows the Notes choice")
+        #expect(csvText.contains("Note: Note"), "The evidence list still names the note")
+
+        let json = String(decoding: try builder.jsonData(), as: UTF8.self)
+        #expect(json.contains("\"GV.OC-01\""))
+        #expect(!json.contains("Mission statement"))
+        #expect(!json.contains("\"owner\""))
+
+        var pdfOptions = options
+        pdfOptions.format = .pdf
+        let pdf = try #require(PDFDocument(data: PDFReport(assessment: a, frameworks: [csf], graph: nil, options: pdfOptions).makeData()))
+        #expect(pdf.string?.contains("Mission statement") == false)
+        #expect(pdf.string?.contains("Owner: IT") == false)
+
+        let full = try #require(PDFDocument(data: PDFReport(assessment: a, frameworks: [csf], graph: nil).makeData()))
+        #expect(full.string?.contains("Mission statement") == true)
+    }
+
+    @Test("Open items only leaves out implemented and not applicable requirements")
+    func openItemsFilter() async throws {
+        let a = try sampleAssessment()
+        let store = try #require(FrameworkStore.bundled())
+        let csf = try await store.framework("csf-2.0")
+        var options = ExportOptions()
+        options.requirements = .open
+        let ids = ReportBuilder(assessment: a, frameworks: [csf], options: options).rows().map(\.requirement.displayId)
+        #expect(!ids.contains("GV.OC-01"))
+        #expect(!ids.contains("PR.PS-06"))
+        #expect(ids.contains("GV.OC-02"))
+    }
+
+    @Test("Saved export choices survive a round trip, and unreadable data falls back to defaults")
+    func optionsPersistence() {
+        var o = ExportOptions()
+        o.format = .json
+        o.notes = false
+        #expect(ExportOptions.decode(o.encoded) == o)
+        #expect(ExportOptions.decode(Data("junk".utf8)) == ExportOptions())
     }
 
     @Test("The PDF report renders several pages with the assessment name")

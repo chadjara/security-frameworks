@@ -8,7 +8,8 @@ extension UTType {
     static let fwBackup = UTType(exportedAs: "com.cjaratech.securityframework.backup", conformingTo: .data)
 }
 
-/// Report, spreadsheet, and encrypted backup for one assessment.
+/// Report, spreadsheet, data file, and encrypted backup for one assessment. The user picks a format,
+/// the frameworks and requirements to include, and which kinds of information to leave out.
 struct ExportSheet: View {
     private struct Ready: Identifiable {
         let id = UUID()
@@ -23,8 +24,9 @@ struct ExportSheet: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
 
-    @State private var reportScope = "all"
-    @State private var includeDetails = true
+    @AppStorage("export.options") private var storedOptions = Data()
+    @State private var options = ExportOptions()
+    @State private var selectedFrameworkIDs: Set<String> = []
     @State private var password = ""
     @State private var confirmation = ""
     @State private var working: String?
@@ -32,6 +34,18 @@ struct ExportSheet: View {
     @State private var errorMessage: String?
 
     private var enabledFrameworks: [Framework] { assessment.enabledFrameworkIDs.compactMap(library.framework) }
+    private var canCombine: Bool { enabledFrameworks.count > 1 && entitlements.isUnlocked(.combinedReports) }
+    private var selectedFrameworks: [Framework] { enabledFrameworks.filter { selectedFrameworkIDs.contains($0.id) } }
+    private var fieldsApply: Bool { options.format != .pdf || options.requirementDetails }
+    private var hasProfileFramework: Bool { selectedFrameworks.contains { !$0.document.tiers.isEmpty } }
+
+    private var exportProblem: String? {
+        if enabledFrameworks.isEmpty { return "Turn on a framework for this assessment first." }
+        if selectedFrameworks.isEmpty { return "Choose at least one framework." }
+        if options.format == .pdf && !options.pdfHasContent { return "Choose at least one section for the report." }
+        return nil
+    }
+
     private var passwordProblem: String? {
         if password.isEmpty { return nil }
         if password.count < BackupCodec.minimumPasswordLength {
@@ -47,78 +61,14 @@ struct ExportSheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                if let ready {
-                    Section {
-                        Label {
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(ready.title).font(.dsHeadline)
-                                Text(ready.detail).font(.dsFootnote).foregroundStyle(Color.dsTextSecondary)
-                            }
-                        } icon: {
-                            Image(systemName: "checkmark.circle.fill").foregroundStyle(Color.dsImplemented)
-                        }
-                        ShareLink(item: ready.url) {
-                            Label("Share or Save to Files", systemImage: "square.and.arrow.up")
-                        }
-                        .accessibilityIdentifier("shareExport")
-                    } footer: {
-                        Text("Choose Save to Files to keep a copy, or send it with AirDrop, Mail, or another app. The app does not keep exported copies.")
-                            .font(.dsFootnote)
-                    }
-                }
-
-                Section {
-                    Picker("Frameworks", selection: $reportScope) {
-                        if enabledFrameworks.count > 1 && entitlements.isUnlocked(.combinedReports) {
-                            Text("All turned-on frameworks").tag("all")
-                        }
-                        ForEach(enabledFrameworks) { fw in Text(fw.document.shortName).tag(fw.id) }
-                    }
-                    Toggle("Include requirement details", isOn: $includeDetails)
-                    actionButton("Create PDF Report", systemImage: "doc.richtext", key: "pdf", disabled: enabledFrameworks.isEmpty) {
-                        try makeReport()
-                    }
-                } header: {
-                    SectionHeader("Report (PDF)")
-                } footer: {
-                    Text("A printable summary with progress, next steps, and, if included, every requirement in scope with its status, owner, notes, and evidence list.")
-                        .font(.dsFootnote)
-                }
-
-                Section {
-                    actionButton("Create Spreadsheet", systemImage: "tablecells", key: "csv", disabled: enabledFrameworks.isEmpty) {
-                        try makeCSV()
-                    }
-                } header: {
-                    SectionHeader("Spreadsheet (CSV)")
-                } footer: {
-                    Text("One row per requirement in every turned-on framework, with status, owner, dates, notes, and organization-defined values.")
-                        .font(.dsFootnote)
-                }
-
-                Section {
-                    SecureField("Password", text: $password)
-                        .textContentType(.newPassword)
-                        .accessibilityIdentifier("backupPassword")
-                    SecureField("Confirm password", text: $confirmation)
-                        .textContentType(.newPassword)
-                        .accessibilityIdentifier("backupConfirm")
-                    if let passwordProblem {
-                        Text(passwordProblem).font(.dsFootnote).foregroundStyle(Color.dsDestructive)
-                    }
-                    actionButton("Create Encrypted Backup", systemImage: "lock.doc", key: "backup", disabled: !canBackUp) {
-                        let url = try await BackupService(context: context).makeBackup(of: [assessment], password: password)
-                        password = ""
-                        confirmation = ""
-                        return Ready(url: url, title: "Backup ready", detail: url.lastPathComponent)
-                    }
-                } header: {
-                    SectionHeader("Encrypted backup")
-                } footer: {
-                    Text("Includes every answer, note, and evidence file, encrypted with AES-256 using a key derived from your password. Store the password somewhere safe: without it, the backup cannot be opened by anyone, including us.")
-                        .font(.dsFootnote)
-                }
-
+                if let ready { readySection(ready) }
+                formatSection
+                frameworksSection
+                requirementsSection
+                if options.format == .pdf { pdfSectionsSection }
+                includeSection
+                createSection
+                backupSection
                 if let errorMessage {
                     Section {
                         Label(errorMessage, systemImage: "exclamationmark.triangle")
@@ -132,12 +82,192 @@ struct ExportSheet: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } }
             }
-            .onAppear {
-                if reportScope == "all" && !(enabledFrameworks.count > 1 && entitlements.isUnlocked(.combinedReports)) {
-                    reportScope = enabledFrameworks.first?.id ?? "all"
+            .onAppear(perform: load)
+            .onChange(of: options) { _, new in
+                storedOptions = new.encoded
+                ready = nil
+            }
+            .onChange(of: selectedFrameworkIDs) { ready = nil }
+            .accessibilityIdentifier("screen.export")
+        }
+    }
+
+    // MARK: Sections
+
+    private func readySection(_ ready: Ready) -> some View {
+        Section {
+            Label {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(ready.title).font(.dsHeadline)
+                    Text(ready.detail).font(.dsFootnote).foregroundStyle(Color.dsTextSecondary)
+                }
+            } icon: {
+                Image(systemName: "checkmark.circle.fill").foregroundStyle(Color.dsImplemented)
+            }
+            ShareLink(item: ready.url) {
+                Label("Share or Save to Files", systemImage: "square.and.arrow.up")
+            }
+            .accessibilityIdentifier("shareExport")
+        } footer: {
+            Text("Choose Save to Files to keep a copy, or send it with AirDrop, Mail, or another app. The app does not keep exported copies.")
+                .font(.dsFootnote)
+        }
+    }
+
+    private var formatSection: some View {
+        Section {
+            ForEach(ExportFormat.allCases) { format in
+                Button {
+                    options.format = format
+                } label: {
+                    HStack(alignment: .firstTextBaseline, spacing: DS.Space.s) {
+                        Image(systemName: format.systemImage)
+                            .foregroundStyle(Color.accentColor)
+                            .frame(width: 24)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(format.title).font(.dsHeadline).foregroundStyle(Color.dsTextPrimary)
+                            Text(format.detail).font(.dsFootnote).foregroundStyle(Color.dsTextSecondary)
+                        }
+                        Spacer(minLength: 0)
+                        Image(systemName: "checkmark")
+                            .font(.body.weight(.semibold))
+                            .foregroundStyle(Color.accentColor)
+                            .opacity(options.format == format ? 1 : 0)
+                            .accessibilityHidden(true)
+                    }
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityAddTraits(options.format == format ? .isSelected : [])
+                .accessibilityIdentifier("format.\(format.rawValue)")
+            }
+        } header: {
+            SectionHeader("Format")
+        }
+    }
+
+    @ViewBuilder
+    private var frameworksSection: some View {
+        if enabledFrameworks.count > 1 {
+            Section {
+                if canCombine {
+                    ForEach(enabledFrameworks) { fw in
+                        Toggle(fw.document.shortName, isOn: Binding(
+                            get: { selectedFrameworkIDs.contains(fw.id) },
+                            set: { on in
+                                if on { selectedFrameworkIDs.insert(fw.id) } else { selectedFrameworkIDs.remove(fw.id) }
+                            }))
+                        .accessibilityIdentifier("exportFramework.\(fw.id)")
+                    }
+                } else {
+                    Picker("Framework", selection: Binding(
+                        get: { selectedFrameworkIDs.first ?? enabledFrameworks.first?.id ?? "" },
+                        set: { selectedFrameworkIDs = [$0] })) {
+                        ForEach(enabledFrameworks) { fw in Text(fw.document.shortName).tag(fw.id) }
+                    }
+                }
+            } header: {
+                SectionHeader("Frameworks")
+            }
+        }
+    }
+
+    private var requirementsSection: some View {
+        Section {
+            Picker("Requirements", selection: $options.requirements) {
+                ForEach(ExportRequirementFilter.allCases) { Text($0.title).tag($0) }
+            }
+            .accessibilityIdentifier("exportRequirements")
+        } header: {
+            SectionHeader("Requirements")
+        } footer: {
+            Text(options.requirements.detail).font(.dsFootnote)
+        }
+    }
+
+    private var pdfSectionsSection: some View {
+        Section {
+            Toggle("Summary and charts", isOn: $options.summary)
+                .accessibilityIdentifier("section.summary")
+            Toggle("What to do next", isOn: $options.nextSteps)
+                .accessibilityIdentifier("section.nextSteps")
+            Toggle("Requirement details", isOn: $options.requirementDetails)
+                .accessibilityIdentifier("section.details")
+        } header: {
+            SectionHeader("Report sections")
+        } footer: {
+            Text("The cover page with the assessment name, frameworks, and disclaimer is always included.").font(.dsFootnote)
+        }
+    }
+
+    private var includeSection: some View {
+        Section {
+            ForEach(ExportField.allCases) { field in
+                if field != .profile || hasProfileFramework {
+                    Toggle(isOn: Binding(get: { options.includes(field) },
+                                         set: { options[keyPath: field.keyPath] = $0 })) {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(field.title)
+                            Text(field.detail).font(.dsFootnote).foregroundStyle(Color.dsTextSecondary)
+                        }
+                    }
+                    .accessibilityIdentifier("include.\(field.rawValue)")
                 }
             }
-            .accessibilityIdentifier("screen.export")
+        } header: {
+            SectionHeader("Include")
+        } footer: {
+            Text(fieldsApply
+                 ? "Turn off anything you do not want to share, such as internal notes. Requirement IDs, titles, and status are always included."
+                 : "Turn on Requirement details to choose what each requirement shows.")
+                .font(.dsFootnote)
+        }
+        .disabled(!fieldsApply)
+    }
+
+    private var createSection: some View {
+        Section {
+            actionButton(options.format.actionTitle, systemImage: options.format.systemImage, key: "create",
+                         disabled: exportProblem != nil) {
+                try makeExport()
+            }
+        } footer: {
+            if let exportProblem { Text(exportProblem).font(.dsFootnote) }
+        }
+    }
+
+    private var backupSection: some View {
+        Section {
+            SecureField("Password", text: $password)
+                .textContentType(.newPassword)
+                .accessibilityIdentifier("backupPassword")
+            SecureField("Confirm password", text: $confirmation)
+                .textContentType(.newPassword)
+                .accessibilityIdentifier("backupConfirm")
+            if let passwordProblem {
+                Text(passwordProblem).font(.dsFootnote).foregroundStyle(Color.dsDestructive)
+            }
+            actionButton("Create Encrypted Backup", systemImage: "lock.doc", key: "backup", disabled: !canBackUp) {
+                let url = try await BackupService(context: context).makeBackup(of: [assessment], password: password)
+                password = ""
+                confirmation = ""
+                return Ready(url: url, title: "Backup ready", detail: url.lastPathComponent)
+            }
+        } header: {
+            SectionHeader("Encrypted backup")
+        } footer: {
+            Text("A complete copy for restoring on this or another device: every answer, note, and evidence file, encrypted with AES-256 using a key derived from your password. The choices above do not apply. Store the password somewhere safe: without it, the backup cannot be opened by anyone, including us.")
+                .font(.dsFootnote)
+        }
+    }
+
+    // MARK: Actions
+
+    private func load() {
+        options = ExportOptions.decode(storedOptions)
+        if selectedFrameworkIDs.isEmpty {
+            let ids = enabledFrameworks.map(\.id)
+            selectedFrameworkIDs = canCombine ? Set(ids) : Set(ids.prefix(1))
         }
     }
 
@@ -165,20 +295,17 @@ struct ExportSheet: View {
         .accessibilityIdentifier("export.\(key)")
     }
 
-    private func reportFrameworks() -> [Framework] {
-        reportScope == "all" ? enabledFrameworks : enabledFrameworks.filter { $0.id == reportScope }
-    }
-
-    private func makeReport() throws -> Ready {
-        let fws = reportFrameworks()
-        let url = try PDFReport(assessment: assessment, frameworks: fws, graph: library.mappingGraph,
-                                includeDetails: includeDetails).render()
-        return Ready(url: url, title: "Report ready", detail: url.lastPathComponent)
-    }
-
-    private func makeCSV() throws -> Ready {
-        let url = try ReportBuilder(assessment: assessment, frameworks: enabledFrameworks).csvFile()
-        return Ready(url: url, title: "Spreadsheet ready", detail: url.lastPathComponent)
+    private func makeExport() throws -> Ready {
+        let builder = ReportBuilder(assessment: assessment, frameworks: selectedFrameworks, options: options,
+                                    graph: library.mappingGraph)
+        let url = try builder.file()
+        let title: String
+        switch options.format {
+        case .pdf: title = "Report ready"
+        case .csv: title = "Spreadsheet ready"
+        case .json: title = "Data file ready"
+        }
+        return Ready(url: url, title: title, detail: url.lastPathComponent)
     }
 }
 

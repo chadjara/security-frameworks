@@ -12,7 +12,9 @@ struct PDFReport {
     let assessment: Assessment
     let frameworks: [Framework]
     let graph: MappingGraph?
-    var includeDetails = true
+    var options = ExportOptions()
+
+    private var builder: ReportBuilder { ReportBuilder(assessment: assessment, frameworks: frameworks, options: options) }
 
     func render() throws -> URL {
         let data = makeData()
@@ -31,10 +33,10 @@ struct PDFReport {
         return renderer.pdfData { ctx in
             let canvas = PDFCanvas(context: ctx, header: assessment.name)
             drawCover(canvas)
-            canvas.beginPage()
-            drawSummary(canvas)
-            drawNextSteps(canvas)
-            if includeDetails { drawDetails(canvas) }
+            if options.summary || options.nextSteps { canvas.beginPage() }
+            if options.summary { drawSummary(canvas) }
+            if options.nextSteps { drawNextSteps(canvas) }
+            if options.requirementDetails { drawDetails(canvas) }
         }
     }
 
@@ -50,6 +52,11 @@ struct PDFReport {
         for fw in frameworks {
             let scope = ScopeDescription.short(assessment.scope(for: fw.id), framework: fw)
             c.text(PDFStyle.keyValue(fw.document.shortName, fw.hasBaselines ? scope : fw.document.publicationId, width: c.contentWidth), after: 4)
+        }
+        if options.notes && !assessment.notes.isEmpty {
+            c.space(14)
+            c.text(PDFStyle.label("ASSESSMENT NOTES"), after: 4)
+            c.text(PDFStyle.body(String(assessment.notes.prefix(1200))), after: 0)
         }
         c.cursorY = PDFCanvas.pageRect.height - PDFCanvas.margin - 120
         c.rule()
@@ -76,7 +83,7 @@ struct PDFReport {
                                          "\(p.implemented)/\(p.applicable) · \(Int((p.fractionImplemented * 100).rounded()))%",
                                          width: c.contentWidth), after: 2)
             }
-            if !fw.document.tiers.isEmpty {
+            if !fw.document.tiers.isEmpty && options.profile {
                 c.space(8)
                 c.text(PDFStyle.label("CURRENT VS TARGET PROFILE"), after: 4)
                 for s in ProfileAnalysis.summarize(fw, facts: assessment.factsMap(frameworkID: fw.id)) {
@@ -120,50 +127,64 @@ struct PDFReport {
     }
 
     private func drawDetails(_ c: PDFCanvas) {
+        let rows = builder.rows()
         for fw in frameworks {
+            let fwRows = rows.filter { $0.framework.id == fw.id }
             c.beginPage()
             c.text(PDFStyle.heading("\(fw.document.shortName) requirements"), after: 4)
-            c.text(PDFStyle.body("Requirements in this assessment's scope, with status, ownership, notes, and evidence.", color: PDFStyle.secondary), after: 12)
-            let scope = assessment.scope(for: fw.id)
-            let values = assessment.parameterValueMap(frameworkID: fw.id)
+            c.text(PDFStyle.body(options.requirements.detail, color: PDFStyle.secondary), after: 12)
+            guard !fwRows.isEmpty else {
+                c.text(PDFStyle.body("No requirements match.", color: PDFStyle.secondary), after: 8)
+                continue
+            }
+            let byGroup = Dictionary(grouping: fwRows, by: { $0.requirement.groupId })
             for group in fw.leafGroups {
-                let reqs = fw.requirements(inGroup: group.id).filter { fw.isInScope($0, selection: scope) }
-                guard !reqs.isEmpty else { continue }
+                guard let groupRows = byGroup[group.id], !groupRows.isEmpty else { continue }
                 c.keepTogether(70)
                 let path = (fw.ancestors(ofGroup: group.id).map(\.title) + [group.title]).joined(separator: " · ")
                 c.text(PDFStyle.label("\(group.displayId)  \(path.uppercased())"), after: 6)
-                for r in reqs {
-                    drawRequirement(r, in: fw, values: values, canvas: c)
-                }
+                for row in groupRows { drawRequirement(row, canvas: c) }
                 c.space(8)
             }
         }
     }
 
-    private func drawRequirement(_ r: Requirement, in fw: Framework, values: [String: String], canvas c: PDFCanvas) {
-        let ref = RequirementRef(frameworkID: fw.id, requirementID: r.id)
-        let response = assessment.response(for: ref)
-        let status = response?.status ?? .notStarted
+    private func drawRequirement(_ row: ExportRow, canvas c: PDFCanvas) {
+        let r = row.requirement
+        let response = row.response
+        let status = row.status
         c.keepTogether(40)
         c.text(PDFStyle.requirementLine(r.displayId, r.title), after: 1)
         var meta = [status.title]
-        if let owner = response?.owner, !owner.isEmpty { meta.append("Owner: \(owner)") }
-        if let date = response?.targetDate { meta.append("Target: \(date.formatted(date: .abbreviated, time: .omitted))") }
-        if let e = response?.evidence, !e.isEmpty { meta.append("\(e.count) evidence item\(e.count == 1 ? "" : "s")") }
+        if !row.inScope { meta.append("Outside scope") }
+        if options.ownership {
+            if let owner = response?.owner, !owner.isEmpty { meta.append("Owner: \(owner)") }
+            if let date = response?.targetDate { meta.append("Target: \(date.formatted(date: .abbreviated, time: .omitted))") }
+        }
+        if options.profile && !row.framework.document.tiers.isEmpty, let priority = response?.priority {
+            meta.append("\(priority.title) priority")
+        }
         c.text(PDFStyle.status(meta.joined(separator: " · "), status: status), after: 2)
-        if status == .notApplicable, let reason = response?.notApplicableReason, !reason.isEmpty {
+        if options.nistText {
+            let values = options.parameters ? assessment.parameterValueMap(frameworkID: row.framework.id) : [:]
+            let statement = StatementText.plain(r, in: row.framework, values: values)
+            if !statement.isEmpty { c.text(PDFStyle.indented(statement, color: PDFStyle.secondary), after: 3) }
+        }
+        if options.notApplicableReasons, status == .notApplicable, let reason = response?.notApplicableReason, !reason.isEmpty {
             c.text(PDFStyle.indented("Not applicable because: \(reason)"), after: 2)
         }
-        if let notes = response?.notes, !notes.isEmpty {
+        if options.notes, let notes = response?.notes, !notes.isEmpty {
             c.text(PDFStyle.indented(notes), after: 2)
         }
-        let params = r.editableParameters.compactMap { p -> String? in
-            guard let v = values[p.id], !v.isEmpty else { return nil }
-            return "\(p.placeholder.prefix(1).uppercased() + p.placeholder.dropFirst()): \(v)"
+        if options.parameters {
+            let params = builder.parameterLines(row)
+            if !params.isEmpty { c.text(PDFStyle.indented(params.joined(separator: "\n")), after: 2) }
         }
-        if !params.isEmpty { c.text(PDFStyle.indented(params.joined(separator: "\n")), after: 2) }
-        if let evidence = response?.sortedEvidence, !evidence.isEmpty {
-            c.text(PDFStyle.indented(evidence.map { "Evidence: \($0.title)" }.joined(separator: "\n"), color: PDFStyle.secondary), after: 2)
+        if options.evidence {
+            let evidence = builder.evidenceLines(row)
+            if !evidence.isEmpty {
+                c.text(PDFStyle.indented(evidence.map { "Evidence · \($0)" }.joined(separator: "\n"), color: PDFStyle.secondary), after: 2)
+            }
         }
         c.space(8)
     }

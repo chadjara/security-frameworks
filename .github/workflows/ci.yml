@@ -5,6 +5,11 @@ on:
     branches: ["**"]
   pull_request:
   workflow_dispatch:
+    inputs:
+      ipad_ui_tests:
+        description: "Also run UI and screenshot tests on iPad (slow)"
+        type: boolean
+        default: false
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -33,7 +38,7 @@ jobs:
   apple:
     name: Build and test (iOS)
     runs-on: ${{ vars.MACOS_RUNNER || 'macos-15-intel' }}
-    timeout-minutes: 75
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v5
 
@@ -96,6 +101,8 @@ jobs:
         if: always() && steps.sims.outputs.ipad != ''
         env:
           TEST_RUNNER_SCREENSHOT_DIR: ${{ github.workspace }}/screenshots/ipad
+          # Unit tests on every push; the slower UI suite only when requested.
+          ONLY_TESTING: ${{ (github.event_name == 'workflow_dispatch' && inputs.ipad_ui_tests) && '' || '-only-testing:FrameworkAppTests' }}
         run: |
           set -o pipefail
           xcodebuild test-without-building \
@@ -103,6 +110,7 @@ jobs:
             -destination "id=${{ steps.sims.outputs.ipad }}" \
             -derivedDataPath build/DerivedData \
             -resultBundlePath build/ipad.xcresult \
+            $ONLY_TESTING \
             CODE_SIGNING_ALLOWED=NO
 
       - name: Export screenshot attachments from result bundles

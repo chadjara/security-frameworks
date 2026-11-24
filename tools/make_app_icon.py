@@ -71,6 +71,29 @@ def main() -> None:
     }
     (OUT / "Contents.json").write_text(json.dumps(contents, indent=2) + "\n")
     print(f"Wrote icons to {OUT}")
+    write_launch_mark()
+
+
+def write_launch_mark() -> None:
+    """The mark alone on a transparent background, for the launch screen, lock screen, and privacy cover."""
+    out = OUT.parent / "LaunchMark.imageset"
+    out.mkdir(parents=True, exist_ok=True)
+    px = 480  # 160 pt at 3x
+    for name, color in (("LaunchMark.png", INK), ("LaunchMark-Dark.png", INK_LIGHT)):
+        s = px * SCALE
+        img = Image.new("RGBA", (s, s), (0, 0, 0, 0))
+        draw_mark(ImageDraw.Draw(img), color, s)
+        img.resize((px, px), Image.LANCZOS).save(out / name, optimize=True)
+    contents = {
+        "images": [
+            {"filename": "LaunchMark.png", "idiom": "universal", "scale": "3x"},
+            {"appearances": [{"appearance": "luminosity", "value": "dark"}],
+             "filename": "LaunchMark-Dark.png", "idiom": "universal", "scale": "3x"},
+        ],
+        "info": {"author": "xcode", "version": 1},
+    }
+    (out / "Contents.json").write_text(json.dumps(contents, indent=2) + "\n")
+    print(f"Wrote launch mark to {out}")
 
 
 if __name__ == "__main__":

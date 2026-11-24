@@ -9,6 +9,7 @@ struct OverviewView: View {
     @Bindable var assessment: Assessment
     var selection: Binding<AppRoute?>?
     @Environment(ContentLibrary.self) private var library
+    @State private var showingExport = false
 
     private var frameworks: [Framework] {
         assessment.enabledFrameworkIDs.compactMap(library.framework)
@@ -28,6 +29,23 @@ struct OverviewView: View {
         }
         .listStyle(.insetGrouped)
         .navigationTitle("Overview")
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    showingExport = true
+                } label: {
+                    Label("Export", systemImage: "square.and.arrow.up")
+                }
+                .keyboardShortcut("e", modifiers: [.command, .shift])
+                .accessibilityIdentifier("exportButton")
+            }
+        }
+        .sheet(isPresented: $showingExport) { ExportSheet(assessment: assessment) }
+        .onAppear {
+            #if DEBUG
+            if UITestRoute.current == .export { showingExport = true }
+            #endif
+        }
         .accessibilityIdentifier("screen.overview")
     }
 

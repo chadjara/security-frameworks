@@ -245,6 +245,7 @@ struct AssessmentDetailView: View {
     @Bindable var assessment: Assessment
     @Environment(ContentLibrary.self) private var library
     @State private var editing = false
+    @State private var exporting = false
 
     var body: some View {
         List {
@@ -296,7 +297,11 @@ struct AssessmentDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .primaryAction) { Button("Edit") { editing = true } }
+            ToolbarItem(placement: .secondaryAction) {
+                Button { exporting = true } label: { Label("Export", systemImage: "square.and.arrow.up") }
+            }
         }
         .sheet(isPresented: $editing) { AssessmentEditorView(assessment: assessment) }
+        .sheet(isPresented: $exporting) { ExportSheet(assessment: assessment) }
     }
 }

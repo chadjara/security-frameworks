@@ -55,8 +55,25 @@ targets:
         LSRequiresIPhoneOS: true
         ITSAppUsesNonExemptEncryption: false
         NSCameraUsageDescription: Take photos to keep as evidence for a requirement. Photos are stored only on this device.
+        NSFaceIDUsageDescription: Use Face ID to unlock your assessments when app lock is on.
+        LSSupportsOpeningDocumentsInPlace: false
+        UTExportedTypeDeclarations:
+          - UTTypeIdentifier: com.cjaratech.securityframework.backup
+            UTTypeDescription: FrameworkApp Backup
+            UTTypeConformsTo:
+              - public.data
+            UTTypeTagSpecification:
+              public.filename-extension:
+                - fwbackup
+        CFBundleDocumentTypes:
+          - CFBundleTypeName: FrameworkApp Backup
+            CFBundleTypeRole: Viewer
+            LSHandlerRank: Owner
+            LSItemContentTypes:
+              - com.cjaratech.securityframework.backup
         UILaunchScreen:
           UIColorName: LaunchBackground
+          UIImageName: LaunchMark
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: true
         UIRequiresFullScreen: false

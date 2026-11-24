@@ -210,4 +210,23 @@ final class AppFlowTests: XCTestCase {
         XCTAssertTrue(app.navigationBars["Apply Answer"].waitForExistence(timeout: 5))
         capture("apply-to-mapped")
     }
+
+    // MARK: Phase 4
+
+    @MainActor
+    func testExportSheet() throws {
+        let app = launch(route: "export")
+        XCTAssertTrue(element(app, "screen.export").waitForExistence(timeout: 60))
+        capture("export")
+        element(app, "export.csv").tap()
+        XCTAssertTrue(element(app, "shareExport").waitForExistence(timeout: 60), "CSV export should produce a file to share")
+        capture("export-ready")
+    }
+
+    @MainActor
+    func testLockScreen() throws {
+        let app = launch(route: "home", extra: ["-uiForceLock", "YES"])
+        XCTAssertTrue(element(app, "screen.lock").waitForExistence(timeout: 60))
+        capture("lock")
+    }
 }

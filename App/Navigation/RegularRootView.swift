@@ -181,7 +181,7 @@ struct RegularRootView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { detail = .frameworkSettings(frameworkID: fw) }
         case .assessments: sidebar = .assessments
         case .settings: sidebar = .settings
-        case .overview: sidebar = .overview
+        case .overview, .export: sidebar = .overview
         case .nextSteps: sidebar = .nextSteps
         case .profile(let fw):
             sidebar = .framework(fw)

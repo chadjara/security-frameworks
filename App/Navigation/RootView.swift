@@ -12,6 +12,7 @@ struct RootView: View {
     @AppStorage("selectedAssessmentID") private var selectedAssessmentID = ""
     @State private var showingNewAssessment = false
     @State private var didApplyLaunchRoute = false
+    @State private var restoreFile: URL?
 
     private var currentAssessment: Assessment? {
         assessments.first { $0.id.uuidString == selectedAssessmentID } ?? assessments.first
@@ -42,6 +43,14 @@ struct RootView: View {
         }
         .sheet(isPresented: $showingNewAssessment) {
             AssessmentEditorView(assessment: nil) { created in select(created) }
+        }
+        .onOpenURL { url in
+            if url.pathExtension.lowercased() == "fwbackup" { restoreFile = url }
+        }
+        .sheet(item: $restoreFile) { url in
+            RestoreBackupView(fileURL: url) { name in
+                if let restored = assessments.first(where: { $0.name == name }) { select(restored) }
+            }
         }
     }
 

@@ -63,6 +63,7 @@ struct MappedRequirementsSection: View {
     let framework: Framework
     let requirement: Requirement
     @Environment(ContentLibrary.self) private var library
+    @Environment(EntitlementManager.self) private var entitlements
     @State private var showingApply = false
 
     private var ref: RequirementRef { RequirementRef(frameworkID: framework.id, requirementID: requirement.id) }
@@ -83,7 +84,7 @@ struct MappedRequirementsSection: View {
                     } label: {
                         Label("Apply This Answer to Related Requirements", systemImage: "arrow.triangle.branch")
                     }
-                    .disabled(assessment.status(for: ref) == .notStarted)
+                    .disabled(assessment.status(for: ref) == .notStarted || !entitlements.isUnlocked(.crossFrameworkReuse))
                     .accessibilityIdentifier("applyToMapped")
                     .sheet(isPresented: $showingApply) {
                         ApplyToMappedSheet(assessment: assessment, source: ref, sourceLabel: "\(framework.document.shortName) \(requirement.displayId)",

@@ -69,6 +69,7 @@ struct SettingsPageView: View {
 
 struct DataPrivacyView: View {
     @AppStorage(AppDirectories.excludeFromBackupKey) private var excludeFromBackup = true
+    @Environment(AppLock.self) private var lock
 
     var body: some View {
         List {
@@ -91,6 +92,35 @@ struct DataPrivacyView: View {
                 } icon: {
                     Image(systemName: "lock").foregroundStyle(Color.dsAccent)
                 }
+            }
+
+            Section {
+                Toggle(isOn: Binding(get: { lock.isEnabled }, set: { on in Task { await lock.setEnabled(on) } })) {
+                    Label("Require \(lock.methodName)", systemImage: lock.methodSymbol)
+                }
+                .accessibilityIdentifier("appLockToggle")
+                if lock.isEnabled {
+                    Picker("Lock", selection: Binding(get: { lock.delay }, set: { lock.delay = $0 })) {
+                        ForEach(AppLock.Delay.allCases) { Text($0.title).tag($0) }
+                    }
+                }
+                if let error = lock.lastError {
+                    Text(error).font(.dsFootnote).foregroundStyle(Color.dsDestructive)
+                }
+            } header: {
+                SectionHeader("App lock")
+            } footer: {
+                Text("When on, the app asks for \(lock.methodName.lowercased() == "passcode" ? "your device passcode" : lock.methodName + " or your device passcode") when you open it. The app switcher never shows your assessments.")
+                    .font(.dsFootnote)
+            }
+
+            Section {
+                RestoreBackupButton()
+            } header: {
+                SectionHeader("Backups")
+            } footer: {
+                Text("Create an encrypted backup from Export on an assessment's Overview. Restoring adds the backed-up assessments; it never overwrites existing ones.")
+                    .font(.dsFootnote)
             }
 
             Section {

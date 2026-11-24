@@ -190,13 +190,13 @@ private struct TargetRow: View {
             }
             Text(requirement.title).font(.dsBody).foregroundStyle(facts.inTargetProfile ? Color.dsTextPrimary : Color.dsTextTertiary)
             HStack {
-                Toggle("In target", isOn: Binding(get: { facts.inTargetProfile }, set: setIncluded))
+                Toggle("In target", isOn: Binding(get: { facts.inTargetProfile }, set: { setIncluded($0) }))
                     .toggleStyle(.button)
                     .font(.dsFootnote)
                     .tint(.dsAccent)
                 Spacer()
                 Menu {
-                    Picker("Priority", selection: Binding(get: { facts.priority }, set: setPriority)) {
+                    Picker("Priority", selection: Binding(get: { facts.priority }, set: { setPriority($0) })) {
                         Text("No priority").tag(ProfilePriority?.none)
                         ForEach(ProfilePriority.allCases) { Text($0.title).tag(Optional($0)) }
                     }

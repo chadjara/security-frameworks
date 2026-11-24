@@ -4,10 +4,14 @@ import SwiftUI
 @main
 struct FrameworkApp: App {
     @State private var library = ContentLibrary()
+    @State private var appLock = AppLock()
+    @State private var entitlements = EntitlementManager()
+    @Environment(\.scenePhase) private var scenePhase
     private let container: Result<ModelContainer, Error>
 
     init() {
         NavigationBarStyle.apply()
+        ExportFiles.purge()
         container = Result { try Persistence.makeContainer(inMemory: LaunchOptions.usesInMemoryStore) }
     }
 
@@ -27,8 +31,22 @@ struct FrameworkApp: App {
                 }
             }
             .environment(library)
+            .environment(appLock)
+            .environment(entitlements)
             .tint(.dsAccent)
             .modifier(LaunchOverrides())
+            .overlay {
+                if appLock.isLocked {
+                    LockScreenView()
+                        .environment(appLock)
+                        .transition(.opacity)
+                } else if scenePhase != .active {
+                    // Keeps assessment data out of the app switcher snapshot.
+                    PrivacyCover()
+                }
+            }
+            .onChange(of: scenePhase) { _, phase in appLock.sceneDidChange(to: phase) }
+            .task { entitlements.start() }
         }
     }
 }

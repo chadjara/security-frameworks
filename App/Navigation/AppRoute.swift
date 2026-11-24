@@ -51,6 +51,8 @@ enum UITestRoute: Equatable {
     case overview
     case nextSteps
     case profile(String)
+    case export
+    case lock
 
     static var current: UITestRoute? {
         #if DEBUG
@@ -70,6 +72,8 @@ enum UITestRoute: Equatable {
         case "overview": return .overview
         case "nextSteps": return .nextSteps
         case "profile" where parts.count > 1: return .profile(parts[1])
+        case "export": return .export
+        case "lock": return .lock
         default: return nil
         }
         #else

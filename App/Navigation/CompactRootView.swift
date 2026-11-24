@@ -86,7 +86,7 @@ struct CompactRootView: View {
             tab = .assessment
             assessmentPath = [.requirements(frameworkID: fw), .requirement(frameworkID: fw, requirementID: req)]
         case .home: tab = .assessment
-        case .overview: tab = .overview
+        case .overview, .export: tab = .overview
         case .nextSteps: tab = .nextSteps
         case .profile(let fw): tab = .assessment; assessmentPath = [.requirements(frameworkID: fw), .csfProfile(frameworkID: fw)]
         case .explorer: tab = .explore

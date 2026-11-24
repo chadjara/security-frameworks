@@ -88,6 +88,7 @@ encryption built into iOS (`ITSAppUsesNonExemptEncryption = NO`). Recheck this b
 | `No profiles for 'com.chadjara.securityframeworks' were found` | Register the bundle ID exactly as written (step 1). |
 | `No suitable application records were found` | Create the app record (step 2) with the same bundle ID. |
 | `The bundle version must be higher than the previously uploaded version` | Run the workflow again; it uses a new build number. |
+| `exportArchive Error Downloading App Information` | The archive was signed but the upload could not find the app. Check that the app exists in App Store Connect with bundle ID `com.chadjara.securityframeworks` (step 2), and that no agreement is waiting in App Store Connect → Business. The run's `distribution-logs` artifact has Apple's details. |
 | `Missing entitlement com.apple.developer.default-data-protection` | Enable **Data Protection → Complete Protection** on the App ID (step 1). |
 
 ### GitHub has no Mac runner available

@@ -119,6 +119,25 @@ jobs:
             -authenticationKeyID "$ASC_KEY_ID" \
             -authenticationKeyIssuerID "$ASC_ISSUER_ID"
 
+      - name: Collect Apple distribution logs
+        if: failure()
+        run: |
+          mkdir -p "$RUNNER_TEMP/distribution-logs"
+          find /var/folders "$TMPDIR" -maxdepth 6 -name "*.xcdistributionlogs" -type d 2>/dev/null \
+            -exec cp -R {} "$RUNNER_TEMP/distribution-logs/" \; || true
+          # Print the most useful lines straight into the job log.
+          grep -rhiE "error|failed|not found|no suitable|agreement|bundle" "$RUNNER_TEMP/distribution-logs" 2>/dev/null \
+            | grep -viE "private|token|authorization" | sort -u | head -60 || true
+
+      - name: Upload distribution logs
+        if: failure()
+        uses: actions/upload-artifact@v5
+        with:
+          name: distribution-logs
+          path: ${{ runner.temp }}/distribution-logs
+          if-no-files-found: ignore
+          retention-days: 7
+
       - name: Summary
         run: |
           {

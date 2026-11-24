@@ -15,7 +15,7 @@ five one-time setup steps in your Apple and GitHub accounts. After that, each bu
 1. Go to [developer.apple.com/account](https://developer.apple.com/account) → **Certificates, Identifiers & Profiles** → **Identifiers** → **+**.
 2. Choose **App IDs** → **App** → Continue.
 3. **Description:** anything, for example `Security Frameworks`.
-4. **Bundle ID:** Explicit, `com.chadjara.securityframeworks`.
+4. **Bundle ID:** Explicit, `com.cjaratech.securityframework`.
 5. Under **Capabilities**, check **Data Protection** and choose **Complete Protection**. The app keeps
    assessment data encrypted whenever the device is locked.
 6. Continue → Register.
@@ -25,7 +25,7 @@ five one-time setup steps in your Apple and GitHub accounts. After that, each bu
 1. Go to [appstoreconnect.apple.com](https://appstoreconnect.apple.com) → **Apps** → **+** → **New App**.
 2. **Platforms:** iOS. **Name:** the name shown on the App Store. It must be unique across the store,
    so "FrameworkApp" may be taken; any placeholder works and you can change it before release.
-   **Primary language:** English (U.S.). **Bundle ID:** pick `com.chadjara.securityframeworks`.
+   **Primary language:** English (U.S.). **Bundle ID:** pick `com.cjaratech.securityframework`.
    **SKU:** any internal code, for example `securityframeworks`. **User access:** Full Access.
 3. Create.
 4. Under **App Information**, set the **Privacy Policy URL** to
@@ -85,10 +85,10 @@ encryption built into iOS (`ITSAppUsesNonExemptEncryption = NO`). Recheck this b
 |---|---|
 | `Missing repository secrets` | Add the secrets listed above (step 5). |
 | `No Accounts` / `Cloud signing permission error` | The API key must have the **Admin** role (step 3). |
-| `No profiles for 'com.chadjara.securityframeworks' were found` | Register the bundle ID exactly as written (step 1). |
+| `No profiles for 'com.cjaratech.securityframework' were found` | Register the bundle ID exactly as written (step 1). |
 | `No suitable application records were found` | Create the app record (step 2) with the same bundle ID. |
 | `The bundle version must be higher than the previously uploaded version` | Run the workflow again; it uses a new build number. |
-| `exportArchive Error Downloading App Information` | The archive was signed but the upload could not find the app. Check that the app exists in App Store Connect with bundle ID `com.chadjara.securityframeworks` (step 2), and that no agreement is waiting in App Store Connect → Business. The run's `distribution-logs` artifact has Apple's details. |
+| `exportArchive Error Downloading App Information` | The archive was signed but the upload could not find the app. Check that the app exists in App Store Connect with bundle ID `com.cjaratech.securityframework` (step 2), and that no agreement is waiting in App Store Connect → Business. The run's `distribution-logs` artifact has Apple's details. |
 | `Missing entitlement com.apple.developer.default-data-protection` | Enable **Data Protection → Complete Protection** on the App ID (step 1). |
 
 ### GitHub has no Mac runner available

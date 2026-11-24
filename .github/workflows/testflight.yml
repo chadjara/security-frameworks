@@ -21,7 +21,7 @@ permissions:
 jobs:
   upload:
     name: Archive and upload
-    runs-on: ${{ vars.MACOS_RUNNER || 'macos-15' }}
+    runs-on: ${{ vars.MACOS_RUNNER || 'macos-15-intel' }}
     timeout-minutes: 60
     env:
       ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}

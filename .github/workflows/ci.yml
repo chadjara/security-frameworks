@@ -32,7 +32,7 @@ jobs:
 
   apple:
     name: Build and test (iOS)
-    runs-on: macos-26
+    runs-on: ${{ vars.MACOS_RUNNER || 'macos-26' }}
     timeout-minutes: 75
     steps:
       - uses: actions/checkout@v5

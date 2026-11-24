@@ -90,4 +90,12 @@ encryption built into iOS (`ITSAppUsesNonExemptEncryption = NO`). Recheck this b
 | `The bundle version must be higher than the previously uploaded version` | Run the workflow again; it uses a new build number. |
 | `Missing entitlement com.apple.developer.default-data-protection` | Enable **Data Protection → Complete Protection** on the App ID (step 1). |
 
+### GitHub has no Mac runner available
+
+If a run ends with "The job was not acquired by Runner of type hosted", GitHub had no free macOS
+runner of that type. Wait and run it again. To use a different runner image instead, add a repository
+**variable** (Settings → Secrets and variables → Actions → **Variables** tab) named `MACOS_RUNNER` with
+a value such as `macos-15`. Both workflows use it in place of the default `macos-26` and pick the
+newest Xcode installed on the image.
+
 To stop using the key at any time, revoke it in App Store Connect → Users and Access → Integrations.

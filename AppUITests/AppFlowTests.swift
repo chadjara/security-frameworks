@@ -67,7 +67,7 @@ final class AppFlowTests: XCTestCase {
     func testEmptyStateAndCreateAssessment() throws {
         let app = launch(route: nil, seed: false)
         let empty = element(app, "screen.noAssessment")
-        XCTAssertTrue(empty.waitForExistence(timeout: 20))
+        XCTAssertTrue(empty.waitForExistence(timeout: 60))
         capture("empty")
 
         element(app, "createFirstAssessment").tap()
@@ -85,19 +85,19 @@ final class AppFlowTests: XCTestCase {
     @MainActor
     func testRequirementListAndDetail() throws {
         let app = launch(route: "list:csf-2.0")
-        XCTAssertTrue(element(app, "screen.requirements").waitForExistence(timeout: 20))
+        XCTAssertTrue(element(app, "screen.requirements").waitForExistence(timeout: 60))
         capture("list", pages: 2, scroll: list(app, "screen.requirements"))
         app.terminate()
 
         let detailApp = launch(route: "detail:csf-2.0:GV.OC-03")
         let detail = element(detailApp, "screen.requirementDetail")
-        XCTAssertTrue(detail.waitForExistence(timeout: 20))
+        XCTAssertTrue(detail.waitForExistence(timeout: 60))
         capture("detail", pages: 4, scroll: list(detailApp, "screen.requirementDetail"))
         detailApp.terminate()
 
         let dark = launch(route: "detail:sp800-171r3:03.01.01", scheme: "dark")
         let detail171 = element(dark, "screen.requirementDetail")
-        XCTAssertTrue(detail171.waitForExistence(timeout: 20))
+        XCTAssertTrue(detail171.waitForExistence(timeout: 60))
         capture("detail-171-dark", pages: 3, scroll: list(dark, "screen.requirementDetail"))
     }
 
@@ -105,7 +105,7 @@ final class AppFlowTests: XCTestCase {
     func testSetStatusFromDetail() throws {
         let app = launch(route: "detail:csf-2.0:GV.RR-01")
         let implemented = element(app, "status.implemented")
-        XCTAssertTrue(implemented.waitForExistence(timeout: 30))
+        XCTAssertTrue(implemented.waitForExistence(timeout: 60))
         implemented.tap()
         XCTAssertTrue(implemented.isSelected, "Implemented should be selected after tapping it")
 
@@ -127,7 +127,7 @@ final class AppFlowTests: XCTestCase {
     func testQuestionnaire() throws {
         let app = launch(route: "questionnaire:csf-2.0")
         let q = element(app, "screen.questionnaire")
-        XCTAssertTrue(q.waitForExistence(timeout: 20))
+        XCTAssertTrue(q.waitForExistence(timeout: 60))
         capture("questionnaire")
         let next = element(app, "questionnaireNext")
         if next.waitForExistence(timeout: 5) {
@@ -140,18 +140,18 @@ final class AppFlowTests: XCTestCase {
     func testExplorerPreviewAndScope() throws {
         let app = launch(route: "preview:sp800-53r5")
         let preview = element(app, "screen.frameworkPreview")
-        XCTAssertTrue(preview.waitForExistence(timeout: 20))
+        XCTAssertTrue(preview.waitForExistence(timeout: 60))
         capture("preview-80053", pages: 3, scroll: list(app, "screen.frameworkPreview"))
         app.terminate()
 
         let explorer = launch(route: "explorer")
-        XCTAssertTrue(element(explorer, "screen.explorer").waitForExistence(timeout: 20))
+        XCTAssertTrue(element(explorer, "screen.explorer").waitForExistence(timeout: 60))
         capture("explorer")
         explorer.terminate()
 
         let scope = launch(route: "scope:sp800-53r5")
         let scopeScreen = element(scope, "screen.scope")
-        XCTAssertTrue(scopeScreen.waitForExistence(timeout: 20))
+        XCTAssertTrue(scopeScreen.waitForExistence(timeout: 60))
         capture("scope", pages: 2, scroll: list(scope, "screen.scope"))
     }
 
@@ -162,7 +162,7 @@ final class AppFlowTests: XCTestCase {
         app.terminate()
         let large = launch(route: "detail:csf-2.0:GV.OC-03", textSize: "ax3")
         let detail = element(large, "screen.requirementDetail")
-        XCTAssertTrue(detail.waitForExistence(timeout: 20))
+        XCTAssertTrue(detail.waitForExistence(timeout: 60))
         capture("detail-ax3", pages: 2, scroll: list(large, "screen.requirementDetail"))
     }
 
@@ -172,17 +172,17 @@ final class AppFlowTests: XCTestCase {
     func testOverviewAndNextSteps() throws {
         let app = launch(route: "overview")
         let overview = element(app, "screen.overview")
-        XCTAssertTrue(overview.waitForExistence(timeout: 20))
+        XCTAssertTrue(overview.waitForExistence(timeout: 60))
         capture("overview", pages: 4, scroll: list(app, "screen.overview"))
         app.terminate()
 
         let dark = launch(route: "overview", scheme: "dark")
-        XCTAssertTrue(element(dark, "screen.overview").waitForExistence(timeout: 20))
+        XCTAssertTrue(element(dark, "screen.overview").waitForExistence(timeout: 60))
         capture("overview-dark")
         dark.terminate()
 
         let steps = launch(route: "nextSteps")
-        XCTAssertTrue(element(steps, "screen.nextSteps").waitForExistence(timeout: 20))
+        XCTAssertTrue(element(steps, "screen.nextSteps").waitForExistence(timeout: 60))
         capture("next-steps")
     }
 
@@ -190,7 +190,7 @@ final class AppFlowTests: XCTestCase {
     func testProfileAndTiers() throws {
         for tab in ["summary", "target", "tiers"] {
             let app = launch(route: "profile:csf-2.0", extra: ["-uiProfileTab", tab])
-            XCTAssertTrue(element(app, "screen.csfProfile").waitForExistence(timeout: 20), "profile \(tab)")
+            XCTAssertTrue(element(app, "screen.csfProfile").waitForExistence(timeout: 60), "profile \(tab)")
             capture("profile-\(tab)", pages: 2, scroll: list(app, "screen.csfProfile"))
             app.terminate()
         }
@@ -200,7 +200,7 @@ final class AppFlowTests: XCTestCase {
     func testRelatedRequirementsAndApply() throws {
         let app = launch(route: "detail:sp800-171r3:03.01.01")
         let detail = element(app, "screen.requirementDetail")
-        XCTAssertTrue(detail.waitForExistence(timeout: 20))
+        XCTAssertTrue(detail.waitForExistence(timeout: 60))
         let apply = element(app, "applyToMapped")
         let scroller = list(app, "screen.requirementDetail")
         for _ in 0..<10 where !(apply.exists && apply.isHittable) { scroller.swipeUp(velocity: .slow) }

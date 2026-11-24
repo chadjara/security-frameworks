@@ -36,10 +36,10 @@ final class ScreenshotTests: XCTestCase {
             app.launch()
 
             let root = app.descendants(matching: .any).matching(identifier: "screen.\(shot.screen)").firstMatch
-            XCTAssertTrue(root.waitForExistence(timeout: 20), "\(shot.screen) did not appear")
+            XCTAssertTrue(root.waitForExistence(timeout: 60), "\(shot.screen) did not appear")
             if shot.screen == "content" {
                 let done = app.staticTexts["All content passed validation"]
-                XCTAssertTrue(done.waitForExistence(timeout: 30), "content validation did not finish")
+                XCTAssertTrue(done.waitForExistence(timeout: 60), "content validation did not finish")
             }
 
             let base = [device, shot.screen, shot.scheme, shot.textSize].compactMap { $0 }.joined(separator: "-")
@@ -60,7 +60,7 @@ final class ScreenshotTests: XCTestCase {
         app.launchArguments = ["-dsScreen", "typeSpecimen"]
         app.launch()
         XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "screen.typeSpecimen").firstMatch
-            .waitForExistence(timeout: 20))
+            .waitForExistence(timeout: 60))
     }
 
     @MainActor

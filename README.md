@@ -8,6 +8,8 @@ one requirement at a time. It works offline and keeps all data on the device.
 **Frameworks at launch:** NIST Cybersecurity Framework 2.0, NIST SP 800-53 Rev. 5 (with SP 800-53B
 baselines), and NIST SP 800-171 Rev. 3.
 
+Website: https://cjaratech.com/securityframeworks · Privacy policy: https://cjaratech.com/securityframeworks/privacypolicy
+
 This app is independent and is not affiliated with or endorsed by NIST. It is a self-assessment aid,
 not a certification or compliance attestation.
 
@@ -23,7 +25,7 @@ not a certification or compliance attestation.
 | `data/sources/` | Pinned NIST source files and their provenance (`SOURCES.json`) |
 | `data/editorial/` | Plain-language content written for this app |
 | `schema/` | JSON Schemas for the content files |
-| `docs/` | [Schema](docs/SCHEMA.md), [content sources and licensing](docs/CONTENT_SOURCES.md) |
+| `docs/` | [Schema](docs/SCHEMA.md), [content sources and licensing](docs/CONTENT_SOURCES.md), [TestFlight setup](docs/CI_SECRETS.md), [App Store Connect settings](docs/APP_STORE.md), [privacy policy](docs/privacy-policy.md) |
 | `project.yml` | XcodeGen project spec; the Xcode project is generated, not committed |
 
 ## Content pipeline

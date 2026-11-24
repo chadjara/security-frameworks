@@ -28,6 +28,9 @@ five one-time setup steps in your Apple and GitHub accounts. After that, each bu
    **Primary language:** English (U.S.). **Bundle ID:** pick `com.chadjara.securityframeworks`.
    **SKU:** any internal code, for example `securityframeworks`. **User access:** Full Access.
 3. Create.
+4. Under **App Information**, set the **Privacy Policy URL** to
+   `https://cjaratech.com/securityframeworks/privacypolicy`. [APP_STORE.md](APP_STORE.md) lists the
+   other App Store Connect fields, including the App Privacy answers.
 
 ## 3. Create an App Store Connect API key
 

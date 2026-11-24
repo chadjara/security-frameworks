@@ -30,6 +30,12 @@ struct SettingsView: View {
             NavigationLink(value: AppRoute.settings(.about)) {
                 Label("About", systemImage: "info.circle")
             }
+            Link(destination: AppLinks.privacyPolicy) {
+                Label("Privacy Policy", systemImage: "hand.raised")
+            }
+            Link(destination: AppLinks.website) {
+                Label("Website and Support", systemImage: "safari")
+            }
         }
         #if DEBUG
         Section {
@@ -84,6 +90,12 @@ struct DataPrivacyView: View {
                     }
                 } icon: {
                     Image(systemName: "lock").foregroundStyle(Color.dsAccent)
+                }
+            }
+
+            Section {
+                Link(destination: AppLinks.privacyPolicy) {
+                    Label("Read the Privacy Policy", systemImage: "hand.raised")
                 }
             }
 
@@ -157,6 +169,20 @@ struct AboutView: View {
                     .font(.dsBody)
             } header: {
                 SectionHeader("Plain-language content")
+            }
+
+            Section {
+                Link(destination: AppLinks.website) {
+                    Label("Website and Support", systemImage: "safari")
+                }
+                Link(destination: AppLinks.privacyPolicy) {
+                    Label("Privacy Policy", systemImage: "hand.raised")
+                }
+            } header: {
+                SectionHeader("More information")
+            } footer: {
+                Text("Links open in your browser. The app itself does not connect to the internet.")
+                    .font(.dsFootnote)
             }
         }
         .listStyle(.insetGrouped)

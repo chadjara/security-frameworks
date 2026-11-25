@@ -242,12 +242,20 @@ struct ExportSheet: View {
 
     private var backupSection: some View {
         Section {
-            SecureField("Password", text: $password)
-                .textContentType(.newPassword)
-                .accessibilityIdentifier("backupPassword")
-            SecureField("Confirm password", text: $confirmation)
-                .textContentType(.newPassword)
-                .accessibilityIdentifier("backupConfirm")
+            Label {
+                SecureField("Password", text: $password)
+                    .textContentType(.newPassword)
+                    .accessibilityIdentifier("backupPassword")
+            } icon: {
+                Image(systemName: "key").foregroundStyle(Color.dsTextSecondary)
+            }
+            Label {
+                SecureField("Confirm password", text: $confirmation)
+                    .textContentType(.newPassword)
+                    .accessibilityIdentifier("backupConfirm")
+            } icon: {
+                Image(systemName: "key.horizontal").foregroundStyle(Color.dsTextSecondary)
+            }
             if let passwordProblem {
                 Text(passwordProblem).font(.dsFootnote).foregroundStyle(Color.dsDestructive)
             }
@@ -259,9 +267,9 @@ struct ExportSheet: View {
             }
             readyRows(for: "backup")
         } header: {
-            SectionHeader("Share with your team or move to a new device")
+            SectionHeader("Share with your team")
         } footer: {
-            Text("A complete, encrypted copy of this assessment: every answer, note, and evidence file. The choices above do not apply. Send the file to teammates or your new device, and share the password separately, for example in person or by phone. They tap the file or use Import Assessment. When a teammate sends their copy back, importing it merges their updates with yours. Without the password, nobody can open the file, including us.")
+            Text("An encrypted copy of everything in this assessment, including evidence files, for teammates or a new device. The choices above do not apply. Share the password separately, such as in person. When a teammate sends their copy back, importing it merges their updates with yours.")
                 .font(.dsFootnote)
         }
     }
@@ -290,11 +298,8 @@ struct ExportSheet: View {
                 working = nil
             }
         } label: {
-            HStack {
-                Label(title, systemImage: systemImage)
-                Spacer()
-                if working == key { ProgressView() }
-            }
+            FormActionLabel(title: title, systemImage: systemImage, enabled: !(disabled || working != nil),
+                            working: working == key)
         }
         .disabled(disabled || working != nil)
         .accessibilityIdentifier("export.\(key)")
@@ -372,21 +377,25 @@ struct ImportAssessmentView: View {
 
     private var passwordSection: some View {
         Section {
-            Label(fileURL.lastPathComponent, systemImage: "lock.doc")
-                .font(.dsBody)
-            SecureField("Password", text: $password)
-                .textContentType(.password)
-                .submitLabel(.go)
-                .onSubmit(open)
-                .accessibilityIdentifier("restorePassword")
+            Label {
+                Text(fileURL.deletingPathExtension().lastPathComponent).font(.dsBody)
+            } icon: {
+                Image(systemName: "lock.doc").foregroundStyle(Color.dsTextSecondary)
+            }
+            Label {
+                SecureField("Password", text: $password)
+                    .textContentType(.password)
+                    .submitLabel(.go)
+                    .onSubmit(open)
+                    .accessibilityIdentifier("restorePassword")
+            } icon: {
+                Image(systemName: "key").foregroundStyle(Color.dsTextSecondary)
+            }
             Button {
                 open()
             } label: {
-                HStack {
-                    Label("Open File", systemImage: "lock.open")
-                    Spacer()
-                    if working { ProgressView() }
-                }
+                FormActionLabel(title: "Open File", systemImage: "lock.open", enabled: !(password.isEmpty || working),
+                                working: working)
             }
             .disabled(password.isEmpty || working)
         } footer: {
@@ -404,7 +413,10 @@ struct ImportAssessmentView: View {
                     if !a.organization.isEmpty {
                         Text(a.organization).font(.dsFootnote).foregroundStyle(Color.dsTextSecondary)
                     }
-                    Text("\(a.responses.count) answers · \(a.evidence.count) evidence items · last changed \(a.updatedAt.formatted(date: .abbreviated, time: .shortened))")
+                    Text("\(a.responses.count) answers · \(a.evidence.count) evidence items")
+                        .font(.dsFootnote)
+                        .foregroundStyle(Color.dsTextSecondary)
+                    Text("Last changed \(a.updatedAt.formatted(date: .abbreviated, time: .shortened))")
                         .font(.dsFootnote)
                         .foregroundStyle(Color.dsTextSecondary)
                 }
@@ -426,7 +438,7 @@ struct ImportAssessmentView: View {
             Button {
                 runImport(payload)
             } label: {
-                Label("Import", systemImage: "square.and.arrow.down")
+                FormActionLabel(title: "Import", systemImage: "square.and.arrow.down", enabled: !working, working: working)
             }
             .disabled(working)
             .accessibilityIdentifier("importConfirm")
@@ -508,6 +520,24 @@ struct ImportAssessmentView: View {
             errorMessage = error.localizedDescription
         }
         working = false
+    }
+}
+
+/// The label for an action row in a form: accent when it can be used, dimmed (icon and text together)
+/// when it cannot, with a spinner while it works.
+struct FormActionLabel: View {
+    let title: String
+    let systemImage: String
+    var enabled = true
+    var working = false
+
+    var body: some View {
+        HStack {
+            Label(title, systemImage: systemImage)
+            Spacer()
+            if working { ProgressView() }
+        }
+        .foregroundStyle(enabled ? Color.dsAccent : Color.dsTextTertiary)
     }
 }
 

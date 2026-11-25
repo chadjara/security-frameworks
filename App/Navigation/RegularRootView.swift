@@ -19,7 +19,9 @@ struct RegularRootView: View {
                 .navigationTitle("Assessment")
                 .navigationBarTitleDisplayMode(.inline)
         } content: {
+            // The middle column is too narrow for large Futura titles such as "SP 800-171 Rev. 3".
             contentColumn
+                .navigationBarTitleDisplayMode(.inline)
         } detail: {
             NavigationStack {
                 detailColumn

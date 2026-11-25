@@ -1,0 +1,16 @@
+# fastlane deliver settings for the App Store workflow (run from this folder).
+# Per-run values (version, screenshots, submission) are passed on the command line by the workflow.
+app_identifier "com.cjaratech.securityframework"
+metadata_path "./metadata"
+skip_binary_upload true
+# No HTML preview or confirmation prompt: the workflow runs unattended.
+force true
+# An approved version waits for a manual release in App Store Connect.
+automatic_release false
+precheck_include_in_app_purchases false
+submission_information({
+  add_id_info_uses_idfa: false,
+  export_compliance_uses_encryption: false,
+  content_rights_contains_third_party_content: true,
+  content_rights_has_rights: true
+})

@@ -20,6 +20,10 @@ on:
         description: "Capture and upload new screenshots"
         type: boolean
         default: true
+      screenshots_run_id:
+        description: "Or reuse the screenshots from an earlier App Store run (its run ID)"
+        type: string
+        default: ""
 
 concurrency:
   group: appstore
@@ -132,6 +136,9 @@ jobs:
       ASC_PRIVATE_KEY: ${{ secrets.ASC_PRIVATE_KEY }}
       REVIEW_CONTACT_PHONE: ${{ secrets.REVIEW_CONTACT_PHONE }}
       REVIEW_CONTACT_EMAIL: ${{ secrets.REVIEW_CONTACT_EMAIL }}
+      FASTLANE_OPT_OUT_USAGE: "YES"
+      FASTLANE_SKIP_UPDATE_CHECK: "YES"
+      FASTLANE_HIDE_CHANGELOG: "YES"
     steps:
       - uses: actions/checkout@v5
 
@@ -174,6 +181,16 @@ jobs:
           path: appstore/screenshots/en-US
           merge-multiple: true
 
+      - name: Download screenshots from an earlier run
+        if: needs.screenshots.result == 'skipped' && inputs.screenshots_run_id != ''
+        uses: actions/download-artifact@v5
+        with:
+          pattern: appstore-screenshots-*
+          path: appstore/screenshots/en-US
+          merge-multiple: true
+          run-id: ${{ inputs.screenshots_run_id }}
+          github-token: ${{ github.token }}
+
       - name: Read the version
         run: |
           VERSION=$(grep -E '^\s*MARKETING_VERSION:' project.yml | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
@@ -183,21 +200,13 @@ jobs:
         env:
           SUBMIT: ${{ inputs.submit }}
           BUILD_NUMBER: ${{ inputs.build_number }}
-          HAS_SCREENSHOTS: ${{ needs.screenshots.result == 'success' }}
+        working-directory: appstore
         run: |
-          args=(
-            --api_key_path "$ASC_KEY_JSON"
-            --app_identifier com.cjaratech.securityframework
-            --app_version "$APP_VERSION"
-            --metadata_path appstore/metadata
-            --skip_binary_upload true
-            --force true
-            --automatic_release false
-            --precheck_include_in_app_purchases false
-            --submission_information '{"add_id_info_uses_idfa": false, "export_compliance_uses_encryption": false, "content_rights_contains_third_party_content": true, "content_rights_has_rights": true}'
-          )
-          if [ "$HAS_SCREENSHOTS" = "true" ]; then
-            args+=(--screenshots_path appstore/screenshots --overwrite_screenshots true)
+          # Other settings are in appstore/Deliverfile.
+          args=(--api_key_path "$ASC_KEY_JSON" --app_version "$APP_VERSION")
+          if ls screenshots/en-US/*.png >/dev/null 2>&1; then
+            echo "Uploading $(ls screenshots/en-US/*.png | wc -l) screenshots"
+            args+=(--screenshots_path ./screenshots --overwrite_screenshots true)
           else
             args+=(--skip_screenshots true)
           fi
@@ -216,7 +225,7 @@ jobs:
             echo "### App Store listing"
             echo ""
             echo "- Version: ${APP_VERSION}"
-            echo "- Screenshots uploaded: ${{ needs.screenshots.result == 'success' }}"
+            echo "- New screenshots captured: ${{ needs.screenshots.result == 'success' }}"
             echo "- Submitted for review: ${{ inputs.submit }}"
           } >> "$GITHUB_STEP_SUMMARY"
 

@@ -27,7 +27,7 @@ struct PDFReport {
         let format = UIGraphicsPDFRendererFormat()
         format.documentInfo = [
             kCGPDFContextTitle as String: "\(assessment.name) security assessment",
-            kCGPDFContextCreator as String: "FrameworkApp \(BackupService.appVersion)",
+            kCGPDFContextCreator as String: "Security Frameworks \(BackupService.appVersion)",
         ]
         let renderer = UIGraphicsPDFRenderer(bounds: PDFCanvas.pageRect, format: format)
         return renderer.pdfData { ctx in
@@ -379,5 +379,5 @@ enum PDFStyle {
         return NSAttributedString(string: s, attributes: [.font: UIFont.systemFont(ofSize: 9, weight: .medium), .foregroundColor: color(token), .paragraphStyle: paragraph(indent: 12)])
     }
 
-    static let disclaimer = "This report is a self-assessment prepared with FrameworkApp. It is not a certification, an audit, or a compliance attestation. FrameworkApp is independent and is not affiliated with or endorsed by the National Institute of Standards and Technology (NIST). Framework text comes from NIST publications; plain-language guidance in the app was written for the app and is not NIST text."
+    static let disclaimer = "This report is a self-assessment prepared with Security Frameworks. It is not a certification, an audit, or a compliance attestation. Security Frameworks is independent and is not affiliated with or endorsed by the National Institute of Standards and Technology (NIST). Framework text comes from NIST publications; plain-language guidance in the app was written for the app and is not NIST text."
 }

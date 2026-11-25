@@ -1,9 +1,9 @@
-# FrameworkApp
+# Security Frameworks
 
 A native SwiftUI app for iPhone and iPad that helps organizations implement cybersecurity frameworks
 one requirement at a time. It works offline and keeps all data on the device.
 
-"FrameworkApp" is a working name.
+The project, targets, and code use the working name "FrameworkApp"; the app is published as "Security Frameworks".
 
 **Frameworks at launch:** NIST Cybersecurity Framework 2.0, NIST SP 800-53 Rev. 5 (with SP 800-53B
 baselines), and NIST SP 800-171 Rev. 3.

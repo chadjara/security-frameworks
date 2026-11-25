@@ -45,7 +45,8 @@ the device. The app's `PrivacyInfo.xcprivacy` declares the same.
 
 ## Before a public release
 
-- Choose the final app name. The display name is set in `project.yml` (`CFBundleDisplayName`).
+- The app is published as **Security Frameworks** (`CFBundleDisplayName` in `project.yml`). The
+  listing text and upload workflow are in [appstore/README.md](../appstore/README.md).
 - Have the plain-language content reviewed; every entry is marked `reviewed: false` until then.
 - Make sure the About screen and the listing both state that the app is independent of NIST and is a
   self-assessment aid, not a certification.

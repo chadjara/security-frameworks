@@ -1,0 +1,30 @@
+Security Frameworks helps your organization work through the NIST Cybersecurity Framework (CSF) 2.0, NIST SP 800-53 Rev. 5, and NIST SP 800-171 Rev. 3, one requirement at a time.
+
+Each requirement becomes a plain-language question, with why it matters, what done looks like, and practical next steps. NIST's own text is always one tap away.
+
+WORK THROUGH YOUR FRAMEWORKS
+• Keep separate assessments for each organization or review period
+• Turn on the frameworks you need and choose an SP 800-53 baseline: Low, Moderate, or High, with Privacy optional
+• Answer requirements in a guided questionnaire, or browse by function, family, and category
+• Record status, owners, target dates, notes, and organization-defined values
+• Attach evidence: notes, links, photos, and files
+
+SEE THE BIG PICTURE
+• Follow a prioritized list of next steps across every framework you use
+• Track progress on dashboards for each framework, function, and baseline
+• Build a CSF 2.0 target profile and compare current and target tiers
+• See where requirements line up across frameworks using NIST-published mappings, and apply one answer to related requirements
+
+SHARE AND REPORT
+• Export a PDF report, a spreadsheet, or a data file, and choose what to include, such as leaving out internal notes
+• Send an encrypted copy of an assessment to teammates or a new device. When a teammate sends their copy back, their updates merge with yours
+
+PRIVATE BY DESIGN
+• Everything stays on your device. No account, no servers, no analytics, no tracking
+• Optional Face ID, Touch ID, or passcode lock
+• Shared files are encrypted with AES-256 using a password you choose
+
+Built for iPhone and iPad, with multitasking, keyboard shortcuts, pointer support, Dynamic Type, and VoiceOver.
+
+IMPORTANT
+Security Frameworks is a self-assessment aid. It is not a certification, an audit, or a compliance attestation. It is independent and is not affiliated with or endorsed by the National Institute of Standards and Technology (NIST). Framework text comes from NIST publications. The plain-language guidance was written for this app; it summarizes NIST's text but does not replace it.

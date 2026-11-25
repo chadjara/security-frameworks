@@ -1,0 +1,7 @@
+No account or sign-in is needed, and the app makes no network connections. All data stays on the device.
+
+To try it: tap Create Assessment, keep CSF 2.0 turned on, and save. Open a framework from the Assessment tab and answer requirements, or work through them with the guided questionnaire. Overview shows progress, and Export (on Overview) creates a PDF report, spreadsheet, or data file.
+
+Sharing between devices uses an encrypted file the user creates in Export and opens with Import Assessment (in the + menu on the assessments list or in Settings).
+
+Framework text is from NIST publications, which are works of the U.S. government. The app is independent and not affiliated with NIST.

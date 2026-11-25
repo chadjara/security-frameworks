@@ -1,0 +1,225 @@
+name: App Store
+
+# Prepares the App Store listing: captures screenshots on the 6.9-inch iPhone and 13-inch iPad
+# simulators, then uploads the screenshots and the text in appstore/metadata to App Store Connect.
+# Nothing is submitted for review unless "submit" is checked, and an approved version waits for you
+# to press Release (automatic release is off). See appstore/README.md.
+
+on:
+  workflow_dispatch:
+    inputs:
+      submit:
+        description: "Submit for App Review after uploading (leave off until the content review is done)"
+        type: boolean
+        default: false
+      build_number:
+        description: "Build to submit (from TestFlight). Blank uses the newest build of this version."
+        type: string
+        default: ""
+      screenshots:
+        description: "Capture and upload new screenshots"
+        type: boolean
+        default: true
+
+concurrency:
+  group: appstore
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  screenshots:
+    name: Screenshots (${{ matrix.device }})
+    if: inputs.screenshots
+    runs-on: ${{ vars.MACOS_RUNNER || 'macos-15-intel' }}
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - device: iphone
+            pattern: '^iPhone \d+ Pro Max$'
+            sizes: "1320x2868 1290x2796"
+          - device: ipad
+            pattern: '^iPhone'
+            sizes: "2064x2752 2048x2732"
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Select latest Xcode
+        run: |
+          XCODE=$(ls -d /Applications/Xcode_*.app | grep -vi beta | sort -V | tail -1)
+          sudo xcode-select -s "$XCODE"
+          xcodebuild -version
+
+      - name: Generate the project
+        run: |
+          brew install xcodegen
+          xcodegen generate
+
+      - name: Pick the simulator
+        id: sims
+        env:
+          IPHONE_PATTERN: ${{ matrix.pattern }}
+        run: |
+          python3 .github/scripts/pick_simulators.py >> "$GITHUB_OUTPUT"
+          cat "$GITHUB_OUTPUT"
+
+      - name: Boot it with a clean status bar
+        id: sim
+        run: |
+          if [ "${{ matrix.device }}" = "iphone" ]; then UDID="${{ steps.sims.outputs.iphone }}"; else UDID="${{ steps.sims.outputs.ipad }}"; fi
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+          xcrun simctl boot "$UDID" || true
+          xcrun simctl bootstatus "$UDID" -b
+          xcrun simctl status_bar "$UDID" override --time "9:41" --dataNetwork wifi --wifiMode active \
+            --wifiBars 3 --cellularMode active --cellularBars 4 --batteryState charged --batteryLevel 100
+
+      - name: Build for testing
+        run: |
+          set -o pipefail
+          xcodebuild build-for-testing \
+            -project FrameworkApp.xcodeproj -scheme FrameworkApp \
+            -destination "id=${{ steps.sim.outputs.udid }}" \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO -quiet
+
+      - name: Capture screenshots
+        env:
+          TEST_RUNNER_APPSTORE_SCREENSHOTS: "1"
+          TEST_RUNNER_SCREENSHOT_DIR: ${{ github.workspace }}/shots/${{ matrix.device }}
+        run: |
+          set -o pipefail
+          xcodebuild test-without-building \
+            -project FrameworkApp.xcodeproj -scheme FrameworkApp \
+            -destination "id=${{ steps.sim.outputs.udid }}" \
+            -derivedDataPath build/DerivedData \
+            -only-testing:FrameworkAppUITests/AppStoreScreenshotTests \
+            -retry-tests-on-failure -test-iterations 2 \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Check screenshot sizes
+        run: |
+          cd "shots/${{ matrix.device }}"
+          ls -1 *.png
+          for f in *.png; do
+            size="$(sips -g pixelWidth "$f" | awk '/pixelWidth/ {print $2}')x$(sips -g pixelHeight "$f" | awk '/pixelHeight/ {print $2}')"
+            case " ${{ matrix.sizes }} " in
+              *" $size "*) echo "$f $size" ;;
+              *) echo "::error::$f is $size; App Store Connect needs one of: ${{ matrix.sizes }}"; exit 1 ;;
+            esac
+          done
+          # Prefix with the device so iPhone and iPad files can share one folder for upload.
+          for f in *.png; do mv "$f" "${{ matrix.device }}-$f"; done
+
+      - uses: actions/upload-artifact@v5
+        with:
+          name: appstore-screenshots-${{ matrix.device }}
+          path: shots/${{ matrix.device }}
+          retention-days: 30
+
+  upload:
+    name: Upload listing to App Store Connect
+    needs: screenshots
+    # Runs after screenshots, or on its own when screenshots are turned off.
+    if: always() && (needs.screenshots.result == 'success' || needs.screenshots.result == 'skipped')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+      ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+      ASC_PRIVATE_KEY: ${{ secrets.ASC_PRIVATE_KEY }}
+      REVIEW_CONTACT_PHONE: ${{ secrets.REVIEW_CONTACT_PHONE }}
+      REVIEW_CONTACT_EMAIL: ${{ secrets.REVIEW_CONTACT_EMAIL }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+
+      - name: Install fastlane
+        run: gem install fastlane --no-document
+
+      - name: Install the App Store Connect API key
+        run: |
+          python3 - <<'PY'
+          import json, os, base64
+          key = os.environ["ASC_PRIVATE_KEY"]
+          if "BEGIN PRIVATE KEY" not in key:
+              key = base64.b64decode(key).decode()
+          path = os.path.join(os.environ["RUNNER_TEMP"], "asc_api_key.json")
+          with open(path, "w") as f:
+              json.dump({"key_id": os.environ["ASC_KEY_ID"], "issuer_id": os.environ["ASC_ISSUER_ID"],
+                         "key": key, "in_house": False}, f)
+          os.chmod(path, 0o600)
+          PY
+          echo "ASC_KEY_JSON=$RUNNER_TEMP/asc_api_key.json" >> "$GITHUB_ENV"
+
+      - name: Add the review contact (kept in secrets, not in the repository)
+        run: |
+          dir=appstore/metadata/review_information
+          if [ -n "$REVIEW_CONTACT_PHONE" ]; then printf '%s\n' "$REVIEW_CONTACT_PHONE" > "$dir/phone_number.txt"; fi
+          if [ -n "$REVIEW_CONTACT_EMAIL" ]; then printf '%s\n' "$REVIEW_CONTACT_EMAIL" > "$dir/email_address.txt"; fi
+          if [ -z "$REVIEW_CONTACT_PHONE" ] || [ -z "$REVIEW_CONTACT_EMAIL" ]; then
+            echo "::notice::Review contact phone or email not set as secrets. Enter them in App Store Connect (App Review Information) before submitting."
+          fi
+
+      - name: Download screenshots
+        if: needs.screenshots.result == 'success'
+        uses: actions/download-artifact@v5
+        with:
+          pattern: appstore-screenshots-*
+          path: appstore/screenshots/en-US
+          merge-multiple: true
+
+      - name: Read the version
+        run: |
+          VERSION=$(grep -E '^\s*MARKETING_VERSION:' project.yml | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
+          echo "APP_VERSION=$VERSION" >> "$GITHUB_ENV"
+
+      - name: Upload with fastlane deliver
+        env:
+          SUBMIT: ${{ inputs.submit }}
+          BUILD_NUMBER: ${{ inputs.build_number }}
+          HAS_SCREENSHOTS: ${{ needs.screenshots.result == 'success' }}
+        run: |
+          args=(
+            --api_key_path "$ASC_KEY_JSON"
+            --app_identifier com.cjaratech.securityframework
+            --app_version "$APP_VERSION"
+            --metadata_path appstore/metadata
+            --skip_binary_upload true
+            --force true
+            --automatic_release false
+            --precheck_include_in_app_purchases false
+            --submission_information '{"add_id_info_uses_idfa": false, "export_compliance_uses_encryption": false, "content_rights_contains_third_party_content": true, "content_rights_has_rights": true}'
+          )
+          if [ "$HAS_SCREENSHOTS" = "true" ]; then
+            args+=(--screenshots_path appstore/screenshots --overwrite_screenshots true)
+          else
+            args+=(--skip_screenshots true)
+          fi
+          if [ "$SUBMIT" = "true" ]; then
+            args+=(--submit_for_review true)
+            if [ -n "$BUILD_NUMBER" ]; then args+=(--build_number "$BUILD_NUMBER"); fi
+          else
+            args+=(--submit_for_review false)
+          fi
+          fastlane deliver "${args[@]}"
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### App Store listing"
+            echo ""
+            echo "- Version: ${APP_VERSION}"
+            echo "- Screenshots uploaded: ${{ needs.screenshots.result == 'success' }}"
+            echo "- Submitted for review: ${{ inputs.submit }}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Remove the API key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/asc_api_key.json"

@@ -156,7 +156,7 @@ struct AboutView: View {
         List {
             Section {
                 VStack(alignment: .leading, spacing: DS.Space.xs) {
-                    Text(Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "FrameworkApp")
+                    Text(Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "Security Frameworks")
                         .font(.dsTitle2)
                     Text(version).font(.dsFootnote.monospacedDigit()).foregroundStyle(Color.dsTextSecondary)
                 }

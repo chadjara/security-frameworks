@@ -1,11 +1,11 @@
 # Privacy Policy
 
-**FrameworkApp** (working name) · Effective November 24, 2026
+**Security Frameworks** · Effective November 24, 2026
 Published at https://cjaratech.com/securityframeworks/privacypolicy
 
 ## Summary
 
-FrameworkApp does not collect, store, or share your information. Everything you enter stays on
+Security Frameworks does not collect, store, or share your information. Everything you enter stays on
 your device. There are no accounts, no servers, no analytics, no advertising, and no tracking. We
 cannot see your assessments.
 
@@ -75,5 +75,5 @@ Questions about this policy: https://cjaratech.com/securityframeworks
 
 ---
 
-FrameworkApp is independent and is not affiliated with or endorsed by the National Institute of
+Security Frameworks is independent and is not affiliated with or endorsed by the National Institute of
 Standards and Technology (NIST).

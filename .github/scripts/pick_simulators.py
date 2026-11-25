@@ -5,12 +5,16 @@ Output lines: iphone=<udid>, iphone_name=<name>, ipad=<udid>, ipad_name=<name>, 
 """
 
 import json
+import os
 import re
 import subprocess
 import sys
 
 IPHONE_PREFERENCE = [r"^iPhone \d+ Pro$", r"^iPhone \d+$", r"^iPhone"]
 IPAD_PREFERENCE = [r"^iPad Pro 13-inch", r"^iPad Pro .*12\.9", r"^iPad Air 13-inch", r"^iPad Pro", r"^iPad Air", r"^iPad"]
+# The App Store workflow needs the largest iPhone (6.9-inch screenshots): IPHONE_PATTERN="^iPhone \d+ Pro Max$".
+if os.environ.get("IPHONE_PATTERN"):
+    IPHONE_PREFERENCE = [os.environ["IPHONE_PATTERN"]]
 
 
 def runtime_version(runtime_id: str) -> tuple:

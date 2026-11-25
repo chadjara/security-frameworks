@@ -86,8 +86,11 @@ jobs:
             -quiet
 
       # Simulators on hosted runners are sometimes slow enough to time out a UI query. A test that
-      # fails is retried up to twice; one that fails every time still fails the run.
+      # fails is retried up to twice; one that fails every time still fails the run. A hung test is
+      # stopped after 5 minutes (10 at most), and the step has its own limit so the result bundle is
+      # still uploaded for diagnosis.
       - name: Test on iPhone (${{ steps.sims.outputs.iphone_name }})
+        timeout-minutes: 70
         env:
           TEST_RUNNER_SCREENSHOT_DIR: ${{ github.workspace }}/screenshots/iphone
         run: |
@@ -98,10 +101,14 @@ jobs:
             -derivedDataPath build/DerivedData \
             -resultBundlePath build/iphone.xcresult \
             -retry-tests-on-failure -test-iterations 3 \
+            -test-timeouts-enabled YES \
+            -default-test-execution-time-allowance 300 \
+            -maximum-test-execution-time-allowance 600 \
             CODE_SIGNING_ALLOWED=NO
 
       - name: Test on iPad (${{ steps.sims.outputs.ipad_name }})
         if: always() && steps.sims.outputs.ipad != ''
+        timeout-minutes: 40
         env:
           TEST_RUNNER_SCREENSHOT_DIR: ${{ github.workspace }}/screenshots/ipad
           # Unit tests on every push; the slower UI suite only when requested.
@@ -115,6 +122,9 @@ jobs:
             -resultBundlePath build/ipad.xcresult \
             $ONLY_TESTING \
             -retry-tests-on-failure -test-iterations 3 \
+            -test-timeouts-enabled YES \
+            -default-test-execution-time-allowance 300 \
+            -maximum-test-execution-time-allowance 600 \
             CODE_SIGNING_ALLOWED=NO
 
       - name: Export screenshot attachments from result bundles
@@ -138,7 +148,7 @@ jobs:
           retention-days: 30
 
       - name: Upload result bundles
-        if: failure()
+        if: failure() || cancelled()
         uses: actions/upload-artifact@v5
         with:
           name: xcresults

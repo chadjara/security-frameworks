@@ -167,10 +167,14 @@ jobs:
       - name: Add the review contact (kept in secrets, not in the repository)
         run: |
           dir=appstore/metadata/review_information
-          if [ -n "$REVIEW_CONTACT_PHONE" ]; then printf '%s\n' "$REVIEW_CONTACT_PHONE" > "$dir/phone_number.txt"; fi
-          if [ -n "$REVIEW_CONTACT_EMAIL" ]; then printf '%s\n' "$REVIEW_CONTACT_EMAIL" > "$dir/email_address.txt"; fi
-          if [ -z "$REVIEW_CONTACT_PHONE" ] || [ -z "$REVIEW_CONTACT_EMAIL" ]; then
-            echo "::notice::Review contact phone or email not set as secrets. Enter them in App Store Connect (App Review Information) before submitting."
+          if [ -n "$REVIEW_CONTACT_PHONE" ] && [ -n "$REVIEW_CONTACT_EMAIL" ]; then
+            printf '%s\n' "$REVIEW_CONTACT_PHONE" > "$dir/phone_number.txt"
+            printf '%s\n' "$REVIEW_CONTACT_EMAIL" > "$dir/email_address.txt"
+          else
+            # App Store Connect cannot create the review details without a phone and email, so leave
+            # them out entirely; they are entered in App Store Connect instead.
+            rm -rf "$dir"
+            echo "::notice::REVIEW_CONTACT_PHONE and REVIEW_CONTACT_EMAIL are not set, so App Review information was skipped. Enter the contact and the notes from appstore/metadata/review_information/notes.txt in App Store Connect."
           fi
 
       - name: Download screenshots

@@ -13,6 +13,7 @@ extension UTType {
 struct ExportSheet: View {
     private struct Ready: Identifiable {
         let id = UUID()
+        let key: String
         let url: URL
         let title: String
         let detail: String
@@ -61,7 +62,6 @@ struct ExportSheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                if let ready { readySection(ready) }
                 formatSection
                 frameworksSection
                 requirementsSection
@@ -94,8 +94,10 @@ struct ExportSheet: View {
 
     // MARK: Sections
 
-    private func readySection(_ ready: Ready) -> some View {
-        Section {
+    /// The finished file, shown under the button that made it so it is never off screen.
+    @ViewBuilder
+    private func readyRows(for key: String) -> some View {
+        if let ready, ready.key == key {
             Label {
                 VStack(alignment: .leading, spacing: 2) {
                     Text(ready.title).font(.dsHeadline)
@@ -108,11 +110,10 @@ struct ExportSheet: View {
                 Label("Share or Save to Files", systemImage: "square.and.arrow.up")
             }
             .accessibilityIdentifier("shareExport")
-        } footer: {
-            Text("Choose Save to Files to keep a copy, or send it with AirDrop, Mail, or another app. The app does not keep exported copies.")
-                .font(.dsFootnote)
         }
     }
+
+    private static let shareHint = "Choose Save to Files to keep a copy, or send it with AirDrop, Mail, or another app. The app does not keep exported copies."
 
     private var formatSection: some View {
         Section {
@@ -178,8 +179,6 @@ struct ExportSheet: View {
                 ForEach(ExportRequirementFilter.allCases) { Text($0.title).tag($0) }
             }
             .accessibilityIdentifier("exportRequirements")
-        } header: {
-            SectionHeader("Requirements")
         } footer: {
             Text(options.requirements.detail).font(.dsFootnote)
         }
@@ -231,8 +230,13 @@ struct ExportSheet: View {
                          disabled: exportProblem != nil) {
                 try makeExport()
             }
+            readyRows(for: "create")
         } footer: {
-            if let exportProblem { Text(exportProblem).font(.dsFootnote) }
+            if let exportProblem {
+                Text(exportProblem).font(.dsFootnote)
+            } else if ready?.key == "create" {
+                Text(Self.shareHint).font(.dsFootnote)
+            }
         }
     }
 
@@ -251,8 +255,9 @@ struct ExportSheet: View {
                 let url = try await BackupService(context: context).makeBackup(of: [assessment], password: password)
                 password = ""
                 confirmation = ""
-                return Ready(url: url, title: "Backup ready", detail: url.lastPathComponent)
+                return Ready(key: "backup", url: url, title: "Backup ready", detail: url.lastPathComponent)
             }
+            readyRows(for: "backup")
         } header: {
             SectionHeader("Encrypted backup")
         } footer: {
@@ -305,7 +310,7 @@ struct ExportSheet: View {
         case .csv: title = "Spreadsheet ready"
         case .json: title = "Data file ready"
         }
-        return Ready(url: url, title: title, detail: url.lastPathComponent)
+        return Ready(key: "create", url: url, title: title, detail: url.lastPathComponent)
     }
 }
 

@@ -223,14 +223,19 @@ final class AppFlowTests: XCTestCase {
         let csvApp = launch(route: "export")
         XCTAssertTrue(element(csvApp, "screen.export").waitForExistence(timeout: 60))
         element(csvApp, "format.csv").tap()
-        let notes = element(csvApp, "include.notes")
         let create = element(csvApp, "export.create")
         let scroller = list(csvApp, "screen.export")
         for _ in 0..<8 where !(create.exists && create.isHittable) { scroller.swipeUp(velocity: .slow) }
-        if notes.exists && notes.isHittable { notes.switches.firstMatch.tap() }
         XCTAssertTrue(create.exists, "The export button should be reachable")
         create.tap()
-        XCTAssertTrue(element(csvApp, "shareExport").waitForExistence(timeout: 60), "CSV export should produce a file to share")
+        // The finished file appears directly under the button.
+        let share = element(csvApp, "shareExport")
+        var found = share.waitForExistence(timeout: 30)
+        for _ in 0..<3 where !found {
+            scroller.swipeUp(velocity: .slow)
+            found = share.waitForExistence(timeout: 10)
+        }
+        XCTAssertTrue(found, "CSV export should produce a file to share")
         capture("export-ready")
     }
 

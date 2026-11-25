@@ -72,8 +72,27 @@ struct RootView: View {
         didApplyLaunchRoute = true
         if let seeded = UITestSeed.apply(scenario, context: context, library: library) { select(seeded) }
         if UITestRoute.current == .newAssessment { showingNewAssessment = true }
+        if UITestRoute.current == .importFile { presentSampleImport() }
         #endif
     }
+
+    #if DEBUG
+    /// Encrypts the seeded assessment with a known password and opens the import sheet on it,
+    /// so UI tests can walk through an import of an assessment already on the device.
+    private func presentSampleImport() {
+        guard let assessment = currentAssessment else { return }
+        Task {
+            guard let url = try? await BackupService(context: context).makeBackup(of: [assessment], password: UITestSeed.importPassword)
+            else { return }
+            // Remove two answers locally, as if a teammate had answered them, so the merge has something to bring in.
+            for response in assessment.responses.sorted(by: { $0.requirementID < $1.requirementID }).prefix(2) {
+                context.delete(response)
+            }
+            try? context.save()
+            importer.file = url
+        }
+    }
+    #endif
 }
 
 // MARK: - Shared pieces

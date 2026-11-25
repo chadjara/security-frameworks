@@ -1,188 +1,159 @@
 import XCTest
 
-/// Phase 2 flows and screenshots. Uses an in-memory store with sample data (`-uiSeed sample`)
-/// and jumps to screens with `-uiRoute` so captures are reliable.
+/// App flows and screenshots. Uses an in-memory store with sample data (`-uiSeed sample`) and jumps
+/// to screens with `-uiRoute` so captures are reliable. Each test launches the app at most a few
+/// times, so a retry after a slow launch repeats little work.
 final class AppFlowTests: XCTestCase {
     override func setUpWithError() throws {
-        continueAfterFailure = true
+        continueAfterFailure = false
     }
-
-    private var device: String { UIDevice.current.userInterfaceIdiom == .pad ? "ipad" : "iphone" }
 
     @MainActor
     private func launch(route: String?, seed: Bool = true, scheme: String = "light", textSize: String? = nil,
                         extra: [String] = []) -> XCUIApplication {
-        let app = XCUIApplication()
         var args = ["-dsColorScheme", scheme] + extra
         if seed { args += ["-uiSeed", "sample"] } else { args += ["-uiInMemory", "YES"] }
         if let route { args += ["-uiRoute", route] }
         if let textSize { args += ["-dsDynamicType", textSize] }
-        app.launchArguments = args
-        app.launch()
-        return app
+        return launchApp(args)
     }
 
-    @MainActor
-    private func element(_ app: XCUIApplication, _ id: String) -> XCUIElement {
-        app.descendants(matching: .any).matching(identifier: id).firstMatch
-    }
-
-    /// The scrolling list for a screen: the collection view carrying the screen identifier, or the
-    /// last (rightmost, frontmost) collection view on screen.
-    @MainActor
-    private func list(_ app: XCUIApplication, _ id: String) -> XCUIElement {
-        // Keep queries cheap: enumerating every collection view times out on large lists.
-        let tagged = app.collectionViews.matching(identifier: id).firstMatch
-        if tagged.waitForExistence(timeout: 2) && !tagged.frame.isEmpty { return tagged }
-        return app
-    }
-
-    @MainActor
-    private func capture(_ name: String, pages: Int = 1, scroll: XCUIElement? = nil) {
-        for page in 1...pages {
-            if page > 1, let scroll {
-                if scroll.exists && !scroll.frame.isEmpty && scroll.isHittable {
-                    scroll.swipeUp(velocity: .slow)
-                } else {
-                    XCUIApplication().swipeUp(velocity: .slow)
-                }
-            }
-            Thread.sleep(forTimeInterval: 0.8)
-            let shot = XCUIScreen.main.screenshot()
-            let attachment = XCTAttachment(screenshot: shot)
-            attachment.name = "\(device)-\(name)-\(page)"
-            attachment.lifetime = .keepAlways
-            add(attachment)
-            if let dir = ProcessInfo.processInfo.environment["SCREENSHOT_DIR"], !dir.isEmpty {
-                let folder = URL(fileURLWithPath: dir, isDirectory: true)
-                try? FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
-                try? shot.pngRepresentation.write(to: folder.appendingPathComponent("\(device)-\(name)-\(page).png"))
-            }
-        }
-    }
-
-    // MARK: Flows
+    // MARK: Assessments and requirements
 
     @MainActor
     func testEmptyStateAndCreateAssessment() throws {
         let app = launch(route: nil, seed: false)
-        let empty = element(app, "screen.noAssessment")
-        XCTAssertTrue(empty.waitForExistence(timeout: 60))
+        waitForScreen(app, "screen.noAssessment")
         capture("empty")
 
-        element(app, "createFirstAssessment").tap()
+        tapWhenReady(element(app, "createFirstAssessment"))
         let name = element(app, "assessmentName")
-        XCTAssertTrue(name.waitForExistence(timeout: 5))
-        name.tap()
+        tapWhenReady(name)
         name.typeText("Annual Review")
         capture("new-assessment")
-        element(app, "saveAssessment").tap()
+        tapWhenReady(element(app, "saveAssessment"))
 
         // The new assessment opens on its overview, with CSF 2.0 turned on.
-        XCTAssertTrue(element(app, "screen.overview").waitForExistence(timeout: 10))
+        XCTAssertTrue(element(app, "screen.overview").waitForExistence(timeout: UITimeout.transition))
     }
 
     @MainActor
-    func testRequirementListAndDetail() throws {
+    func testRequirementList() throws {
         let app = launch(route: "list:csf-2.0")
-        XCTAssertTrue(element(app, "screen.requirements").waitForExistence(timeout: 60))
+        waitForScreen(app, "screen.requirements")
         capture("list", pages: 2, scroll: list(app, "screen.requirements"))
-        app.terminate()
+    }
 
-        let detailApp = launch(route: "detail:csf-2.0:GV.OC-03")
-        let detail = element(detailApp, "screen.requirementDetail")
-        XCTAssertTrue(detail.waitForExistence(timeout: 60))
-        capture("detail", pages: 4, scroll: list(detailApp, "screen.requirementDetail"))
-        detailApp.terminate()
+    @MainActor
+    func testRequirementDetail() throws {
+        let app = launch(route: "detail:csf-2.0:GV.OC-03")
+        waitForScreen(app, "screen.requirementDetail")
+        capture("detail", pages: 4, scroll: list(app, "screen.requirementDetail"))
+    }
 
-        let dark = launch(route: "detail:sp800-171r3:03.01.01", scheme: "dark")
-        let detail171 = element(dark, "screen.requirementDetail")
-        XCTAssertTrue(detail171.waitForExistence(timeout: 60))
-        capture("detail-171-dark", pages: 3, scroll: list(dark, "screen.requirementDetail"))
+    @MainActor
+    func testRequirementDetailDark() throws {
+        let app = launch(route: "detail:sp800-171r3:03.01.01", scheme: "dark")
+        waitForScreen(app, "screen.requirementDetail")
+        capture("detail-171-dark", pages: 3, scroll: list(app, "screen.requirementDetail"))
     }
 
     @MainActor
     func testSetStatusFromDetail() throws {
         let app = launch(route: "detail:csf-2.0:GV.RR-01")
+        waitForScreen(app, "screen.requirementDetail")
         let implemented = element(app, "status.implemented")
-        XCTAssertTrue(implemented.waitForExistence(timeout: 60))
-        implemented.tap()
+        tapWhenReady(implemented)
         XCTAssertTrue(implemented.isSelected, "Implemented should be selected after tapping it")
 
-        element(app, "status.notApplicable").tap()
+        tapWhenReady(element(app, "status.notApplicable"))
         let reason = element(app, "naReason")
-        XCTAssertTrue(reason.waitForExistence(timeout: 5))
+        XCTAssertTrue(reason.waitForExistence(timeout: UITimeout.transition))
         // Saving without a reason must not dismiss the sheet.
-        element(app, "naSave").tap()
+        tapWhenReady(element(app, "naSave"))
         XCTAssertTrue(reason.exists, "The reason sheet must stay open until a reason is entered")
-        reason.tap()
+        tapWhenReady(reason)
         reason.typeText("Roles are defined by the parent organization.")
         capture("not-applicable-reason")
-        element(app, "naSave").tap()
-        XCTAssertTrue(element(app, "status.notApplicable").waitForExistence(timeout: 5))
-        XCTAssertTrue(element(app, "status.notApplicable").isSelected, "Not applicable should be selected after saving a reason")
+        tapWhenReady(element(app, "naSave"))
+        let notApplicable = element(app, "status.notApplicable")
+        XCTAssertTrue(notApplicable.waitForExistence(timeout: UITimeout.transition))
+        XCTAssertTrue(notApplicable.isSelected, "Not applicable should be selected after saving a reason")
     }
 
     @MainActor
     func testQuestionnaire() throws {
         let app = launch(route: "questionnaire:csf-2.0")
-        let q = element(app, "screen.questionnaire")
-        XCTAssertTrue(q.waitForExistence(timeout: 60))
+        waitForScreen(app, "screen.questionnaire")
         capture("questionnaire")
         let next = element(app, "questionnaireNext")
-        if next.waitForExistence(timeout: 5) {
+        if waitUntilHittable(next) {
             next.tap()
             capture("questionnaire-next")
         }
     }
 
+    // MARK: Explorer
+
     @MainActor
-    func testExplorerPreviewAndScope() throws {
+    func testFrameworkPreview() throws {
         let app = launch(route: "preview:sp800-53r5")
-        let preview = element(app, "screen.frameworkPreview")
-        XCTAssertTrue(preview.waitForExistence(timeout: 60))
+        // The 800-53 preview is the largest screen; give it extra time to build before scrolling.
+        waitForScreen(app, "screen.frameworkPreview")
+        settle(3)
         capture("preview-80053", pages: 3, scroll: list(app, "screen.frameworkPreview"))
-        app.terminate()
+    }
 
-        let explorer = launch(route: "explorer")
-        XCTAssertTrue(element(explorer, "screen.explorer").waitForExistence(timeout: 60))
+    @MainActor
+    func testExplorer() throws {
+        let app = launch(route: "explorer")
+        waitForScreen(app, "screen.explorer")
         capture("explorer")
-        explorer.terminate()
-
-        let scope = launch(route: "scope:sp800-53r5")
-        let scopeScreen = element(scope, "screen.scope")
-        XCTAssertTrue(scopeScreen.waitForExistence(timeout: 60))
-        capture("scope", pages: 2, scroll: list(scope, "screen.scope"))
     }
 
     @MainActor
-    func testHomeAndAccessibilitySize() throws {
+    func testScope() throws {
+        let app = launch(route: "scope:sp800-53r5")
+        waitForScreen(app, "screen.scope")
+        settle(2)
+        capture("scope", pages: 2, scroll: list(app, "screen.scope"))
+    }
+
+    @MainActor
+    func testHome() throws {
         let app = launch(route: "home")
+        // iPad opens on the split view, which has no single home screen.
+        if deviceName == "iphone" { waitForScreen(app, "screen.home") } else { settle(5) }
         capture("home")
-        app.terminate()
-        let large = launch(route: "detail:csf-2.0:GV.OC-03", textSize: "ax3")
-        let detail = element(large, "screen.requirementDetail")
-        XCTAssertTrue(detail.waitForExistence(timeout: 60))
-        capture("detail-ax3", pages: 2, scroll: list(large, "screen.requirementDetail"))
     }
 
-    // MARK: Phase 3
+    @MainActor
+    func testAccessibilityTextSize() throws {
+        let app = launch(route: "detail:csf-2.0:GV.OC-03", textSize: "ax3")
+        waitForScreen(app, "screen.requirementDetail")
+        capture("detail-ax3", pages: 2, scroll: list(app, "screen.requirementDetail"))
+    }
+
+    // MARK: Dashboards, profiles, mappings
 
     @MainActor
-    func testOverviewAndNextSteps() throws {
+    func testOverview() throws {
         let app = launch(route: "overview")
-        let overview = element(app, "screen.overview")
-        XCTAssertTrue(overview.waitForExistence(timeout: 60))
+        waitForScreen(app, "screen.overview")
         capture("overview", pages: 4, scroll: list(app, "screen.overview"))
-        app.terminate()
+    }
 
-        let dark = launch(route: "overview", scheme: "dark")
-        XCTAssertTrue(element(dark, "screen.overview").waitForExistence(timeout: 60))
+    @MainActor
+    func testOverviewDark() throws {
+        let app = launch(route: "overview", scheme: "dark")
+        waitForScreen(app, "screen.overview")
         capture("overview-dark")
-        dark.terminate()
+    }
 
-        let steps = launch(route: "nextSteps")
-        XCTAssertTrue(element(steps, "screen.nextSteps").waitForExistence(timeout: 60))
+    @MainActor
+    func testNextSteps() throws {
+        let app = launch(route: "nextSteps")
+        waitForScreen(app, "screen.nextSteps")
         capture("next-steps")
     }
 
@@ -190,47 +161,45 @@ final class AppFlowTests: XCTestCase {
     func testProfileAndTiers() throws {
         for tab in ["summary", "target", "tiers"] {
             let app = launch(route: "profile:csf-2.0", extra: ["-uiProfileTab", tab])
-            XCTAssertTrue(element(app, "screen.csfProfile").waitForExistence(timeout: 60), "profile \(tab)")
+            waitForScreen(app, "screen.csfProfile")
             capture("profile-\(tab)", pages: 2, scroll: list(app, "screen.csfProfile"))
-            app.terminate()
         }
     }
 
     @MainActor
     func testRelatedRequirementsAndApply() throws {
         let app = launch(route: "detail:sp800-171r3:03.01.01")
-        let detail = element(app, "screen.requirementDetail")
-        XCTAssertTrue(detail.waitForExistence(timeout: 60))
+        waitForScreen(app, "screen.requirementDetail")
         let apply = element(app, "applyToMapped")
-        let scroller = list(app, "screen.requirementDetail")
-        for _ in 0..<10 where !(apply.exists && apply.isHittable) { scroller.swipeUp(velocity: .slow) }
-        XCTAssertTrue(apply.exists, "Related requirements should offer to apply the answer")
+        XCTAssertTrue(scroll(list(app, "screen.requirementDetail"), toReveal: apply),
+                      "Related requirements should offer to apply the answer")
         capture("related-requirements")
         apply.tap()
-        XCTAssertTrue(app.navigationBars["Apply Answer"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.navigationBars["Apply Answer"].waitForExistence(timeout: UITimeout.transition))
         capture("apply-to-mapped")
     }
 
-    // MARK: Phase 4
+    // MARK: Export, import, lock
 
     @MainActor
     func testExportSheet() throws {
         let app = launch(route: "export")
-        XCTAssertTrue(element(app, "screen.export").waitForExistence(timeout: 60))
-        capture("export", pages: 3, scroll: list(app, "screen.export"))
-        app.terminate()
+        waitForScreen(app, "screen.export")
+        capture("export", pages: 4, scroll: list(app, "screen.export"))
+    }
 
-        let csvApp = launch(route: "export")
-        XCTAssertTrue(element(csvApp, "screen.export").waitForExistence(timeout: 60))
-        element(csvApp, "format.csv").tap()
-        let create = element(csvApp, "export.create")
-        let scroller = list(csvApp, "screen.export")
-        for _ in 0..<8 where !(create.exists && create.isHittable) { scroller.swipeUp(velocity: .slow) }
-        XCTAssertTrue(create.exists, "The export button should be reachable")
+    @MainActor
+    func testExportSpreadsheet() throws {
+        let app = launch(route: "export")
+        waitForScreen(app, "screen.export")
+        tapWhenReady(element(app, "format.csv"))
+        let scroller = list(app, "screen.export")
+        let create = element(app, "export.create")
+        XCTAssertTrue(scroll(scroller, toReveal: create), "The export button should be reachable")
         create.tap()
         // The finished file appears directly under the button.
-        let share = element(csvApp, "shareExport")
-        var found = share.waitForExistence(timeout: 30)
+        let share = element(app, "shareExport")
+        var found = share.waitForExistence(timeout: UITimeout.work)
         for _ in 0..<3 where !found {
             scroller.swipeUp(velocity: .slow)
             found = share.waitForExistence(timeout: 10)
@@ -240,9 +209,30 @@ final class AppFlowTests: XCTestCase {
     }
 
     @MainActor
+    func testImportMergesTeammateFile() throws {
+        let app = launch(route: "import")
+        waitForScreen(app, "screen.import")
+        capture("import-password")
+
+        let password = element(app, "restorePassword")
+        tapWhenReady(password)
+        password.typeText("harbor-clinic\n")
+
+        // The sample assessment is already on the device, so the import offers to merge.
+        let mode = element(app, "importMode")
+        XCTAssertTrue(mode.waitForExistence(timeout: UITimeout.work), "Opening the file should show its contents")
+        capture("import-contents")
+
+        tapWhenReady(element(app, "importConfirm"))
+        XCTAssertTrue(element(app, "importResult").waitForExistence(timeout: UITimeout.work),
+                      "The import should report what changed")
+        capture("import-result")
+    }
+
+    @MainActor
     func testLockScreen() throws {
         let app = launch(route: "home", extra: ["-uiForceLock", "YES"])
-        XCTAssertTrue(element(app, "screen.lock").waitForExistence(timeout: 60))
+        waitForScreen(app, "screen.lock")
         capture("lock")
     }
 }

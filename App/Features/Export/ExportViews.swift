@@ -448,6 +448,8 @@ struct ImportAssessmentView: View {
                 } icon: {
                     Image(systemName: "checkmark.circle.fill").foregroundStyle(Color.dsImplemented)
                 }
+                .accessibilityElement(children: .combine)
+                .accessibilityIdentifier("importResult")
             }
         } header: {
             SectionHeader("Imported")
@@ -460,15 +462,15 @@ struct ImportAssessmentView: View {
         case .addedCopy: return "Added alongside the existing assessment."
         case .replaced: return "Replaced the copy on this device."
         case .merged(let s):
-            guard s.changed else { return "Already up to date. Nothing changed." }
+            func count(_ n: Int, _ noun: String) -> String { "\(n) \(noun)\(n == 1 ? "" : "s")" }
             var parts: [String] = []
-            if s.answersUpdated > 0 { parts.append("\(s.answersUpdated) answer\(s.answersUpdated == 1 ? "" : "s") updated") }
-            if s.answersAdded > 0 { parts.append("\(s.answersAdded) added") }
-            if s.evidenceAdded > 0 { parts.append("\(s.evidenceAdded) evidence item\(s.evidenceAdded == 1 ? "" : "s") added") }
-            if s.valuesUpdated > 0 { parts.append("\(s.valuesUpdated) organization-defined value\(s.valuesUpdated == 1 ? "" : "s") updated") }
-            var text = "Merged: " + parts.joined(separator: ", ") + "."
+            if s.answersAdded > 0 { parts.append("\(count(s.answersAdded, "answer")) added") }
+            if s.answersUpdated > 0 { parts.append("\(count(s.answersUpdated, "answer")) updated") }
+            if s.evidenceAdded > 0 { parts.append("\(count(s.evidenceAdded, "evidence item")) added") }
+            if s.valuesUpdated > 0 { parts.append("\(count(s.valuesUpdated, "organization-defined value")) updated") }
+            var text = parts.isEmpty ? "Already up to date. Nothing new to import." : "Merged: \(parts.joined(separator: ", "))."
             if s.answersKeptNewer > 0 {
-                text += " Kept \(s.answersKeptNewer) newer answer\(s.answersKeptNewer == 1 ? "" : "s") from this device."
+                text += " Kept \(count(s.answersKeptNewer, "newer answer")) from this device."
             }
             return text
         }

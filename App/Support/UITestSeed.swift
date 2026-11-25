@@ -7,6 +7,9 @@ import SwiftData
 /// against an in-memory store, never shipped.
 @MainActor
 enum UITestSeed {
+    /// Password for the sample file the `import` route opens.
+    static let importPassword = "harbor-clinic"
+
     static func apply(_ scenario: String, context: ModelContext, library: ContentLibrary) -> Assessment? {
         guard scenario == "sample" else { return nil }
         let service = AssessmentService(context: context)

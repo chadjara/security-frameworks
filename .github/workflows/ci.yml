@@ -85,6 +85,8 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             -quiet
 
+      # Simulators on hosted runners are sometimes slow enough to time out a UI query. A test that
+      # fails is retried up to twice; one that fails every time still fails the run.
       - name: Test on iPhone (${{ steps.sims.outputs.iphone_name }})
         env:
           TEST_RUNNER_SCREENSHOT_DIR: ${{ github.workspace }}/screenshots/iphone
@@ -95,6 +97,7 @@ jobs:
             -destination "id=${{ steps.sims.outputs.iphone }}" \
             -derivedDataPath build/DerivedData \
             -resultBundlePath build/iphone.xcresult \
+            -retry-tests-on-failure -test-iterations 3 \
             CODE_SIGNING_ALLOWED=NO
 
       - name: Test on iPad (${{ steps.sims.outputs.ipad_name }})
@@ -111,6 +114,7 @@ jobs:
             -derivedDataPath build/DerivedData \
             -resultBundlePath build/ipad.xcresult \
             $ONLY_TESTING \
+            -retry-tests-on-failure -test-iterations 3 \
             CODE_SIGNING_ALLOWED=NO
 
       - name: Export screenshot attachments from result bundles

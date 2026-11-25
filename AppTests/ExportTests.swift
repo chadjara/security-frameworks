@@ -154,6 +154,21 @@ struct ExportTests {
         #expect(FileManager.default.fileExists(atPath: url.path), "Evidence files are restored after replacing")
     }
 
+    @Test("Import results describe what a merge changed in plain words")
+    func importResultWording() {
+        var stats = BackupService.MergeStats()
+        #expect(ImportAssessmentView.describe(.merged(stats)) == "Already up to date. Nothing new to import.")
+        stats.answersAdded = 2
+        stats.evidenceAdded = 1
+        #expect(ImportAssessmentView.describe(.merged(stats)) == "Merged: 2 answers added, 1 evidence item added.")
+        stats.answersKeptNewer = 1
+        #expect(ImportAssessmentView.describe(.merged(stats))
+                == "Merged: 2 answers added, 1 evidence item added. Kept 1 newer answer from this device.")
+        let onlyKept = BackupService.MergeStats(answersKeptNewer: 3)
+        #expect(ImportAssessmentView.describe(.merged(onlyKept))
+                == "Already up to date. Nothing new to import. Kept 3 newer answers from this device.")
+    }
+
     @Test("The CSV has one row per requirement and escapes notes")
     func csv() async throws {
         let a = try sampleAssessment()

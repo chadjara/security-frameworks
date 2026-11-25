@@ -103,20 +103,12 @@ struct RequirementListView: View {
                     Button {
                         questionnaireStart = QuestionnaireStart(requirementID: nil)
                     } label: {
-                        // Narrow iPad columns get the shorter wording; scaling covers anything in between,
-                        // so the label never ends in an ellipsis.
-                        ViewThatFits(in: .horizontal) {
-                            Label(progress.answered == 0 ? "Start Guided Questions" : "Continue Guided Questions",
-                                  systemImage: "arrow.forward.circle")
-                                .fixedSize()
-                            Label(progress.answered == 0 ? "Start Questions" : "Continue Questions",
-                                  systemImage: "arrow.forward.circle")
-                                .fixedSize()
-                            Text(progress.answered == 0 ? "Start" : "Continue")
-                                .lineLimit(1)
-                                .minimumScaleFactor(0.7)
-                        }
-                        .frame(maxWidth: .infinity)
+                        // Wraps to two lines in narrow iPad columns rather than truncating.
+                        Label(progress.answered == 0 ? "Start Guided Questions" : "Continue Guided Questions",
+                              systemImage: "arrow.forward.circle")
+                            .lineLimit(2)
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.dsPrimary)
                     .disabled(progress.total == 0)

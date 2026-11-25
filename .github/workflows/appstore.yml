@@ -20,6 +20,10 @@ on:
         description: "Capture and upload new screenshots"
         type: boolean
         default: true
+      metadata:
+        description: "Upload the listing text in appstore/metadata"
+        type: boolean
+        default: true
       screenshots_run_id:
         description: "Or reuse the screenshots from an earlier App Store run (its run ID)"
         type: string
@@ -203,11 +207,13 @@ jobs:
       - name: Upload with fastlane deliver
         env:
           SUBMIT: ${{ inputs.submit }}
+          METADATA: ${{ inputs.metadata }}
           BUILD_NUMBER: ${{ inputs.build_number }}
         working-directory: appstore
         run: |
           # Other settings are in appstore/Deliverfile.
           args=(--api_key_path "$ASC_KEY_JSON" --app_version "$APP_VERSION")
+          if [ "$METADATA" != "true" ]; then args+=(--skip_metadata true); fi
           if ls screenshots/en-US/*.png >/dev/null 2>&1; then
             echo "Uploading $(ls screenshots/en-US/*.png | wc -l) screenshots"
             args+=(--screenshots_path ./screenshots --overwrite_screenshots true)

@@ -70,10 +70,88 @@ struct ExportTests {
         let original = try sampleAssessment()
         let payload = BackupService(context: context).payload(for: [original])
         let summary = try BackupService(context: context).restore(payload)
-        #expect(summary.assessmentNames == ["Backup Test (Restored)"])
+        #expect(summary.assessmentNames == ["Backup Test (Imported)"])
         let all = try context.fetch(FetchDescriptor<Assessment>())
         #expect(all.count == 2)
         #expect(Set(all.map(\.id)).count == 2)
+    }
+
+    @Test("Importing a teammate's copy merges: newer answers win, evidence is combined, newer local edits are kept")
+    func mergeTeammateCopy() throws {
+        let mine = try sampleAssessment()
+        let base = BackupService(context: context).payload(for: [mine])
+
+        // The teammate imports the shared file on their device and works on it.
+        let teammate = try Persistence.makeContainer(inMemory: true)
+        let theirContext = teammate.mainContext
+        try BackupService(context: theirContext).importAssessments(base)
+        let theirs = try #require(try theirContext.fetch(FetchDescriptor<Assessment>()).first)
+        let theirService = AssessmentService(context: theirContext)
+        let later = Date.now.addingTimeInterval(60)
+        let gv01 = RequirementRef(frameworkID: "csf-2.0", requirementID: "GV.OC-01")
+        let gv02 = RequirementRef(frameworkID: "csf-2.0", requirementID: "GV.OC-02")
+        let gv03 = RequirementRef(frameworkID: "csf-2.0", requirementID: "GV.OC-03")
+        theirService.setStatus(.inProgress, for: gv02, in: theirs)
+        theirService.update(gv02, in: theirs) { $0.owner = "Facilities" }
+        theirs.response(for: gv02)?.updatedAt = later
+        theirService.setStatus(.implemented, for: gv03, in: theirs)
+        theirs.response(for: gv03)?.updatedAt = later
+        theirService.update(gv01, in: theirs) { $0.notes = "Teammate's older edit" }
+        theirs.response(for: gv01)?.updatedAt = later
+        theirService.addNote(title: "Site visit", text: "Badge readers checked", to: gv02, in: theirs)
+        try theirContext.save()
+
+        // Meanwhile I edit GV.OC-01 even more recently.
+        service.update(gv01, in: mine) { $0.notes = "My newest edit" }
+        mine.response(for: gv01)?.updatedAt = later.addingTimeInterval(60)
+        try context.save()
+
+        let back = BackupService(context: theirContext).payload(for: [theirs])
+        let results = try BackupService(context: context).importAssessments(back)
+        guard case .merged(let stats) = try #require(results.first).outcome else {
+            Issue.record("Expected a merge"); return
+        }
+        #expect(stats.answersAdded == 2)
+        #expect(stats.answersKeptNewer == 1)
+        #expect(stats.evidenceAdded == 1)
+
+        let all = try context.fetch(FetchDescriptor<Assessment>())
+        #expect(all.count == 1, "Merging must not add a second assessment")
+        #expect(mine.status(for: gv02) == .inProgress)
+        #expect(mine.response(for: gv02)?.owner == "Facilities")
+        #expect(mine.status(for: gv03) == .implemented)
+        #expect(mine.response(for: gv01)?.notes == "My newest edit")
+        #expect(mine.response(for: gv02)?.evidence.map(\.title) == ["Site visit"])
+        #expect(mine.response(for: gv01)?.evidence.count == 2, "Existing evidence is untouched")
+
+        // Importing the same file again changes nothing.
+        let again = try BackupService(context: context).importAssessments(back)
+        guard case .merged(let secondStats) = try #require(again.first).outcome else {
+            Issue.record("Expected a merge"); return
+        }
+        #expect(!secondStats.changed)
+    }
+
+    @Test("Replace swaps the local copy for the file's version")
+    func replaceWithFileVersion() throws {
+        let mine = try sampleAssessment()
+        let id = mine.id
+        let payload = BackupService(context: context).payload(for: [mine])
+        service.setStatus(.inProgress, for: RequirementRef(frameworkID: "csf-2.0", requirementID: "GV.OC-04"), in: mine)
+        try context.save()
+
+        let results = try BackupService(context: context).importAssessments(payload, modes: [id: .replace])
+        #expect(results.first?.outcome == .replaced)
+        let all = try context.fetch(FetchDescriptor<Assessment>())
+        #expect(all.count == 1)
+        let replaced = try #require(all.first)
+        #expect(replaced.id == id)
+        #expect(replaced.response(for: RequirementRef(frameworkID: "csf-2.0", requirementID: "GV.OC-04")) == nil)
+        #expect(replaced.status(for: RequirementRef(frameworkID: "csf-2.0", requirementID: "GV.OC-01")) == .implemented)
+        let file = try #require(replaced.evidence.first { $0.kind == .file })
+        let storedName = try #require(file.storedFileName)
+        let url = try #require(EvidenceFileStore.url(forStoredFile: storedName, assessmentID: id))
+        #expect(FileManager.default.fileExists(atPath: url.path), "Evidence files are restored after replacing")
     }
 
     @Test("The CSV has one row per requirement and escapes notes")

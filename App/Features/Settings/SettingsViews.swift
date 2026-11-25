@@ -115,11 +115,11 @@ struct DataPrivacyView: View {
             }
 
             Section {
-                RestoreBackupButton()
+                ImportAssessmentButton()
             } header: {
-                SectionHeader("Backups")
+                SectionHeader("Import and backups")
             } footer: {
-                Text("Create an encrypted backup from Export on an assessment's Overview. Restoring adds the backed-up assessments; it never overwrites existing ones.")
+                Text("To move to a new device or share with your team, create an encrypted file from Export on an assessment's Overview. Importing a file adds new assessments. If an assessment is already here, you choose to merge updates, replace it, or keep both.")
                     .font(.dsFootnote)
             }
 

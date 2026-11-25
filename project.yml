@@ -59,14 +59,14 @@ targets:
         LSSupportsOpeningDocumentsInPlace: false
         UTExportedTypeDeclarations:
           - UTTypeIdentifier: com.cjaratech.securityframework.backup
-            UTTypeDescription: FrameworkApp Backup
+            UTTypeDescription: FrameworkApp Assessment
             UTTypeConformsTo:
               - public.data
             UTTypeTagSpecification:
               public.filename-extension:
                 - fwbackup
         CFBundleDocumentTypes:
-          - CFBundleTypeName: FrameworkApp Backup
+          - CFBundleTypeName: FrameworkApp Assessment
             CFBundleTypeRole: Viewer
             LSHandlerRank: Owner
             LSItemContentTypes:

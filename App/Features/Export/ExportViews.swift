@@ -251,17 +251,17 @@ struct ExportSheet: View {
             if let passwordProblem {
                 Text(passwordProblem).font(.dsFootnote).foregroundStyle(Color.dsDestructive)
             }
-            actionButton("Create Encrypted Backup", systemImage: "lock.doc", key: "backup", disabled: !canBackUp) {
+            actionButton("Create Encrypted File", systemImage: "lock.doc", key: "backup", disabled: !canBackUp) {
                 let url = try await BackupService(context: context).makeBackup(of: [assessment], password: password)
                 password = ""
                 confirmation = ""
-                return Ready(key: "backup", url: url, title: "Backup ready", detail: url.lastPathComponent)
+                return Ready(key: "backup", url: url, title: "Encrypted file ready", detail: url.lastPathComponent)
             }
             readyRows(for: "backup")
         } header: {
-            SectionHeader("Encrypted backup")
+            SectionHeader("Share with your team or move to a new device")
         } footer: {
-            Text("A complete copy for restoring on this or another device: every answer, note, and evidence file, encrypted with AES-256 using a key derived from your password. The choices above do not apply. Store the password somewhere safe: without it, the backup cannot be opened by anyone, including us.")
+            Text("A complete, encrypted copy of this assessment: every answer, note, and evidence file. The choices above do not apply. Send the file to teammates or your new device, and share the password separately, for example in person or by phone. They tap the file or use Import Assessment. When a teammate sends their copy back, importing it merges their updates with yours. Without the password, nobody can open the file, including us.")
                 .font(.dsFootnote)
         }
     }
@@ -314,10 +314,21 @@ struct ExportSheet: View {
     }
 }
 
-/// Opens an encrypted backup and restores its assessments as new assessments.
-struct RestoreBackupView: View {
+/// Starts an import from anywhere in the app: the root view owns the file picker and the import sheet,
+/// so buttons inside menus and lists can trigger it without presenting anything themselves.
+@MainActor
+@Observable
+final class ImportCoordinator {
+    var showingPicker = false
+    var file: URL?
+
+    func chooseFile() { showingPicker = true }
+}
+
+/// Opens an encrypted assessment file (from a teammate, another device, or a backup) and imports it.
+struct ImportAssessmentView: View {
     let fileURL: URL
-    var onRestored: ((String) -> Void)?
+    var onImported: ((UUID) -> Void)?
 
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
@@ -325,66 +336,19 @@ struct RestoreBackupView: View {
     @State private var working = false
     @State private var errorMessage: String?
     @State private var payload: BackupPayload?
-    @State private var restoredNames: [String]?
+    @State private var existing: Set<UUID> = []
+    @State private var modes: [UUID: BackupService.ImportMode] = [:]
+    @State private var results: [BackupService.ImportResult]?
 
     var body: some View {
         NavigationStack {
             Form {
-                if let restoredNames {
-                    Section {
-                        Label {
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text("Restored").font(.dsHeadline)
-                                Text(restoredNames.joined(separator: ", ")).font(.dsFootnote).foregroundStyle(Color.dsTextSecondary)
-                            }
-                        } icon: {
-                            Image(systemName: "checkmark.circle.fill").foregroundStyle(Color.dsImplemented)
-                        }
-                    } footer: {
-                        Text("Restored assessments were added alongside your existing ones. Nothing was overwritten.").font(.dsFootnote)
-                    }
+                if let results {
+                    resultSections(results)
                 } else if let payload {
-                    Section {
-                        ForEach(payload.archive.assessments, id: \.id) { a in
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(a.name).font(.dsHeadline)
-                                Text("\(a.responses.count) answers · \(a.evidence.count) evidence items").font(.dsFootnote)
-                                    .foregroundStyle(Color.dsTextSecondary)
-                            }
-                        }
-                        Button {
-                            restore(payload)
-                        } label: {
-                            Label("Restore \(payload.archive.assessments.count == 1 ? "Assessment" : "Assessments")", systemImage: "arrow.down.doc")
-                        }
-                        .disabled(working)
-                    } header: {
-                        SectionHeader("In this backup")
-                    } footer: {
-                        Text("Created \(payload.archive.createdAt.formatted(date: .abbreviated, time: .shortened)) with version \(payload.archive.appVersion).")
-                            .font(.dsFootnote)
-                    }
+                    contentSections(payload)
                 } else {
-                    Section {
-                        Text(fileURL.lastPathComponent).font(.dsBody)
-                        SecureField("Backup password", text: $password)
-                            .textContentType(.password)
-                            .submitLabel(.go)
-                            .onSubmit(open)
-                            .accessibilityIdentifier("restorePassword")
-                        Button {
-                            open()
-                        } label: {
-                            HStack {
-                                Label("Open Backup", systemImage: "lock.open")
-                                Spacer()
-                                if working { ProgressView() }
-                            }
-                        }
-                        .disabled(password.isEmpty || working)
-                    } footer: {
-                        Text("Enter the password chosen when the backup was created.").font(.dsFootnote)
-                    }
+                    passwordSection
                 }
 
                 if let errorMessage {
@@ -395,13 +359,118 @@ struct RestoreBackupView: View {
                     }
                 }
             }
-            .navigationTitle("Restore Backup")
+            .navigationTitle("Import Assessment")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button(restoredNames == nil ? "Cancel" : "Done") { dismiss() }
+                    Button(results == nil ? "Cancel" : "Done") { dismiss() }
                 }
             }
+            .accessibilityIdentifier("screen.import")
+        }
+    }
+
+    private var passwordSection: some View {
+        Section {
+            Label(fileURL.lastPathComponent, systemImage: "lock.doc")
+                .font(.dsBody)
+            SecureField("Password", text: $password)
+                .textContentType(.password)
+                .submitLabel(.go)
+                .onSubmit(open)
+                .accessibilityIdentifier("restorePassword")
+            Button {
+                open()
+            } label: {
+                HStack {
+                    Label("Open File", systemImage: "lock.open")
+                    Spacer()
+                    if working { ProgressView() }
+                }
+            }
+            .disabled(password.isEmpty || working)
+        } footer: {
+            Text("Enter the password chosen when the file was created. Ask the person who sent it if you do not have it.")
+                .font(.dsFootnote)
+        }
+    }
+
+    @ViewBuilder
+    private func contentSections(_ payload: BackupPayload) -> some View {
+        ForEach(payload.archive.assessments, id: \.id) { a in
+            Section {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(a.name).font(.dsHeadline)
+                    if !a.organization.isEmpty {
+                        Text(a.organization).font(.dsFootnote).foregroundStyle(Color.dsTextSecondary)
+                    }
+                    Text("\(a.responses.count) answers · \(a.evidence.count) evidence items · last changed \(a.updatedAt.formatted(date: .abbreviated, time: .shortened))")
+                        .font(.dsFootnote)
+                        .foregroundStyle(Color.dsTextSecondary)
+                }
+                if existing.contains(a.id) {
+                    Picker("Already on this device", selection: Binding(
+                        get: { modes[a.id] ?? .merge },
+                        set: { modes[a.id] = $0 })) {
+                        ForEach(BackupService.ImportMode.allCases) { Text($0.title).tag($0) }
+                    }
+                    .accessibilityIdentifier("importMode")
+                }
+            } footer: {
+                if existing.contains(a.id) {
+                    Text((modes[a.id] ?? .merge).detail).font(.dsFootnote)
+                }
+            }
+        }
+        Section {
+            Button {
+                runImport(payload)
+            } label: {
+                Label("Import", systemImage: "square.and.arrow.down")
+            }
+            .disabled(working)
+            .accessibilityIdentifier("importConfirm")
+        } footer: {
+            Text("Created \(payload.archive.createdAt.formatted(date: .abbreviated, time: .shortened)) with version \(payload.archive.appVersion).")
+                .font(.dsFootnote)
+        }
+    }
+
+    @ViewBuilder
+    private func resultSections(_ results: [BackupService.ImportResult]) -> some View {
+        Section {
+            ForEach(results) { r in
+                Label {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(r.name).font(.dsHeadline)
+                        Text(Self.describe(r.outcome)).font(.dsFootnote).foregroundStyle(Color.dsTextSecondary)
+                    }
+                } icon: {
+                    Image(systemName: "checkmark.circle.fill").foregroundStyle(Color.dsImplemented)
+                }
+            }
+        } header: {
+            SectionHeader("Imported")
+        }
+    }
+
+    static func describe(_ outcome: BackupService.ImportOutcome) -> String {
+        switch outcome {
+        case .added: return "Added as a new assessment."
+        case .addedCopy: return "Added alongside the existing assessment."
+        case .replaced: return "Replaced the copy on this device."
+        case .merged(let s):
+            guard s.changed else { return "Already up to date. Nothing changed." }
+            var parts: [String] = []
+            if s.answersUpdated > 0 { parts.append("\(s.answersUpdated) answer\(s.answersUpdated == 1 ? "" : "s") updated") }
+            if s.answersAdded > 0 { parts.append("\(s.answersAdded) added") }
+            if s.evidenceAdded > 0 { parts.append("\(s.evidenceAdded) evidence item\(s.evidenceAdded == 1 ? "" : "s") added") }
+            if s.valuesUpdated > 0 { parts.append("\(s.valuesUpdated) organization-defined value\(s.valuesUpdated == 1 ? "" : "s") updated") }
+            var text = "Merged: " + parts.joined(separator: ", ") + "."
+            if s.answersKeptNewer > 0 {
+                text += " Kept \(s.answersKeptNewer) newer answer\(s.answersKeptNewer == 1 ? "" : "s") from this device."
+            }
+            return text
         }
     }
 
@@ -415,7 +484,10 @@ struct RestoreBackupView: View {
                 defer { if accessing { fileURL.stopAccessingSecurityScopedResource() } }
                 let data = try Data(contentsOf: fileURL)
                 guard BackupCodec.isBackup(data) else { throw BackupCodec.BackupError.notABackup }
-                payload = try await BackupService(context: context).decode(data, password: password)
+                let service = BackupService(context: context)
+                let decoded = try await service.decode(data, password: password)
+                existing = service.existingIDs(in: decoded)
+                payload = decoded
                 password = ""
             } catch {
                 errorMessage = error.localizedDescription
@@ -424,12 +496,12 @@ struct RestoreBackupView: View {
         }
     }
 
-    private func restore(_ payload: BackupPayload) {
+    private func runImport(_ payload: BackupPayload) {
         working = true
         do {
-            let summary = try BackupService(context: context).restore(payload)
-            restoredNames = summary.assessmentNames
-            if let first = summary.assessmentNames.first { onRestored?(first) }
+            let imported = try BackupService(context: context).importAssessments(payload, modes: modes)
+            results = imported
+            if let first = imported.first { onImported?(first.id) }
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -437,21 +509,18 @@ struct RestoreBackupView: View {
     }
 }
 
-/// Restore entry point used from Settings: picks a file, then shows `RestoreBackupView`.
-struct RestoreBackupButton: View {
-    @State private var showingImporter = false
-    @State private var selectedFile: URL?
+/// "Import Assessment" button for lists, empty states, and Settings.
+struct ImportAssessmentButton: View {
+    var title = "Import Assessment"
+    @Environment(ImportCoordinator.self) private var importer
 
     var body: some View {
         Button {
-            showingImporter = true
+            importer.chooseFile()
         } label: {
-            Label("Restore from Backup", systemImage: "arrow.down.doc")
+            Label(title, systemImage: "square.and.arrow.down")
         }
-        .fileImporter(isPresented: $showingImporter, allowedContentTypes: [.fwBackup, .data]) { result in
-            if case .success(let url) = result { selectedFile = url }
-        }
-        .sheet(item: $selectedFile) { url in RestoreBackupView(fileURL: url) }
+        .accessibilityIdentifier("importAssessment")
     }
 }
 

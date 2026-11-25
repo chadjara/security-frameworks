@@ -171,7 +171,13 @@ struct AssessmentListView: View {
         .navigationTitle("Assessments")
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                Button { showingNewAssessment = true } label: { Label("New Assessment", systemImage: "plus") }
+                Menu {
+                    Button { showingNewAssessment = true } label: { Label("New Assessment", systemImage: "plus") }
+                    ImportAssessmentButton()
+                } label: {
+                    Label("Add Assessment", systemImage: "plus")
+                }
+                .accessibilityIdentifier("addAssessment")
             }
         }
         .sheet(item: $editing) { a in AssessmentEditorView(assessment: a) }

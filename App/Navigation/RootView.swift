@@ -1,6 +1,7 @@
 import FrameworkKit
 import SwiftData
 import SwiftUI
+import UniformTypeIdentifiers
 
 /// App root: loads content, tracks the current assessment, and picks the iPad split view or the
 /// iPhone tab layout.
@@ -12,7 +13,8 @@ struct RootView: View {
     @AppStorage("selectedAssessmentID") private var selectedAssessmentID = ""
     @State private var showingNewAssessment = false
     @State private var didApplyLaunchRoute = false
-    @State private var restoreFile: URL?
+    /// One per window, so an import started in one window does not appear in another.
+    @State private var importer = ImportCoordinator()
 
     private var currentAssessment: Assessment? {
         assessments.first { $0.id.uuidString == selectedAssessmentID } ?? assessments.first
@@ -45,13 +47,19 @@ struct RootView: View {
             AssessmentEditorView(assessment: nil) { created in select(created) }
         }
         .onOpenURL { url in
-            if url.pathExtension.lowercased() == "fwbackup" { restoreFile = url }
+            if url.pathExtension.lowercased() == "fwbackup" { importer.file = url }
         }
-        .sheet(item: $restoreFile) { url in
-            RestoreBackupView(fileURL: url) { name in
-                if let restored = assessments.first(where: { $0.name == name }) { select(restored) }
+        .fileImporter(isPresented: $importer.showingPicker, allowedContentTypes: [.fwBackup, .data]) { result in
+            if case .success(let url) = result { importer.file = url }
+        }
+        .sheet(item: $importer.file) { url in
+            ImportAssessmentView(fileURL: url) { id in
+                if let imported = try? context.fetch(FetchDescriptor<Assessment>()).first(where: { $0.id == id }) {
+                    select(imported)
+                }
             }
         }
+        .environment(importer)
     }
 
     private func select(_ assessment: Assessment) {
@@ -129,6 +137,7 @@ struct AssessmentSwitcherMenu: View {
             } label: {
                 Label("New Assessment", systemImage: "plus")
             }
+            ImportAssessmentButton()
         } label: {
             HStack(spacing: DS.Space.xxs) {
                 VStack(alignment: .leading, spacing: 0) {
@@ -165,6 +174,9 @@ struct NoAssessmentView: View {
                 .buttonStyle(.dsPrimary)
                 .keyboardShortcut("n", modifiers: .command)
                 .accessibilityIdentifier("createFirstAssessment")
+            ImportAssessmentButton(title: "Import from a Teammate or Backup")
+                .labelStyle(.titleOnly)
+                .buttonStyle(.dsSecondary)
         }
         .accessibilityElement(children: .contain)
         .accessibilityIdentifier("screen.noAssessment")

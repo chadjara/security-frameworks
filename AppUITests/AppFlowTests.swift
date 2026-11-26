@@ -24,17 +24,20 @@ final class AppFlowTests: XCTestCase {
     func testEmptyStateAndCreateAssessment() throws {
         let app = launch(route: nil, seed: false)
         waitForScreen(app, "screen.noAssessment")
+        // This is the first launch without sample data, and the slowest test on CI simulators: the
+        // store and content are created from scratch, so every step gets the longer allowance.
+        settle(3)
         capture("empty")
 
-        tapWhenReady(element(app, "createFirstAssessment"))
+        tapWhenReady(element(app, "createFirstAssessment"), timeout: UITimeout.work)
         let name = element(app, "assessmentName")
-        tapWhenReady(name)
+        tapWhenReady(name, timeout: UITimeout.work)
         name.typeText("Annual Review")
         capture("new-assessment")
-        tapWhenReady(element(app, "saveAssessment"))
+        tapWhenReady(element(app, "saveAssessment"), timeout: UITimeout.work)
 
         // The new assessment opens on its overview, with CSF 2.0 turned on.
-        XCTAssertTrue(element(app, "screen.overview").waitForExistence(timeout: UITimeout.transition))
+        XCTAssertTrue(element(app, "screen.overview").waitForExistence(timeout: UITimeout.work))
     }
 
     @MainActor

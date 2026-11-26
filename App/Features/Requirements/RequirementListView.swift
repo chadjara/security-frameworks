@@ -103,8 +103,8 @@ struct RequirementListView: View {
                     Button {
                         questionnaireStart = QuestionnaireStart(requirementID: nil)
                     } label: {
-                        // Wraps to two lines in narrow iPad columns rather than truncating.
-                        Label(progress.answered == 0 ? "Start Guided Questions" : "Continue Guided Questions",
+                        // Short enough for the narrow iPad list column; wraps rather than truncating if needed.
+                        Label(progress.answered == 0 ? "Start Questions" : "Continue Questions",
                               systemImage: "arrow.forward.circle")
                             .lineLimit(2)
                             .multilineTextAlignment(.center)
